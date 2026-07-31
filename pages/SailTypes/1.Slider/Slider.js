@@ -20,6 +20,14 @@ class HomeSlider {
       this.slides[0]?.dataset.clone === "last" &&
       this.slides[this.total - 1]?.dataset.clone === "first";
 
+    this.slideCount = this.total - (this.hasClones ? 2 : 0);
+    this.isStatic = this.slideCount <= 1;
+    if (this.isStatic) {
+      this.root.classList.add("home-slider--static");
+      this.btnPrev?.setAttribute("hidden", "");
+      this.btnNext?.setAttribute("hidden", "");
+    }
+
     this.index = this.hasClones ? 1 : 0;
 
     this.isAnimating = false;
@@ -33,7 +41,7 @@ class HomeSlider {
     this.jumpTo(this.index);
 
     // Autoplay (optional)
-    if (!this.reduceMotion) this.start();
+    if (!this.reduceMotion && !this.isStatic) this.start();
   }
 
   updateMetrics() {
@@ -73,7 +81,7 @@ class HomeSlider {
   }
 
   goTo(i) {
-    if (this.total < 2) return;
+    if (this.isStatic || this.total < 2) return;
 
     if (this.reduceMotion) {
       if (this.hasClones) {
@@ -116,6 +124,8 @@ class HomeSlider {
   }
 
   bind() {
+    if (this.isStatic) return;
+
     this.btnNext?.addEventListener("click", () => this.next());
     this.btnPrev?.addEventListener("click", () => this.prev());
 

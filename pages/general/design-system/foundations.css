@@ -274,6 +274,10 @@ body :is(a, button) {
   outline-offset: 4px;
 }
 
+.home-slider--static .home-slider__arrow {
+  display: none !important;
+}
+
 .ullman-button--secondary {
   background: var(--ullman-blue);
   border: 1px solid var(--ullman-blue);
