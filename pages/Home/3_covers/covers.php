@@ -23,11 +23,9 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/3_covers';
 
     <h2 id="covers-title">Covers</h2>
 
-    <div class="covers_button">
-      <a href="<?php echo esc_url(ullman_page_url('covers')); ?>" class="covers_link">
-        <span class="covers_button__label">Explore covers</span>
-      </a>
-    </div>
+    <a href="<?php echo esc_url(ullman_page_url('covers')); ?>" class="covers_button ullman-button--primary">
+      <span class="covers_button__label">Explore covers</span>
+    </a>
   </div>
 </section>
 

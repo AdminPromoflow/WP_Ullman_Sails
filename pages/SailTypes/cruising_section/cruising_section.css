@@ -60,7 +60,8 @@
 html.js .cruising-section:not(.is-visible) .img-title-sailing-content,
 html.js .cruising-section:not(.is-visible) .cruising-title,
 html.js .cruising-section:not(.is-visible) .cruising-subtitle,
-html.js .cruising-section:not(.is-visible) .cruising-icons{
+html.js .cruising-section:not(.is-visible) .cruising-icons,
+html.js .cruising-section:not(.is-visible) .cruising-section__action{
   opacity: 0;
   transform: translate3d(0, 16px, 0);
   transition: opacity .75s ease, transform .75s ease;
@@ -85,6 +86,12 @@ html.js .cruising-section:not(.is-visible) .cruising-icons{
 }
 .cruising-section.is-visible .cruising-icons{
   transition-delay: .33s;
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+.cruising-section.is-visible .cruising-section__action{
+  transition-delay: .62s;
   opacity: 1;
   transform: translate3d(0,0,0);
 }
@@ -155,11 +162,20 @@ html.js .cruising-section:not(.is-visible) .cruising-icons{
   flex-wrap:wrap;
   justify-content:center;
   gap: 16px;
-  margin: 60px 0 70px;
+  margin: 60px 0 32px;
   padding: 0;
   list-style: none;
   z-index: 1;
   position: relative;
+}
+
+.cruising-section__action{
+  position: relative;
+  z-index: 1;
+}
+
+.cruising-section__cta{
+  min-width: min(100%, 15rem);
 }
 
 .cruising-icon{
@@ -235,7 +251,7 @@ html.js .cruising-icons .cruising-icon{
 
 /* Responsive */
 @media (max-width: 900px){
-  .cruising-icons{ margin: 40px 0 55px; }
+  .cruising-icons{ margin: 40px 0 28px; }
 }
 
 /* Reduce motion */
@@ -245,6 +261,7 @@ html.js .cruising-icons .cruising-icon{
   .cruising-title,
   .cruising-subtitle,
   .cruising-icons,
+  .cruising-section__action,
   .cruising-icons .cruising-icon,
   .cruising-link,
   .cruising-link img,

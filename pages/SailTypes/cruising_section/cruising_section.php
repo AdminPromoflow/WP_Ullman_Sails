@@ -20,6 +20,8 @@ $sections = [
       ['href' => '../cruising_performance/index.php', 'img' => '../Cruising/cruising_section/img/performance.png', 'alt' => 'Performance Icon', 'label' => 'Performance'],
       ['href' => '../cruising_downwind/index.php',    'img' => '../Cruising/cruising_section/img/downwind.png',    'alt' => 'Downwind Icon',    'label' => 'Downwind'],
     ],
+    'cta_key' => 'cruising',
+    'cta_label' => 'Explore cruising sails',
   ],
 
   2 => [
@@ -31,6 +33,8 @@ $sections = [
       ['href' => '../racing_fiberpath_series/index.php', 'img' => '../SailTypes/cruising_section/img/Endurance.png', 'alt' => 'FiberPath series icon', 'label' => 'FiberPath'],
       ['href' => '../racing_red_line_series/index.php',  'img' => '../SailTypes/cruising_section/img/downwind.png',  'alt' => 'Red Line series icon',  'label' => 'The Axia Series'],
     ],
+    'cta_key' => 'racing',
+    'cta_label' => 'Explore racing sails',
   ],
 
   3 => [
@@ -41,6 +45,8 @@ $sections = [
       ['href' => '../cruising_downwind/index.php',      'img' => '../the_axia_series/the_axia_series_section/img/downwind.png', 'alt' => 'Blue Line Icon', 'label' => 'Blue Line'],
       ['href' => '../racing_red_line_series/index.php', 'img' => '../the_axia_series/the_axia_series_section/img/downwind.png', 'alt' => 'Red Line Icon',  'label' => 'Red Line'],
     ],
+    'cta_key' => 'the_axia_series',
+    'cta_label' => 'Explore the Axia Series',
   ],
 ];
 ?>
@@ -77,6 +83,12 @@ $sections = [
       </li>
     <?php endforeach; ?>
   </ul>
+
+  <div class="cruising-section__action">
+    <a class="ullman-button--primary cruising-section__cta" href="<?= esc_url(ullman_page_url($cfg['cta_key'])) ?>">
+      <?= htmlspecialchars($cfg['cta_label'], ENT_QUOTES, 'UTF-8') ?>
+    </a>
+  </div>
 </section>
 <?php endfor; ?>
 
