@@ -15,7 +15,7 @@
   position: relative;
   background: #fafafa;
   border: 1px solid rgba(32, 46, 82, 0.10);
-  border-radius: 18px;
+  border-radius: 0;
   padding: 12px;
   box-shadow: 0 16px 35px rgba(15, 20, 40, 0.08);
   transition: transform .28s ease, box-shadow .28s ease;
@@ -32,7 +32,7 @@
   width: 100%;
   border: none;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 0;
   background-color: #ffffff;
 }
 
@@ -60,6 +60,6 @@
 
   .facebook-feed-card{
     padding: 10px;
-    border-radius: 14px;
+    border-radius: 0;
   }
 }

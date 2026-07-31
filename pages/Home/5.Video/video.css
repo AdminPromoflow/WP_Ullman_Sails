@@ -242,6 +242,31 @@
   color: #ffffff;
 }
 
+/* Home contact actions: quote paths are secondary; direct contact is primary. */
+.contactus-hero .contactus-btn--quote{
+  background: #202e52 !important;
+  border-color: #202e52 !important;
+  color: #ffffff !important;
+}
+
+.contactus-hero .contactus-btn--quote:is(:hover, :focus-visible){
+  background: #005598 !important;
+  border-color: #005598 !important;
+  color: #ffffff !important;
+}
+
+.contactus-hero .contactus-btn--contact{
+  background: rgb(197, 35, 74) !important;
+  border-color: rgb(197, 35, 74) !important;
+  color: #ffffff !important;
+}
+
+.contactus-hero .contactus-btn--contact:is(:hover, :focus-visible){
+  background: #a7193d !important;
+  border-color: #a7193d !important;
+  color: #ffffff !important;
+}
+
 /* =========================
    Reveal states
 ========================= */

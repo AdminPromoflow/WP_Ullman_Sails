@@ -148,10 +148,10 @@
 }
 
 .news-tabs__button.is-active{
-  background: linear-gradient(135deg, var(--ull-blue), #0a6fc1);
+  background: #202e52;
   color: #fff;
-  border-color: transparent;
-  box-shadow: 0 16px 28px rgba(0,85,152,.24);
+  border-color: #202e52;
+  box-shadow: 0 16px 28px rgba(32,46,82,.22);
 }
 
 .news-tabs__button:focus-visible,

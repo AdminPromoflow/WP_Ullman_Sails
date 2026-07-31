@@ -70,7 +70,7 @@ body :is(button, input, select, textarea) {
 }
 
 body :is(h1, h2, h3, h4, h5, h6) {
-  color: var(--ullman-navy);
+  color: var(--ullman-heading);
   font-family: var(--font-brand) !important;
   text-wrap: balance;
 }
@@ -365,7 +365,7 @@ body :is(a, button) {
 }
 
 :is(.svc-title, .st-card-title, .dac-card-title, .srm-card-title) {
-  color: var(--ullman-navy) !important;
+  color: var(--ullman-heading) !important;
   font-size: var(--text-lg) !important;
   font-weight: 500 !important;
   line-height: 1.25 !important;

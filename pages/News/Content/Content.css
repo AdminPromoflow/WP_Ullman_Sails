@@ -2,7 +2,7 @@
   --news-bg: #f4f7fb;
   --news-surface: #ffffff;
   --news-surface-2: #eef4fb;
-  --news-ink: #18324a;
+  --news-ink: #005598;
   --news-muted: #5d6f82;
   --news-line: rgba(0, 85, 152, 0.14);
   --news-brand: #005598;
@@ -232,7 +232,7 @@ img{
 
 .news-media{
   margin: .2rem 0;
-  border-radius: var(--news-radius-lg);
+  border-radius: 0;
   overflow: hidden;
   border: 1px solid rgba(0, 85, 152, 0.1);
   background: var(--news-surface-2);

@@ -2,12 +2,13 @@
 declare(strict_types=1);
 
 /* Filesystem paths (for filemtime) */
-$navCssFs = __DIR__ . '/News/RightPanel/RightPanel.css';
-$navJsFs  = __DIR__ . '/News/RightPanel/RightPanel.js';
+$navCssFs = __DIR__ . '/RightPanel.css';
+$navJsFs  = __DIR__ . '/RightPanel.js';
 
 /* Public paths (as used in HTML) */
-$navCssPublic = '../News/RightPanel/RightPanel.css';
-$navJsPublic  = '../News/RightPanel/RightPanel.js';
+$navBaseUrl = get_template_directory_uri() . '/pages/News/RightPanel';
+$navCssPublic = $navBaseUrl . '/RightPanel.css';
+$navJsPublic  = $navBaseUrl . '/RightPanel.js';
 
 /* Version values (cache-busting) */
 $navCssV = is_file($navCssFs) ? filemtime($navCssFs) : time();

@@ -14,7 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function setActiveLink(targetId) {
     menuLinks.forEach(link => {
-      link.classList.toggle("is-active", link.dataset.target === targetId);
+      const isActive = link.dataset.target === targetId;
+      link.classList.toggle("is-active", isActive);
+      link.toggleAttribute("aria-current", isActive);
     });
   }
 

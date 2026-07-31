@@ -21,11 +21,13 @@
     }
       .news{
       position: relative;
-      width: 100vw;
+      width: 100%;
+      min-height: 100vh;
       background-color: #F8F8FA;
 
       display: flex;
-      justify-content: center;
+      align-items: stretch;
+      justify-content: stretch;
       flex-wrap: nowrap;
       }
       .content {
@@ -37,37 +39,29 @@
       }
 
       .content {
-        position: flex;
-        top: 0px;
-        left: 50%;
         height: 100vh;
         overflow-y: scroll;
         background-color: white;
-        width: 60%;
+        flex: 1 1 0;
+        min-width: 0;
       }
       .leftPanel{
-        position: flex;
-        top: 0px;
         height: 100vh;
-        overflow-y: scroll;
+        overflow: hidden;
         background-color: #005598;
-        width: 30%;
-        min-width: 231px;
+        flex: 0 0 clamp(17rem, 23vw, 21rem);
         z-index: 10;
       }
       .rightPanel{
-        position: flex;
-        top: 0px;
         height: 100vh;
         overflow-y: scroll;
         background-color: #202E52;
-        width: 30%;
-        min-width: 320px;
+        flex: 0 0 clamp(18rem, 25vw, 23rem);
 
       }
       .IconMenuNews{
-        position: absolute;
-        z-index: 2;
+        position: fixed;
+        z-index: 12;
         display: none;
         left: 15px;
         top: 15px;
@@ -98,12 +92,6 @@
       }
 
       @media screen and (max-width: 1130px) {
-        .content{
-          width: 70%;
-        }
-        .leftPanel{
-          width: 30%;
-        }
         .rightPanel{
           display: none;
         }
@@ -114,6 +102,11 @@
        }
         .leftPanel{
           display: none;
+          position: fixed;
+          inset: 0 auto 0 0;
+          width: min(88vw, 23rem);
+          height: 100dvh;
+          box-shadow: 18px 0 42px rgba(0, 39, 72, .28);
         }
         .IconMenuNews{
           display: block;
@@ -136,7 +129,7 @@
 
     <img id="IconMenuNews" class="IconMenuNews" src="../News/Images/Menu.png" alt="">
 
-    <section id="leftPanel" class="leftPanel">
+    <section id="leftPanel" class="leftPanel" data-home-url="<?php echo esc_url(ullman_page_url('home')); ?>">
 
       <?php  include __DIR__ . "/LeftPanel/LeftPanel.php" ?>
       <script type="text/javascript">
