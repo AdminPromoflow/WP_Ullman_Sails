@@ -41,14 +41,27 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(15rem, 1.35fr) repeat(3, minmax(9rem, 1fr));
-    gap: clamp(2.25rem, 5vw, 5rem);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: clamp(1.75rem, 3vw, 3.5rem);
+    align-items: start;
     width: min(100%, 76rem);
     margin: 0 auto;
   }
 
   .footer__brand {
+    grid-column: span 4;
     max-width: 24rem;
+    text-align: left;
+  }
+
+  .footer__grid > nav:nth-child(2) { grid-column: span 2; }
+  .footer__grid > nav:nth-child(3) { grid-column: span 2; }
+
+  .footer__grid > section:last-child {
+    grid-column: span 4;
+    justify-self: end;
+    min-width: min(100%, 13rem);
+    text-align: left;
   }
 
   .footer__eyebrow,
@@ -83,23 +96,34 @@
   }
 
   .footer__contact {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     gap: .25rem;
-    margin-top: 1.5rem;
-    padding: .9rem 1rem;
-    border-left: 3px solid var(--footer-red);
-    background: rgba(255, 255, 255, .06);
+    margin: 0 0 1.5rem;
+    padding: 0 0 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, .18);
   }
 
   .footer__contact strong,
-  .footer__contact span {
+  .footer__contact a {
     color: #ffffff !important;
     font-size: .82rem;
     line-height: 1.4;
   }
 
-  .footer__contact span { color: var(--footer-text) !important; }
+  #footer_container .footer__contact a {
+    color: var(--footer-text) !important;
+    font-size: .85rem;
+  }
+
+  .footer__social-label {
+    margin: 0 0 .75rem;
+    color: #f05a7d !important;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
 
   .footer__heading {
     margin-bottom: 1rem;
@@ -109,6 +133,13 @@
     line-height: 1.3;
     text-transform: uppercase;
   }
+
+  .footer__grid > nav .footer__heading,
+  .footer__grid > nav .footer__list {
+    text-align: center;
+  }
+
+  .footer__grid > nav .footer__list { align-items: center; }
 
   .footer__list {
     display: flex;
@@ -187,11 +218,19 @@
 
   @media (max-width: 900px) {
     .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer__brand,
+    .footer__grid > nav:nth-child(2),
+    .footer__grid > nav:nth-child(3),
+    .footer__grid > section:last-child { grid-column: auto; }
+    .footer__grid > section:last-child { justify-self: start; }
   }
 
   @media (max-width: 560px) {
     #footer_container { padding-inline: 1.5rem; }
     .footer__grid { grid-template-columns: 1fr; }
+    .footer__grid > nav .footer__heading,
+    .footer__grid > nav .footer__list { text-align: left; }
+    .footer__grid > nav .footer__list { align-items: flex-start; }
     .footer__bottom { align-items: flex-start; flex-direction: column; }
   }
 </style>
@@ -202,11 +241,6 @@
       <p class="footer__eyebrow">United Kingdom</p>
       <p class="footer__brand-name">Ullman Sails</p>
       <p class="footer__brand-copy">Purpose-built sails, canvas and care for every mile on the water.</p>
-      <div class="footer__contact">
-        <strong>Talk to our sailmakers</strong>
-        <span>Plymouth · 01752 337 131</span>
-        <span>Hamble · 02380 457711</span>
-      </div>
     </section>
 
     <nav aria-label="Ullman Sails navigation">
@@ -221,17 +255,23 @@
     </nav>
 
     <nav aria-label="Sail types navigation">
-      <h2 class="footer__heading">Sail types</h2>
+      <h2 class="footer__heading">Sails &amp; care</h2>
       <ul class="footer__list">
         <li><a href="<?php echo esc_url(ullman_page_url('racing')); ?>">Racing</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('cruising')); ?>">Cruising</a></li>
+        <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Sail Care</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Canvas</a></li>
-        <li><a href="<?php echo esc_url(ullman_page_url('contact_us')); ?>">Contact us</a></li>
       </ul>
     </nav>
 
-    <section aria-label="Social media">
-      <h2 class="footer__heading">Follow the journey</h2>
+    <section aria-label="Contact and social media">
+      <h2 class="footer__heading">Contact</h2>
+      <div class="footer__contact">
+        <strong>Talk to our sailmakers</strong>
+        <a href="tel:+441752337131">Plymouth · 01752 337 131</a>
+        <a href="tel:+442380457711">Hamble · 02380 457711</a>
+      </div>
+      <p class="footer__social-label">Follow Ullman</p>
       <div class="footer__socials">
         <a href="https://www.facebook.com/ullmansails.co.uk/" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://www.instagram.com/ullmansailsuk/" target="_blank" rel="noopener noreferrer">Instagram</a>
