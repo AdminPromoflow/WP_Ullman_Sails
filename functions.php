@@ -377,6 +377,27 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
     );
 
     /*
+     * Breadcrumb markup is shared but was historically copied into every page
+     * directory. Serve one canonical stylesheet so every navigation has the
+     * same responsive spacing, colours, and interaction states.
+     */
+    $navigationCssFs = get_template_directory() . '/pages/general/navigation/navigation.css';
+    $navigationCssUrl = $pagesUrl . 'general/navigation/navigation.css';
+    $navigationCssVersion = ullman_file_version($navigationCssFs);
+
+    $html = (string) preg_replace_callback(
+        '/\bhref=([' . "\"'" . '])'
+            . preg_quote($pagesUrl, '/')
+            . '[^\/' . "\"'" . ']+\/navigation\/navigation\.css(?:\?[^' . "\"'" . ']*)?\1/i',
+        static function (array $match) use ($navigationCssUrl, $navigationCssVersion): string {
+            return 'href=' . $match[1]
+                . esc_url($navigationCssUrl . '?v=' . $navigationCssVersion)
+                . $match[1];
+        },
+        $html
+    );
+
+    /*
      * Section templates historically use paths such as
      * "2_handling_and_performance/handling_and_performance.css". Those paths
      * work only when the PHP file is opened directly. On a WordPress permalink

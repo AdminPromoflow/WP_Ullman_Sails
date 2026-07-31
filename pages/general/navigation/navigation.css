@@ -8,8 +8,9 @@
   --nav-muted: #5f6b7a;
 
   --nav-line: rgba(15,33,64,.14);
-  --nav-surface: rgba(255,255,255,.78);
+  --nav-surface: #fafafa;
 
+  --nav-shadow: 0 18px 40px rgba(15,33,64,.05);
   --nav-radius: 18px;
 
   /* Responsive pattern (same approach as before) */
@@ -30,6 +31,7 @@
 /* Section wrapper */
 .nav-section{
   background: #fafafa;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   padding-block: var(--nav-sec-py);
   padding-inline: var(--nav-gutter);
   display: flex;
@@ -42,6 +44,8 @@
 
   overflow: hidden;
   position: relative;
+
+  background: var(--nav-surface);
 
 
   /* Helps with “glass” feel without being heavy */
@@ -64,6 +68,9 @@
   list-style: none;
   margin: 0;
 
+
+  padding: var(--nav-pad-y) var(--nav-pad-x);
+
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -82,7 +89,6 @@
   font-size: var(--nav-font);
   line-height: 1.2;
   letter-spacing: .2px;
-  margin: .5rem;
 }
 
 /* Divider between crumbs */
@@ -110,8 +116,8 @@
   border: 1px solid rgba(15,33,64,.14);
 
   box-shadow:
-    0 8px 10px rgba(15,33,64,.08),
-    inset 0 2px 0 rgba(255,255,255,.75);
+    0 10px 18px rgba(15,33,64,.08),
+    inset 0 1px 0 rgba(255,255,255,.75);
 
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
