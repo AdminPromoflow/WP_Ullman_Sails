@@ -2,10 +2,10 @@
 declare(strict_types=1);
 
 /* Filesystem paths (for filemtime) */
-$navCssFs = __DIR__ . '/ContactUs/navigation/navigation.css';
+$navCssFs = __DIR__ . '/navigation.css';
 
 /* Public paths (as used in HTML) */
-$navCssPublic = '../ContactUs/navigation/navigation.css';
+$navCssPublic = get_template_directory_uri() . '/pages/ContactUs/navigation/navigation.css';
 
 /* Version values (cache-busting) */
 $navCssV = is_file($navCssFs) ? filemtime($navCssFs) : time();
@@ -19,7 +19,7 @@ $navCssV = is_file($navCssFs) ? filemtime($navCssFs) : time();
  * - If 'href' is null (or missing), it will render as the current page (no link).
  */
 $breadcrumbs = $breadcrumbs ?? [
-  ['label' => 'Home',          'href' => '../Home/index.php'],
+  ['label' => 'Home',          'href' => ullman_page_url('home')],
   ['label' => 'Contact Us','href' => null],
 ];
 ?>

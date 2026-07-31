@@ -1,4 +1,9 @@
-<link rel="stylesheet" href="../ContactUs/Contactus/contact_us.css?v=<?= filemtime('../ContactUs/Contactus/contact_us.css') ?>">
+<?php
+$contactUsCss = __DIR__ . '/contact_us.css';
+$contactUsCssTime = is_file($contactUsCss) ? filemtime($contactUsCss) : time();
+$contactUsUrl = get_template_directory_uri() . '/pages/ContactUs/Contactus';
+?>
+<link rel="stylesheet" href="<?php echo esc_url($contactUsUrl . '/contact_us.css?v=' . $contactUsCssTime); ?>">
 <section class="contactUs">
   <div class="img-title">
     <img
