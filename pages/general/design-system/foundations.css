@@ -97,6 +97,12 @@ body h3 {
   line-height: 1.25;
 }
 
+/* Compact labels used for the sail series links across the site. */
+body :is(main, section, article) h3.series {
+  color: #252a30 !important;
+  font-size: var(--text-sm) !important;
+}
+
 body :is(p, li, dd, dt) {
   font-family: var(--font-brand);
 }
