@@ -21,7 +21,8 @@ $enduranceV = filemtime(__DIR__ . '/../the_axia_series/sail_types_section/img/re
 <script defer src="../Racing/sail_types_section/sail_types_section.js?v=<?= $jsV ?>"></script>
 
 <section class="sail-types-section" aria-labelledby="sail-types-heading">
-  <h2 id="sail-types-heading" data-st-parallax-text>
+  <h2 id="sail-types-heading" class="sail-types-heading" data-st-parallax-text>
+    <span class="sail-types-heading__eyebrow">Sail types</span>
     Discover Your <br>Perfect Sail
   </h2>
 
