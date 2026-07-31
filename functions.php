@@ -52,11 +52,54 @@ function ullman_page_url(string $key): string {
     $routes = ullman_page_routes();
 
     if ($normalizedKey === 'home' || !isset($routes[$normalizedKey])) {
-        return home_url('/');
+        $homeTemplate = get_template_directory() . '/pages/Home/index.php';
+        $homeVersion = is_file($homeTemplate) ? filemtime($homeTemplate) : time();
+
+        return add_query_arg('v', $homeVersion, home_url('/'));
     }
 
-    return home_url('/' . $routes[$normalizedKey]['slug'] . '/');
+    $route = $routes[$normalizedKey];
+    $template = get_template_directory() . '/pages/' . $route['template'];
+    $version = is_file($template) ? filemtime($template) : time();
+
+    return add_query_arg('v', $version, home_url('/' . $route['slug'] . '/'));
 }
+
+/**
+ * Adds the current template version to direct visits as well as navigation.
+ */
+function ullman_redirect_to_versioned_page(): void {
+    if (
+        is_admin()
+        || wp_doing_ajax()
+        || ($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'GET'
+    ) {
+        return;
+    }
+
+    $key = get_query_var('ullman_page');
+
+    if ((!is_string($key) || $key === '') && (is_front_page() || is_home())) {
+        $key = 'home';
+    }
+
+    $routes = ullman_page_routes();
+    $normalizedKey = sanitize_title((string) $key);
+
+    if ($normalizedKey !== 'home' && !isset($routes[$normalizedKey])) {
+        return;
+    }
+
+    $versionedUrl = ullman_page_url($normalizedKey ?: 'home');
+    $currentVersion = isset($_GET['v']) ? (string) wp_unslash($_GET['v']) : '';
+    $expectedVersion = (string) wp_parse_url($versionedUrl, PHP_URL_QUERY);
+
+    if ($currentVersion === '' || $expectedVersion !== 'v=' . $currentVersion) {
+        wp_safe_redirect($versionedUrl, 302);
+        exit;
+    }
+}
+add_action('template_redirect', 'ullman_redirect_to_versioned_page');
 
 /**
  * Routes pretty public URLs to the corresponding PHP page template.
