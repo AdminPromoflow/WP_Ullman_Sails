@@ -84,13 +84,12 @@
     text-transform: uppercase;
   }
 
-  .footer__brand-name {
-    margin: .65rem 0 1rem;
-    color: #ffffff !important;
-    font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
-    font-weight: 600;
-    letter-spacing: -.04em;
-    line-height: 1;
+  .footer__brand-logo {
+    display: block;
+    width: clamp(11rem, 17vw, 17rem);
+    max-width: 100%;
+    height: auto;
+    margin: .7rem 0 1rem;
   }
 
   .footer__brand-copy {
@@ -170,24 +169,29 @@
   }
 
   .footer__socials {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: .55rem;
   }
 
   #footer_container .footer__socials a {
-    padding: .48rem .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.7rem;
+    padding: .45rem .25rem;
     border: 1px solid rgba(255, 255, 255, .24);
     color: #ffffff !important;
-    font-size: .75rem;
+    font-size: .67rem;
     font-weight: 500;
     letter-spacing: .04em;
+    text-align: center;
     text-transform: uppercase;
   }
 
   #footer_container .footer__socials a:hover,
   #footer_container .footer__socials a:focus-visible {
-    padding-left: .7rem;
+    padding-left: .25rem;
     border-color: var(--footer-red);
     background: var(--footer-red);
   }
@@ -249,7 +253,7 @@
   <div class="footer__grid">
     <section class="footer__brand" aria-label="Ullman Sails">
       <p class="footer__eyebrow">United Kingdom</p>
-      <p class="footer__brand-name">Ullman Sails</p>
+      <img class="footer__brand-logo" src="<?php echo esc_url(get_template_directory_uri() . '/pages/general/menu/img/logo.png'); ?>" alt="Ullman Sails">
       <p class="footer__brand-copy">Purpose-built sails, canvas and care for every mile on the water.</p>
     </section>
 
@@ -264,13 +268,14 @@
       </ul>
     </nav>
 
-    <nav aria-label="Sail types navigation">
-      <h2 class="footer__heading">Sails &amp; care</h2>
+    <nav aria-label="Services and covers navigation">
+      <h2 class="footer__heading">Services &amp; Covers</h2>
       <ul class="footer__list">
+        <li><a href="<?php echo esc_url(ullman_page_url('services')); ?>">Services</a></li>
+        <li><a href="<?php echo esc_url(ullman_page_url('covers')); ?>">Boat Covers</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('racing')); ?>">Racing</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('cruising')); ?>">Cruising</a></li>
-        <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Sail Care</a></li>
-        <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Canvas</a></li>
+        <li><a href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">The Axia Series</a></li>
       </ul>
     </nav>
 
