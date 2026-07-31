@@ -129,8 +129,8 @@
 
 
     </style>
-    <?php include "../general/menu/menu.php" ?>
-    <?php include "../general/button_contact_us/button_contact_us.php"; ?>
+    <?php include __DIR__ . "/../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
     <section class="news">
 
@@ -138,7 +138,7 @@
 
     <section id="leftPanel" class="leftPanel">
 
-      <?php  include "LeftPanel/LeftPanel.php" ?>
+      <?php  include __DIR__ . "/LeftPanel/LeftPanel.php" ?>
       <script type="text/javascript">
           IconMenuNews = document.getElementById('IconMenuNews');
           IconCloseMenuNews = document.getElementById('IconCloseMenuNews');
@@ -155,16 +155,16 @@
     </section>
 
     <section class="content">
-      <?php  include "Content/Content.php" ?>
+      <?php  include __DIR__ . "/Content/Content.php" ?>
     </section>
     <section class="rightPanel">
-      <?php  include "RightPanel/RightPanel.php" ?>
+      <?php  include __DIR__ . "/RightPanel/RightPanel.php" ?>
     </section>
-    <?php include "../general/charging/charging.php"; ?>
+    <?php include __DIR__ . "/../general/charging/charging.php"; ?>
 
 
 </section>
-<?php include "../general/footer/Footer.php" ?>
+<?php include __DIR__ . "/../general/footer/Footer.php" ?>
 
 
 <script type="text/javascript">

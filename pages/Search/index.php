@@ -73,18 +73,19 @@
 
     </style>
 
-    <?php  include "../general/menu/menu.php" ?>
+    <?php  include __DIR__ . "/../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
     <div id="searchHide" class="searchHide">
-    <?php include "../Search/navigation/navigation.php" ?>
-    <?php include "../Search/search/search.php" ?>
+    <?php include __DIR__ . "/../Search/navigation/navigation.php" ?>
+    <?php include __DIR__ . "/../Search/search/search.php" ?>
     </div>
-    <?php include "../general/charging/charging.php"; ?>
+    <?php include __DIR__ . "/../general/charging/charging.php"; ?>
 
 
     <div id="searchContent" class="searchContent">
     </div>
-    <?php include "../general/footer/Footer.php" ?>
+    <?php include __DIR__ . "/../general/footer/Footer.php" ?>
     <script type="text/javascript">
     // Función para manejar el scroll suave y respuesta rápida
         let isScrolling = false;

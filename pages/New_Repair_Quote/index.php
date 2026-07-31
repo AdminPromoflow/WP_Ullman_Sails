@@ -10,10 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
   <body class="aboutUs">
-    <?php include "../general/menu/menu.php" ?>
-    <?php include "../New_Repair_Quote/seccion/Repair_Quote.php" ?>
-    <?php include "../general/charging/charging.php"; ?>
-    <?php include "../general/footer/Footer.php" ?>
+    <?php include __DIR__ . "/../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
+    <?php include __DIR__ . "/../New_Repair_Quote/seccion/Repair_Quote.php" ?>
+    <?php include __DIR__ . "/../general/charging/charging.php"; ?>
+    <?php include __DIR__ . "/../general/footer/Footer.php" ?>
   </body>
 
 </html>

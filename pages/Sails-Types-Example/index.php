@@ -18,22 +18,24 @@
     </style>
   </head>
   <body>
-    <?php include "../general/menu/menu.php"?>
-    <?php include "../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.php";?>
-    <?php include "../Sails-Types-Example/performance-and-handling/performance-and-handling.php";?>
-    <?php include "../Sails-Types-Example/design-and-construction/design-and-construction.php";?>
-    <?php include "../Sails-Types-Example/strength-in-the-details/strength-in-the-details.php";?>
-    <?php include "../Sails-Types-Example/cloth_selection_and_performance/cloth_selection_and_performance.php";?>
-    <?php include "../Sails-Types-Example/cloth_and_construction/cloth_and_construction.php";?>
-    <?php include "../Sails-Types-Example/available_upgrades/available_upgrades.php";?>
-    <?php include "../Sails-Types-Example/standard_specifications/standard_specifications.php";?>
-    <?php include "../Sails-Types-Example/sail_handling_and_sail_accessories/sail_handling_and_sail_accessories.php";?>
-    <?php include "../Sails-Types-Example/gore_tenara_thread/gore_tenara_thread.php";?>
-    <?php include "../Sails-Types-Example/engineering_for_extreme_environments/engineering_for_extreme_environments.php";?>
-    <?php include "../Sails-Types-Example/sub_ranges_models/sub_ranges_models.php";?>
-    <?php include "../Sails-Types-Example/11_expedition_extreme_environment/extreme_environment.php" ?>
-    <?php include "../Sails-Types-Example/12_sub_models/sub_models.php" ?>
-    <?php include "../general/charging/charging.php"; ?>
-    <?php include "../general/footer/Footer.php"?>
+    <?php include __DIR__ . "/../general/menu/menu.php"?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
+    <?php include __DIR__ . "/../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/performance-and-handling/performance-and-handling.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/design-and-construction/design-and-construction.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/strength-in-the-details/strength-in-the-details.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/cloth_selection_and_performance/cloth_selection_and_performance.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/cloth_and_construction/cloth_and_construction.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/available_upgrades/available_upgrades.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/standard_specifications/standard_specifications.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/sail_handling_and_sail_accessories/sail_handling_and_sail_accessories.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/gore_tenara_thread/gore_tenara_thread.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/engineering_for_extreme_environments/engineering_for_extreme_environments.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/sub_ranges_models/sub_ranges_models.php";?>
+    <?php include __DIR__ . "/../Sails-Types-Example/11_expedition_extreme_environment/extreme_environment.php" ?>
+    <?php include __DIR__ . "/../Sails-Types-Example/12_sub_models/sub_models.php" ?>
+    <?php include __DIR__ . "/../general/new_sail_quote/new_sail_quote.php"; ?>
+    <?php include __DIR__ . "/../general/charging/charging.php"; ?>
+    <?php include __DIR__ . "/../general/footer/Footer.php"?>
   </body>
 </html>

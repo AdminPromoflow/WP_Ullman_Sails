@@ -155,6 +155,7 @@ class Menu {
     document.fonts?.ready?.then(() => this.requestLayout()).catch(() => {});
 
     this.setupAccordions();
+    this.setupQuoteNavigation();
     this.setDrawer(false);
     this.setSearch(false);
     this.requestLayout(true);
@@ -451,6 +452,41 @@ class Menu {
         btn.setAttribute("aria-expanded", willOpen ? "true" : "false");
       });
     });
+  }
+
+  setupQuoteNavigation() {
+    document.addEventListener("click", (event) => {
+      const quoteButton = event.target.closest?.(".js_quote_button");
+
+      if (!quoteButton) return;
+
+      const label = quoteButton.textContent.trim().toLowerCase();
+      let routeDirectory = "New_Sail_Quote";
+
+      if (label.includes("cover")) {
+        routeDirectory = "New_Cover_Quote";
+      } else if (label.includes("repair")) {
+        routeDirectory = "New_Repair_Quote";
+      }
+
+      const routeUrl = this.pageUrls[routeDirectory];
+
+      if (!routeUrl) return;
+
+      const destination = new URL(routeUrl, window.location.origin);
+      const pageHeading = document.querySelector(
+        ".home-slider__title, main h1, #searchHide h1"
+      )?.textContent.trim();
+
+      if (pageHeading) {
+        destination.searchParams.set("sailType", pageHeading);
+        destination.searchParams.set("title", pageHeading);
+      }
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.location.assign(destination.toString());
+    }, true);
   }
 
   onScrollRaf() {

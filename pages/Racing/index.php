@@ -68,29 +68,29 @@
 
 
     </style>
-    <?php include "../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/menu/menu.php" ?>
 
     <div id="searchHide" class="searchHide">
-      <?php // include "navigation/navigation.php"; ?>
-      <?php include "../Racing/new_sail_quote/new_sail_quote.php"; ?>
-      <?php include "navigation/navigation.php"; ?>
+      <?php // include __DIR__ . "/navigation/navigation.php"; ?>
+      <?php include __DIR__ . "/../Racing/new_sail_quote/new_sail_quote.php"; ?>
+      <?php include __DIR__ . "/navigation/navigation.php"; ?>
 
-      <?php include "../general/arrows_up_down/arrows_up_down.php" ?>
-      <?php include "cruising_section/cruising_section.php" ?>
-      <?php include "sail_types_section/sail_types_section.php" ?>
-      <?php include "series_section/series_section.php" ?>
+      <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php" ?>
+      <?php include __DIR__ . "/cruising_section/cruising_section.php" ?>
+      <?php include __DIR__ . "/sail_types_section/sail_types_section.php" ?>
+      <?php include __DIR__ . "/series_section/series_section.php" ?>
 
 
 
-    <?php //include "2.Services/Services.php" ?>
+    <?php //include __DIR__ . "/2.Services/Services.php" ?>
     </div>
-    <?php include "../general/charging/charging.php"; ?>
+    <?php include __DIR__ . "/../general/charging/charging.php"; ?>
 
 
 
     <div id="searchContent" class="searchContent">
     </div>
-    <?php include "../general/footer/Footer.php" ?>
+    <?php include __DIR__ . "/../general/footer/Footer.php" ?>
     <script type="text/javascript">
     // Función para manejar el scroll suave y respuesta rápida
         let isScrolling = false;

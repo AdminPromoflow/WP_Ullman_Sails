@@ -76,28 +76,29 @@
 
 
     </style>
-    <?php include "../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
     <div id="searchHide" class="searchHide">
-    <?php include "../SailCare/1_slider/slider.php" ?>
-    <?php include "../SailCare/navigation/navigation.php" ?>
+    <?php include __DIR__ . "/../SailCare/1_slider/slider.php" ?>
+    <?php include __DIR__ . "/../SailCare/navigation/navigation.php" ?>
 
-    <?php include "../SailCare/new_sail_quote/new_sail_quote.php" ?>
+    <?php include __DIR__ . "/../SailCare/new_sail_quote/new_sail_quote.php" ?>
 
-    <?php include "2.Services/Services.php" ?>
-    <?php include "../SailCare/3.material/material.php" ?>
-    <?php include "../SailCare/4.image/image.php" ?>
-    <?php include "../SailCare/5.type/type.php" ?>
-    <?php include "../SailCare/6.tips/tips.php" ?>
-    <?php include "../SailCare/7.type/type.php" ?>
-    <?php include "../SailCare/8.FAQS/FAQS.php" ?>
+    <?php include __DIR__ . "/2.Services/Services.php" ?>
+    <?php include __DIR__ . "/../SailCare/3.material/material.php" ?>
+    <?php include __DIR__ . "/../SailCare/4.image/image.php" ?>
+    <?php include __DIR__ . "/../SailCare/5.type/type.php" ?>
+    <?php include __DIR__ . "/../SailCare/6.tips/tips.php" ?>
+    <?php include __DIR__ . "/../SailCare/7.type/type.php" ?>
+    <?php include __DIR__ . "/../SailCare/8.FAQS/FAQS.php" ?>
     </div>
-    <?php include "../general/charging/charging.php"; ?>
+    <?php include __DIR__ . "/../general/charging/charging.php"; ?>
 
 
     <div id="searchContent" class="searchContent">
     </div>
-    <?php include "../general/footer/Footer.php" ?>
+    <?php include __DIR__ . "/../general/footer/Footer.php" ?>
 
 
     <script type="text/javascript">

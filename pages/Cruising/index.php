@@ -38,7 +38,7 @@
     <?php include __DIR__ . '/../general/menu/menu.php'; ?>
 
     <div id="searchHide" class="searchHide">
-      <?php // include "navigation/navigation.php"; ?>
+      <?php // include __DIR__ . "/navigation/navigation.php"; ?>
       <?php include __DIR__ . '/new_sail_quote/new_sail_quote.php'; ?>
 
       <?php include __DIR__ . '/../general/arrows_up_down/arrows_up_down.php'; ?>
@@ -51,7 +51,7 @@
 
 
 
-    <?php //include "2.Services/Services.php" ?>
+    <?php //include __DIR__ . "/2.Services/Services.php" ?>
     </div>
     <?php include __DIR__ . '/../general/charging/charging.php'; ?>
 

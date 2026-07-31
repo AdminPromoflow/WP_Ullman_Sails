@@ -12,16 +12,16 @@
   </head>
   <body id="container_accessories_home">
 
-    <?php include "../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/menu/menu.php" ?>
     <div id="searchHide" class="searchHide">
-    <?php include "../general/arrows_up_down/arrows_up_down.php" ?>
-    <?php include "../terms_and_conditions/navigation/navigation.php" ?>
-    <?php include "../terms_and_conditions/terms_and_conditions/TermsAndConditions.php" ?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php" ?>
+    <?php include __DIR__ . "/../terms_and_conditions/navigation/navigation.php" ?>
+    <?php include __DIR__ . "/../terms_and_conditions/terms_and_conditions/TermsAndConditions.php" ?>
     </div>
-    <?php include "../General/Charging/charging.php"; ?>
+    <?php include __DIR__ . "/../general/charging/charging.php"; ?>
 
   </body>
-  <?php include "../general/footer/Footer.php" ?>
+  <?php include __DIR__ . "/../general/footer/Footer.php" ?>
 
 
 </html>
