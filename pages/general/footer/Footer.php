@@ -1,5 +1,6 @@
 <style>
-  footer#footer_container {
+  /* Keep the footer itself as a vertical wrapper; only its inner content is a grid. */
+  body footer#footer_container {
     --footer-navy: #111c42;
     --footer-navy-light: #202e52;
     --footer-red: #c5234a;
@@ -56,6 +57,7 @@
   .footer__grid > nav {
     min-width: 0;
     padding-top: .15rem;
+    text-align: left;
   }
 
   .footer__contact-section {
@@ -139,7 +141,8 @@
     text-transform: uppercase;
   }
 
-  .footer__list {
+  body footer#footer_container .footer__list {
+    align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: .62rem;
@@ -149,6 +152,8 @@
   }
 
   .footer__list li { margin: 0; }
+
+  body footer#footer_container .footer__list li { text-align: left; }
 
   #footer_container a {
     color: var(--footer-text) !important;
@@ -187,14 +192,14 @@
     background: var(--footer-red);
   }
 
-  .footer__bottom {
+  body footer#footer_container .footer__bottom {
     position: relative;
     z-index: 1;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    width: min(100%, 90rem);
+    width: min(100%, 90rem) !important;
     margin: clamp(3.25rem, 6vw, 5rem) auto 0;
     padding: 1.15rem 0;
     border-top: 1px solid rgba(255, 255, 255, .16);
@@ -215,7 +220,7 @@
   }
 
   @media (max-width: 900px) {
-    .footer__grid {
+    body footer#footer_container .footer__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       row-gap: 3rem;
     }
@@ -232,7 +237,7 @@
 
   @media (max-width: 560px) {
     #footer_container { padding-inline: 1.5rem; }
-    .footer__grid { grid-template-columns: 1fr; }
+    body footer#footer_container .footer__grid { grid-template-columns: 1fr; }
     .footer__brand { grid-column: auto; }
     .footer__contact-section,
     .footer__social-section { padding-top: 1.75rem; }
