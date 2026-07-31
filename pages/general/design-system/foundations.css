@@ -13,7 +13,7 @@
   --ullman-charcoal: #5e6771;
   --ullman-white: #ffffff;
   --ullman-surface: #f8f8fa;
-  --ullman-heading: #202e52;
+  --ullman-heading: #005598;
   --ullman-copy: #5e6771;
   --ullman-link: #005598;
 
@@ -384,7 +384,12 @@ body :is(a, button) {
   text-transform: uppercase;
 }
 
-.event-card__title,
+.event-card__title {
+  font-size: var(--text-xl) !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+}
+
 .service-card__title {
   font-size: var(--text-lg) !important;
   font-weight: 500 !important;
