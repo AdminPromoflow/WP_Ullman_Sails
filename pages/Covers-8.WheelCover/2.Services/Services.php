@@ -45,9 +45,9 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
           wheels — now it’s a standard among seasoned cruisers.
         </p>
 
-        <!-- <div class="services__actions sr-item">
-          <a class="btn" href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">Contact us</a>
-        </div> -->
+        <div class="services__actions sr-item">
+          <a class="ullman-button--primary covers-back-button" href="<?php echo esc_url(ullman_page_url('covers')); ?>">Back to covers</a>
+        </div>
       </div>
 
       <div class="services__media services__media--wheelcover sr-item" aria-hidden="true"></div>

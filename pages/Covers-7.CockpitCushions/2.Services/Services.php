@@ -54,9 +54,9 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
           personal flair.
         </p>
 
-        <!-- <div class="services__actions sr-item">
-          <a class="btn" href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">Contact Us</a>
-        </div> -->
+        <div class="services__actions sr-item">
+          <a class="ullman-button--primary covers-back-button" href="<?php echo esc_url(ullman_page_url('covers')); ?>">Back to covers</a>
+        </div>
       </div>
 
       <div class="services__media services__media--cockpitcushions sr-item" aria-hidden="true"></div>

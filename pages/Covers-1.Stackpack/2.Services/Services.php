@@ -22,9 +22,9 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
           clutter-free cockpit. Made to fit your rig and rigging — just get in touch to start the conversation.
         </p>
 
-        <!-- <div class="services__actions sr-item">
-          <a class="btn" href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">Contact us</a>
-        </div> -->
+        <div class="services__actions sr-item">
+          <a class="ullman-button--primary covers-back-button" href="<?php echo esc_url(ullman_page_url('covers')); ?>">Back to covers</a>
+        </div>
       </div>
 
       <!-- Optional image panel -->
