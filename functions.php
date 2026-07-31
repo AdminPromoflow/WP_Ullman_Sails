@@ -47,6 +47,24 @@ function ullman_page_routes(): array {
 /**
  * Returns a public WordPress URL. It never exposes a theme file path.
  */
+function ullman_file_version(string $file): string {
+    static $versions = [];
+
+    if (isset($versions[$file])) {
+        return $versions[$file];
+    }
+
+    if (!is_file($file)) {
+        return $versions[$file] = (string) time();
+    }
+
+    $hash = hash_file('sha256', $file);
+
+    return $versions[$file] = is_string($hash)
+        ? substr($hash, 0, 12)
+        : (string) filemtime($file);
+}
+
 function ullman_page_url(string $key): string {
     $normalizedKey = sanitize_title($key);
     $routes = ullman_page_routes();
@@ -81,14 +99,14 @@ function ullman_page_url(string $key): string {
 
     if ($normalizedKey === 'home' || !isset($routes[$normalizedKey])) {
         $homeTemplate = get_template_directory() . '/pages/Home/index.php';
-        $homeVersion = is_file($homeTemplate) ? filemtime($homeTemplate) : time();
+        $homeVersion = ullman_file_version($homeTemplate);
 
         return add_query_arg('v', $homeVersion, home_url('/'));
     }
 
     $route = $routes[$normalizedKey];
     $template = get_template_directory() . '/pages/' . $route['template'];
-    $version = is_file($template) ? filemtime($template) : time();
+    $version = ullman_file_version($template);
 
     return add_query_arg('v', $version, home_url('/' . $route['slug'] . '/'));
 }
