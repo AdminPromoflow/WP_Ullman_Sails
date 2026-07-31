@@ -21,7 +21,7 @@ $servicesUrl   = get_template_directory_uri() . '/pages/Cuising-6.BlueLineSpinna
     <p class="sr-item">Have fun!</p>
 
     <div class="buttonTitleBlue sr-item">
-    <a href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">  <h3 class="openContactUsBlueBlue">Contact us</h3></a>
+    <a href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>"><span class="openContactUsBlueBlue">Contact us</span></a>
     </div>
   </div>
 </section>

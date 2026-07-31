@@ -21,11 +21,11 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/3_covers';
       >
     </div>
 
-    <h1 id="covers-title">Covers</h1>
+    <h2 id="covers-title">Covers</h2>
 
     <div class="covers_button">
       <a href="<?php echo esc_url(ullman_page_url('covers')); ?>" class="covers_link">
-        <h3>See more</h3>
+        <span class="covers_button__label">Explore covers</span>
       </a>
     </div>
   </div>

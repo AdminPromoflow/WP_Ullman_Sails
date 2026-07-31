@@ -60,9 +60,9 @@ $svgPath        = __DIR__ . '/svg/';
 
   </div>
 
-  <div class="buttonTitle" id="downloadPDF">
-    <h3 class="openContactUs">Download PDF</h3>
-  </div>
+  <button class="buttonTitle" id="downloadPDF" type="button">
+    <span class="openContactUs">Download PDF</span>
+  </button>
 
   <form class="customize-form" id="customizeForm">
 

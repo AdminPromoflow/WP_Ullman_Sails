@@ -42,7 +42,7 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/5.Video';
           >
         </div>
 
-        <h1 id="contactus-title-right" class="contactus-side-title">Contact us</h1>
+        <h2 id="contactus-title-right" class="contactus-side-title">Contact us</h2>
       </div>
 
 

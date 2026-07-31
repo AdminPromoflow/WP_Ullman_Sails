@@ -18,17 +18,19 @@ $contactUsUrl = get_template_directory_uri() . '/pages/ContactUs/Contactus';
 
   <div class="contactUsContainer">
     <div class="contactUsBox">
-      <h3>Your contact info</h3>
-      <input id="contactName" type="text" name="" placeholder="Name" value="">
-      <input id="contactNumber" type="text" name="" placeholder="Contact number" value="">
-      <input id="contactLocation" type="text" name="" placeholder="Location of Vessel (?)" value="">
-      <input id="contactEmail" type="email" name="" placeholder="Email address" value="">
-      <label for="pdf_file">Select a PDF file:</label>
-      <input type="file" id="pdf_file" name="pdf_file" accept=".pdf">
-      <textarea id="contactMessage" name="name" placeholder="Please share your experiences" rows="3" cols="80"></textarea>
-      <div id="btnContactUs" class="buttonTitle">
-        <h3 class="openContactUs">Submit</h3>
-      </div>
+      <form id="contactUsForm" class="contactUsForm" novalidate>
+        <h3>Your contact info</h3>
+        <input id="contactName" type="text" name="contactName" placeholder="Name" required autocomplete="name">
+        <input id="contactNumber" type="tel" name="contactNumber" placeholder="Contact number" required autocomplete="tel">
+        <input id="contactLocation" type="text" name="contactLocation" placeholder="Location of vessel" required>
+        <input id="contactEmail" type="email" name="contactEmail" placeholder="Email address" required autocomplete="email">
+        <label for="pdf_file">Select a PDF file:</label>
+        <input type="file" id="pdf_file" name="file" accept=".pdf">
+        <textarea id="contactMessage" name="contactMessage" placeholder="Please share your requirements" rows="3"></textarea>
+        <button id="btnContactUs" class="buttonTitle" type="submit">
+        <span class="openContactUs">Submit</span>
+        </button>
+      </form>
     </div>
     <div class="contactUsBox">
       <div id="map"></div>

@@ -21,7 +21,7 @@ $servicesUrl   = get_template_directory_uri() . '/pages/Racing-4.RedLineSpinnake
 
     <div class="buttonTitleRed sr-item">
       <a href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">
-        <h3 class="openContactUsRed">Contact us</h3>
+        <span class="openContactUsRed">Contact us</span>
       </a>
     </div>
   </div>

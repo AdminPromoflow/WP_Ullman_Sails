@@ -114,7 +114,7 @@ footer img {
     </ul>
   </div>
 
-  <h3 id="TermsAndConditions" class="TermsAndConditions">Terms & Conditions</h3>
+  <button id="TermsAndConditions" class="TermsAndConditions" type="button">Terms &amp; Conditions</button>
 </footer>
 
 <script type="text/javascript">

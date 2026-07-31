@@ -102,6 +102,16 @@ body p {
   max-width: var(--reading-measure);
 }
 
+.ullman-sr-only {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 body :is(a, button, input, select, textarea):focus-visible {
   outline: 3px solid var(--ullman-red);
   outline-offset: 3px;
@@ -221,57 +231,6 @@ body :is(a, button) {
   width: min(7rem, 34%) !important;
 }
 
-.home-slider__arrow {
-  align-items: center;
-  backdrop-filter: blur(0.5rem);
-  background: rgba(0, 85, 152, 0.84) !important;
-  border: 1px solid rgba(255, 255, 255, 0.62) !important;
-  border-radius: 50%;
-  display: flex;
-  height: clamp(2.75rem, 3.5vw, 3.25rem) !important;
-  justify-content: center;
-  opacity: 0.94;
-  padding: 0.82rem !important;
-  top: 50% !important;
-  transform: translateY(-50%);
-  transition: background-color 180ms ease, border-color 180ms ease, opacity 180ms ease, transform 180ms ease !important;
-  width: clamp(2.75rem, 3.5vw, 3.25rem) !important;
-}
-
-.home-slider__arrow img {
-  height: 100% !important;
-  object-fit: contain;
-  width: 100% !important;
-}
-
-.home-slider__arrow:is(:hover, :focus-visible) {
-  background: var(--ullman-red) !important;
-  border-color: var(--ullman-white) !important;
-  opacity: 1;
-}
-
-.home-slider__arrow--left:is(:hover, :focus-visible) {
-  transform: translateY(-50%) translateX(-0.15rem);
-}
-
-.home-slider__arrow--right:is(:hover, :focus-visible) {
-  transform: translateY(-50%) translateX(0.15rem);
-}
-
-.page_arrow {
-  backdrop-filter: blur(0.5rem);
-  background: rgba(0, 85, 152, 0.84) !important;
-  border: 1px solid rgba(255, 255, 255, 0.62) !important;
-  border-radius: 50%;
-  height: clamp(2.75rem, 3.5vw, 3.25rem) !important;
-  width: clamp(2.75rem, 3.5vw, 3.25rem) !important;
-}
-
-.page_arrow:is(:hover, :focus-visible) {
-  background: var(--ullman-red) !important;
-  border-color: var(--ullman-white) !important;
-}
-
 .ullman-button--secondary {
   background: var(--ullman-blue);
   border: 1px solid var(--ullman-blue);
@@ -365,6 +324,26 @@ body :is(a, button) {
   line-height: 1.25 !important;
 }
 
+/* Legacy button markup sometimes uses heading elements for a short action label. */
+:is(.covers_button__label, .buttonTitle__label, .buttonTitle h3, .buttonTitleRed h3, .buttonTitleBlue h3, .openContactUs, .openContactUsRed, .openContactUsBlueBlue, .service-cta) {
+  color: var(--ullman-white) !important;
+  font-family: var(--font-brand) !important;
+  font-size: var(--text-sm) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.event-card__title,
+.service-card__title {
+  font-size: var(--text-lg) !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+}
+
 :is(.svc-text, .st-card-text, .dac-card-text, .srm-card-text) {
   color: var(--ullman-charcoal) !important;
   font-size: var(--text-sm) !important;
@@ -405,6 +384,30 @@ body :is(a, button) {
   font-weight: 600 !important;
 }
 
+/* Red rules are reserved for hierarchy: headings, editorial emphasis and card cues. */
+:is(.sail_types_title, .covers-title, .services-title, .services__title, .cruising-title, .axia-title, .tips__title, .sailcare__title, .sci__pageTitle, .au-title, .contactus-side-title)::after {
+  background: var(--ullman-red) !important;
+  box-shadow: none !important;
+  content: "";
+  display: block;
+  height: 2px !important;
+  margin: var(--space-4) auto 0;
+  opacity: 1 !important;
+  transform: none !important;
+  width: clamp(3.5rem, 7vw, 6rem) !important;
+}
+
+.svc-kicker {
+  color: var(--ullman-red) !important;
+  font-weight: 600 !important;
+}
+
+.svc-rule {
+  background: var(--ullman-red) !important;
+  box-shadow: none !important;
+  height: 2px !important;
+}
+
 /* Editorial is intentional, not a replacement for functional copy. */
 blockquote,
 .ullman-editorial,
@@ -415,6 +418,12 @@ blockquote,
   letter-spacing: 0.025em;
   line-height: 1.45;
   text-transform: none;
+}
+
+blockquote {
+  border-left: 3px solid var(--ullman-red);
+  margin-inline: 0;
+  padding-left: var(--space-6);
 }
 
 .ullman-editorial--on-dark {
@@ -441,13 +450,29 @@ footer :is(p, li, a) {
 /* Footer: centered, calm columns with the legal link clearly separated. */
 footer#footer_container {
   align-items: start;
-  background: var(--ullman-blue);
+  background:
+    radial-gradient(circle at 50% -45%, rgba(255, 255, 255, 0.16), transparent 44%),
+    linear-gradient(135deg, #004a84 0%, var(--ullman-blue) 48%, var(--ullman-navy) 100%);
   display: grid !important;
-  gap: var(--space-8) clamp(var(--space-6), 4vw, var(--space-16));
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-12) clamp(var(--space-6), 4vw, var(--space-16));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 14rem));
+  isolation: isolate;
   justify-items: center;
-  padding: clamp(3rem, 6vw, 5rem) var(--page-gutter) var(--space-6) !important;
+  justify-content: center;
+  overflow: hidden;
+  padding: clamp(4.5rem, 7vw, 6.5rem) var(--page-gutter) var(--space-6) !important;
   text-align: center;
+}
+
+footer#footer_container::before {
+  background: var(--ullman-red);
+  content: "";
+  height: 3px;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: min(11rem, 30vw);
 }
 
 footer#footer_container .contain_footer,
@@ -462,19 +487,30 @@ footer#footer_container .contain_footer {
   align-items: center;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
   justify-content: flex-start;
+  min-height: 100%;
+  position: relative;
 }
 
 footer#footer_container .footer__headline {
-  color: var(--ullman-white) !important;
-  font-size: var(--text-lg) !important;
+  color: var(--ullman-red) !important;
+  font-size: var(--text-sm) !important;
   font-weight: 600 !important;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   line-height: 1.3;
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--space-3);
   text-align: center;
   text-transform: uppercase;
+}
+
+footer#footer_container .footer__headline::after {
+  background: rgba(255, 255, 255, 0.52);
+  content: "";
+  display: block;
+  height: 1px;
+  margin: var(--space-3) auto 0;
+  width: 2.5rem;
 }
 
 footer#footer_container .footer__list {
@@ -488,7 +524,7 @@ footer#footer_container .footer__list {
 }
 
 footer#footer_container li {
-  color: var(--ullman-white) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
   font-size: var(--text-sm) !important;
   font-weight: 400 !important;
   line-height: 1.55;
@@ -498,31 +534,49 @@ footer#footer_container li {
 
 footer#footer_container a {
   color: var(--ullman-white) !important;
-  text-decoration: none;
-  text-underline-offset: 0.2em;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.26em;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
 }
 
 footer#footer_container a:hover {
   color: var(--ullman-white) !important;
-  text-decoration: underline;
+  text-decoration-color: var(--ullman-red);
 }
 
 footer#footer_container .TermsAndConditions {
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  appearance: none;
+  background: transparent;
+  border-inline: 0;
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
   bottom: auto;
   color: var(--ullman-white) !important;
+  cursor: pointer;
   font-family: var(--font-brand) !important;
   font-size: var(--text-xs) !important;
   font-weight: 500 !important;
   grid-column: 1 / -1;
   letter-spacing: 0.07em;
   line-height: 1.4;
-  margin: var(--space-2) 0 0;
-  padding: var(--space-4) 0 0;
+  margin: var(--space-6) 0 0;
+  padding: var(--space-6) 0 0;
   position: static !important;
   text-align: center;
   text-transform: uppercase;
   width: auto !important;
+}
+
+footer#footer_container .TermsAndConditions:is(:hover, :focus-visible) {
+  color: var(--ullman-white) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--ullman-red);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
 }
 
 @media (min-width: 120rem) {

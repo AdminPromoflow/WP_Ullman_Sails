@@ -53,7 +53,7 @@ $st_js_v  = is_file($st_js_fs) ? filemtime($st_js_fs) : time();
       </div>
 
       <!-- Main title -->
-      <h1 id="sail_types_title" class="sail_types_title">Sail Types</h1>
+      <h2 id="sail_types_title" class="sail_types_title">Sail Types</h2>
     </div>
 
     <!-- ----------------------------------------------------

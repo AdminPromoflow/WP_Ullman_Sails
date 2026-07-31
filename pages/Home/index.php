@@ -12,6 +12,8 @@ $homeUrl = get_template_directory_uri() . '/pages/Home';
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<?php echo esc_url($homeUrl . '/style.css?v=' . $homeCssTime); ?>">
 
+<h1 class="ullman-sr-only">Ullman Sails</h1>
+
 <?php
 
 include __DIR__ . '/../general/menu/menu.php';

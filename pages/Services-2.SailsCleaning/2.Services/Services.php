@@ -167,7 +167,7 @@ Don't delay treatment of your fabrics, the longer you leave it the less likely t
 
   <a class="link_contact_us" href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">
     <div class="buttonTitle">
-      <h3>Contact us</h3>
+      <span class="buttonTitle__label">Contact us</span>
     </div>
   </a>
 </section>

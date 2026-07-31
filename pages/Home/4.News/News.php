@@ -31,7 +31,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
           >
         </div>
 
-        <h1 id="news-home-title" class="contactus-side-title">News</h1>
+        <h2 id="news-home-title" class="contactus-side-title">News</h2>
 
         <div class="news-tabs" role="tablist" aria-label="News groups">
           <button

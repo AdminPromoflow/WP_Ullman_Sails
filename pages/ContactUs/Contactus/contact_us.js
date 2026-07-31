@@ -1,5 +1,6 @@
 class ContactUs {
   constructor() {
+    this.form = document.getElementById('contactUsForm');
     this.btnContactUs = document.getElementById('btnContactUs');
     this.contactName = document.getElementById('contactName');
     this.contactNumber = document.getElementById('contactNumber');
@@ -10,16 +11,10 @@ class ContactUs {
 
 
 
+    if (!this.form || !this.btnContactUs) return;
+
     this.initMap();
-
-    this.btnContactUs.addEventListener("click", () => {
-      if (this.validateMainFields()) {
-        chargingClass.hideShowcharging(true);
-
-        this.requestContactUs();
-
-      }
-    });
+    this.form.addEventListener('submit', event => this.handleSubmit(event));
   }
 
   initMap() {
@@ -38,21 +33,28 @@ class ContactUs {
     L.marker([50.841011546296706, -1.3502185309655552]).addTo(this.map);
   }
 
-  validateMainFields() {
-    if (
-      this.contactName.value.trim() !== "" &&
-      this.contactNumber.value.trim() !== "" &&
-      this.contactLocation.value.trim() !== "" &&
-      this.contactEmail.value.trim() !== ""
-    ) {
-      return true;
-    } else {
-      alert("Please fill in all required fields.");
-      return false;
+  async handleSubmit(event) {
+    event.preventDefault();
+
+    if (!this.form.reportValidity()) return;
+
+    this.btnContactUs.disabled = true;
+    this.btnContactUs.setAttribute('aria-busy', 'true');
+    window.chargingClass?.hideShowcharging(true);
+
+    try {
+      await this.requestContactUs();
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      alert(error.message || 'Unable to send your message. Please try again.');
+    } finally {
+      this.btnContactUs.disabled = false;
+      this.btnContactUs.removeAttribute('aria-busy');
+      window.chargingClass?.hideShowcharging(false);
     }
   }
 
-  requestContactUs() {
+  async requestContactUs() {
     var fileInput = document.getElementById('pdf_file');
     var formData = new FormData();
 
@@ -74,21 +76,19 @@ class ContactUs {
     formData.set("action", "ullman_send_forms");
     formData.append("nonce", window.ullmanAjax.nonce);
 
-    fetch(window.ullmanAjax.url, {
+    const response = await fetch(window.ullmanAjax.url, {
       method: "POST",
       body: formData
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          alert(data.message);
-          chargingClass.hideShowcharging(false);
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+    });
+    const data = await response.json();
+
+    if (!data.success) {
+      throw new Error(data.message || 'Unable to send your message.');
+    }
+
+    alert(data.message || 'Thank you. Your message has been sent.');
+    this.form.reset();
   }
 }
 
-const contactUs = new ContactUs();
+document.addEventListener('DOMContentLoaded', () => new ContactUs());

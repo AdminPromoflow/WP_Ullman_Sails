@@ -108,7 +108,8 @@
   cursor: pointer;
 }
 
-.wrap-box-services h4 {
+.wrap-box-services .service-cta {
+  display: block;
   position: relative;
   top: 4.8em;
   transform: translateY(-200%);
@@ -122,7 +123,7 @@
   cursor: pointer;
 }
 
-.wrap-box-services:hover h4 {
+.wrap-box-services:hover .service-cta {
   opacity: 1;
   text-decoration: underline;
 }
@@ -150,7 +151,7 @@
     <div class="box-services pictureServicesHome1">
       <div class="wrap-box-services">
         <h3>Cruising Sails</h3>
-        <h4>See more</h4>
+        <span class="service-cta">Explore cruising sails</span>
       </div>
     </div>
   </a>
@@ -158,7 +159,7 @@
     <div class="box-services pictureServicesHome2">
       <div class="wrap-box-services">
         <h3>Racing Sails</h3>
-        <h4>See more</h4>
+        <span class="service-cta">Explore racing sails</span>
       </div>
     </div>
   </a>

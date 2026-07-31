@@ -23,7 +23,7 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/4_services';
         >
       </div>
 
-      <h1 id="sail_types_title" class="sail_types_title">Services</h1>
+      <h2 id="sail_types_title" class="sail_types_title">Services</h2>
     </header>
 
     <div class="events-list">

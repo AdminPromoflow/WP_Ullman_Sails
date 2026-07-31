@@ -18,7 +18,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">SERVICES</h1>
+        <h2 class="home-slider__title">SERVICES</h2>
         <h2 class="home-slider__subtitle">Professional services designed to meet your goals.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('services')); ?>">Learn more</a>
@@ -31,7 +31,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">RACING SAILS</h1>
+        <h2 class="home-slider__title">RACING SAILS</h2>
         <h2 class="home-slider__subtitle">Built for speed. Tuned for results.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('racing')); ?>">Click here</a>
@@ -45,7 +45,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">CRUISING SAILS</h1>
+        <h2 class="home-slider__title">CRUISING SAILS</h2>
         <h2 class="home-slider__subtitle">Trim fast, sail comfortably, enjoy every mile.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('cruising')); ?>">Click here</a>
@@ -58,7 +58,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">RACING SAILS</h1>
+        <h2 class="home-slider__title">RACING SAILS</h2>
         <h2 class="home-slider__subtitle">Max performance, precise shape control.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('racing')); ?>">Click here</a>
@@ -71,7 +71,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">CRUISING SAILS</h1>
+        <h2 class="home-slider__title">CRUISING SAILS</h2>
         <h2 class="home-slider__subtitle">Comfort at sea. Confidence in every mile.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('cruising')); ?>">Click here</a>
@@ -87,7 +87,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">THE AXIA SERIES</h1>
+        <h2 class="home-slider__title">THE AXIA SERIES</h2>
         <h2 class="home-slider__subtitle">Elegant shape. Easy handling.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">Discover more</a>
@@ -100,7 +100,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">THE AXIA SERIES</h1>
+        <h2 class="home-slider__title">THE AXIA SERIES</h2>
         <h2 class="home-slider__subtitle">Built for ease and confidence.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">Discover more</a>
@@ -113,7 +113,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">COVERS</h1>
+        <h2 class="home-slider__title">COVERS</h2>
         <h2 class="home-slider__subtitle">Protect your boat today</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('covers')); ?>">Click here</a>
@@ -126,7 +126,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">SERVICES</h1>
+        <h2 class="home-slider__title">SERVICES</h2>
         <h2 class="home-slider__subtitle">Professional services designed to meet your goals.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('services')); ?>">Learn more</a>
@@ -139,7 +139,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <div class="home-slider__kicker">
           <img src="<?php echo esc_url($sliderUrl . '/img/ullman_sails.png'); ?>" alt="">
         </div>
-        <h1 class="home-slider__title">RACING SAILS</h1>
+        <h2 class="home-slider__title">RACING SAILS</h2>
         <h2 class="home-slider__subtitle">Built for speed. Tuned for results.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
         <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('racing')); ?>">Click here</a>
