@@ -34,7 +34,7 @@ body.is-drawer-open{overflow:hidden}
 
   position:fixed;top:0;left:0;right:0;height:var(--nav-h);width:100%;
   padding:0 var(--nav-pad-x);
-  border-bottom:4px solid var(--ull-red);
+  border-bottom:3px solid var(--ull-red);
   display:flex;align-items:center;gap:var(--nav-gap);
   background:var(--ull-blue);box-shadow:var(--shadow);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);

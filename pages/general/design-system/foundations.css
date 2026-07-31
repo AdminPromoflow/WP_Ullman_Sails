@@ -181,6 +181,22 @@ body :is(a, button) {
   min-height: 34rem !important;
 }
 
+/* Keep every legacy and reusable hero slider at one consistent viewport height. */
+body :is(.home-slider, .slideHome) {
+  height: 80vh !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+
+/* Compact breadcrumbs across every page navigation component. */
+body .nav-section .nav-breadcrumbs__list {
+  padding: .35rem .6rem !important;
+}
+
+body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
+  padding: .25rem .45rem !important;
+}
+
 .home-slider__caption {
   width: min(100% - (var(--page-gutter) * 2), 72rem) !important;
   padding-inline: var(--page-gutter) !important;

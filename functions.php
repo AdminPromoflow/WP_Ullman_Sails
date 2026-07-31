@@ -391,12 +391,20 @@ function ullman_contextual_back_navigation(string $html, string $pageKey): strin
         }
     }
 
-    $button = sprintf(
-        '<section class="ullman-context-back" aria-label="%1$s"><a class="ullman-context-back__link" href="%2$s">%3$s</a></section>',
-        esc_attr(sprintf('Back to %s', $targetLabel)),
-        esc_url($targetUrl),
-        esc_html(sprintf('Back to %s', $targetLabel))
-    );
+    if ($targetLabel === 'Home') {
+        $button = sprintf(
+            '<section class="ullman-context-back" aria-label="%1$s"><a class="ullman-context-back__link" href="#">%2$s</a></section>',
+            esc_attr('Scroll to the top of this page'),
+            esc_html('Back to top')
+        );
+    } else {
+        $button = sprintf(
+            '<section class="ullman-context-back" aria-label="%1$s"><a class="ullman-context-back__link" href="%2$s">%3$s</a></section>',
+            esc_attr(sprintf('Back to %s', $targetLabel)),
+            esc_url($targetUrl),
+            esc_html(sprintf('Back to %s', $targetLabel))
+        );
+    }
 
     $withFooter = preg_replace('/<footer\b/i', $button . '<footer', $html, 1, $footerCount);
 

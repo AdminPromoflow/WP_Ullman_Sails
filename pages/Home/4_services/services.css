@@ -205,7 +205,7 @@
 
 .st-btn{
   display: inline-block;
-  width: max-content;
+  width: 13.75rem;
   margin-top: 1.2rem;
   padding: 3px 20px;
   color: #fff;
@@ -214,6 +214,7 @@
   font-size: 1.3em;
   font-weight: 300;
   text-decoration: none;
+  text-align: center;
   cursor: pointer;
   transition: all .4s;
 }
