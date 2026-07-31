@@ -1,73 +1,27 @@
 {
-  "source": {
-    "page": "https://ullmansails.com/spinnaker-tool/",
-    "audited_on": "2026-07-31",
-    "notes": "Colors extracted from the public page markup and the Spinnaker Tool stylesheet. Sail-color names are not exposed by the page, so those swatches are identified by hexadecimal value."
-  },
-  "brand": {
-    "red": "#C5234A",
-    "navy": "#202E52",
-    "deep_navy": "#1A2544",
-    "blue": "#004C97",
-    "white": "#FFFFFF"
-  },
-  "interface": {
-    "ink": "#212529",
-    "card_background": "#FFFFFF",
-    "card_border": "#E6E8EE",
-    "swatch_border": "#E8E8E8",
-    "loading_overlay": "rgba(255, 255, 255, 0.65)",
-    "soft_ink_background": "rgba(33, 37, 41, 0.02)",
-    "soft_ink_border": "rgba(33, 37, 41, 0.16)",
-    "blue_hover_background": "rgba(0, 76, 151, 0.06)",
-    "blue_selected_background": "rgba(0, 76, 151, 0.10)",
-    "blue_selected_ring": "rgba(0, 76, 151, 0.15)",
-    "blue_focus_ring": "rgba(0, 76, 151, 0.22)",
-    "reset_background": "#F1F1F1"
-  },
-  "sail_swatches": [
-    "#0A0E84",
-    "#DD0A0A",
-    "#0883BB",
-    "#F7DE2B",
-    "#036433",
-    "#5706B4",
-    "#FB1091",
-    "#FF5200",
-    "#0C738C",
-    "#18AEA8",
-    "#1E273F",
-    "#73DE5B",
-    "#DE9106",
-    "#EFE8D2",
-    "#F9FF10",
-    "#E49400",
-    "#066AAB"
-  ],
-  "additional_page_colors": {
-    "black": "#000000",
-    "charcoal": "#32373C",
-    "slate": "#475361",
-    "grey": "#5D6261",
-    "form_error": "#E23125",
-    "form_error_alt": "#D63637",
-    "wordpress_pink": "#F78DA7",
-    "wordpress_red": "#CF2E2E",
-    "wordpress_orange": "#FF6900",
-    "wordpress_gold": "#FCB900",
-    "wordpress_mint": "#7BDCB5",
-    "wordpress_green": "#00D084",
-    "wordpress_sky": "#8ED1FC",
-    "wordpress_bright_blue": "#0693E3",
-    "wordpress_purple": "#9B51E0"
-  },
-  "transparent_source_values": {
-    "navy_transparent": "#3942A800",
-    "muted_teal_transparent": "#ADC4C3CB",
-    "brand_red_transparent": "#C5234A00",
-    "white_transparent": "#FFFFFF00",
-    "short_hex_blue": "#003388",
-    "short_hex_green": "#116600",
-    "short_hex_red_alpha": "#88221177"
-  }
+  "source": "https://ullmansails.com/spinnaker-tool/",
+  "purpose": "Colors available for painting sail panels in the Spinnaker Coloring Tool.",
+  "colors": [
+    { "name": "Black", "value": "#000000" },
+    { "name": "Green", "value": "#036433" },
+    { "name": "Light Blue", "value": "#0883BB" },
+    { "name": "Dark Blue", "value": "#0A0E84" },
+    { "name": "Ocean Blue", "value": "#0C738C" },
+    { "name": "Aquamarine", "value": "#18AEA8" },
+    { "name": "Navy", "value": "#1E273F" },
+    { "name": "Tempest Grey", "value": "#475361" },
+    { "name": "Lilac/Purple", "value": "#5706B4" },
+    { "name": "Grey", "value": "#5D6261" },
+    { "name": "Fluor Green", "value": "#73DE5B" },
+    { "name": "Red", "value": "#DD0A0A" },
+    { "name": "Coastal Gold", "value": "#DE9106" },
+    { "name": "Fluor Raspberry", "value": "#E314A4" },
+    { "name": "Gold", "value": "#E49400" },
+    { "name": "Classic Light Cream", "value": "#EFE8D2" },
+    { "name": "Yellow", "value": "#F7DE2B" },
+    { "name": "Fluor Yellow", "value": "#F9FF10" },
+    { "name": "Fluor Pink", "value": "#FB1091" },
+    { "name": "Orange", "value": "#FF5200" },
+    { "name": "White", "value": "#FFFFFF" }
+  ]
 }

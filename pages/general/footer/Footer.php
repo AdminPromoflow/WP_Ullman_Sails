@@ -41,10 +41,10 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: minmax(13rem, 1.35fr) minmax(8rem, .8fr) minmax(8rem, .9fr) minmax(15rem, 1.45fr);
-    gap: clamp(1.75rem, 3vw, 4.5rem);
+    grid-template-columns: minmax(13rem, 1.35fr) repeat(2, minmax(8rem, .78fr)) minmax(13rem, 1.1fr) minmax(10rem, .85fr);
+    gap: clamp(1.5rem, 3.5vw, 5.5rem);
     align-items: start;
-    width: min(100%, 76rem);
+    width: min(100%, 90rem);
     margin: 0 auto;
   }
 
@@ -58,12 +58,14 @@
     padding-top: .15rem;
   }
 
-  .footer__grid > section:last-child {
+  .footer__contact-section {
     min-width: 0;
     padding-left: clamp(1.5rem, 3vw, 3rem);
     border-left: 1px solid rgba(255, 255, 255, .18);
     text-align: left;
   }
+
+  .footer__social-section { min-width: 0; }
 
   .footer__eyebrow,
   #footer_container .footer__heading {
@@ -125,6 +127,8 @@
     letter-spacing: .14em;
     text-transform: uppercase;
   }
+
+  .footer__social-section .footer__social-label { color: #ffffff !important; }
 
   .footer__heading {
     margin-bottom: 1rem;
@@ -190,7 +194,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    width: min(100%, 76rem);
+    width: min(100%, 90rem);
     margin: clamp(3.25rem, 6vw, 5rem) auto 0;
     padding: 1.15rem 0;
     border-top: 1px solid rgba(255, 255, 255, .16);
@@ -216,32 +220,22 @@
       row-gap: 3rem;
     }
 
-    .footer__grid > section:last-child {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      column-gap: 2.5rem;
+    .footer__brand { grid-column: 1 / -1; }
+
+    .footer__contact-section,
+    .footer__social-section {
       padding: 2rem 0 0;
       border-top: 1px solid rgba(255, 255, 255, .18);
       border-left: 0;
     }
-
-    .footer__grid > section:last-child .footer__heading,
-    .footer__grid > section:last-child .footer__contact { grid-column: 1; }
-    .footer__grid > section:last-child .footer__social-label,
-    .footer__grid > section:last-child .footer__socials { grid-column: 2; }
-    .footer__grid > section:last-child .footer__social-label { align-self: end; }
-    .footer__grid > section:last-child .footer__socials { align-self: start; }
   }
 
   @media (max-width: 560px) {
     #footer_container { padding-inline: 1.5rem; }
     .footer__grid { grid-template-columns: 1fr; }
-    .footer__grid > section:last-child {
-      display: block;
-      padding-top: 1.75rem;
-    }
-    .footer__grid > section:last-child .footer__social-label { margin-top: 1.5rem; }
+    .footer__brand { grid-column: auto; }
+    .footer__contact-section,
+    .footer__social-section { padding-top: 1.75rem; }
     .footer__bottom { align-items: flex-start; flex-direction: column; }
   }
 </style>
@@ -275,13 +269,16 @@
       </ul>
     </nav>
 
-    <section aria-label="Contact and social media">
+    <section class="footer__contact-section" aria-label="Contact details">
       <h2 class="footer__heading">Contact</h2>
       <div class="footer__contact">
         <strong>Talk to our sailmakers</strong>
         <a href="tel:+441752337131">Plymouth · 01752 337 131</a>
         <a href="tel:+442380457711">Hamble · 02380 457711</a>
       </div>
+    </section>
+
+    <section class="footer__social-section" aria-label="Social media">
       <p class="footer__social-label">Follow Ullman</p>
       <div class="footer__socials">
         <a href="https://www.facebook.com/ullmansails.co.uk/" target="_blank" rel="noopener noreferrer">Facebook</a>
