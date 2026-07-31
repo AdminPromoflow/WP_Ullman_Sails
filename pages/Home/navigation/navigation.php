@@ -23,7 +23,7 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
  * - If 'href' is null (or missing), it will render as the current page (no link).
  */
 $breadcrumbs = $breadcrumbs ?? [
-  ['label' => 'Home',          'href' => home_url('/')]
+  ['label' => 'Home',          'href' => ullman_page_url('home')]
 ];
 ?>
 

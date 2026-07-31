@@ -86,7 +86,7 @@ footer img {
   <div class="contain_footer">
     <h3 class="footer__headline">Ullman Sails</h3>
     <ul class="footer__list">
-      <li><a href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
+      <li><a href="<?php echo esc_url(ullman_page_url('home')); ?>">Home</a></li>
       <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Sail Care</a></li>
       <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Canvas</a></li>
       <li><a href="<?php echo esc_url(ullman_page_url('services')); ?>">Services</a></li>

@@ -4,7 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuLinks = document.querySelectorAll(".item-left-panel");
 
   function goToHome() {
-    window.location.href = "../Home/";
+    const panel = document.getElementById("leftPanel");
+    const homeUrl = panel?.dataset.homeUrl;
+
+    if (homeUrl) {
+      window.location.href = homeUrl;
+    }
   }
 
   function setActiveLink(targetId) {

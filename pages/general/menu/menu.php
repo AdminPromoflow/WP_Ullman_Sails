@@ -28,14 +28,14 @@ $searchDataUrl = get_template_directory_uri() . '/pages/Search/search/search-dat
 
 <section class="ull-nav-wrap" id="menuContainer">
   <header class="ull-nav" id="mainMenu">
-    <a class="ull-nav__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="Home">
+    <a class="ull-nav__brand" href="<?php echo esc_url(ullman_page_url('home')); ?>" aria-label="Home">
       <img class="ull-nav__logo" id="logoOpenHome" src="<?php echo esc_url($menuUrl . '/img/logo.png?v=' . $menuLogoV); ?>" alt="Ullman Sails">
       <img class="ull-nav__logo--mobile" id="logoOpenHomeMobile" src="<?php echo esc_url($menuUrl . '/img/logo_mobile.png?v=' . $menuLogoMobileV); ?>" alt="Ullman Sails">
     </a>
 
     <nav class="ull-nav__desktop" aria-label="Primary navigation">
       <ul class="ull-nav__list" id="navList">
-        <li class="ull-nav__item js-hide-when-search"><a class="ull-nav__link ull-caps" href="<?php echo esc_url(home_url('/')); ?>">Home</a></li>
+        <li class="ull-nav__item js-hide-when-search"><a class="ull-nav__link ull-caps" href="<?php echo esc_url(ullman_page_url('home')); ?>">Home</a></li>
 
         <li class="ull-nav__item ull-nav__item--has-submenu js-hide-when-search" id="openSubItemsMenu">
           <a class="ull-nav__link ull-caps" href="<?php echo esc_url(ullman_page_url('sail_types')); ?>">Sail Types</a>
@@ -117,7 +117,7 @@ $searchDataUrl = get_template_directory_uri() . '/pages/Search/search/search-dat
         </div>
         </form>
       </div>
-      <a class="ull-drawer__link" href="<?php echo esc_url(home_url('/')); ?>">Home</a>
+      <a class="ull-drawer__link" href="<?php echo esc_url(ullman_page_url('home')); ?>">Home</a>
 
       <button class="ull-drawer__acc" type="button" data-acc="sails" aria-expanded="false">Sail Types</button>
       <div class="ull-drawer__panel" data-panel="sails">

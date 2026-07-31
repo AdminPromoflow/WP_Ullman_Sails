@@ -18,7 +18,7 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
 
 
 <script defer src="<?= $navJsPublic ?>?v=<?= $navJsV ?>" type="text/javascript"></script>
-<aside class="left-panel" id="leftPanel">
+<aside class="left-panel" id="leftPanel" data-home-url="<?php echo esc_url(ullman_page_url('home')); ?>">
   <div class="scroll-left-panel" id="scrollLeftPanel">
 
 
