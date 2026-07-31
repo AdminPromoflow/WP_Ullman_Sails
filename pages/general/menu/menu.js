@@ -72,8 +72,6 @@ class Menu {
         return;
       }
 
-      await this.buildSearchText();
-
       const results = this.pagesData.filter((page) => {
         return (
           page.title.toLowerCase().includes(word) ||
@@ -103,8 +101,6 @@ class Menu {
         this.clearResultsMobile();
         return;
       }
-
-      await this.buildSearchText();
 
       const results = this.pagesData.filter((page) => {
         return (
@@ -416,6 +412,7 @@ class Menu {
     if (!searchResultsMobile) return;
 
     searchResultsMobile.style.display = "block";
+    this.searchInputMobile?.setAttribute("aria-expanded", "true");
 
     searchResultsMobile.innerHTML = `
       <p class="ull-search-results-mobile__title">Search results</p>
@@ -439,6 +436,7 @@ class Menu {
 
     searchResultsMobile.innerHTML = "";
     searchResultsMobile.style.display = "none";
+    this.searchInputMobile?.setAttribute("aria-expanded", "false");
   }
 
   onSearchSubmit(e, isMobile) {

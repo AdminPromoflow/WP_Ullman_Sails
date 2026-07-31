@@ -115,17 +115,10 @@ foreach (ullman_page_routes() as $routeKey => $route) {
     <nav class="ull-drawer__nav" aria-label="Mobile navigation">
       <div class="ull-drawer__search">
         <form class="ull-search is-open ull-search--mobile" id="searchFormMobile" role="search" aria-label="Search site (mobile)">
-          <input class="ull-search__input" id="searchInputMobile" type="text" placeholder="Search..." autocomplete="off">
+          <input class="ull-search__input" id="searchInputMobile" type="search" placeholder="Search..." autocomplete="off" aria-controls="searchResultsMobile" aria-expanded="false">
           <button class="ull-search__btn" id="searchButtonMobile" type="submit">Search</button>
 
-          <div class="ull-search-results-mobile" id="searchResultsMobile" aria-live="polite">
-          <p class="ull-search-results-mobile__title">Search results</p>
-
-          <a class="ull-search-results-mobile__item" href="<?php echo esc_url(ullman_page_url('racing')); ?>">
-            <span class="ull-search-results-mobile__name">Page: Racing Sails</span>
-            <span class="ull-search-results-mobile__desc">Performance sails for competitive sailing.</span>
-          </a>
-        </div>
+          <div class="ull-search-results-mobile" id="searchResultsMobile" aria-live="polite"></div>
         </form>
       </div>
       <a class="ull-drawer__link" href="<?php echo esc_url(ullman_page_url('home')); ?>">Home</a>
