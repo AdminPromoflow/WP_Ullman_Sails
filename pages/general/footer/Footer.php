@@ -198,7 +198,7 @@
 
   body footer#footer_container .footer__bottom {
     position: relative;
-    z-index: 1;
+    z-index: 10;
     display: flex !important;
     align-items: center;
     justify-content: space-between;
