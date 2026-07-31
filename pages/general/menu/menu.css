@@ -3,7 +3,6 @@
 :root{
   /* Ullman Sails — primary brand colours (style guide) */
   --ull-navy:#202E52;--ull-blue:#005598;--ull-red:#C5234A;--ull-grey:#B0B3AF;--ull-black:#000;--ull-white:#fff;
-  --ull-menu-deep:#111C42;
 
   /* UI tokens (base) */
   --nav-h:86px;--radius:18px;--shadow:0 18px 60px rgba(0,0,0,.40);--shadow-soft:0 12px 30px rgba(0,0,0,.18);
@@ -37,7 +36,7 @@ body.is-drawer-open{overflow:hidden}
   padding:0 var(--nav-pad-x);
   border-bottom:4px solid var(--ull-red);
   display:flex;align-items:center;gap:var(--nav-gap);
-  background:var(--ull-menu-deep);box-shadow:var(--shadow);
+  background:var(--ull-blue);box-shadow:var(--shadow);
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   transition:transform .22s ease,opacity .22s ease;will-change:transform,opacity
 }
@@ -77,7 +76,7 @@ body.is-drawer-open{overflow:hidden}
 .ull-nav__submenu{
   position:absolute;top:calc(100% + 14px);left:50%;
   transform:translateX(-50%) translateY(8px);
-  min-width:260px;padding:12px;background:var(--ull-menu-deep);
+  min-width:260px;padding:12px;background:var(--ull-blue);
   border:1px solid rgba(255,255,255,.28);border-radius:var(--radius);
   box-shadow:var(--shadow-soft);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   opacity:0;pointer-events:none;transition:opacity .16s ease,transform .16s ease;z-index:200
