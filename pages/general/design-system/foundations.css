@@ -143,6 +143,16 @@ body :is([class*="image" i], [class*="img" i], [class*="media" i]) {
   border-radius: 0 !important;
 }
 
+/* A central focal point keeps cropped photography balanced on every viewport. */
+body img {
+  object-position: center center !important;
+}
+
+/* Both reusable and legacy hero sliders use the same centred focal point. */
+body :is(.home-slider__slide, .slideHome) {
+  background-position: center center !important;
+}
+
 body :is(a, button, input, select, textarea):focus-visible {
   outline: 3px solid var(--ullman-red);
   outline-offset: 3px;

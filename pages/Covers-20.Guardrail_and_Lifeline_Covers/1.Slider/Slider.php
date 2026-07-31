@@ -5,7 +5,7 @@
   min-height: 500px;
   width: 100vw;
   background-image: url("../Covers/2.Services/img/Guardrail_Lifeline_Covers.png");
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
