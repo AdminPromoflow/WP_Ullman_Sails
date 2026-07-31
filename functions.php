@@ -107,7 +107,61 @@ function ullman_directory_version(string $directory): string {
 }
 
 /**
- * Shared components affect every public page and therefore every page version.
+ * A lightweight signature of every public page resource.
+ *
+ * This is intentionally based on path, modification time, and size instead of
+ * hashing media files: the pages directory contains large images, and reading
+ * all of them on every request would slow down the site. Any normal deployment
+ * or edit changes at least one of those values, so the public page version is
+ * refreshed before WordPress renders the page.
+ */
+function ullman_site_version(): string {
+    static $version = null;
+
+    if ($version !== null) {
+        return $version;
+    }
+
+    $themeDirectory = get_template_directory();
+    $files = [
+        $themeDirectory . '/functions.php',
+        $themeDirectory . '/index.php',
+        $themeDirectory . '/style.css',
+    ];
+    $pagesDirectory = $themeDirectory . '/pages';
+
+    if (is_dir($pagesDirectory)) {
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($pagesDirectory, FilesystemIterator::SKIP_DOTS)
+        );
+
+        foreach ($iterator as $file) {
+            if ($file->isFile()) {
+                $files[] = $file->getPathname();
+            }
+        }
+    }
+
+    sort($files, SORT_STRING);
+    $context = hash_init('sha256');
+
+    foreach ($files as $file) {
+        $mtime = @filemtime($file);
+        $size = @filesize($file);
+
+        hash_update(
+            $context,
+            $file . ':' . ($mtime === false ? '0' : (string) $mtime)
+            . ':' . ($size === false ? '0' : (string) $size) . ';'
+        );
+    }
+
+    return $version = substr(hash_final($context), 0, 12);
+}
+
+/**
+ * Every public resource affects every page version. This keeps links generated
+ * from any menu, footer, or cached browser tab aligned with the current site.
  */
 function ullman_shared_version(): string {
     static $version = null;
@@ -116,14 +170,7 @@ function ullman_shared_version(): string {
         return $version;
     }
 
-    $themeDirectory = get_template_directory();
-    $parts = [
-        ullman_file_version($themeDirectory . '/functions.php'),
-        ullman_directory_version($themeDirectory . '/pages/general'),
-        ullman_file_version($themeDirectory . '/pages/Search/search/search-data.js'),
-    ];
-
-    return $version = substr(hash('sha256', implode('|', $parts)), 0, 12);
+    return $version = ullman_site_version();
 }
 
 function ullman_page_version(string $template): string {
@@ -217,11 +264,20 @@ function ullman_redirect_to_versioned_page(): void {
     }
 
     $versionedUrl = ullman_page_url($normalizedKey ?: 'home');
+    $versionedQuery = (string) wp_parse_url($versionedUrl, PHP_URL_QUERY);
+    parse_str($versionedQuery, $versionedArgs);
+    $expectedVersion = isset($versionedArgs['v']) ? (string) $versionedArgs['v'] : '';
     $currentVersion = isset($_GET['v']) ? (string) wp_unslash($_GET['v']) : '';
-    $expectedVersion = (string) wp_parse_url($versionedUrl, PHP_URL_QUERY);
 
-    if ($currentVersion === '' || $expectedVersion !== 'v=' . $currentVersion) {
-        wp_safe_redirect($versionedUrl, 302);
+    if ($expectedVersion === '' || !hash_equals($expectedVersion, $currentVersion)) {
+        $redirectArgs = wp_unslash($_GET);
+        $redirectArgs['v'] = $expectedVersion;
+        $redirectUrl = add_query_arg(
+            $redirectArgs,
+            remove_query_arg('v', $versionedUrl)
+        );
+
+        wp_safe_redirect($redirectUrl, 302);
         exit;
     }
 }
