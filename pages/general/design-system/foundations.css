@@ -113,6 +113,10 @@ body a:not([class]) {
   text-underline-offset: 0.18em;
 }
 
+body :is(a, button) {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Hero: full-bleed imagery with a deliberately capped visual height. */
 .home-slider {
   height: clamp(34rem, 72svh, 58rem) !important;
@@ -191,6 +195,83 @@ body a:not([class]) {
   border-color: #a7193d !important;
 }
 
+/* Slider: controlled contrast, calm motion and compact, tactile controls. */
+.home-slider__track {
+  transition-duration: 720ms !important;
+  transition-timing-function: cubic-bezier(0.22, 0.8, 0.24, 1) !important;
+}
+
+.home-slider__slide::before {
+  background:
+    linear-gradient(90deg, rgba(16, 31, 61, 0.76) 0%, rgba(16, 31, 61, 0.48) 38%, rgba(16, 31, 61, 0.04) 72%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.04)) !important;
+}
+
+.home-slider__slide.is-caption-right::before {
+  background:
+    linear-gradient(270deg, rgba(16, 31, 61, 0.76) 0%, rgba(16, 31, 61, 0.48) 38%, rgba(16, 31, 61, 0.04) 72%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.04)) !important;
+}
+
+.home-slider__line {
+  background: var(--ullman-red) !important;
+  box-shadow: none !important;
+  height: 2px !important;
+  margin-top: var(--space-2) !important;
+  width: min(7rem, 34%) !important;
+}
+
+.home-slider__arrow {
+  align-items: center;
+  backdrop-filter: blur(0.5rem);
+  background: rgba(0, 85, 152, 0.84) !important;
+  border: 1px solid rgba(255, 255, 255, 0.62) !important;
+  border-radius: 50%;
+  display: flex;
+  height: clamp(2.75rem, 3.5vw, 3.25rem) !important;
+  justify-content: center;
+  opacity: 0.94;
+  padding: 0.82rem !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  transition: background-color 180ms ease, border-color 180ms ease, opacity 180ms ease, transform 180ms ease !important;
+  width: clamp(2.75rem, 3.5vw, 3.25rem) !important;
+}
+
+.home-slider__arrow img {
+  height: 100% !important;
+  object-fit: contain;
+  width: 100% !important;
+}
+
+.home-slider__arrow:is(:hover, :focus-visible) {
+  background: var(--ullman-red) !important;
+  border-color: var(--ullman-white) !important;
+  opacity: 1;
+}
+
+.home-slider__arrow--left:is(:hover, :focus-visible) {
+  transform: translateY(-50%) translateX(-0.15rem);
+}
+
+.home-slider__arrow--right:is(:hover, :focus-visible) {
+  transform: translateY(-50%) translateX(0.15rem);
+}
+
+.page_arrow {
+  backdrop-filter: blur(0.5rem);
+  background: rgba(0, 85, 152, 0.84) !important;
+  border: 1px solid rgba(255, 255, 255, 0.62) !important;
+  border-radius: 50%;
+  height: clamp(2.75rem, 3.5vw, 3.25rem) !important;
+  width: clamp(2.75rem, 3.5vw, 3.25rem) !important;
+}
+
+.page_arrow:is(:hover, :focus-visible) {
+  background: var(--ullman-red) !important;
+  border-color: var(--ullman-white) !important;
+}
+
 .ullman-button--secondary {
   background: var(--ullman-blue);
   border: 1px solid var(--ullman-blue);
@@ -227,6 +308,10 @@ body a:not([class]) {
   border-color: #a7193d !important;
   color: var(--ullman-white) !important;
   transform: translateY(-2px);
+}
+
+:is(.btn, .button > button, .button_quote, .customize-cta__btn, .customize-submit, .home-slider__btn, .st-btn, .ullman-button--primary):active {
+  transform: translateY(0);
 }
 
 .contactus-btn--secondary,
