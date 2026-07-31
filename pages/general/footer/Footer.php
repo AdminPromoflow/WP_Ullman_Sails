@@ -1,5 +1,5 @@
 <style>
-  #footer_container {
+  footer#footer_container {
     --footer-navy: #111c42;
     --footer-navy-light: #202e52;
     --footer-red: #c5234a;
@@ -7,20 +7,22 @@
     position: relative;
     overflow: hidden;
     margin: 0;
-    padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 5rem) 0;
+    padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 5rem) 0 !important;
     color: var(--footer-text);
-    background: linear-gradient(135deg, #111c42 0%, #202e52 58%, #162449 100%);
+    background: linear-gradient(135deg, #111c42 0%, #202e52 58%, #162449 100%) !important;
+    display: block !important;
     font-family: "Poppins", sans-serif;
   }
 
-  #footer_container::before {
+  footer#footer_container::before {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 0 !important;
+    width: 100% !important;
     height: 4px;
     content: "";
     background: var(--footer-red);
+    transform: none !important;
   }
 
   #footer_container::after {
@@ -50,7 +52,7 @@
   }
 
   .footer__eyebrow,
-  .footer__heading {
+  #footer_container .footer__heading {
     margin: 0;
     color: #ffffff !important;
   }
