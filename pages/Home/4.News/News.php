@@ -104,7 +104,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Ullman Sails support RC1000</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-rc1000'); ?>">Ullman Sails support RC1000</a></h3>
               <p class="news-card__text">
                 RC1000 race series is a brand new racing class based in Plymouth and the south west, aiming for close performance across the fleet.
               </p>
@@ -132,7 +132,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Ullman Sails Inshore &amp; Offshore Race Series</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-inshore-offshore'); ?>">Ullman Sails Inshore &amp; Offshore Race Series</a></h3>
               <p class="news-card__text">
                 Ullman Sails are pleased to announce the dates for our inshore and offshore points race series, with events planned across the season.
               </p>
@@ -160,7 +160,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Victory in the Quarter Ton Cup</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-quarter-ton-cup'); ?>">Victory in the Quarter Ton Cup</a></h3>
               <p class="news-card__text">
                 Ullman Sails customer John Santy recently cruised to victory at the Quarter Ton Cup with a memorable and hard-fought campaign.
               </p>
@@ -197,7 +197,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Loft Updates</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-loft-updates'); ?>">Loft Updates</a></h3>
               <p class="news-card__text">
                 The Plymouth loft has continued to grow, adding more floor space and improved equipment for sail building, servicing and repairs.
               </p>
@@ -225,7 +225,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Customer Updates</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-customer-updates'); ?>">Customer Updates</a></h3>
               <p class="news-card__text">
                 Great results from Ullman Sails customers across different events, classes and locations with new race and cruising sail inventories.
               </p>
@@ -253,7 +253,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Quarter Tonner Developments</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-quarter-tonner-developments'); ?>">Quarter Tonner Developments</a></h3>
               <p class="news-card__text">
                 We have been working hard in the competitive Quarter Tonner fleet, refining sails and helping customers achieve strong results.
               </p>
@@ -290,7 +290,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">London Boat Show</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-london-boat-show'); ?>">London Boat Show</a></h3>
               <p class="news-card__text">
                 A look back at the London Boat Show and the opportunity it offered to reconnect with customers and prepare for the season ahead.
               </p>
@@ -318,7 +318,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Welcome The Newest Member Of Our Team</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-newest-team-member'); ?>">Welcome The Newest Member Of Our Team</a></h3>
               <p class="news-card__text">
                 Meet the newest team member and learn more about the sailing experience and repair work now happening within the loft team.
               </p>
@@ -346,7 +346,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Penarth – Cruising Code Zero</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-penarth-code-zero'); ?>">Penarth – Cruising Code Zero</a></h3>
               <p class="news-card__text">
                 South Wales dealers delivered a new cruising Code Zero, helping owners enjoy lighter airs and spend more time sailing.
               </p>
@@ -383,7 +383,7 @@ $newsJsV  = is_file($newsJsFs) ? filemtime($newsJsFs) : time();
             </figure>
 
             <div class="news-card__body">
-              <h3 class="news-card__title">Hit By a Once in a Life Time Storm</h3>
+              <h3 class="news-card__title"><a class="news-card__title-link" href="<?php echo esc_url(ullman_page_url('news') . '#news-once-in-a-lifetime-storm'); ?>">Hit By a Once in a Life Time Storm</a></h3>
               <p class="news-card__text">
                 A dramatic offshore story that led to a new yacht, new sails and a focus on strength, finishing details and durability.
               </p>

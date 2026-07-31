@@ -1,12 +1,13 @@
 <?php
-$css_file = __DIR__ . '/../Covers/new_sail_quote/new_sail_quote.css';
-$js_file  = __DIR__ . '/../Covers/new_sail_quote/new_sail_quote.js';
+$css_file = __DIR__ . '/new_sail_quote.css';
+$js_file  = __DIR__ . '/new_sail_quote.js';
+$quote_url = get_template_directory_uri() . '/pages/Covers/new_sail_quote';
 
 $css_time = is_file($css_file) ? filemtime($css_file) : time();
 $js_time  = is_file($js_file) ? filemtime($js_file) : time();
 ?>
 
-<link rel="stylesheet" href="../Covers/new_sail_quote/new_sail_quote.css?v=<?= $css_time ?>">
+<link rel="stylesheet" href="<?php echo esc_url($quote_url . '/new_sail_quote.css?v=' . $css_time); ?>">
 
 <div id="container_bottom" class="container_bottom">
   <a
@@ -17,4 +18,4 @@ $js_time  = is_file($js_file) ? filemtime($js_file) : time();
   </a>
 </div>
 
-<script defer src="../Covers/new_sail_quote/new_sail_quote.js?v=<?= $js_time ?>"></script>
+<script defer src="<?php echo esc_url($quote_url . '/new_sail_quote.js?v=' . $js_time); ?>"></script>

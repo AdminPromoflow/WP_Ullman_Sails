@@ -1,12 +1,13 @@
 <?php
-$cssFile = __DIR__ . '/../Covers/2.Services/Services.css';
-$jsFile  = __DIR__ . '/../Covers/2.Services/Services.js';
+$cssFile = __DIR__ . '/Services.css';
+$jsFile  = __DIR__ . '/Services.js';
+$servicesUrl = get_template_directory_uri() . '/pages/Covers/2.Services';
 
 $cssVer = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 ?>
 
-<link rel="stylesheet" href="../Covers/2.Services/Services.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
+<link rel="stylesheet" href="<?php echo esc_url($servicesUrl . '/Services.css' . ($cssVer ? '?v=' . $cssVer : '')); ?>">
 
 <section class="services" aria-labelledby="services-title">
 
@@ -204,4 +205,4 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   </div>
 </section>
 
-<script defer src="../Covers/2.Services/Services.js<?= $jsVer ? '?v='.$jsVer : '' ?>"></script>
+<script defer src="<?php echo esc_url($servicesUrl . '/Services.js' . ($jsVer ? '?v=' . $jsVer : '')); ?>"></script>

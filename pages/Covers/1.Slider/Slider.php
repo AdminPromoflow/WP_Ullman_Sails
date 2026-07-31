@@ -220,21 +220,26 @@
   min-width: clamp(170px, 26vw, 220px);
   margin-top: 1.2rem;
   padding: 12px 22px;
-  background: rgba(0, 85, 152, .92);
+  border-radius: 2px;
+  background: #c5234a;
   color: #fafafa;
-  border: 1px solid rgba(255, 255, 255, .18);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, .28);
-  font-size: var(--btn-size);
+  border: 1px solid #c5234a;
+  box-shadow: none;
+  font-size: clamp(.78rem, 1.1vw, .92rem);
   font-weight: 600;
+  letter-spacing: .07em;
   text-decoration: none;
   text-align: center;
+  text-transform: uppercase;
   cursor: pointer;
   transition: transform .18s ease, filter .18s ease;
 }
 
 .home-slider__btn:hover{
   transform: translateY(-1px);
-  filter: brightness(1.06);
+  background: #a7193d;
+  border-color: #a7193d;
+  filter: none;
 }
 
 

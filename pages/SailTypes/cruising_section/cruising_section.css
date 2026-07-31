@@ -224,11 +224,12 @@ html.js .cruising-section:not(.is-visible) .cruising-section__action{
   transform: rotate(-6deg) scale(1.06);
   filter: contrast(1.05);
 }
-.cruising-link h3{
+.cruising-section .cruising-link h3.series{
   margin:0;
-  font-size:1.2rem;
+  font-size:clamp(.95rem, 1vw, 1.1rem) !important;
   font-weight:650;
-  color: var(--cs-ink);
+  color:#000000 !important;
+  line-height:1.2 !important;
   letter-spacing:.01em;
 }
 

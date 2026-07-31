@@ -29,6 +29,9 @@
   font-weight: 300;
   line-height: 1.2;
   color: #fff !important;
+  border: 1px solid #c5234a;
+  border-radius: 2px;
+  background: #c5234a;
 
   cursor: pointer;
   box-shadow: var(--btn_shadow, 0 10px 24px rgba(0,0,0,.18));
@@ -49,7 +52,8 @@
 
 .button_quote:hover{
   transform: translateY(-2px);
-  background: rgb(0, 85, 152);
+  background: #a7193d;
+  border-color: #a7193d;
   filter: brightness(1.02);
 }
 
