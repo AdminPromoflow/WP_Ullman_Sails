@@ -281,6 +281,7 @@
 
     <section class="footer__contact-section" aria-label="Contact details">
       <h2 class="footer__heading">Contact</h2>
+      <br>
       <div class="footer__contact">
         <strong>Talk to our sailmakers</strong>
         <a href="tel:+441752337131">Plymouth · 01752 337 131</a>
