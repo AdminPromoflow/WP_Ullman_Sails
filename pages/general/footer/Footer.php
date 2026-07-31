@@ -3,6 +3,7 @@
   body footer#footer_container {
     --footer-navy: #111c42;
     --footer-navy-light: #202e52;
+    --footer-blue: #005598;
     --footer-red: #c5234a;
     --footer-text: rgba(255, 255, 255, .76);
     position: relative;
@@ -10,7 +11,7 @@
     margin: 0;
     padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 5rem) 0 !important;
     color: var(--footer-text);
-    background: linear-gradient(135deg, #111c42 0%, #202e52 58%, #162449 100%) !important;
+    background: linear-gradient(135deg, var(--footer-blue) 0%, #0066a8 58%, #004a84 100%) !important;
     display: block !important;
     font-family: "Poppins", sans-serif;
   }
