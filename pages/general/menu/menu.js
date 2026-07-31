@@ -34,7 +34,11 @@ class Menu {
     this.searchFormMobile = $("searchFormMobile");
     this.searchInputMobile = $("searchInputMobile");
 
-    this.pagesData = window.pagesData || [];
+    this.pageUrls = window.ullmanMenuPageUrls || {};
+    this.pagesData = (window.pagesData || []).map((page) => ({
+      ...page,
+      url: this.normalizePageUrl(page.url)
+    }));
 
     this.init();
   }
@@ -173,6 +177,16 @@ class Menu {
     return doc.querySelector("main")?.innerText.trim() || doc.body.innerText.trim();
   }
 
+  normalizePageUrl(url) {
+    if (typeof url !== "string") return "";
+
+    const match = url.match(/^\.\.\/([^/]+)\/(?:index|News)\.php(?:[?#].*)?$/i);
+
+    if (!match) return url;
+
+    return this.pageUrls[match[1]] || url;
+  }
+
   async buildSearchText() {
     for (const page of this.pagesData) {
       if (!page.text) {
@@ -298,7 +312,14 @@ class Menu {
   onSearchSubmit(e, isMobile) {
     e.preventDefault();
 
-    const firstResult = this.searchResults?.querySelector(".ull-search-results__item");
+    const resultsContainer = isMobile
+      ? document.getElementById("searchResultsMobile")
+      : this.searchResults;
+    const firstResult = resultsContainer?.querySelector(
+      isMobile
+        ? ".ull-search-results-mobile__item"
+        : ".ull-search-results__item"
+    );
 
     if (firstResult) {
       window.location.href = firstResult.getAttribute("href");

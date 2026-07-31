@@ -133,16 +133,28 @@ add_action('template_redirect', 'ullman_redirect_to_versioned_page');
  * Routes pretty public URLs to the corresponding PHP page template.
  */
 function ullman_register_page_routes(): void {
+    $routeSlugs = [];
+
     foreach (ullman_page_routes() as $key => $route) {
         if ($key === 'home') {
             continue;
         }
+
+        $routeSlugs[] = $route['slug'];
 
         add_rewrite_rule(
             '^' . preg_quote($route['slug'], '/') . '/?$',
             'index.php?ullman_page=' . $key,
             'top'
         );
+    }
+
+    /* Refresh WordPress permalinks once whenever the available routes change. */
+    $routesVersion = md5(implode('|', $routeSlugs));
+
+    if (get_option('ullman_page_routes_version') !== $routesVersion) {
+        flush_rewrite_rules(false);
+        update_option('ullman_page_routes_version', $routesVersion, false);
     }
 }
 add_action('init', 'ullman_register_page_routes');

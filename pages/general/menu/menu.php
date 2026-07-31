@@ -22,6 +22,17 @@ $menuCloseV      = is_file($menuCloseFs) ? filemtime($menuCloseFs) : time();
 $menuSearchDataV = is_file($menuSearchDataFs) ? filemtime($menuSearchDataFs) : time();
 $menuUrl = get_template_directory_uri() . '/pages/general/menu';
 $searchDataUrl = get_template_directory_uri() . '/pages/Search/search/search-data.js';
+
+/* Maps the legacy search index paths to their real, versioned WordPress URLs. */
+$menuPageUrls = [];
+
+foreach (ullman_page_routes() as $routeKey => $route) {
+  $directory = strtok($route['template'], '/');
+
+  if (is_string($directory) && $directory !== '') {
+    $menuPageUrls[$directory] = ullman_page_url($routeKey);
+  }
+}
 ?>
 
 <link rel="stylesheet" href="<?php echo esc_url($menuUrl . '/menu.css?v=' . $menuCssV); ?>">
@@ -142,5 +153,8 @@ $searchDataUrl = get_template_directory_uri() . '/pages/Search/search/search-dat
 
 
 
+<script>
+window.ullmanMenuPageUrls = <?php echo wp_json_encode($menuPageUrls); ?>;
+</script>
 <script defer src="<?php echo esc_url($searchDataUrl . '?v=' . $menuSearchDataV); ?>"></script>
 <script defer src="<?php echo esc_url($menuUrl . '/menu.js?v=' . $menuJsV); ?>"></script>
