@@ -261,9 +261,9 @@
       <h2 class="footer__heading">Explore</h2>
       <ul class="footer__list">
         <li><a href="<?php echo esc_url(ullman_page_url('home')); ?>">Home</a></li>
-        <li><a href="<?php echo esc_url(ullman_page_url('services')); ?>">Services</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Sail Care</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('about_us')); ?>">About Us</a></li>
+        <li><a href="<?php echo esc_url(ullman_page_url('contact_us')); ?>">Contact us</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('news')); ?>">News</a></li>
       </ul>
     </nav>
