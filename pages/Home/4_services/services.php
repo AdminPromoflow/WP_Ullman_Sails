@@ -52,7 +52,7 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/4_services';
         </div>
 
         <div class="event-card__action">
-          <a href="<?php echo esc_url(ullman_page_url('services_1_sails_repair')); ?>" class="st-btn st-btn-dark">Explore sail repair</a>
+          <a href="<?php echo esc_url(ullman_page_url('services_1_sails_repair')); ?>" class="st-btn st-btn-dark">Discover service</a>
         </div>
       </article>
 
@@ -83,7 +83,7 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/4_services';
         </div>
 
         <div class="event-card__action">
-          <a href="<?php echo esc_url(ullman_page_url('services_2_sails_cleaning')); ?>" class="st-btn st-btn-dark">Explore cleaning</a>
+          <a href="<?php echo esc_url(ullman_page_url('services_2_sails_cleaning')); ?>" class="st-btn st-btn-dark">Discover service</a>
         </div>
       </article>
 
@@ -116,7 +116,7 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/4_services';
         </div>
 
         <div class="event-card__action">
-          <a href="<?php echo esc_url(ullman_page_url('services_3_canvas_repair')); ?>" class="st-btn st-btn-dark">Explore canvas repair</a>
+          <a href="<?php echo esc_url(ullman_page_url('services_3_canvas_repair')); ?>" class="st-btn st-btn-dark">Discover service</a>
         </div>
       </article>
 

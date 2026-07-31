@@ -29,6 +29,7 @@
 
   position: relative;
   padding-block: var(--st-py);
+  padding-top: 0;
   text-align: center;
   background: #fafafa;
 }

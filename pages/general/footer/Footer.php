@@ -269,7 +269,7 @@
     </nav>
 
     <nav aria-label="Services and covers navigation">
-      <h2 class="footer__heading">Services &amp; Covers</h2>
+      <!-- <h2 class="footer__heading">Services &amp; Covers</h2> -->
       <ul class="footer__list">
         <li><a href="<?php echo esc_url(ullman_page_url('services')); ?>">Services</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('covers')); ?>">Boat Covers</a></li>
