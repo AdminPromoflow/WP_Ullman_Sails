@@ -22,9 +22,8 @@ $voyagerV     = filemtime(__DIR__ . '/../Racing/sail_types_section/img/red_line.
 <script defer src="../Racing/sail_types_section/sail_types_section.js?v=<?= $jsV ?>"></script>
 
 <section class="sail-types-section" aria-labelledby="sail-types-heading">
-  <h2 id="sail-types-heading" class="sail-types-heading" data-st-parallax-text>
-    <span class="sail-types-heading__eyebrow">Sail types</span>
-    <span class="sail-types-heading__title">Discover Your <br>Perfect Sail</span>
+  <h2 id="sail-types-heading" data-st-parallax-text>
+    Discover Your <br>Perfect Sail
   </h2>
 
   <p class="sail-types-subtitle" data-st-parallax-text>

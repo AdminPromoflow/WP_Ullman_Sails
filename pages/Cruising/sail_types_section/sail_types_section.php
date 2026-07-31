@@ -25,9 +25,8 @@ $sectionUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section
 <script defer src="<?php echo esc_url($sectionUrl . '/sail_types_section.js?v=' . $jsV); ?>"></script>
 
 <section class="sail-types-section" aria-labelledby="sail-types-heading">
-  <h2 id="sail-types-heading" class="sail-types-heading" data-st-parallax-text>
-    <span class="sail-types-heading__eyebrow">Sail types</span>
-    <span class="sail-types-heading__title">Discover Your <br>Perfect Sail</span>
+  <h2 id="sail-types-heading" data-st-parallax-text>
+    Discover Your <br>Perfect Sail
   </h2>
 
   <p class="sail-types-subtitle" data-st-parallax-text>
