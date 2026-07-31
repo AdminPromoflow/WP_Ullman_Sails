@@ -212,12 +212,36 @@ add_filter('template_include', 'ullman_load_page_template');
 function ullman_rewrite_legacy_asset_urls(string $html): string {
     $pagesUrl = rtrim(get_template_directory_uri(), '/') . '/pages/';
 
-    return preg_replace_callback(
+    $publicAssetUrl = static function (string $path) use ($pagesUrl): string {
+        $normalizedPath = ltrim($path, '/');
+
+        /* Hostinger is case-sensitive: the real directory is /pages/Home. */
+        $normalizedPath = (string) preg_replace(
+            '/^home\//i',
+            'Home/',
+            $normalizedPath
+        );
+
+        return esc_url($pagesUrl . $normalizedPath);
+    };
+
+    $html = (string) preg_replace_callback(
         '/\b(href|src|poster)=([' . "\"'" . '])\.\.\/([^' . "\"'" . ']+)\2/i',
-        static function (array $match) use ($pagesUrl): string {
+        static function (array $match) use ($publicAssetUrl): string {
             return $match[1] . '=' . $match[2]
-                . esc_url($pagesUrl . ltrim($match[3], '/'))
+                . $publicAssetUrl($match[3])
                 . $match[2];
+        },
+        $html
+    );
+
+    /* Also migrate legacy paths inside inline CSS background-image declarations. */
+    return (string) preg_replace_callback(
+        '/url\(\s*([' . "\"'" . ']?)\.\.\/([^)' . "\"'" . ']+)\1\s*\)/i',
+        static function (array $match) use ($publicAssetUrl): string {
+            $quote = $match[1] !== '' ? $match[1] : '"';
+
+            return 'url(' . $quote . $publicAssetUrl($match[2]) . $quote . ')';
         },
         $html
     );

@@ -90,7 +90,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <h1 class="home-slider__title">THE AXIA SERIES</h1>
         <h2 class="home-slider__subtitle">Elegant shape. Easy handling.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
-        <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('cruising')); ?>">Discover more</a>
+        <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">Discover more</a>
       </div>
     </article>
 
@@ -103,7 +103,7 @@ $sliderUrl = get_template_directory_uri() . '/pages/Home/1_slider';
         <h1 class="home-slider__title">THE AXIA SERIES</h1>
         <h2 class="home-slider__subtitle">Built for ease and confidence.</h2>
         <div class="home-slider__line" aria-hidden="true"></div>
-        <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('cruising')); ?>">Discover more</a>
+        <a class="home-slider__btn" href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">Discover more</a>
       </div>
     </article>
 
