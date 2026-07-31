@@ -23,7 +23,7 @@ $enduranceV = filemtime(__DIR__ . '/../the_axia_series/sail_types_section/img/re
 <section class="sail-types-section" aria-labelledby="sail-types-heading">
   <h2 id="sail-types-heading" class="sail-types-heading" data-st-parallax-text>
     <span class="sail-types-heading__eyebrow">Sail types</span>
-    Discover Your <br>Perfect Sail
+    <span class="sail-types-heading__title">Discover Your <br>Perfect Sail</span>
   </h2>
 
   <p class="sail-types-subtitle" data-st-parallax-text>
