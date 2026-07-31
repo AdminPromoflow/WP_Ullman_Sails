@@ -28,6 +28,7 @@
   --st-radius: 28px;
 
   position: relative;
+  padding-block: var(--st-py);
   text-align: center;
   background: #fafafa;
 }

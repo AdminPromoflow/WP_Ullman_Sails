@@ -345,6 +345,69 @@ function ullman_load_page_template(string $template): string {
 add_filter('template_include', 'ullman_load_page_template');
 
 /**
+ * Adds one consistent return action for every non-home public page.
+ *
+ * The nearest parent is the final clickable breadcrumb, rather than the
+ * browser history. This keeps navigation deterministic when a page was opened
+ * from search, a bookmark, or an external link.
+ */
+function ullman_contextual_back_navigation(string $html, string $pageKey): string {
+    if (
+        $pageKey === 'home'
+        || str_contains($html, 'ullman-context-back')
+        || str_contains($html, 'covers-back-button')
+    ) {
+        return $html;
+    }
+
+    $targetUrl = ullman_page_url('home');
+    $targetLabel = 'Home';
+
+    if (preg_match(
+        '/<nav\b(?=[^>]*\bclass\s*=\s*(["\'])[^"\']*\bnav-breadcrumbs\b[^"\']*\1)[^>]*>(.*?)<\/nav>/is',
+        $html,
+        $navigation
+    )) {
+        preg_match_all('/<a\b([^>]*)>(.*?)<\/a>/is', $navigation[2], $links, PREG_SET_ORDER);
+
+        foreach ($links as $link) {
+            $attributes = $link[1];
+
+            if (
+                !preg_match('/\bclass\s*=\s*(["\'])(.*?)\1/is', $attributes, $classMatch)
+                || !preg_match('/\bnav-breadcrumbs__link\b/', $classMatch[2])
+                || !preg_match('/\bhref\s*=\s*(["\'])(.*?)\1/is', $attributes, $hrefMatch)
+            ) {
+                continue;
+            }
+
+            $candidateUrl = trim(html_entity_decode($hrefMatch[2], ENT_QUOTES, 'UTF-8'));
+            $candidateLabel = trim(wp_strip_all_tags(html_entity_decode($link[2], ENT_QUOTES, 'UTF-8')));
+
+            if ($candidateUrl !== '' && $candidateLabel !== '') {
+                $targetUrl = $candidateUrl;
+                $targetLabel = $candidateLabel;
+            }
+        }
+    }
+
+    $button = sprintf(
+        '<section class="ullman-context-back" aria-label="%1$s"><a class="ullman-context-back__link" href="%2$s">%3$s</a></section>',
+        esc_attr(sprintf('Back to %s', $targetLabel)),
+        esc_url($targetUrl),
+        esc_html(sprintf('Back to %s', $targetLabel))
+    );
+
+    $withFooter = preg_replace('/<footer\b/i', $button . '<footer', $html, 1, $footerCount);
+
+    if (is_string($withFooter) && $footerCount === 1) {
+        return $withFooter;
+    }
+
+    return str_ireplace('</body>', $button . '</body>', $html);
+}
+
+/**
  * Preserves legacy section markup while serving it from WordPress permalinks.
  * A source path such as ../Cruising/section/style.css becomes the public theme
  * asset URL /wp-content/themes/<theme>/pages/Cruising/section/style.css.
@@ -445,6 +508,11 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
             return 'url(' . $quote . $publicAssetUrl($match[2]) . $quote . ')';
         },
         $html
+    );
+
+    $html = ullman_contextual_back_navigation(
+        $html,
+        is_string($pageKey) ? $pageKey : ''
     );
 
     /*
