@@ -324,6 +324,10 @@ function ullman_load_page_template(string $template): string {
     $key = get_query_var('ullman_page');
     $routes = ullman_page_routes();
 
+    if ((!is_string($key) || $key === '') && (is_front_page() || is_home())) {
+        $key = 'home';
+    }
+
     if (!is_string($key) || !isset($routes[$key])) {
         return $template;
     }
@@ -433,7 +437,7 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
     }
 
     /* Also migrate legacy paths inside inline CSS background-image declarations. */
-    return (string) preg_replace_callback(
+    $html = (string) preg_replace_callback(
         '/url\(\s*([' . "\"'" . ']?)\.\.\/([^)' . "\"'" . ']+)\1\s*\)/i',
         static function (array $match) use ($publicAssetUrl): string {
             $quote = $match[1] !== '' ? $match[1] : '"';
@@ -442,6 +446,26 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
         },
         $html
     );
+
+    /*
+     * Load the shared design system after legacy section styles. This lets one
+     * accessible, responsive typographic system govern every public template
+     * while the individual page markup is progressively modernised.
+     */
+    $foundationsFs = get_template_directory() . '/pages/general/design-system/foundations.css';
+    $foundationsUrl = $pagesUrl . 'general/design-system/foundations.css';
+    $foundationsTag = '<link rel="stylesheet" href="'
+        . esc_url($foundationsUrl . '?v=' . ullman_file_version($foundationsFs))
+        . '">';
+    $lastBodyClose = strripos($html, '</body>');
+
+    if ($lastBodyClose === false) {
+        return $html . $foundationsTag;
+    }
+
+    return substr($html, 0, $lastBodyClose)
+        . $foundationsTag
+        . substr($html, $lastBodyClose);
 }
 
 /**
