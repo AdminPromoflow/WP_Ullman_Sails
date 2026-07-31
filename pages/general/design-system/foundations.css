@@ -13,6 +13,9 @@
   --ullman-charcoal: #5e6771;
   --ullman-white: #ffffff;
   --ullman-surface: #f8f8fa;
+  --ullman-heading: #202e52;
+  --ullman-copy: #5e6771;
+  --ullman-link: #005598;
 
   --font-brand: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-editorial: "Times New Roman", Times, serif;
@@ -102,6 +105,28 @@ body p {
   max-width: var(--reading-measure);
 }
 
+/* Colour roles: hierarchy is navy, reading copy is charcoal, action is blue. */
+body :is(main, section, article) :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--ullman-heading) !important;
+}
+
+body :is(main, section, article) :is(p, li, dd, dt, td, figcaption, small, label) {
+  color: var(--ullman-copy) !important;
+}
+
+body :is(main, section, article) :is(input, textarea, select) {
+  color: var(--ullman-heading) !important;
+}
+
+body :is(main, section, article) :is(input, textarea)::placeholder {
+  color: var(--ullman-copy) !important;
+  opacity: 1;
+}
+
+body :is(main, section, article) a:not([class]) {
+  color: var(--ullman-link) !important;
+}
+
 .ullman-sr-only {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
@@ -110,6 +135,12 @@ body p {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+/* Photography and image frames stay square-cornered across the whole site. */
+body :is(img, picture, figure),
+body :is([class*="image" i], [class*="img" i], [class*="media" i]) {
+  border-radius: 0 !important;
 }
 
 body :is(a, button, input, select, textarea):focus-visible {
@@ -229,6 +260,18 @@ body :is(a, button) {
   height: 2px !important;
   margin-top: var(--space-2) !important;
   width: min(7rem, 34%) !important;
+}
+
+/* Slider arrows retain their original artwork; interaction never adds brand colour. */
+.home-slider__arrow:is(:hover, :active) {
+  background: transparent !important;
+  border-color: transparent !important;
+  filter: none !important;
+}
+
+.home-slider__arrow:focus-visible {
+  outline: 2px solid var(--ullman-white);
+  outline-offset: 4px;
 }
 
 .ullman-button--secondary {
