@@ -260,12 +260,14 @@ body :is(a, button) {
 
 .home-slider__slide::before {
   background:
+    linear-gradient(180deg, rgba(17, 28, 66, 0.72) 0%, rgba(17, 28, 66, 0.18) 23%, transparent 42%),
     linear-gradient(90deg, rgba(16, 31, 61, 0.76) 0%, rgba(16, 31, 61, 0.48) 38%, rgba(16, 31, 61, 0.04) 72%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.04)) !important;
 }
 
 .home-slider__slide.is-caption-right::before {
   background:
+    linear-gradient(180deg, rgba(17, 28, 66, 0.72) 0%, rgba(17, 28, 66, 0.18) 23%, transparent 42%),
     linear-gradient(270deg, rgba(16, 31, 61, 0.76) 0%, rgba(16, 31, 61, 0.48) 38%, rgba(16, 31, 61, 0.04) 72%),
     linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.04)) !important;
 }
