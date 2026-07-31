@@ -1,0 +1,269 @@
+.nav-specsheet{
+  background: #F2F6F3;
+  padding: clamp(2.8rem, 5vw, 4.5rem) 1rem;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.nav-specsheet__wrap{
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.nav-specsheet__panel{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 18px;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.10);
+  padding: clamp(1.6rem, 3vw, 3rem);
+}
+
+.nav-specsheet__grid{
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(1.6rem, 3vw, 3rem);
+  align-items: center;
+}
+
+/* ===== Rotator (sin JS) ===== */
+.nav-rotator{
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.nav-rotator__frame{
+  width: min(380px, 100%);
+  aspect-ratio: 3 / 5;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+/* ===== Rotator con transición bonita (fade + zoom + blur) ===== */
+/* ===== Rotator (con transición bonita y controlado por JS) ===== */
+.nav-rotator__img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  filter: blur(4px);
+
+  transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.nav-rotator__img.is-active{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Texto del subtitle con fade suave */
+.nav-rotator__capSub{
+  transition: opacity 220ms ease;
+}
+.nav-rotator__capSub.is-fading{
+  opacity: 0;
+}
+
+/* Dots */
+.nav-rotator__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(31,47,67,0.18);
+  transition: transform 250ms ease, background 250ms ease;
+}
+
+.nav-rotator__dot.is-active{
+  background: rgba(31,74,122,0.85);
+  transform: scale(1.08);
+}
+
+/* Accesibilidad: sin animaciones fuertes */
+@media (prefers-reduced-motion: reduce){
+  .nav-rotator__img{ transition: none; }
+  .nav-rotator__capSub{ transition: none; }
+  .nav-rotator__dot{ transition: none; }
+}
+
+
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .nav-rotator__img{ animation: none; }
+  .nav-rotator__img.img--1{ opacity: 1; }
+}
+
+.nav-rotator__caption{
+  text-align: center;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.nav-rotator__capTitle{
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+  color: #1f2f43;
+  text-transform: uppercase;
+}
+
+.nav-rotator__capSub{
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  font-size: 0.98rem;
+  color: rgba(31,47,67,0.78);
+  text-transform: uppercase;
+}
+
+/* Dots (opcional, sin flechas) */
+.nav-rotator__dots{
+  margin-top: 0.7rem;
+  display: flex;
+  gap: 0.45rem;
+  justify-content: center;
+}
+
+.nav-rotator__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(31,47,67,0.18);
+}
+/* ===== Rotator (con transición bonita y controlado por JS) ===== */
+.nav-rotator__img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  opacity: 0;
+  transform: translateY(12px) scale(0.985);
+  filter: blur(4px);
+
+  transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.nav-rotator__img.is-active{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* Texto del subtitle con fade suave */
+.nav-rotator__capSub{
+  transition: opacity 220ms ease;
+}
+.nav-rotator__capSub.is-fading{
+  opacity: 0;
+}
+
+/* Dots */
+.nav-rotator__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(31,47,67,0.18);
+  transition: transform 250ms ease, background 250ms ease;
+}
+
+.nav-rotator__dot.is-active{
+  background: rgba(31,74,122,0.85);
+  transform: scale(1.08);
+}
+
+/* Accesibilidad: sin animaciones fuertes */
+@media (prefers-reduced-motion: reduce){
+  .nav-rotator__img{ transition: none; }
+  .nav-rotator__capSub{ transition: none; }
+  .nav-rotator__dot{ transition: none; }
+}
+
+
+
+.dot--1{ animation-delay: 0s; }
+.dot--2{ animation-delay: 3s; }
+.dot--3{ animation-delay: 6s; }
+
+/* ===== Texto derecho ===== */
+.nav-specsheet__title{
+  margin: 0 0 1.1rem;
+  font-size: clamp(1.6rem, 1.7vw, 2rem);
+  font-weight: 500;
+  font-style: italic;
+  color: #1f4a7a;
+  letter-spacing: 0.02em;
+}
+
+.nav-specsheet__meta{
+  margin-bottom: 1.7rem;
+}
+
+.nav-specsheet__metaTop{
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 1.08rem;
+  color: #1f2f43;
+}
+
+.nav-specsheet__metaSub{
+  margin-top: 0.35rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: rgba(31,47,67,0.78);
+}
+
+.nav-specsheet__subtitle{
+  margin: 0 0 1.2rem;
+  font-size: clamp(1.35rem, 1.4vw, 1.7rem);
+  font-weight: 500;
+  font-style: italic;
+  color: #1f4a7a;
+}
+
+.nav-specsheet__list{
+  display: grid;
+  gap: 1.2rem;
+}
+
+.nav-specsheet__row{
+  display: grid;
+  gap: 0.25rem;
+}
+
+.nav-specsheet__key{
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  color: #1f2f43;
+}
+
+.nav-specsheet__val{
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 1.02rem;
+  color: rgba(31,47,67,0.80);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .nav-specsheet__grid{
+    grid-template-columns: 1fr;
+  }
+  .nav-rotator__frame{
+    width: min(420px, 100%);
+  }
+}

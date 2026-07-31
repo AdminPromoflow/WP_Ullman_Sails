@@ -1,0 +1,298 @@
+/* =========================
+   THE AXIA SERIES — ULLMAN elegant motion (SIN parallax)
+========================= */
+
+.axia-section{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --cs-border:rgba(15,33,64,.10);
+  --cs-shadow:0 18px 45px rgba(15,33,64,.10);
+  --cs-soft:0 10px 26px rgba(15,33,64,.08);
+
+  background: #fafafa;
+  padding: 2rem;
+  margin: 2rem auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  flex-direction: column;
+}
+
+/* brillo diagonal suave */
+.axia-section::before{
+  content:"";
+  position:absolute;
+  inset:-40% -30%;
+  background: radial-gradient(closest-side, rgba(15,33,64,.045), transparent 70%);
+  transform: rotate(-10deg);
+  pointer-events:none;
+  opacity: .75;
+}
+
+/* glow sutil flotando (solo si lo usas en HTML) */
+.cs-glow{
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(closest-side, rgba(0,85,152,.08), transparent 60%),
+    radial-gradient(closest-side, rgba(15,33,64,.06), transparent 62%);
+  filter: blur(18px);
+  opacity: .7;
+  transform: translate3d(0,0,0) scale(1);
+  pointer-events:none;
+  animation: csGlowDrift 14s ease-in-out infinite alternate;
+}
+
+@keyframes csGlowDrift{
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1.02); opacity:.65; }
+  100% { transform: translate3d( 2%,  1%, 0) scale(1.06); opacity:.80; }
+}
+
+/* ---------------------------------
+   Estado inicial (antes de revelar)
+   ✅ Seguro: SOLO oculta si JS está activo (html.js)
+---------------------------------- */
+html.js .axia-section:not(.is-visible) .img-title-sailing-content,
+html.js .axia-section:not(.is-visible) .axia-title,
+html.js .axia-section:not(.is-visible) .axia-subtitle,
+html.js .axia-section:not(.is-visible) .axia-icons,
+html.js .axia-section:not(.is-visible) .axia-image{
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity .75s ease, transform .75s ease;
+  will-change: transform, opacity;
+}
+
+/* Reveal container */
+.axia-section.is-visible .img-title-sailing-content{ transition-delay: .05s; opacity:1; transform: translate3d(0,0,0); }
+.axia-section.is-visible .axia-title{               transition-delay: .15s; opacity:1; transform: translate3d(0,0,0); }
+.axia-section.is-visible .axia-subtitle{            transition-delay: .25s; opacity:1; transform: translate3d(0,0,0); }
+.axia-section.is-visible .axia-icons{               transition-delay: .33s; opacity:1; transform: translate3d(0,0,0); }
+.axia-section.is-visible .axia-image{               transition-delay: .45s; opacity:1; transform: translate3d(0,0,0); }
+
+/* Logo container */
+.img-title-sailing-content{
+  width: clamp(140px, 28vw, 240px);
+  margin: 0 auto 1rem;
+  opacity: .95;
+  transition: transform .25s ease, opacity .25s ease;
+  z-index: 1;
+  position: relative;
+}
+.img-title-sailing-content:hover{ opacity: 1; transform: scale(1.02); }
+.img-title-sailing-content img{ width:100%; height:auto; display:block; }
+
+/* Title */
+.axia-title{
+  color: #005598;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0.5rem 0 1.5rem 0;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  margin-inline: auto;
+  text-transform: none;
+  z-index: 1;
+  position: relative;
+}
+
+/* subrayado “se dibuja” */
+.axia-title::after{
+  content:"";
+  display:block;
+  width: clamp(90px, 10vw, 140px);
+  height: 2px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(15,33,64,.45), transparent);
+  transform: scaleX(.6);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform .9s ease, opacity .9s ease;
+}
+.axia-section.is-visible .axia-title::after{
+  opacity: 1;
+  transform: scaleX(.92);
+}
+
+/* Subtitle */
+.axia-subtitle{
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+  color: var(--cs-muted);
+  text-align: center;
+  max-width: 65ch;
+  margin-inline: auto;
+  z-index: 1;
+  position: relative;
+}
+
+/* Icons list (2 opciones) */
+.axia-icons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap: 16px;
+  margin: 60px 0 70px;
+  padding: 0;
+  list-style: none;
+  z-index: 1;
+  position: relative;
+}
+
+.axia-icon{
+  padding:0;
+  min-width: 220px;
+  max-width: 320px;
+}
+
+/* pills */
+.axia-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content: center;
+  gap:10px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--cs-border);
+  box-shadow: 0 1px 0 rgba(15,33,64,.04);
+  color: var(--cs-ink);
+  text-decoration:none;
+  width: 100%;
+
+  transform: translateY(0);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+  will-change: transform;
+  backdrop-filter: blur(6px);
+}
+
+.axia-link:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--cs-soft);
+  border-color: rgba(15,33,64,.18);
+  background:#fff;
+}
+.axia-link:active{ transform: translateY(-1px); }
+.axia-link:focus-visible{
+  outline: 3px solid rgba(15,33,64,.25);
+  outline-offset: 3px;
+}
+.axia-link img{
+  width:28px; height:28px;
+  transition: transform .35s ease, filter .35s ease;
+  transform: translateZ(0);
+}
+.axia-link:hover img{
+  transform: rotate(-6deg) scale(1.06);
+  filter: contrast(1.05);
+}
+.axia-link h3{
+  margin:0;
+  font-size:1.2rem;
+  font-weight:650;
+  color: var(--cs-ink);
+  letter-spacing:.01em;
+}
+
+/* Stagger de los 2 items */
+html.js .axia-icons .axia-icon{
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity .65s ease, transform .65s ease;
+  will-change: transform, opacity;
+}
+.axia-section.is-visible .axia-icons .axia-icon{
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+.axia-section.is-visible .axia-icons .axia-icon:nth-child(1){ transition-delay: .34s; }
+.axia-section.is-visible .axia-icons .axia-icon:nth-child(2){ transition-delay: .40s; }
+
+/* =========================
+   Imagen — wipe + zoom suave (SIN parallax)
+========================= */
+.axia-image{
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.axia-image-inner{
+  width: min(980px, 70%);
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--cs-shadow);
+  position: relative;
+
+  transform: scale(1.03);
+  transition: transform .9s ease;
+}
+
+/* “wipe” overlay */
+.axia-image-inner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(250,250,250,.95), rgba(250,250,250,.65), rgba(250,250,250,0));
+  transform: translate3d(-105%,0,0);
+  transition: transform 1.05s ease;
+  pointer-events:none;
+}
+
+.axia-section.is-visible .axia-image-inner{
+  transform: scale(1);
+}
+.axia-section.is-visible .axia-image-inner::after{
+  transform: translate3d(105%,0,0);
+}
+
+.axia-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+
+  transform: scale(1.06);
+  transition: transform 1.2s ease;
+  will-change: transform;
+  filter: contrast(1.02) saturate(1.02);
+}
+.axia-section.is-visible .axia-image img{
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .axia-image-inner{ width: 92%; }
+  .axia-icons{ margin: 40px 0 55px; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .cs-glow,
+  .img-title-sailing-content,
+  .axia-title,
+  .axia-subtitle,
+  .axia-icons,
+  .axia-icons .axia-icon,
+  .axia-link,
+  .axia-link img,
+  .axia-image,
+  .axia-image-inner,
+  .axia-image-inner::after,
+  .axia-image img,
+  .axia-title::after{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

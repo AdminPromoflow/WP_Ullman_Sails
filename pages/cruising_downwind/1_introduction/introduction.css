@@ -1,0 +1,208 @@
+/* ============================================================================
+   Ullman Sails — Downwind Intro (CSS)
+============================================================================ */
+
+/* ===== Global base ===== */
+.cac-num { color: #005598 !important; }
+.ss-num  { color: #202E52 !important; }
+
+/* ===== Tokens ===== */
+:root{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --u-container:72rem;
+  --u-gutter:clamp(1rem,4vw,3rem);
+  --u-sec-py:clamp(2.75rem,6vw,5rem);
+  --u-gap:clamp(.75rem,2vw,1.5rem);
+}
+
+/* ===== Intro section ===== */
+.sailing-types-introduction{
+  position: relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding-block: var(--u-sec-py);
+  padding-inline: var(--u-gutter);
+  background:#fafafa;
+
+  overflow:hidden;
+  isolation:isolate;
+}
+
+.sailing-content{
+  width:min(100%, var(--u-container));
+  margin-inline:auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap: var(--u-gap);
+  position:relative;
+  z-index:1;
+}
+
+/* Logo */
+.img-title-sailing-content{
+  width:clamp(140px,28vw,240px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin:0;
+}
+
+.sailing-content img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+}
+
+/* Title */
+.sailing-content h1{
+  line-height:1.12;
+  padding-bottom:clamp(1.25rem,3vw,2.25rem);
+  font-size:clamp(3rem,4.5vw,6rem);
+  font-weight:600;
+  max-width:18ch;
+  margin:auto;
+  color:#005598;
+}
+
+@supports (text-wrap: balance){
+  .sailing-content h1{ text-wrap:balance; }
+}
+
+.sailing-content h1::after{
+  content:"";
+  display:block;
+  width:clamp(72px,18vw,140px);
+  height:2px;
+  margin:clamp(.9rem,2.2vw,1.2rem) auto 0;
+  background:linear-gradient(90deg, transparent, rgba(15,33,64,.45), transparent);
+  transform:scaleX(.9);
+}
+
+/* Paragraph */
+.sailing-content p{
+  margin:0;
+  font-size:clamp(1rem,2.2vw,1.5rem);
+  line-height:1.6;
+  max-width:68ch;
+  color:var(--cs-muted);
+  position:relative;
+  z-index:1;
+  padding-inline:clamp(0rem,2vw,1rem);
+}
+
+/* ===== Breakpoints ===== */
+@media (max-width: 360px){
+  .sailing-types-introduction{ padding-inline:1rem; }
+  .sailing-content h1{
+    font-size:clamp(1.75rem,9vw,2.35rem);
+    max-width:18ch;
+  }
+}
+
+@media (max-width: 480px){
+  .sailing-content{ gap:.9rem; }
+  .sailing-content p{ font-size:1.02rem; }
+}
+
+@media (min-width: 768px){
+  .sailing-types-introduction{
+    padding-block:clamp(3.5rem,5vw,5.5rem);
+  }
+}
+
+@media (min-width: 1200px){
+  .sailing-content h1{ max-width:24ch; }
+}
+
+/* ============================================================================
+   Parallax (basic) — uses CSS vars set by JS
+============================================================================ */
+
+/* Background layer */
+.sailing-types-introduction::before{
+  content:"";
+  position:absolute;
+  inset:-12%;
+  z-index:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(40rem 26rem at 18% 15%, rgba(0,85,152,.10), transparent 55%),
+    radial-gradient(34rem 24rem at 80% 70%, rgba(15,33,64,.10), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.15));
+
+  transform: translate3d(0, var(--p-bg, 0px), 0) scale(1.03);
+  will-change: transform;
+}
+
+/* Combine Parallax + Reveal using vars (no transform fights) */
+.img-title-sailing-content{ --p-shift: var(--p-logo, 0px); }
+.sailing-content h1{        --p-shift: var(--p-title, 0px); }
+.sailing-content p{         --p-shift: var(--p-text, 0px); }
+
+.img-title-sailing-content,
+.sailing-content h1,
+.sailing-content p{
+  transform: translate3d(0, calc(var(--p-shift, 0px) + var(--sr-y, 0px)), 0)
+             scale(var(--sr-scale, 1));
+  will-change: transform;
+}
+
+/* ============================================================================
+   REVEAL (stagger) — compatible with parallax
+============================================================================ */
+
+.js-sr [data-sr-reveal] .sr-item{
+  opacity:0;
+  --sr-y: 16px;
+  --sr-scale: .985;
+  filter: blur(2);
+
+  transition:
+    opacity 650ms cubic-bezier(.22,.61,.36,1),
+    filter 650ms cubic-bezier(.22,.61,.36,1),
+    transform 650ms cubic-bezier(.22,.61,.36,1);
+  transition-delay: var(--sr-delay, 0ms);
+
+  will-change: opacity, filter, transform;
+}
+
+.js-sr [data-sr-reveal].is-revealed .sr-item{
+  opacity:1;
+  --sr-y: 0px;
+  --sr-scale: 1;
+  filter: blur(0);
+}
+
+/* HR reveal clean */
+.js-sr [data-sr-reveal] .sr-item.sr-hr{
+  transform: translate3d(0, 14px, 0) scaleX(.92);
+  transform-origin:left center;
+  filter:none;
+}
+.js-sr [data-sr-reveal].is-revealed .sr-item.sr-hr{
+  transform: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .sailing-types-introduction::before{ transform:none !important; }
+  .js-sr [data-sr-reveal] .sr-item{
+    opacity:1 !important;
+    --sr-y:0px !important;
+    --sr-scale:1 !important;
+    filter:none !important;
+    transition:none !important;
+  }
+  .img-title-sailing-content,
+  .sailing-content h1,
+  .sailing-content p{
+    transform:none !important;
+    will-change:auto;
+  }
+}

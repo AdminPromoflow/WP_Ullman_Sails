@@ -1,0 +1,361 @@
+/* =========================
+   Services section
+========================= */
+
+.events-section{
+  --ev-text: #111111;
+  --ev-muted: #5a5a5a;
+  --ev-border: rgba(17,17,17,.35);
+  --ev-placeholder: #dddddd;
+  --ev-shell: min(1000px, 92vw);
+  --btn-shadow: 0 10px 24px rgba(0,0,0,.18);
+  background: #ffffff;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 11%,
+    rgba(243, 243, 243, 1) 42%,
+    rgba(255, 255, 255, 1) 89%
+  );
+  padding: clamp(3rem, 8vw, 6rem) 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--ev-text);
+}
+
+.events-shell{
+  width: var(--ev-shell);
+  margin: 0 auto;
+}
+
+.events-header{
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Ullman Sails logo */
+.img-title-sailing-content{
+  width: clamp(140px, 28vw, 240px);
+  margin: 0 auto 1rem;
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition: transform .45s ease, opacity .45s ease;
+  z-index: 1;
+}
+
+.img-title-sailing-content img{
+  display: block;
+  width: 80%;
+  height: auto;
+  margin-inline: auto;
+}
+
+/* Main title */
+.sail_types_title{
+  color: #005598;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0.5rem 0 1.5rem 0;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: none;
+  z-index: 1;
+
+  opacity: 0;
+  transform: translateY(16px);
+  transition: transform .55s ease, opacity .55s ease;
+}
+
+.sail_types_title::after{
+  content: "";
+  display: block;
+  width: clamp(90px, 10vw, 140px);
+  height: 2px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(15,33,64,.45), transparent);
+  transform: scaleX(.6);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform .9s ease, opacity .9s ease;
+}
+
+.events-list{
+  display: grid;
+  gap: 0;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--ev-border);
+}
+
+/* Cards: initial hidden state */
+/* =========================
+   Media / images
+========================= */
+
+.event-card{
+  display: grid;
+  grid-template-columns: 138px minmax(0, 1fr) 190px;
+  gap: 1.75rem;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--ev-border);
+
+  opacity: 0;
+  transform: translateY(28px);
+  transition: transform .65s ease, opacity .65s ease;
+}
+
+.event-card__media{
+  width: 138px;
+  opacity: 0;
+  transform: translateY(14px) scale(.98);
+  transition: transform .55s ease, opacity .55s ease;
+}
+
+.event-card__placeholder{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #e9edf2;
+  box-shadow: 0 12px 28px rgba(15, 33, 64, .12);
+}
+
+.event-card__image{
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Optional gentle hover */
+.event-card:hover .event-card__image{
+  transform: scale(1.03);
+  transition: transform .45s ease;
+}
+
+.event-card__content{
+  min-width: 0;
+}
+
+.event-card__title{
+  margin: 0;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: rgb(32, 46, 82);
+
+  opacity: 0;
+  transform: translateY(12px);
+  transition: transform .5s ease, opacity .5s ease;
+}
+
+.event-card__subtitle{
+  margin: 0.7rem 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgb(0, 85, 152);
+
+  opacity: 0;
+  transform: translateY(12px);
+  transition: transform .55s ease, opacity .55s ease;
+}
+
+.event-card__text{
+  max-width: 58ch;
+  margin: 1rem 0 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ev-text);
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition: transform .6s ease, opacity .6s ease;
+}
+
+.event-card__action{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  opacity: 0;
+  transform: translateY(14px);
+  transition: transform .6s ease, opacity .6s ease;
+}
+
+.st-btn{
+  display: inline-block;
+  width: max-content;
+  margin-top: 1.2rem;
+  padding: 3px 20px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--btn-shadow);
+  font-size: 1.3em;
+  font-weight: 300;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .4s;
+}
+
+.st-btn-dark{
+  background: rgb(32, 46, 82);
+}
+
+.st-btn-dark:hover{
+  background: rgb(0, 85, 152);
+  transform: translateY(-2px) !important;
+}
+
+.events-section.is-visible .img-title-sailing-content{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: .02s;
+}
+
+.events-section.is-visible .sail_types_title{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .12s;
+}
+
+.events-section.is-visible .sail_types_title::after{
+  opacity: 1;
+  transform: scaleX(1);
+  transition-delay: .28s;
+}
+
+.events-section.is-visible .event-card{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.events-section.is-visible .event-card__media,
+.events-section.is-visible .event-card__title,
+.events-section.is-visible .event-card__subtitle,
+.events-section.is-visible .event-card__text,
+.events-section.is-visible .event-card__action{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.events-section.is-visible .event-card:nth-child(1){
+  transition-delay: .22s;
+}
+.events-section.is-visible .event-card:nth-child(1) .event-card__media{
+  transition-delay: .30s;
+}
+.events-section.is-visible .event-card:nth-child(1) .event-card__title{
+  transition-delay: .36s;
+}
+.events-section.is-visible .event-card:nth-child(1) .event-card__subtitle{
+  transition-delay: .42s;
+}
+.events-section.is-visible .event-card:nth-child(1) .event-card__text{
+  transition-delay: .48s;
+}
+.events-section.is-visible .event-card:nth-child(1) .event-card__action{
+  transition-delay: .54s;
+}
+
+.events-section.is-visible .event-card:nth-child(2){
+  transition-delay: .34s;
+}
+.events-section.is-visible .event-card:nth-child(2) .event-card__media{
+  transition-delay: .42s;
+}
+.events-section.is-visible .event-card:nth-child(2) .event-card__title{
+  transition-delay: .48s;
+}
+.events-section.is-visible .event-card:nth-child(2) .event-card__subtitle{
+  transition-delay: .54s;
+}
+.events-section.is-visible .event-card:nth-child(2) .event-card__text{
+  transition-delay: .60s;
+}
+.events-section.is-visible .event-card:nth-child(2) .event-card__action{
+  transition-delay: .66s;
+}
+
+.events-section.is-visible .event-card:nth-child(3){
+  transition-delay: .46s;
+}
+.events-section.is-visible .event-card:nth-child(3) .event-card__media{
+  transition-delay: .54s;
+}
+.events-section.is-visible .event-card:nth-child(3) .event-card__title{
+  transition-delay: .60s;
+}
+.events-section.is-visible .event-card:nth-child(3) .event-card__subtitle{
+  transition-delay: .66s;
+}
+.events-section.is-visible .event-card:nth-child(3) .event-card__text{
+  transition-delay: .72s;
+}
+.events-section.is-visible .event-card:nth-child(3) .event-card__action{
+  transition-delay: .78s;
+}
+
+@media (max-width: 900px){
+  .event-card{
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 1.25rem 1.25rem;
+  }
+
+  .event-card__media{
+    width: 120px;
+  }
+
+  .event-card__action{
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px){
+  .event-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .event-card__media{
+    width: min(220px, 100%);
+  }
+
+  .event-card__title,
+  .event-card__subtitle,
+  .event-card__text{
+    text-align: center;
+  }
+
+  .event-card__action{
+    grid-column: auto;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .img-title-sailing-content,
+  .sail_types_title,
+  .sail_types_title::after,
+  .event-card,
+  .event-card__media,
+  .event-card__title,
+  .event-card__subtitle,
+  .event-card__text,
+  .event-card__action{
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

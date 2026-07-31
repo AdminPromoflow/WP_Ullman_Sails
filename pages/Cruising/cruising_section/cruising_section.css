@@ -1,0 +1,320 @@
+/* =========================
+   CRUISING SECTION — ULLMAN elegant motion (SIN parallax)
+========================= */
+.cruising-section{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --cs-border:rgba(15,33,64,.10);
+  --cs-shadow:0 18px 45px rgba(15,33,64,.10);
+  --cs-soft:0 10px 26px rgba(15,33,64,.08);
+
+  background: #fafafa;
+  padding: 2rem;
+  margin: 2rem auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  flex-direction: column;
+}
+
+/* brillo diagonal suave */
+.cruising-section::before{
+  content:"";
+  position:absolute;
+  inset:-40% -30%;
+  background: radial-gradient(closest-side, rgba(15,33,64,.045), transparent 70%);
+  transform: rotate(-10deg);
+  pointer-events:none;
+  opacity: .75;
+}
+
+/* glow sutil flotando */
+.cs-glow{
+  position:absolute;
+  inset:-30%;
+  background:
+    radial-gradient(closest-side, rgba(0,85,152,.08), transparent 60%),
+    radial-gradient(closest-side, rgba(15,33,64,.06), transparent 62%);
+  filter: blur(18px);
+  opacity: .7;
+  transform: translate3d(0,0,0) scale(1);
+  pointer-events:none;
+  animation: csGlowDrift 14s ease-in-out infinite alternate;
+}
+
+@keyframes csGlowDrift{
+  0%   { transform: translate3d(-2%, -1%, 0) scale(1.02); opacity:.65; }
+  100% { transform: translate3d( 2%,  1%, 0) scale(1.06); opacity:.80; }
+}
+
+/* ---------------------------------
+   Estado inicial (antes de revelar)
+---------------------------------- */
+.img-title-sailing-content,
+.cruising-title,
+.cruising-subtitle,
+.cruising-icons,
+.cruising-image{
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity .75s ease, transform .75s ease;
+  will-change: transform, opacity;
+}
+
+/* Reveal container */
+.cruising-section.is-visible .img-title-sailing-content{
+  transition-delay: .05s;
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+.cruising-section.is-visible .cruising-title{
+  transition-delay: .15s;
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+.cruising-section.is-visible .cruising-subtitle{
+  transition-delay: .25s;
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+.cruising-section.is-visible .cruising-icons{
+  transition-delay: .33s;
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+.cruising-section.is-visible .cruising-image{
+  transition-delay: .45s;
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* Logo container */
+.img-title-sailing-content{
+  width: clamp(140px, 28vw, 240px);
+  margin: 0 auto 1rem;
+  opacity: .95;
+  transition: transform .25s ease, opacity .25s ease;
+  z-index: 1;
+}
+.img-title-sailing-content:hover{ opacity: 1; transform: scale(1.02); }
+.img-title-sailing-content img{ width:100%; height:auto; display:block; }
+
+/* Title */
+.cruising-title{
+  color: #005598;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0.5rem 0 1.5rem 0;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: none;
+  z-index: 1;
+}
+
+/* subrayado “se dibuja” */
+.cruising-title::after{
+  content:"";
+  display:block;
+  width: clamp(90px, 10vw, 140px);
+  height: 2px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(15,33,64,.45), transparent);
+  transform: scaleX(.6);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform .9s ease, opacity .9s ease;
+}
+.cruising-section.is-visible .cruising-title::after{
+  opacity: 1;
+  transform: scaleX(.92);
+}
+
+/* Subtitle */
+.cruising-subtitle{
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+  color: var(--cs-muted);
+  text-align: center;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+}
+
+/* Icons list */
+.cruising-icons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap: 16px;
+  margin: 60px 0 70px;
+  padding: 0;
+  list-style: none;
+  z-index: 1;
+  position: relative;
+}
+
+.cruising-icon{
+  padding:0;
+  min-width: 200px;
+}
+
+/* pills */
+.cruising-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content: center;
+  gap:10px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--cs-border);
+  box-shadow: 0 1px 0 rgba(15,33,64,.04);
+  color: var(--cs-ink);
+  text-decoration:none;
+  cursor:pointer;
+  width: 100%;
+
+  transform: translateY(0);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+  will-change: transform;
+  backdrop-filter: blur(6px);
+
+}
+
+.cruising-link:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--cs-soft);
+  border-color: rgba(15,33,64,.18);
+  background:#fff;
+}
+.cruising-link:active{ transform: translateY(-1px); }
+.cruising-link:focus-visible{
+  outline: 3px solid rgba(15,33,64,.25);
+  outline-offset: 3px;
+}
+.cruising-link img{
+  width:26px; height:26px;
+  transition: transform .35s ease, filter .35s ease;
+  transform: translateZ(0);
+}
+.cruising-link:hover img{
+  transform: rotate(-6deg) scale(1.06);
+  filter: contrast(1.05);
+}
+.cruising-link h3{
+  margin:0;
+  font-size:1.2rem;
+  font-weight:650;
+  color: var(--cs-ink);
+  letter-spacing:.01em;
+}
+
+/* Stagger de los 5 items (solo con clase is-visible) */
+.cruising-icons .cruising-icon{
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity .65s ease, transform .65s ease;
+  will-change: transform, opacity;
+}
+.cruising-section.is-visible .cruising-icons .cruising-icon{
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+.cruising-section.is-visible .cruising-icons .cruising-icon:nth-child(1){ transition-delay: .34s; }
+.cruising-section.is-visible .cruising-icons .cruising-icon:nth-child(2){ transition-delay: .40s; }
+.cruising-section.is-visible .cruising-icons .cruising-icon:nth-child(3){ transition-delay: .46s; }
+.cruising-section.is-visible .cruising-icons .cruising-icon:nth-child(4){ transition-delay: .52s; }
+.cruising-section.is-visible .cruising-icons .cruising-icon:nth-child(5){ transition-delay: .58s; }
+
+/* =========================
+   Imagen — wipe + zoom suave (SIN parallax)
+========================= */
+.cruising-image{
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.cruising-image-inner{
+  width: min(980px, 70%);
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--cs-shadow);
+  position: relative;
+
+  /* estado inicial */
+  transform: scale(1.03);
+  transition: transform .9s ease;
+}
+
+/* “wipe” overlay */
+.cruising-image-inner::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(90deg, rgba(250,250,250,.95), rgba(250,250,250,.65), rgba(250,250,250,0));
+  transform: translate3d(-105%,0,0);
+  transition: transform 1.05s ease;
+  pointer-events:none;
+}
+
+.cruising-section.is-visible .cruising-image-inner{
+  transform: scale(1);
+}
+.cruising-section.is-visible .cruising-image-inner::after{
+  transform: translate3d(105%,0,0);
+}
+
+.cruising-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+
+  /* pequeño “breath” */
+  transform: scale(1.06);
+  transition: transform 1.2s ease;
+  will-change: transform;
+  filter: contrast(1.02) saturate(1.02);
+}
+.cruising-section.is-visible .cruising-image img{
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .cruising-image-inner{ width: 92%; }
+  .cruising-icons{ margin: 40px 0 55px; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .cs-glow,
+  .img-title-sailing-content,
+  .cruising-title,
+  .cruising-subtitle,
+  .cruising-icons,
+  .cruising-icons .cruising-icon,
+  .cruising-link,
+  .cruising-link img,
+  .cruising-image,
+  .cruising-image-inner,
+  .cruising-image-inner::after,
+  .cruising-image img,
+  .cruising-title::after{
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

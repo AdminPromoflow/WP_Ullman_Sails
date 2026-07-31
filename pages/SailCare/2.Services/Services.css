@@ -1,0 +1,94 @@
+/* =========================================================
+   Services.css — Sail Care (clean white layout)
+   ========================================================= */
+
+.sailcare{
+  background: #fff;
+  color: #0f2140;
+  padding: clamp(26px, 5vw, 72px) 16px;
+}
+
+.sailcare__inner{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+/* Rows */
+.sailcare__row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(18px, 3vw, 42px);
+  align-items: start;
+}
+
+.sailcare__row--top{
+  margin-bottom: clamp(26px, 5vw, 56px);
+}
+
+/* Media */
+.sailcare__media{
+  margin: 0;
+}
+
+.sailcare__media img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+/* Copy */
+.sailcare__copy{
+  min-width: 0;
+}
+
+.sailcare__kicker{
+  margin: auto;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(190, 19, 59);
+}
+
+.sailcare__title{
+  margin: 0 0 14px 0;
+  font-size: clamp(1.8rem, 2.6vw, 2.6rem);
+  line-height: 1.15;
+  font-weight: 650;
+  color: #202E52;
+}
+
+.sailcare__p{
+  margin: 0 0 14px 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(15,33,64,.86);
+}
+
+.sailcare__p:last-child{
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .sailcare__row{
+    grid-template-columns: 1fr;
+  }
+
+  /* keep the requested order:
+     TOP: image then text (default)
+     BOTTOM: text then image (default)
+  */
+  .sailcare__media img{
+    aspect-ratio: 16 / 10;
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{
+    scroll-behavior: auto !important;
+  }
+}

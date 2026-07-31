@@ -1,0 +1,12 @@
+/* Parallax — safe layer (uses CSS var) */
+.px-layer{
+  --px-y: 0px;
+  translate: 0 var(--px-y);
+  will-change: translate;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .px-layer{
+    translate: none !important;
+  }
+}

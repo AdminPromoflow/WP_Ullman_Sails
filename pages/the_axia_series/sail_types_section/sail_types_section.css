@@ -1,0 +1,58 @@
+/* sail_types_section.css — MINIMAL (2 imágenes centradas) */
+
+.sail-types-section{
+  padding: 6vw 2vw;
+}
+
+.sail-types-section h2{
+  font-size: clamp(2.4rem, 3.6vw, 4.8rem);
+  line-height: 1.2;
+  margin: 0.5rem 0 1.25rem 0;
+  color: #005598;
+  text-align: center;
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.sail-types-subtitle{
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+  line-height: 1.3;
+  margin: 0 0 1.75rem 0;
+  color: #5f6b7a;
+  text-align: center;
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+/* ✅ Solo 2 imágenes centradas */
+.sail-types-axia-grid{
+  position: relative;
+  padding: 5px;
+  margin: auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.image-axia-container{
+  position: relative;
+  width: 500px;
+  margin: 20px;
+}
+.image-axia-container img{
+  position: relative;
+  width: 100%;
+  height:420px;
+}
+.image-axia-container a{
+  text-decoration: none;
+}
+/* label simple (si lo quieres quitar, lo eliminas y ya) */
+.sail-types-title{
+  margin: 12px 0 0 0;
+  text-align: center;
+  color: #202E52;
+  font-weight: 600;
+  font-size: 1.1rem;
+}

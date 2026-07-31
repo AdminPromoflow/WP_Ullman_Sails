@@ -1,0 +1,48 @@
+/* =========================
+   GORE TENARA THREAD — hero centered (como la imagen)
+========================= */
+
+.gore_tenara_thread{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+
+  position: relative;
+  padding: 7vw 3vw;
+  background: #fff;
+}
+
+.gtt-wrap{
+  width: min(980px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.gtt-title{
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 6.2rem);
+  font-weight: 800;
+  line-height: 1.03;
+  color: #0b0b0b;
+  letter-spacing: -0.02em;
+}
+
+.gtt-subtitle{
+  margin: clamp(18px, 2.4vw, 28px) auto 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  line-height: 1.75;
+  color: #0b0b0b;
+  max-width: 72ch;
+}
+
+/* Responsive */
+@media (max-width: 520px){
+  .gtt-title{ letter-spacing: -0.01em; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .gore_tenara_thread *{
+    transition: none !important;
+    animation: none !important;
+  }
+}

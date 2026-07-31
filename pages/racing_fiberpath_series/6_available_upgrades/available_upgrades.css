@@ -1,0 +1,171 @@
+/* =========================
+   AVAILABLE UPGRADES — responsive (same pattern as before)
+   File: cruising_navigator/6_available_upgrades/available_upgrades.css
+========================= */
+
+.available_upgrades{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --au-line: rgba(15,33,64,.55);
+
+  /* Pattern: fluid spacing + safe gutters */
+  --au-container: 72rem;               /* ~1152px */
+  --au-gutter: clamp(1rem, 4vw, 3rem);
+  --au-py: clamp(2.75rem, 6vw, 5rem);
+
+  position: relative;
+  padding-block: var(--au-py);
+  padding-inline: var(--au-gutter);
+  background: #F8F8FA;
+}
+
+.au-wrap{
+  width: min(100%, 61.25rem); /* 980px */
+  margin-inline: auto;
+}
+
+/* Header */
+.au-header{
+  text-align: center;
+}
+
+.au-tagline{
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cs-muted);
+}
+
+/* Section title format (as requested) */
+.au-title{
+  margin: 0;
+
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  font-weight: 600;
+  line-height: 1.12;
+
+  color: var(--cs-ink);
+  max-width: 26ch;
+  padding-inline: clamp(0rem, 1.2vw, .5rem);
+
+  margin-inline: auto;
+}
+
+.au-subtitle{
+  margin: clamp(.9rem, 2.2vw, 1.35rem) auto 0;
+  font-size: clamp(1.02rem, 1.8vw, 1.35rem);
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 78ch;
+  padding-inline: clamp(0rem, 1.2vw, .5rem);
+}
+
+/* List */
+.au-list{
+  margin-top: clamp(1.8rem, 4.5vw, 4rem);
+}
+
+.au-row{
+  display: grid;
+  grid-template-columns: clamp(64px, 10vw, 90px) 1fr;
+  gap: clamp(1rem, 2.6vw, 26px);
+  align-items: start;
+  padding-block: clamp(1.1rem, 2.6vw, 1.75rem);
+}
+
+.au-num{
+  font-size: clamp(2.1rem, 6vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1;
+  color: #202E52;
+}
+
+.au-row-title{
+  margin: 0;
+  font-size: clamp(1.25rem, 2.2vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0b0b0b;
+  max-width: 40ch;
+}
+
+.au-row-text{
+  margin: clamp(.55rem, 1.4vw, .75rem) 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.05rem);
+  line-height: 1.7;
+  color: #0b0b0b;
+  max-width: 72ch;
+}
+
+.au-divider{
+  border: 0;
+  height: 1px;
+  background: var(--au-line);
+  margin: 0;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+/* Small phones */
+@media (max-width: 360px){
+  .available_upgrades{
+    padding-inline: 1rem;
+  }
+  .au-title{
+    max-width: 20ch;
+  }
+}
+
+/* Collapse to single column number + text for narrow screens */
+@media (max-width: 520px){
+  .au-row{
+    grid-template-columns: 1fr;
+    gap: .6rem;
+  }
+  .au-num{
+    font-size: 2.25rem;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .available_upgrades *{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =========================
+   Reveal only (adds ONLY what’s needed)
+   - data-sr-reveal on section
+   - .sr-item on items to animate
+   - .is-revealed toggled by JS (once)
+   - delays via --sr-delay
+========================= */
+.available_upgrades[data-sr-reveal] .sr-item{
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms cubic-bezier(.2,.7,.2,1),
+    transform 700ms cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--sr-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.available_upgrades[data-sr-reveal] .sr-item.is-revealed{
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .available_upgrades[data-sr-reveal] .sr-item{
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+}

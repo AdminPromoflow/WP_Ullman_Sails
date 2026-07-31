@@ -1,0 +1,182 @@
+/* =========================
+   SAIL HANDLING AND SAIL ACCESSORIES — layout tipo la imagen (iconos en vez de imágenes)
+========================= */
+
+.sail_handling_and_sail_accessories{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --shsa-line: rgba(15,33,64,.10);
+  --shsa-border: rgba(15,33,64,.14);
+
+  position: relative;
+  padding: 7vw 3vw;
+  background: #fff;
+}
+
+.shsa-wrap{
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+/* Header */
+.shsa-header{
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.shsa-label{
+  margin: 0 0 14px 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cs-muted);
+}
+
+.shsa-title{
+  margin: 0;
+  font-size: clamp(2.8rem, 4.6vw, 5.3rem);
+  font-weight: 800;
+  line-height: 1.03;
+  color: #0b0b0b;
+  max-width: 26ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shsa-subtitle{
+  margin: 18px auto 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 78ch;
+}
+
+/* Filter button (visual) */
+.shsa-filter{
+  display: flex;
+  justify-content: flex-start;
+  margin: clamp(26px, 3.5vw, 44px) 0 0;
+}
+
+.shsa-filter-btn{
+  appearance: none;
+  border: 1px solid rgba(0,0,0,.35);
+  background: transparent;
+  padding: 10px 14px;
+  font-size: .95rem;
+  font-weight: 500;
+  color: #0b0b0b;
+  min-width: 220px;
+  text-align: left;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.shsa-chevron{
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* List */
+.shsa-list{
+  margin-top: 24px;
+  display: grid;
+  gap: 36px;
+}
+
+/* Item (icon izquierda + contenido derecha) */
+.shsa-item{
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+/* Icon block (reemplaza imagen) */
+.shsa-icon{
+  width: 240px;
+  aspect-ratio: 1 / 1;
+  background: #e0e0e0;
+  border: 1px solid var(--shsa-border);
+  display: grid;
+  place-items: center;
+}
+
+.shsa-svg{
+  width: 56px;
+  height: 56px;
+  color: rgba(0,0,0,.55);
+}
+
+/* Content */
+.shsa-category{
+  margin: 0 0 8px 0;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: #0b0b0b;
+}
+
+.shsa-item-title{
+  margin: 0;
+  font-size: clamp(1.7rem, 2.4vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.12;
+  color: #0b0b0b;
+}
+
+.shsa-item-desc{
+  margin: 10px 0 0;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #0b0b0b;
+  max-width: 66ch;
+}
+
+.shsa-author{
+  margin: 14px 0 0;
+  font-size: .95rem;
+  font-weight: 700;
+  color: #0b0b0b;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .shsa-item{
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+  }
+  .shsa-icon{ width: 200px; }
+}
+
+@media (max-width: 640px){
+  .sail_handling_and_sail_accessories{ padding: 10vw 5vw; }
+
+  .shsa-filter{
+    justify-content: center;
+  }
+
+  .shsa-filter-btn{
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .shsa-item{
+    grid-template-columns: 1fr;
+  }
+  .shsa-icon{
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .sail_handling_and_sail_accessories *{
+    transition: none !important;
+    animation: none !important;
+  }
+}

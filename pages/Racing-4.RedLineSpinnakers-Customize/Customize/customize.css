@@ -1,0 +1,218 @@
+.customize {
+  position: relative;
+  background-color: #F8F8FA;
+  padding: 2vw 0;
+}
+
+.customize-selects {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.select-group label {
+  font-size: 1rem;
+  color: #202E52;
+  font-weight: 500;
+}
+
+.select-group select {
+  min-width: 220px;
+  padding: 10px 12px;
+  border: 1px solid #202E52;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.colours {
+  position: relative;
+  padding: 2vw 3vw;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.colour {
+  position: relative;
+  height: 28px;
+  width: 28px;
+  margin: 7px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.colour.active {
+  outline: 3px solid #005598;
+  outline-offset: 2px;
+}
+
+.sail-option {
+  display: none;
+}
+
+.sail-option.active {
+  display: block;
+}
+
+.sail-option svg,
+.spinnaker-svg {
+  position: relative;
+  background-color: grey;
+  width: 40vw;
+  height: 60vw;
+  min-width: 280px;
+  min-height: 420px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+}
+
+.sail-option svg path,
+.sail-option svg polygon,
+.sail-option svg rect,
+.sail-option svg circle,
+.sail-option svg ellipse,
+.sail-option svg polyline {
+  cursor: pointer;
+}
+
+.st0 {
+  cursor: pointer;
+}
+
+.buttonTitle {
+  position: relative;
+  background-color: #005598;
+  padding: 5px;
+  margin: 1.5vw 0;
+  cursor: pointer;
+  border: 1px solid #202E52;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+}
+
+.buttonTitle:hover {
+  background-color: rgb(36, 46, 77);
+}
+
+.buttonTitle h3 {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 200;
+  color: white;
+}
+
+/* ================================
+   FORM
+================================ */
+
+.customize-form {
+  width: 90%;
+  max-width: 850px;
+  margin: 35px auto 10px;
+  padding: 28px;
+  background-color: #ffffff;
+  border: 1px solid rgba(32, 46, 82, 0.18);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(32, 46, 82, 0.08);
+}
+
+.customize-form h2 {
+  margin: 0 0 22px;
+  text-align: center;
+  color: #202E52;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.customize-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  color: #202E52;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid rgba(32, 46, 82, 0.35);
+  border-radius: 5px;
+  background-color: #F8F8FA;
+  color: #202E52;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #005598;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 85, 152, 0.12);
+}
+
+.customize-submit {
+  display: block;
+  width: 180px;
+  margin: 25px auto 0;
+  padding: 12px 18px;
+  border: 1px solid #202E52;
+  border-radius: 4px;
+  background-color: #005598;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.customize-submit:hover {
+  background-color: rgb(36, 46, 77);
+}
+
+@media (max-width: 700px) {
+  .customize-form {
+    padding: 22px 18px;
+  }
+
+  .customize-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group-full {
+    grid-column: auto;
+  }
+
+  .customize-submit {
+    width: 100%;
+  }
+}

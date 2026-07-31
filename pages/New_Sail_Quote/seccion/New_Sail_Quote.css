@@ -1,0 +1,222 @@
+.st-header {
+  background: #fafafa;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: clamp(1.6rem, 4vw, 2.8rem);
+}
+
+.img-title-sailing-content {
+  width: clamp(140px, 28vw, 240px);
+  margin: 0 auto 1rem;
+  transform: translate3d(0, 12px, 0);
+  transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+.img-title-sailing-content img {
+  display: block;
+  width: 80%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.sail_types_title {
+  color: #005598;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 0.5rem auto 1.5rem;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  text-transform: none;
+}
+
+.sail_types_title::after {
+  content: "";
+  display: block;
+  width: clamp(90px, 10vw, 140px);
+  height: 2px;
+  margin: 18px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(15, 33, 64, 0.45), transparent);
+  transform: scaleX(0.6);
+  transform-origin: center;
+  transition: transform 0.9s ease, opacity 0.9s ease;
+}
+
+.seccion-form {
+  width: 100%;
+  margin: auto;
+  padding: 1px;
+  color: #fafafa;
+}
+
+form {
+  background-color: #fafafa;
+  width: min(80%, 850px);
+  margin: 50px auto;
+  padding: 20px 40px;
+  border: 1px solid rgba(32, 46, 82, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 0 55px rgba(32, 46, 82, 0.08);
+}
+
+form p {
+  width: 90%;
+  margin: 0 auto 1rem;
+  line-height: 25px;
+  color: rgba(32, 46, 82, 0.99);
+}
+
+.form_input {
+  padding: 6px 20px;
+}
+
+.seccion-form label,
+.field_label {
+  display: block;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: rgba(32, 46, 82, 0.99);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.8em;
+  color: rgba(32, 46, 82, 0.99);
+  background-color: transparent;
+  border: 1px solid #005598;
+  border-left: 3px solid rgba(32, 46, 82, 0.99);
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.06);
+}
+
+textarea {
+  min-height: 100px;
+  min-width: 100%;
+  resize: vertical;
+  font-family: sans-serif;
+}
+
+option {
+  background-color: #fff;
+  color: rgba(32, 46, 82, 0.99);
+}
+
+.seccion-form input:hover,
+.seccion-form input:focus,
+.seccion-form select:hover,
+.seccion-form select:focus,
+.seccion-form textarea:hover,
+.seccion-form textarea:focus {
+  outline: none;
+  color: rgba(32, 46, 82, 0.99);
+  border: 1px solid rgba(32, 46, 82, 0.99);
+  border-left: 3px solid #005598;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  line-height: 1.4;
+}
+
+.checkbox {
+  width: auto;
+  height: 14px;
+  margin: 0;
+  accent-color: #005598;
+  box-shadow: none;
+}
+
+fieldset {
+  margin: 20px;
+  padding: 0 10px 10px;
+  border: 1px solid #005598;
+  border-radius: 5px;
+}
+
+legend {
+  padding: 0 6px;
+  color: rgba(32, 46, 82, 0.99);
+  font-weight: 600;
+}
+
+.newsletter-field {
+  padding-top: 0;
+}
+
+.form_submit {
+  text-align: center;
+}
+
+.submit {
+  width: min(50%, 280px);
+  margin: 2rem auto;
+  color: #fff;
+  background-color: #005598;
+  border: 1px solid #005598;
+  border-left: 1px solid #005598;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.submit:hover,
+.submit:focus {
+  color: #fafafa;
+  background-color: rgba(32, 46, 82, 0.99);
+  border-color: rgba(32, 46, 82, 0.99);
+}
+
+@media (max-width: 768px) {
+  .st-header {
+    padding: 2rem 1rem 2.5rem;
+  }
+
+  .img-title-sailing-content {
+    width: clamp(180px, 50vw, 320px);
+    margin-bottom: 1rem;
+  }
+
+  .sail_types_title {
+    font-size: clamp(2.4rem, 13vw, 4.5rem);
+    max-width: 9ch;
+  }
+
+  .sail_types_title::after {
+    height: 6px;
+    margin-top: 1rem;
+  }
+
+  form {
+    width: calc(100% - 32px);
+    padding: 20px 16px;
+  }
+
+  .form_input {
+    padding: 6px 8px;
+
+  }
+
+  fieldset {
+    margin: 16px 0;
+  }
+
+  .submit {
+    width: 100%;
+  }
+}

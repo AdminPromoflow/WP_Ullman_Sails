@@ -1,0 +1,178 @@
+/* =========================
+   DESIGN AND CONSTRUCTION — responsive (same pattern as before)
+   File: cruising_navigator/3_design_and_construction/design_and_construction.css
+========================= */
+
+.design-and-construction{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --cs-border:rgba(15,33,64,.10);
+
+  /* Pattern: fluid spacing + safe gutters */
+  --dac-container: 72rem;               /* ~1152px */
+  --dac-gutter: clamp(1rem, 4vw, 3rem);
+  --dac-py: clamp(2.75rem, 6vw, 5rem);
+
+  position: relative;
+  padding-block: var(--dac-py);
+  padding-inline: var(--dac-gutter);
+  background: #EEF1F6;
+  text-align: center;
+}
+
+.dac-wrap{
+  width: min(100%, var(--dac-container));
+  margin-inline: auto;
+}
+
+.dac-header{
+  width: min(100%, 61.25rem); /* 980px */
+  margin-inline: auto;
+}
+
+.dac-tagline{
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cs-muted);
+}
+
+/* Section title format (as requested, slimmer) */
+.dac-title{
+  margin: 0;
+
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  font-weight: 600;
+  line-height: 1.12;
+
+  color: var(--cs-ink);
+  max-width: 26ch;
+  padding-inline: clamp(0rem, 1.2vw, .5rem);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dac-subtitle{
+  margin: clamp(1rem, 2.4vw, 1.4rem) auto 0;
+  font-size: clamp(1.02rem, 1.8vw, 1.35rem);
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 78ch;
+}
+
+/* GRID */
+.dac-grid{
+  margin: clamp(2.2rem, 6vw, 4.4rem) auto 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+
+.dac-card{
+  text-align: center;
+  padding: 0;
+}
+
+.dac-icon{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto clamp(.9rem, 2vw, 1.1rem);
+}
+
+.dac-cube{
+  width: clamp(28px, 3.6vw, 34px);
+  height: clamp(28px, 3.6vw, 34px);
+  display: block;
+}
+
+.dac-card-title{
+  margin: 0;
+
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.2;
+
+  /* Remove hard min-width: avoids overflow on small screens */
+  max-width: 28ch;
+  margin-inline: auto;
+
+  color: #0b0b0b;
+}
+
+.dac-card-text{
+  margin: clamp(.65rem, 1.6vw, .9rem) auto 0;
+  font-size: clamp(1rem, 1.6vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 34ch;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+/* Small phones */
+@media (max-width: 360px){
+  .design-and-construction{
+    padding-inline: 1rem;
+  }
+  .dac-title{
+    max-width: 20ch;
+  }
+}
+
+/* 2 columns on medium screens */
+@media (max-width: 1100px){
+  .dac-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.25rem, 3vw, 2.1rem);
+  }
+}
+
+/* 1 column on phones */
+@media (max-width: 640px){
+  .dac-grid{
+    grid-template-columns: 1fr;
+  }
+  .dac-card-text{
+    max-width: 52ch;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .design-and-construction *{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =========================
+   Reveal only (ADD-ON)
+   - Uses: [data-sr-reveal] + .sr-item + .is-revealed + delays via --sr-delay
+========================= */
+[data-sr-reveal] .sr-item{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  transition-delay: var(--sr-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-sr-reveal] .sr-item.is-revealed{
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  [data-sr-reveal] .sr-item{
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

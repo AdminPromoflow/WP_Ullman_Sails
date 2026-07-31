@@ -1,0 +1,236 @@
+/* =========================
+   STRENGTH IN THE DETAILS — responsive (same pattern as before)
+   File: cruising_navigator/4_durability_and_reinforcement/durability_and_reinforcement.css
+========================= */
+
+.strength-in-the-details{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+
+  --sid-line: rgba(15,33,64,.55);
+  --sid-border: rgba(15,33,64,.12);
+
+  /* Pattern: fluid spacing + safe gutters */
+  --sid-container: 72rem;               /* ~1152px */
+  --sid-gutter: clamp(1rem, 4vw, 3rem);
+  --sid-py: clamp(2.75rem, 6vw, 5rem);
+
+  --sid-marker: clamp(52px, 6vw, 64px);
+  --sid-gap: clamp(1.25rem, 4.5vw, 4.25rem);
+
+  padding-block: var(--sid-py);
+  padding-inline: var(--sid-gutter);
+  background: #F2F6FA;
+}
+
+.sid-wrap{
+  width: min(100%, var(--sid-container));
+  margin-inline: auto;
+}
+
+/* Header */
+.sid-header{
+  width: min(100%, 61.25rem); /* 980px */
+  margin-inline: auto;
+}
+
+.sid-tagline{
+  margin: 0 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cs-muted);
+}
+
+/* Section title format (as requested) */
+.sid-title{
+  margin: 0;
+
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  font-weight: 600;
+  line-height: 1.12;
+
+  color: var(--cs-ink);
+  max-width: 26ch;
+  padding-inline: clamp(0rem, 1.2vw, .5rem);
+
+  margin-inline: auto;
+}
+
+.sid-intro{
+  margin: clamp(.9rem, 2.2vw, 1.2rem) auto 0;
+  font-size: clamp(1.02rem, 1.8vw, 1.35rem);
+  line-height: 1.7;
+  color: var(--cs-muted);
+  max-width: 78ch;
+  padding-inline: clamp(0rem, 1.2vw, .5rem);
+}
+
+/* Divider */
+.sid-divider{
+  height: 1px;
+  margin: clamp(1.8rem, 4vw, 3.5rem) 0;
+  border: 0;
+  background: var(--sid-line);
+}
+
+/* Grid */
+.sid-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sid-gap);
+}
+
+/* Item */
+.sid-item{
+  display: grid;
+  grid-template-columns: var(--sid-marker) 1fr;
+  gap: clamp(.75rem, 2vw, .95rem);
+  align-items: start;
+}
+
+/* Last item centered on 2-column layouts (odd count) */
+.sid-grid > .sid-item:last-child:nth-child(odd){
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(36rem, 100%);
+}
+
+/* Media/icon */
+.sid-media{
+  width: var(--sid-marker);
+}
+
+.sid-media-inner{
+  width: var(--sid-marker);
+  height: var(--sid-marker);
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255,255,255,.75);
+  border: 1px solid var(--sid-border);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(15,33,64,.10);
+}
+
+.dac-cube{
+  width: clamp(28px, 3.6vw, 34px);
+  height: clamp(28px, 3.6vw, 34px);
+  display: block;
+}
+
+/* Text */
+.sid-item-title{
+  margin: 0;
+  max-width: 26ch;
+
+  font-size: clamp(1.25rem, 2vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+
+  color: #0b0b0b;
+}
+
+.sid-item-text{
+  margin: clamp(.55rem, 1.4vw, .75rem) 0 0;
+  max-width: 60ch;
+
+  font-size: clamp(1rem, 1.6vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--cs-muted);
+}
+
+/* =========================
+   Responsive
+========================= */
+
+/* Small phones */
+@media (max-width: 360px){
+  .strength-in-the-details{
+    padding-inline: 1rem;
+  }
+  .sid-title{
+    max-width: 20ch;
+  }
+}
+
+/* 1 column for tablets and below */
+@media (max-width: 980px){
+  .sid-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .sid-item{
+    grid-template-columns: clamp(48px, 7vw, 56px) 1fr;
+  }
+
+  .sid-media-inner{
+    border-radius: 14px;
+  }
+
+  .sid-grid > .sid-item:last-child:nth-child(odd){
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+}
+
+/* Stack icon above text on very small screens */
+@media (max-width: 520px){
+  .sid-item{
+    grid-template-columns: 1fr;
+  }
+
+  .sid-media{
+    width: auto;
+  }
+
+  .sid-media-inner{
+    width: clamp(52px, 18vw, 72px);
+    height: clamp(52px, 18vw, 72px);
+    margin-bottom: .35rem;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .strength-in-the-details *{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =========================
+   Reveal only (ADD-ON) — IntersectionObserver + stagger (70ms)
+   Reglas: SOLO data-sr-reveal, .sr-item, .is-revealed y delays
+========================= */
+.strength-in-the-details[data-sr-reveal] .sr-item{
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  filter: blur(6px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(.2,.9,.2,1),
+    filter 700ms ease;
+
+  transition-delay: var(--sr-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.strength-in-the-details[data-sr-reveal] .sr-item.is-revealed{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+/* Prefer reduced motion: never hide content */
+@media (prefers-reduced-motion: reduce){
+  .strength-in-the-details[data-sr-reveal] .sr-item{
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

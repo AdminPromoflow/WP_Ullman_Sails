@@ -1,0 +1,151 @@
+.textblue{
+  position: relative;
+  padding: 4vw 6vw  4vw 6vw;
+  width: 100vw;
+  background-color: #F8F8FA;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.textblue h1{
+  color: #005598;
+  padding: 0vw 0 2vw 0;
+  font-size: 2.3em;
+}
+.textblue h2{
+  color: #202E52;
+  text-align: left;
+  width: 100%;
+  padding: 2vw 0 0vw 0;
+  margin-bottom: 10px;
+  font-weight: 400;
+  color: #005598;
+}
+.textblue p{
+  text-align: justify;
+  padding-left: 1vw;
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+.textblue  ul{
+  width: 100%;
+  padding-left: 35px;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+}
+.servicesblue{
+  position: relative;
+  padding: 2vw 6vw;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.servicesblue a{
+ all: unset;
+}
+.box-servicesblue{
+  position: relative;
+  width: 300px;
+  height: 200px;
+  min-width: 300px;
+  min-height: 200px;
+
+  margin: 10px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wrap-box-servicesblue{
+  position: relative;
+  padding: 7px 14px;
+  background-color: rgba(197, 35, 74, .1);
+  height: 70%;
+  width: 70%;
+}
+
+.wrap-box-servicesblue:hover{
+background-color: rgba(197, 35, 74, .3);
+}
+.wrap-box-servicesblue h3{
+  position: relative;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 1.9em;
+  text-shadow: 1px 1px 1px black;
+}
+.wrap-box-servicesblue h4{
+  position: relative;
+  textblue-align: center;
+  font-weight: 200;
+  font-size: 1.1em;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  opacity: 0;
+  transition: .4s;
+}
+.wrap-box-servicesblue:hover h4{
+  text-decoration: underline;
+  opacity: 1;
+}
+.comeBackBlue {
+  all: unset;
+  color: #202E52;
+  font-weight: 600;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-align: left;
+  width: 100vw;
+}
+.comeBackBlue:hover{
+  text-decoration: underline;
+}
+.buttonTitleBlue{
+   position: relative;
+   width: 200px;
+   margin: 20px auto;
+   background-color: #005598;
+   padding: 14px 0px;
+   cursor: pointer;
+   border: 1px solid #202E52;
+}
+.buttonTitleBlue:hover{
+  background-color: #202E52;
+}
+.buttonTitleBlue h3{
+   text-align: center;
+   font-size: 1.3em;
+   font-weight: 300;
+   color: #F2F2F2;
+}
+
+/* =========================================
+   Reveal only (ADD-ON) — NO cambia tu estilo
+   - data-sr-reveal
+   - .sr-item
+   - .is-revealed
+========================================= */
+[data-sr-reveal] .sr-item{
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform;
+}
+
+[data-sr-reveal] .sr-item.is-revealed{
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  [data-sr-reveal] .sr-item{
+    transition: none;
+    transform: none;
+    opacity: 1; /* se muestra sin animación */
+  }
+}

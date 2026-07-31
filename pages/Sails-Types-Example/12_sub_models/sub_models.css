@@ -1,0 +1,79 @@
+
+:root{
+      --ink:#111;
+      --muted:#5f6b7a;
+      --border:#cfd6dd;
+      --bg:#fff;
+    }
+.wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px;
+    }
+
+    h2{
+      margin: 0 0 14px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      max-width: 20ch; /* fuerza un look como en la imagen */
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden; /* para que el borde se vea limpio */
+      background: #fff;
+    }
+
+    .card{
+      padding: 14px 16px 16px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      min-height: 92px;
+    }
+
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .card p{
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+      max-width: 34ch;
+    }
+
+    /* quitar borde derecho en la última columna */
+    .card:nth-child(4n){
+      border-right: none;
+    }
+
+    /* quitar borde inferior en la última fila (8 cards total => 5-8) */
+    .card:nth-last-child(-n + 4){
+      border-bottom: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .card:nth-child(4n){ border-right: 1px solid var(--border); } /* reset */
+      .card:nth-child(2n){ border-right: none; } /* última col en 2 cols */
+
+      .card:nth-last-child(-n + 4){ border-bottom: 1px solid var(--border); } /* reset */
+      .card:nth-last-child(-n + 2){ border-bottom: none; } /* última fila en 2 cols */
+    }
+
+    @media (max-width: 520px){
+      .grid{ grid-template-columns: 1fr; }
+      .card{ border-right: none; }
+      .card:nth-last-child(-n + 2){ border-bottom: 1px solid var(--border); } /* reset */
+      .card:last-child{ border-bottom: none; }
+    }

@@ -1,0 +1,33 @@
+.image{
+   position: relative;
+   width: 100vw;
+   height: 80vh;
+   margin: 50px 0px;
+   background-color: #F8F8FA;
+   padding: 0;
+   overflow: hidden;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   background-image:url("../../SailCare/4.image/img/img.png");
+   background-attachment:fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+.sectionimage{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: rgba( 0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.sectionimage:hover{
+  background-color: rgba(0,0,0,.3);
+}

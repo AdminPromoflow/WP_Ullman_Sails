@@ -1,0 +1,90 @@
+.page_arrow{
+  /* Pattern: fixed, centred, touch-friendly, safe-area aware */
+  --arrow-size: clamp(52px, 7vw, 70px);
+  --arrow-x: 50%;
+  --arrow-top-offset: calc(var(--nav-h, 80px) + 14px);
+  --arrow-bottom-offset: calc(18px + env(safe-area-inset-bottom));
+
+  position: fixed;
+  left: var(--arrow-x);
+  transform: translateX(-50%);
+  width: var(--arrow-size);
+  height: var(--arrow-size);
+
+  display: none; /* JS decides when to show */
+  align-items: center;
+  justify-content: center;
+
+  z-index: 30;
+  cursor: pointer;
+
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  background: transparent !important;
+  box-shadow: none !important;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  opacity: 1;
+  transition: transform 0.2s ease, filter 0.25s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page_arrow:hover,
+.page_arrow:active,
+.page_arrow:focus{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0;
+}
+
+.page_arrow img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+
+  filter:
+    drop-shadow(1px 1px 0px rgba(255, 255, 255, .3))
+    drop-shadow(-1px -1px 0px rgba(255, 255, 255, .4));
+
+  transition: transform 0.2s ease, filter 0.25s ease;
+}
+
+.page_arrow:hover img{
+  transform: scale(1.05);
+  filter:
+    drop-shadow(1px 1px 0px rgba(255, 255, 255, .3))
+    drop-shadow(-1px -1px 0px rgba(255, 255, 255, .4));
+}
+
+.page_arrow--up{
+  top: var(--arrow-top-offset);
+}
+
+.page_arrow--down{
+  bottom: var(--arrow-bottom-offset);
+}
+
+.page_arrow:focus-visible{
+  outline: 3px solid rgba(0,85,152,.28);
+  outline-offset: 6px;
+  border-radius: 999px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .page_arrow,
+  .page_arrow img{
+    transition: none;
+  }
+}
+
+/* Small devices: keep it from feeling “too big” */
+@media (max-width: 420px){
+  .page_arrow{ --arrow-size: 52px; }
+}

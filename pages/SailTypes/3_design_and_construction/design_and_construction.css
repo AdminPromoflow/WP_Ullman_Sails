@@ -1,0 +1,199 @@
+/* =========================
+   SAIL TYPES — cards stronger + CTA + hover + load animation
+   File: cruising_navigator/3_design_and_construction/design_and_construction.css
+========================= */
+
+.sail-types{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --cs-border:rgba(15,33,64,.10);
+
+  --st-container: 72rem;               /* ~1152px */
+  --st-gutter: clamp(1rem, 4vw, 3rem);
+  --st-py: clamp(2.75rem, 6vw, 5rem);
+
+  /* Cards */
+  --st-card-bg: #ffffff;
+  --st-card-border: rgba(15,33,64,.12);
+  --st-card-shadow: 0 18px 50px rgba(15,33,64,.12);
+  --st-card-shadow-hover: 0 14px 10px rgba(15,33,64,.16);
+  --st-radius: 28px;
+
+  position: relative;
+  padding-block: var(--st-py);
+  padding-inline: var(--st-gutter);
+  background: #EEF1F6;
+  text-align: center;
+}
+
+.st-wrap{
+  width: min(100%, var(--st-container));
+  margin-inline: auto;
+}
+
+/* Accesible: título oculto */
+.sr-only{
+  position:absolute !important;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0);
+  white-space:nowrap; border:0;
+}
+
+/* GRID */
+.st-grid{
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2.1rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+
+  justify-items: center;
+  align-items: stretch;
+}
+
+/* CARD (más visible) */
+.st-card{
+  width: 100%;
+  max-width: 26rem;
+
+  text-align: center;
+  background: rgba(255, 255, 255, .6);
+  padding: clamp(1.1rem, 2.2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* animación al recargar (stagger con --i desde PHP) */
+  opacity: 0;
+  transform: translateY(14px);
+  animation: stCardIn 700ms cubic-bezier(.2,.8,.2,1) forwards;
+  animation-delay: calc(var(--i, 0) * 90ms);
+  transition: all .4s;
+}
+
+/* HOVER */
+.st-card:hover,
+.st-card:focus-within{
+  transform: translateY(-6px);
+  box-shadow: var(--st-card-shadow-hover);
+  border-color: rgba(15,33,64,.22);
+}
+
+.st-card:hover:hover .st-btn{
+  transform: translateY(5px);
+  box-shadow: 0 18px 44px rgba(15,33,64,.20);
+}
+
+/* Imagen GRANDE */
+.st-icon{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto clamp(.9rem, 2vw, 1.1rem);
+}
+
+.st-icon-img{
+  width: clamp(170px, 18vw, 220px);
+  height: clamp(170px, 18vw, 220px);
+  display: block;
+  object-fit: contain; /* NO recorta */
+  border-radius: 30px;
+
+  /* para que parezca "card dentro de card" */
+}
+
+.st-card-title{
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 28ch;
+  margin-inline: auto;
+  color: #0f2140;
+}
+
+.st-card-text{
+  margin: clamp(.65rem, 1.6vw, .9rem) auto 0;
+  font-size: clamp(1rem, 1.6vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 34ch;
+}
+
+/* BOTÓN "SEE MORE" */
+.st-btn{
+  margin-top: clamp(1rem, 2.2vw, 1.25rem);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+
+  padding: .85rem 1.2rem;
+  border-radius: 999px;
+
+  font-weight: 800;
+  text-decoration: none;
+
+  color: #ffffff;
+  background: #0f2140;
+  border: 1px solid rgba(15,33,64,.20);
+
+  box-shadow: 0 14px 34px rgba(15,33,64,.16);
+  transition: transform .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+
+.st-btn:hover{
+  transform: translateY(-2px)!important;
+  box-shadow: 0 18px 44px rgba(15,33,64,.20);
+}
+
+.st-btn:focus-visible{
+  outline: 3px solid rgba(0,85,152,.25);
+  outline-offset: 3px;
+}
+
+.st-btn-icon{
+  display: inline-block;
+  transform: translateY(1px);
+}
+
+/* =========================
+   Animación (reload)
+========================= */
+@keyframes stCardIn{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 360px){
+  .sail-types{ padding-inline: 1rem; }
+}
+
+@media (max-width: 1100px){
+  .st-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px){
+  .st-grid{ grid-template-columns: 1fr; }
+  .st-card-text{ max-width: 52ch; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .sail-types *{
+    transition: none !important;
+    animation: none !important;
+  }
+  .st-card{
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

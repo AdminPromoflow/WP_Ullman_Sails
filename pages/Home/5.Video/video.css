@@ -1,0 +1,348 @@
+/* =========================
+   Contact us hero section
+========================= */
+
+.contactus-hero{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.35fr .95fr; /* Left side wider */
+  min-height: 760px;
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 1rem;
+  background: #fafafa;
+  align-items: stretch;
+}
+
+/* =========================
+   Left and right panels
+========================= */
+
+.contactus-hero__media,
+.contactus-hero__content{
+  position: relative;
+  min-height: 760px;
+}
+
+.contactus-hero__media{
+  background: #8e8e8e;
+  padding: 0; /* Remove inner spacing so the video fills the whole panel */
+  display: flex;
+  min-width: 0;
+}
+
+.contactus-hero__content{
+  background: #f3f3f3;
+  padding: clamp(2rem, 4vw, 4rem);
+  display: flex;
+  align-items: center;
+}
+
+.contactus-hero__content-inner{
+  width: min(560px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================
+   Video area
+========================= */
+
+.contactus-video-card{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 760px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: rgba(0, 0, 0, .10);
+  flex: 1 1 auto;
+
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+  transition-delay: .16s;
+}
+
+.contactus-video{
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Video covers the whole left panel */
+  background: #8e8e8e;
+}
+
+/* =========================
+   Brand block
+========================= */
+
+.contactus-hero__brand{
+  text-align: center;
+}
+
+.contactus-hero__brand--right{
+  margin-bottom: clamp(2rem, 3vw, 2.75rem);
+}
+
+.img-title-sailing-content{
+  position: relative;
+  z-index: 1;
+  width: clamp(140px, 18vw, 240px);
+  margin: 0 auto 1rem;
+
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition:
+    transform .45s ease,
+    opacity .45s ease;
+}
+
+.img-title-sailing-content img{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+/* =========================
+   Contact us title
+========================= */
+
+.contactus-side-title{
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: .5rem auto 1.5rem auto;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  text-transform: none;
+  color: #005598;
+  text-align: center;
+  text-shadow: none;
+
+
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    transform .75s ease,
+    opacity .75s ease;
+}
+
+.contactus-side-title::after{
+  content: "";
+  display: block;
+  width: clamp(110px, 12vw, 170px);
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 85, 152, .28) 18%,
+    rgba(0, 85, 152, 1) 50%,
+    rgba(0, 85, 152, .28) 82%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 10px rgba(0, 85, 152, .25),
+    0 0 18px rgba(0, 85, 152, .14);
+
+  opacity: 0;
+  transform: scaleX(.2);
+  transform-origin: center;
+  transition:
+    transform .95s ease,
+    opacity .95s ease;
+  transition-delay: .18s;
+}
+
+.contactus-hero.is-visible .contactus-side-title::after{
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* =========================
+   Right side content
+========================= */
+
+.contactus-hero__text{
+  max-width: 34rem;
+  margin: 0 0 2rem 0;
+  font-size: clamp(1rem, 1.12vw, 1.15rem);
+  line-height: 1.8;
+  color: #1f1f1f;
+  text-align: justify;
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity .75s ease,
+    transform .75s ease;
+  transition-delay: .28s;
+}
+
+.contactus-hero__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity .75s ease,
+    transform .75s ease;
+  transition-delay: .38s;
+}
+
+.contactus-btn{
+  min-width: 118px;
+  padding: 0.95rem 1.4rem;
+  border: 1px solid #1f1f1f;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 500;
+  text-align: center;
+  transition:
+    transform .22s ease,
+    background-color .22s ease,
+    color .22s ease,
+    border-color .22s ease;
+}
+
+.contactus-btn:hover{
+  transform: translateY(-2px);
+}
+
+.contactus-btn--primary{
+  background: rgba(32,46,82,.99);
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.contactus-btn--primary:hover{
+  background: #005598;
+}
+
+.contactus-btn--secondary{
+  background: transparent;
+  color: #111111;
+}
+
+.contactus-btn--secondary:hover{
+  background: #111111;
+  color: #ffffff;
+}
+
+/* =========================
+   Reveal states
+========================= */
+
+.contactus-hero.is-visible .img-title-sailing-content,
+.contactus-hero.is-visible .contactus-side-title,
+.contactus-hero.is-visible .contactus-video-card,
+.contactus-hero.is-visible .contactus-hero__text,
+.contactus-hero.is-visible .contactus-hero__actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contactus-hero__actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 980px){
+  .contactus-hero{
+    grid-template-columns: 1fr;
+  }
+
+  .contactus-hero__media,
+  .contactus-hero__content,
+  .contactus-video-card{
+    min-height: auto;
+  }
+
+  .contactus-hero__media{
+    min-height: 420px;
+  }
+
+  .contactus-video-card{
+    width: 100%;
+    height: 100%;
+  }
+
+  .contactus-hero__content{
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .contactus-hero__content-inner{
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .contactus-hero__text,
+  .contactus-hero__actions{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contactus-hero__actions{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px){
+  .contactus-hero{
+    min-height: auto;
+  }
+
+  .contactus-hero__content{
+    padding-inline: 1.25rem;
+  }
+
+  .contactus-btn{
+    width: 100%;
+  }
+}
+
+/* =========================
+   Reduced motion
+========================= */
+
+@media (prefers-reduced-motion: reduce){
+  .img-title-sailing-content,
+  .contactus-side-title,
+  .contactus-video-card,
+  .contactus-hero__text,
+  .contactus-hero__actions{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .contactus-side-title::after{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .contactus-btn{
+    transition: none !important;
+  }
+}

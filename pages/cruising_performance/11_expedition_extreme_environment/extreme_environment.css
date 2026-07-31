@@ -1,0 +1,154 @@
+/* =========================
+   TWO-COLUMN STEPS — responsive (Ullman / Standard Specifications pattern)
+   (Converted from your 2nd snippet to match the 1st snippet’s “fluid spacing + safe gutters” style)
+========================= */
+
+/* Optional global base (keep if you want) */
+:root{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+
+  --st-line: rgba(15,33,64,.55);
+  --st-border: rgba(15,33,64,.12);
+  --st-shadow: 0 18px 45px rgba(15,33,64,.10);
+
+  /* Pattern: fluid spacing + safe gutters */
+  --st-container: 72rem;               /* ~1152px */
+  --st-gutter: clamp(1rem, 4vw, 3rem);
+  --st-py: clamp(2.75rem, 6vw, 5rem);
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--cs-ink);
+}
+
+/* Contenedor (las líneas quedan “incompletas” por el padding) */
+.section{
+  position: relative;
+  max-width: var(--st-container);
+  margin: 0 auto;
+  padding-block: var(--st-py);
+  padding-inline: var(--st-gutter);
+  background: #fff;
+}
+
+/* Title (same “big + clean” style used in Standard Specifications) */
+.section h2{
+  line-height: 1.12;
+  text-align: center;
+  padding-bottom: clamp(1.25rem, 3vw, 2.25rem);
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  font-weight: 600;
+  max-width: 18ch;
+  margin: auto;
+  color: #005598;
+  text-align: center;
+}
+
+/* Rule line */
+.rule{
+  height: 2px;
+  background: var(--st-border);
+  border-radius: 999px;
+  margin: 0 0 clamp(.9rem, 2.2vw, 1.15rem);
+}
+
+/* Rows */
+.row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: clamp(1.25rem, 6vw, 7.5rem);
+  padding-block: clamp(1rem, 2vw, 1.35rem);
+}
+
+.row--top{
+  border-bottom: 1px solid var(--st-border);
+}
+
+/* Step item */
+.step{
+  display: flex;
+  gap: clamp(.75rem, 2vw, 1.25rem);
+  align-items: flex-start;
+}
+
+/* Number (aligned with the “ss-row” number sizing concept) */
+.num{
+  min-width: clamp(44px, 6vw, 56px);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #0b0b0b;
+  letter-spacing: 0.02em;
+}
+
+/* Text */
+.txt{
+  margin: .25rem 0 0;
+  max-width: 48ch;
+  font-size: clamp(.98rem, 1.4vw, 1.05rem);
+  line-height: 1.55;
+  color: var(--cs-muted);
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 820px){
+  .section{
+    padding-inline: clamp(1rem, 4vw, 1.25rem);
+  }
+
+  .row{
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: clamp(.9rem, 2.6vw, 1.2rem);
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px){
+  .section{
+    padding-inline: 1rem;
+  }
+  .section h2{
+    max-width: 20ch;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .section *{
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   REVEAL ONLY (IntersectionObserver + stagger)
+   - Adds ONLY: data-sr-reveal, .sr-item, .is-revealed, delays
+========================================================= */
+[data-sr-reveal] .sr-item{
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 600ms ease,
+    transform 700ms cubic-bezier(0.2, 0.65, 0.2, 1);
+  transition-delay: var(--sr-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+[data-sr-reveal].is-revealed .sr-item{
+  opacity: 1;
+  transform: none;
+}
+
+/* Ensure visibility for reduced motion (no “stuck hidden”) */
+@media (prefers-reduced-motion: reduce){
+  [data-sr-reveal] .sr-item{
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

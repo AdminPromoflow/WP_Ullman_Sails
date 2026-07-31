@@ -1,0 +1,165 @@
+.contactUs{
+  padding: 50px 2vw;
+  position: relative;
+  background: rgb(247,247,247);
+}
+.contactUsTitle{
+  position: relative;
+  text-align: center;
+  font-size: calc(1.3vw + 1.6em);
+  font-weight: 400;
+  color: #005598;
+}
+.contactUsContainer{
+  position: relative;
+  display: flex;
+  flex-wrap:wrap-reverse;
+  justify-content: center;
+  width: 95vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top : 60px;
+}
+.contactUsBox{
+  position: relative;
+  width: 50%;
+  padding: 50px 30px;
+}
+.contactUsBox input{
+  position: relative;
+  height: 35px;
+  width: 100%;
+  font-size: 1.4em;
+  padding-left: 10px;
+  margin: 10px 0;
+}
+.contactUsBox textarea {
+  position: relative;
+  width: 100%;
+  font-size: 1.4em;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+}
+.contactUsBox h3{
+  position: relative;
+  font-weight: 300;
+  font-size: 1.4em;
+  margin: 0px 0 10px 0;
+}
+.contactUsBox button{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+@media screen and (max-width: 1024px){
+  .contactUsBox{
+    position: relative;
+    width: 100%;
+    padding: 10px 30px;
+  }
+}
+#map {
+  height: 300px;
+  z-index: 1;
+ }
+
+.containerTable{
+  position: relative;
+  max-width: 75%;
+  overflow-x: scroll;
+  left: 50%;
+  transform: translateX(-50%);
+ }
+table{
+  position: relative;
+
+}
+ th{
+  background-color: #005598;
+  color: white;
+  padding: 7px;
+}
+ td{
+  border: 1px solid black;
+  background-color: rgba(210, 220, 234,1);
+  padding: 4px 7px;
+}
+.whiter{
+  background-color:  #FFFFFF;
+}
+.darker{
+  background-color: #B0B3AF;
+}
+
+.buttonTitle{
+  position: relative;
+  background-color: #005598;
+  cursor: pointer;
+  border: 1px solid #202E52;
+  padding: 5px 7px;
+  width: 100px;
+}
+.buttonTitle:hover{
+  background-color: rgb(36, 46, 77);
+}
+.buttonTitle h3{
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 200;
+  color: white;
+  margin: 0;
+}
+.comeBack {
+  all: unset !important;
+  color: #202E52 !important;
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  width: 100vw !important;
+}
+.comeBack:hover{
+  text-decoration: underline !important;
+}
+.img-title{
+  width: clamp(140px, 28vw, 240px);
+  margin: 0 auto 1rem;
+  transform: translate3d(0, 12px, 0);
+  transition: transform .45s ease, opacity .45s ease;
+}
+
+.img-title img{
+  display: block;
+  width: 80%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.covers-title{
+  color: #005598;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: auto;
+  text-align: center;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  text-transform: none;
+  z-index: 1;
+}
+
+.covers-title::after{
+  content: "";
+  display: block;
+  width: clamp(90px, 10vw, 140px);
+  height: 2px;
+  margin: 18px auto 0;
+  background: red;
+  transform: scaleX(.6);
+  transform-origin: center;
+  opacity: 0;
+  transition: transform .9s ease, opacity .9s ease;
+}

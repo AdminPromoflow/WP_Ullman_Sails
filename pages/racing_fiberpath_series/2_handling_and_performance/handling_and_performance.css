@@ -1,0 +1,230 @@
+/* =========================
+   PERFORMANCE AND HANDLING — responsive (same pattern as before)
+   File: cruising_navigator/2_handling_and_performance/handling_and_performance.css
+========================= */
+
+.performance-and-handling{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --ph-line: rgba(15,33,64,.85);
+
+  /* Pattern: fluid spacing + safe gutters */
+  --ph-container: 72rem;                /* ~1152px */
+  --ph-gutter: clamp(1rem, 4vw, 3rem);
+  --ph-py: clamp(2.75rem, 6vw, 5rem);
+
+  position: relative;
+  padding-block: var(--ph-py);
+  padding-inline: var(--ph-gutter);
+  background: #F8F8FA;
+}
+
+.ph-grid{
+  width: min(100%, var(--ph-container));
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  column-gap: clamp(2rem, 6vw, 8.75rem);
+  align-items: start;
+}
+
+/* LEFT */
+.ph-left{
+  position: relative;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Remove fixed height: keep layout flexible */
+  gap: clamp(.75rem, 2vw, 1.25rem);
+}
+
+.ph-tagline{
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cs-muted);
+}
+
+.ph-title{
+  margin: 0;
+
+  /* Más delgado y más “section title” (no hero title) */
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  font-weight: 600;
+  line-height: 1.12;
+
+  color: var(--cs-ink);
+  max-width: 26ch;
+  padding-inline: clamp(0rem, 1.2vw, .5rem);
+}
+
+@supports (text-wrap: balance){
+  .ph-title{ text-wrap: balance; }
+}
+
+.ph-image{
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+
+  border-radius: 14px;
+
+  /* Keep it visible but controlled across devices */
+  margin-top: clamp(.25rem, 1vw, .75rem);
+}
+
+/* RIGHT / STEPS */
+.ph-right{
+  padding-top: clamp(0px, .6vw, 8px);
+}
+
+.ph-steps{
+  --marker-col: clamp(52px, 6vw, 64px);
+  --marker-center: calc(var(--marker-col) / 2);
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+/* vertical line */
+.ph-steps::before{
+  content:"";
+  position:absolute;
+  left: var(--marker-center);
+  top: 26px;
+  bottom: 26px;
+  width: 2px;
+  background: var(--ph-line);
+}
+
+.ph-step{
+  display: grid;
+  grid-template-columns: var(--marker-col) 1fr;
+  column-gap: clamp(1rem, 2.6vw, 26px);
+  align-items: start;
+  padding: 0 0 clamp(1.6rem, 4vw, 3.25rem) 0;
+}
+
+.ph-step:last-child{ padding-bottom: 0; }
+
+.ph-marker{
+  width: var(--marker-col);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ph-cube-wrap{
+  background: #fff;
+  padding: clamp(5px, 1vw, 6px);
+  border-radius: 14px;
+  border: 1px solid rgba(15,33,64,.10);
+  box-shadow: 0 10px 22px rgba(15,33,64,.08);
+}
+
+.ph-cube{
+  width: clamp(28px, 3.6vw, 34px);
+  height: clamp(28px, 3.6vw, 34px);
+  display: block;
+}
+
+.ph-step-title{
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  color: #0b0b0b;
+  max-width: 42ch;
+}
+
+.ph-step-text{
+  margin: clamp(.45rem, 1vw, .65rem) 0 0;
+  font-size: clamp(1rem, 1.6vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 52ch;
+}
+
+/* Keep always visible (as requested) */
+.ph-left,
+.ph-step{
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+/* Small phones */
+@media (max-width: 360px){
+  .performance-and-handling{
+    padding-inline: 1rem;
+  }
+  .ph-title{
+    max-width: 18ch;
+  }
+}
+
+/* Stack layout earlier for tablets and below */
+@media (max-width: 980px){
+  .ph-grid{
+    grid-template-columns: 1fr;
+    row-gap: clamp(1.75rem, 5vw, 2.75rem);
+  }
+
+  .ph-image{
+    width: min(100%, 560px);
+  }
+
+  .ph-steps::before{
+    top: 22px;
+    bottom: 22px;
+  }
+}
+
+/* Reduced motion support (base) */
+@media (prefers-reduced-motion: reduce){
+  /* already no motion here; keep for consistency */
+}
+
+/* =========================
+   Reveal only (adds ONLY what’s needed)
+   - data-sr-reveal on section
+   - .sr-item on items to animate
+   - .is-revealed toggled by JS (once)
+   - delays via --sr-delay
+========================= */
+.performance-and-handling[data-sr-reveal] .sr-item{
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms cubic-bezier(.2,.7,.2,1),
+    transform 700ms cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--sr-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.performance-and-handling[data-sr-reveal] .sr-item.is-revealed{
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .performance-and-handling[data-sr-reveal] .sr-item{
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+}

@@ -1,0 +1,257 @@
+/* =========================
+   Covers
+========================= */
+
+.covers{
+  position: relative;
+  width: 100vw;
+  height: 60vh;
+  min-height: 400px;
+  margin: 50px 0;
+  padding: 0;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #fafafa;
+  background-image: url("img/powerboat_enclosure.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+.covers::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.30));
+  z-index: 0;
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+
+.covers_link{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.section_covers{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  padding: 20vh 35vw;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity .65s ease,
+    transform .65s ease,
+    background-color .35s ease;
+}
+
+.section_covers:hover{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.section_covers:hover .covers_button{
+  transform: translateY(3px);
+}
+
+.img-title-sailing-content{
+  position: relative;
+  z-index: 1;
+  width: clamp(140px, 18vw, 240px);
+  margin: 0 auto 1rem;
+
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  transition:
+    transform .45s ease,
+    opacity .45s ease;
+}
+
+.img-title-sailing-content img{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.covers h1{
+  position: relative;
+  z-index: 1;
+  font-size: clamp(3rem, 4.5vw, 6rem);
+  line-height: 1.1;
+  font-weight: 600;
+  margin: .5rem 0 1.5rem 0;
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: none;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 0 black;
+
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    transform .75s ease,
+    opacity .75s ease;
+}
+
+.covers h1::after{
+  content: "";
+  display: block;
+  width: clamp(110px, 12vw, 170px);
+  height: 3px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,.35) 18%,
+    rgba(255,255,255,1) 50%,
+    rgba(255,255,255,.35) 82%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 10px rgba(255,255,255,.35),
+    0 0 18px rgba(255,255,255,.18);
+
+  opacity: 0;
+  transform: scaleX(.2);
+  transform-origin: center;
+  transition:
+    transform .95s ease,
+    opacity .95s ease;
+}
+
+.covers_button{
+  position: relative;
+  z-index: 1;
+  min-width: 120px;
+  padding: 10px 14px;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  cursor: pointer;
+
+  box-shadow: var(--btn_shadow, 0 10px 24px rgba(0,0,0,.18));
+  background-color: #005598;
+
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity .55s ease,
+    transform .55s ease,
+    background-color .35s ease;
+}
+
+.covers_button:hover{
+  background: rgb(32,46,82);
+  transform: translateY(-2px);
+}
+
+.covers_button h3{
+  margin: 0;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #fff;
+}
+
+/* =========================
+   Visible state on scroll
+========================= */
+
+.covers.is-visible::before{
+  opacity: 1;
+}
+
+.covers.is-visible .section_covers{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.covers.is-visible .img-title-sailing-content{
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: .08s;
+}
+
+.covers.is-visible h1{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .30s;
+}
+
+.covers.is-visible h1::after{
+  opacity: 1;
+  transform: scaleX(1);
+  transition-delay: .55s;
+}
+
+.covers.is-visible .covers_button{
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: .70s;
+}
+
+@media (max-width: 900px){
+  .section_covers{
+    padding: 18vh 18vw;
+  }
+}
+
+@media (max-width: 640px){
+  .covers{
+    height: auto;
+    min-height: 360px;
+    background-attachment: scroll;
+  }
+
+  .section_covers{
+    padding: 4.5rem 1.5rem;
+  }
+
+  .img-title-sailing-content{
+    width: clamp(130px, 42vw, 210px);
+  }
+
+  .covers_button{
+    min-width: 110px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .covers::before,
+  .section_covers,
+  .img-title-sailing-content,
+  .covers h1,
+  .covers h1::after,
+  .covers_button{
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

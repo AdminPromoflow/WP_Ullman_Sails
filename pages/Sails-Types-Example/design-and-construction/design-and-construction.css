@@ -1,0 +1,114 @@
+/* =========================
+   DESIGN AND CONSTRUCTION — header centered + 4 cards (como la imagen)
+========================= */
+
+.design-and-construction{
+  --cs-ink:#0f2140;
+  --cs-muted:#5f6b7a;
+  --cs-border:rgba(15,33,64,.10);
+
+  position: relative;
+  padding: 7vw 3vw;
+  background: #fff;
+  text-align: center;
+}
+
+.dac-header{
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.dac-tagline{
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cs-muted);
+}
+
+.dac-title{
+  margin: 0;
+  font-size: clamp(2.8rem, 4.6vw, 5.3rem);
+  font-weight: 800;
+  line-height: 1.03;
+  color: #0b0b0b;
+  max-width: 24ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dac-subtitle{
+  margin: 22px auto 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 78ch;
+}
+
+/* GRID */
+.dac-grid{
+  width: min(1200px, 100%);
+  margin: clamp(42px, 6vw, 70px) auto 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(26px, 3vw, 44px);
+}
+
+.dac-card{
+  text-align: center;
+  padding: 0;
+}
+
+.dac-icon{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.dac-cube{
+  width: 34px;
+  height: 34px;
+  display: block;
+}
+
+.dac-card-title{
+  margin: 0;
+  font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0b0b0b;
+}
+
+.dac-card-text{
+  margin: 14px auto 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--cs-muted);
+  max-width: 34ch;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .dac-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 34px;
+  }
+}
+
+@media (max-width: 640px){
+  .design-and-construction{ padding: 10vw 5vw; }
+  .dac-grid{ grid-template-columns: 1fr; }
+  .dac-card-text{ max-width: 48ch; }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .design-and-construction *{
+    transition: none !important;
+    animation: none !important;
+  }
+}

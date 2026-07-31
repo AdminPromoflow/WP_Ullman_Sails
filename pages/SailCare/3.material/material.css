@@ -1,0 +1,239 @@
+/* =========================================================
+   Sail Care — New layout (cards + sticky media) + Reveal only
+   File: SailCare/3.material/material.css
+   ========================================================= */
+
+.sci{
+  --ink:#0f2140;
+  --muted:#5f6b7a;
+  --accent:#C5234A;
+  --line: rgba(15,33,64,.12);
+
+  --page:#fafafa;
+  --soft:#f7f8fb;
+
+  --radius: 22px;
+  --shadow: 0 22px 60px rgba(15,33,64,.10);
+
+  color: var(--ink);
+  padding: clamp(28px, 5vw, 72px) 16px;
+}
+
+.sci__inner{
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+/* Header */
+.sci__header{
+  margin-bottom: clamp(18px, 3vw, 26px);
+}
+
+.sci__kicker{
+  margin: auto;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(190, 19, 59);
+}
+
+.sci__pageTitle{
+  font-size: clamp(2.4rem, 3.6vw, 4.8rem);
+  line-height: 1.08;
+  font-weight: 800;
+  width: min(80%, 1120px);
+  margin: 0 auto clamp(18px, 2vw, 28px);
+  color: #005598;
+  text-wrap: balance;
+}
+
+.sci__pageTitle em{
+  font-style: italic;
+  font-weight: 520;
+}
+
+/* Grid */
+.sci__grid{
+  display: grid;
+  grid-template-columns: 1.05fr .95fr; /* content left, media right */
+  gap: clamp(16px, 3vw, 44px);
+  align-items: start;
+}
+
+/* Cards column */
+.sci__cards{
+  display: grid;
+  gap: clamp(14px, 2.4vw, 22px);
+}
+
+/* Card */
+.sci-card{
+  background: linear-gradient(180deg, var(--soft), #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(18px, 2.4vw, 26px);
+}
+
+.sci-card__label{
+  margin: 0 0 10px 0;
+  font: 700 .85rem/1.2 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.sci-card__title{
+  margin: 0 0 14px 0;
+  font-size: clamp(1.85rem, 2.6vw, 2.55rem);
+  line-height: 1.08;
+  font-weight: 520;
+  color: #202E52;
+}
+
+.sci-card__title em{
+  font-style: italic;
+  font-weight: 520;
+}
+
+/* Links */
+.sci-card__nav{
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255,255,255,.65);
+}
+
+.sci-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 14px 14px;
+  text-decoration: none;
+  color: var(--ink);
+
+  border-top: 1px solid var(--line);
+
+  font: 700 .92rem/1.25 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  transition: background .20s ease, transform .20s ease;
+}
+
+.sci-card__nav .sci-link:first-child{
+  border-top: 0;
+}
+
+.sci-link__text{
+  opacity: .92;
+  font-weight: 500;
+}
+
+.sci-link:hover{
+  background: rgba(197,35,74,.06);
+  transform: translateX(2px);
+}
+
+.sci-link:hover .sci-link__text{
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* Chevron */
+.sci-link__chev{
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(15,33,64,.70);
+  border-top: 2px solid rgba(15,33,64,.70);
+  transform: rotate(45deg);
+  flex: 0 0 auto;
+}
+
+/* Sticky media (right) */
+.sci__aside{
+  position: sticky;
+  top: clamp(14px, 2vw, 22px);
+}
+
+.sci__media{
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+
+.sci__media img{
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transform: scale(1.04);
+}
+
+/* Subtle PAN on hover */
+.sci__media.move-pan img{
+  transition: transform .60s ease;
+  will-change: transform;
+}
+
+.sci__media.move-pan:hover img{
+  transform: scale(1.10) translate3d(-10px, -8px, 0);
+}
+
+/* =========================
+   Reveal only (sr-item)
+   ========================= */
+.sr-item{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .55s ease, transform .55s ease;
+  transition-delay: var(--sr-delay, 0ms);
+  background-color: #fafafa;
+}
+
+.is-revealed .sr-item{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .sci__grid{
+    grid-template-columns: 1fr;
+  }
+
+  .sci__aside{
+    position: relative;
+    top: auto;
+    order: -1; /* image on top on mobile */
+  }
+
+  .sci__media img{
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .sr-item{
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .sci__media.move-pan img{
+    transition: none !important;
+    transform: none !important;
+  }
+}

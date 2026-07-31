@@ -1,0 +1,172 @@
+/* =========================================================
+   Ullman Sails — Navigation / Breadcrumbs (responsive, clean)
+   File: cruising_navigator/navigation/navigation.css
+   ========================================================= */
+
+:root{
+  --nav-ink: #0f2140;
+  --nav-muted: #5f6b7a;
+
+  --nav-line: rgba(15,33,64,.14);
+  --nav-surface: rgba(255,255,255,.78);
+
+  --nav-radius: 18px;
+
+  /* Responsive pattern (same approach as before) */
+  --nav-container: 72rem;                 /* ~1152px */
+  --nav-gutter: clamp(1rem, 4vw, 3rem);   /* consistent gutters */
+  --nav-sec-py: clamp(0.9rem, 2.5vw, 1.6rem);
+  --nav-pad-y: clamp(.70rem, 1.6vw, 1.05rem);
+  --nav-pad-x: clamp(.90rem, 2.0vw, 1.25rem);
+  --nav-gap-x: clamp(.35rem, 1.2vw, .55rem);
+  --nav-gap-y: clamp(.30rem, 1.0vw, .45rem);
+
+  --nav-pill-py: clamp(.42rem, 1.2vw, .52rem);
+  --nav-pill-px: clamp(.62rem, 1.6vw, .78rem);
+
+  --nav-font: clamp(.92rem, 1.5vw, 1rem);
+}
+
+/* Section wrapper */
+.nav-section{
+  background: #fafafa;
+  padding-block: var(--nav-sec-py);
+  padding-inline: var(--nav-gutter);
+  display: flex;
+
+}
+
+/* Card container */
+.nav-breadcrumbs{
+  width: min(100%, var(--nav-container));
+
+  overflow: hidden;
+  position: relative;
+
+
+  /* Helps with “glass” feel without being heavy */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Subtle premium highlight */
+.nav-breadcrumbs::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+
+  opacity: .9;
+}
+
+/* List layout */
+.nav-breadcrumbs__list{
+  list-style: none;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--nav-gap-y) var(--nav-gap-x);
+
+  position: relative;
+  z-index: 1;
+}
+
+.nav-breadcrumbs__item{
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+
+  color: var(--nav-muted);
+  font-size: var(--nav-font);
+  line-height: 1.2;
+  letter-spacing: .2px;
+  margin: .5rem;
+}
+
+/* Divider between crumbs */
+.nav-breadcrumbs__item:not(:last-child)::after{
+  content: "›";
+  display: inline-block;
+  color: rgba(95,107,122,.75);
+  font-size: 1rem;
+  transform: translateY(-.5px);
+  margin-left: .1rem;
+}
+
+/* Linked crumb (pill) */
+.nav-breadcrumbs__link{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+
+  padding: var(--nav-pill-py) var(--nav-pill-px);
+
+  color: var(--nav-ink);
+  text-decoration: none;
+
+  background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.64));
+  border: 1px solid rgba(15,33,64,.14);
+
+  box-shadow:
+    0 8px 10px rgba(15,33,64,.08),
+    inset 0 2px 0 rgba(255,255,255,.75);
+
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.nav-breadcrumbs__link:hover{
+  transform: translateY(-1px);
+  border-color: rgba(0,85,152,.35);
+  box-shadow:
+    0 14px 26px rgba(15,33,64,.12),
+    inset 0 1px 0 rgba(255,255,255,.78);
+}
+
+.nav-breadcrumbs__link:focus-visible{
+  outline: 3px solid rgba(0,85,152,.30);
+  outline-offset: 2px;
+}
+
+/* Current page crumb */
+.nav-breadcrumbs__current{
+  display: inline-flex;
+  align-items: center;
+
+  padding: var(--nav-pill-py) var(--nav-pill-px);
+
+  color: var(--nav-ink);
+  font-weight: 600;
+
+  background: linear-gradient(180deg, rgba(0,85,152,.10), rgba(255,255,255,.62));
+  border: 1px solid rgba(0,85,152,.20);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.70);
+}
+
+/* Fine-tuning for small mobiles */
+@media (max-width: 360px){
+  .nav-section{
+    padding-inline: 1rem;
+  }
+  .nav-breadcrumbs__item:not(:last-child)::after{
+    margin-left: 0;
+  }
+}
+
+/* Tablet+ slightly more breathing room */
+@media (min-width: 768px){
+  :root{
+    --nav-sec-py: clamp(1.1rem, 2.2vw, 1.8rem);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce){
+  .nav-breadcrumbs__link{
+    transition: none;
+  }
+  .nav-breadcrumbs__link:hover{
+    transform: none;
+  }
+}

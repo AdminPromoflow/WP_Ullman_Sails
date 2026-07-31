@@ -1,0 +1,146 @@
+/* =========================
+   GLOBAL
+========================= */
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #0f2140;
+  background: #F8F8FA;
+}
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+.text{
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 6vw, 5rem);
+}
+
+.text__container{
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.text h1{
+  color:#005598;
+  padding: 0 0 1rem 0;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin: 0.25rem 0 0;
+  text-align: center;
+}
+
+.text p{
+  text-align: justify;
+  margin: 0.25rem 0 0.75rem 0;
+  font-size: clamp(1rem, 1.2vw, 1.05rem);
+  line-height: 1.75;
+}
+
+/* Link back */
+.link_a{
+  text-decoration: none;
+  color:#202E52;
+  font-weight:600;
+  font-size:1.05rem;
+  cursor:pointer;
+  align-self: flex-start;
+}
+.link_a:hover{ text-decoration: underline; }
+
+/* =========================
+   CARDS / BOXES
+========================= */
+.box-container-cruising{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  gap: 22px;
+  padding: 0.75rem 0 0;
+}
+
+.box-container-cruising a{
+  text-decoration:none;
+  display:flex;
+  flex: 1 1 280px;
+  max-width: 360px;
+  min-width: 260px;
+  height: 200px;
+}
+
+.box-services{
+  width:100%;
+  height:100%;
+  display:flex;
+  text-align:center;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size:cover;
+  border-radius: 16px;
+  overflow:hidden;
+  box-shadow: 0 14px 40px rgba(0,0,0,.18);
+}
+
+.wrap-box-services{
+  padding: 10px 12px;
+  background-color: rgba(197, 35, 74, 0.12);
+  height: 72%;
+  width: 86%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  margin:auto;
+  border-radius: 14px;
+  backdrop-filter: blur(2px);
+  transition: .25s ease;
+}
+
+.wrap-box-services:hover{
+  background-color: rgba(197, 35, 74, 0.28);
+}
+
+.wrap-box-services h3{
+  color:white;
+  font-weight:600;
+  font-size:1.6rem;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.7);
+  margin: 0 0 6px 0;
+}
+
+.wrap-box-services h4{
+  font-weight:300;
+  font-size:1.05rem;
+  color:white;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.7);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: .25s ease;
+  margin: 0;
+}
+
+.wrap-box-services:hover h4{
+  text-decoration: underline;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Background images (ruta correcta desde services.css) */
+.pictureCruising1{ background-image: url("Image/NavigatorSeries.jpg"); }
+.pictureCruising2{ background-image: url("Image/EnduranceSeries.jpg"); }
+.pictureCruising3{ background-image: url("Image/VoyagerSeries.png"); }
+.pictureCruising4{ background-image: url("Image/Performance.jpg"); }
+.pictureCruising5{ background-image: url("Image/BlueLineSpinnakers.jpg"); }
+
+/* Responsive cards */
+@media (max-width: 520px){
+  .box-container-cruising a{
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: 180px;
+  }
+}

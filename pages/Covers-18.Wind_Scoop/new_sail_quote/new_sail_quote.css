@@ -1,0 +1,108 @@
+.container_bottom{
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+.button_quote{
+  max-height: 80px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  text-align: center;
+  text-decoration: none;
+  font-size: clamp(1rem, 2.4vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #fff !important;
+
+  cursor: pointer;
+  box-shadow: var(--btn_shadow, 0 10px 24px rgba(0,0,0,.18));
+  transition: transform .18s ease, filter .18s ease, background-color .18s ease;
+}
+
+.button_quote::before{
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  background-image: url("img/contact_us.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.button_quote:hover{
+  transform: translateY(-2px);
+  background: rgb(0, 85, 152);
+  filter: brightness(1.02);
+}
+
+.button_quote_1{
+  background-color: green;
+}
+
+.button_quote_1:hover{
+  background-color: #245580;
+}
+
+.button_quote_2{
+  background-color: rgba(32,46,82,.99);
+}
+
+
+
+/* SOLO EN CELULAR */
+@media (max-width: 800px){
+  .container_bottom{
+    right: 12px;
+    bottom: 25px;
+  }
+
+  .button_quote{
+    width: 52px;
+    min-height: 52px;
+    padding: 0;
+    font-size: 0;
+    overflow: hidden;
+  }
+
+  .button_quote::before{
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+  }
+}
+
+@media (max-width: 480px){
+  .container_bottom{
+    right: 10px;
+    bottom: 25px;
+  }
+
+  .button_quote{
+    width: 48px;
+    min-height: 48px;
+  }
+
+  .button_quote::before{
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+  }
+}
