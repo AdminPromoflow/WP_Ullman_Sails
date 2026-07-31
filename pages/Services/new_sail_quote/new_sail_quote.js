@@ -5,7 +5,7 @@ class NewSailQuote {
       const sailType = "Sail or Covers";
       const title = "Services";
 
-      const url = `../New_Repair_Quote/index.php?sailType=${encodeURIComponent(sailType)}&title=${encodeURIComponent(title)}`;
+      const url = window.ullmanPageUrl("New_Repair_Quote", { sailType, title });
 
       window.location.href = url;
     })

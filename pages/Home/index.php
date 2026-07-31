@@ -3,8 +3,8 @@
 $homeCss = __DIR__ . '/style.css';
 $homeJs  = __DIR__ . '/app.js';
 
-$homeCssTime = file_exists($homeCss) ? filemtime($homeCss) : time();
-$homeJsTime  = file_exists($homeJs) ? filemtime($homeJs) : time();
+$homeCssTime = ullman_file_version($homeCss);
+$homeJsTime  = ullman_file_version($homeJs);
 $homeUrl = get_template_directory_uri() . '/pages/Home';
 
 ?>

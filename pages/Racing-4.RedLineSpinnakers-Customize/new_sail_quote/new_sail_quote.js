@@ -5,7 +5,7 @@ class NewSailQuote {
       const sailType = "Custom Spinnaker Graphics";
       const title = "Custom Spinnaker Graphics";
 
-      const url = `../New_Sail_Quote/index.php?sailType=${encodeURIComponent(sailType)}&title=${encodeURIComponent(title)}`;
+      const url = window.ullmanPageUrl("New_Sail_Quote", { sailType, title });
 
       window.location.href = url;
     })

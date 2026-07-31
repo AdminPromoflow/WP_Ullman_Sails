@@ -11,70 +11,70 @@ class SearchPage {
         title: "Ullman Sails Home",
         category: "Main Page",
         path: "/home",
-        url: "#",
+        url: window.ullmanPageUrl("Home"),
         text: "Discover Ullman Sails, performance craftsmanship, custom sail solutions and premium sailing services."
       },
       {
         title: "Cruising Sails",
         category: "Sail Types",
         path: "/cruising-sails",
-        url: "#",
+        url: window.ullmanPageUrl("Cruising"),
         text: "Explore cruising sails designed for comfort, durability and dependable sailing performance."
       },
       {
         title: "Racing Sails",
         category: "Sail Types",
         path: "/racing-sails",
-        url: "#",
+        url: window.ullmanPageUrl("Racing"),
         text: "High-performance racing sails built for speed, responsiveness and competitive sailing conditions."
       },
       {
         title: "Navigator Series",
         category: "Series",
         path: "/navigator-series",
-        url: "#",
+        url: window.ullmanPageUrl("cruising_navigator"),
         text: "The Navigator Series is designed for coastal cruising and day sailing with durable custom construction."
       },
       {
         title: "Endurance Series",
         category: "Series",
         path: "/endurance-series",
-        url: "#",
+        url: window.ullmanPageUrl("cruising_endurance"),
         text: "The Endurance Series offers strength and reliability for sailors looking for long-lasting sail performance."
       },
       {
         title: "Voyager Series",
         category: "Series",
         path: "/voyager-series",
-        url: "#",
+        url: window.ullmanPageUrl("cruising_voyager"),
         text: "Voyager Series sails are made for serious cruising sailors seeking balance, quality and dependable handling."
       },
       {
         title: "Expedition Series",
         category: "Series",
         path: "/expedition-series",
-        url: "#",
+        url: `${window.ullmanPageUrl("Cruising")}#series-title-expedition`,
         text: "Expedition Series sails are crafted for offshore conditions and demanding adventures at sea."
       },
       {
         title: "Covers",
         category: "Services",
         path: "/covers",
-        url: "#",
+        url: window.ullmanPageUrl("Covers"),
         text: "Find custom covers for marine protection, quality finishing and tailored solutions for your boat."
       },
       {
         title: "Sail Repair",
         category: "Services",
         path: "/sail-repair",
-        url: "#",
+        url: window.ullmanPageUrl("Services-1.SailsRepair"),
         text: "Professional sail repair services to restore performance, improve durability and extend sail life."
       },
       {
         title: "New Sail Quote",
         category: "Quote",
         path: "/new-sail-quote",
-        url: "#",
+        url: window.ullmanPageUrl("New_Sail_Quote"),
         text: "Request a new sail quote by providing your sailing details, boat information and sail requirements."
       }
     ];

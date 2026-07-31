@@ -7,7 +7,11 @@
 
   buttonTitle.forEach((button) => {
     button.addEventListener("click", () => {
-      window.open("../ContactUs/index.php", "_self");
+      const contactUrl = window.ullmanPageUrl?.("ContactUs");
+
+      if (contactUrl) {
+        window.location.assign(contactUrl);
+      }
     });
   });
 })();

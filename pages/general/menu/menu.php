@@ -11,15 +11,15 @@ $menuOpenFs       = __DIR__ . '/img/menu.png';
 $menuCloseFs      = __DIR__ . '/img/close.png';
 $menuSearchDataFs = dirname(__DIR__, 2) . '/Search/search/search-data.js';
 
-$menuCssV = is_file($menuCssFs) ? filemtime($menuCssFs) : time();
-$menuJsV  = is_file($menuJsFs)  ? filemtime($menuJsFs)  : time();
+$menuCssV = ullman_file_version($menuCssFs);
+$menuJsV  = ullman_file_version($menuJsFs);
 
-$menuLogoV       = is_file($menuLogoFs) ? filemtime($menuLogoFs) : time();
-$menuLogoMobileV = is_file($menuLogoMobileFs) ? filemtime($menuLogoMobileFs) : time();
-$menuSearchV     = is_file($menuSearchFs) ? filemtime($menuSearchFs) : time();
-$menuOpenV       = is_file($menuOpenFs) ? filemtime($menuOpenFs) : time();
-$menuCloseV      = is_file($menuCloseFs) ? filemtime($menuCloseFs) : time();
-$menuSearchDataV = is_file($menuSearchDataFs) ? filemtime($menuSearchDataFs) : time();
+$menuLogoV       = ullman_file_version($menuLogoFs);
+$menuLogoMobileV = ullman_file_version($menuLogoMobileFs);
+$menuSearchV     = ullman_file_version($menuSearchFs);
+$menuOpenV       = ullman_file_version($menuOpenFs);
+$menuCloseV      = ullman_file_version($menuCloseFs);
+$menuSearchDataV = ullman_file_version($menuSearchDataFs);
 $menuUrl = get_template_directory_uri() . '/pages/general/menu';
 $searchDataUrl = get_template_directory_uri() . '/pages/Search/search/search-data.js';
 
@@ -155,6 +155,25 @@ foreach (ullman_page_routes() as $routeKey => $route) {
 
 <script>
 window.ullmanMenuPageUrls = <?php echo wp_json_encode($menuPageUrls); ?>;
+window.ullmanPageUrl = function (directory, parameters = {}) {
+  const routes = window.ullmanMenuPageUrls || {};
+  const requestedDirectory = String(directory || "").toLowerCase();
+  const routeKey = Object.keys(routes).find(
+    (key) => key.toLowerCase() === requestedDirectory
+  );
+
+  if (!routeKey) return "";
+
+  const destination = new URL(routes[routeKey], window.location.origin);
+
+  Object.entries(parameters).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== "") {
+      destination.searchParams.set(key, String(value));
+    }
+  });
+
+  return destination.toString();
+};
 </script>
 <script defer src="<?php echo esc_url($searchDataUrl . '?v=' . $menuSearchDataV); ?>"></script>
 <script defer src="<?php echo esc_url($menuUrl . '/menu.js?v=' . $menuJsV); ?>"></script>

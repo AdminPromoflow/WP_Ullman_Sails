@@ -35,6 +35,20 @@ class Menu {
     this.searchInputMobile = $("searchInputMobile");
 
     this.pageUrls = window.ullmanMenuPageUrls || {};
+    this.pageUrlsByDirectory = new Map();
+    this.pageUrlsByPath = new Map();
+
+    Object.entries(this.pageUrls).forEach(([directory, url]) => {
+      this.pageUrlsByDirectory.set(directory.toLowerCase(), url);
+
+      try {
+        const route = new URL(url, window.location.origin);
+        this.pageUrlsByPath.set(this.normalizePath(route.pathname), url);
+      } catch (error) {
+        // Ignore malformed route data without breaking the rest of the page.
+      }
+    });
+
     this.pagesData = (window.pagesData || []).map((page) => ({
       ...page,
       url: this.normalizePageUrl(page.url)
@@ -44,6 +58,8 @@ class Menu {
   }
 
   async init() {
+    this.setupGlobalNavigation();
+
     if (!this.wrap || !this.header) return;
 
 
@@ -179,13 +195,128 @@ class Menu {
   }
 
   normalizePageUrl(url) {
+    return this.normalizeInternalUrl(url);
+  }
+
+  normalizePath(pathname) {
+    const path = String(pathname || "").replace(/\/+$/, "");
+
+    return path === "" ? "/" : path.toLowerCase();
+  }
+
+  routeForDirectory(directory) {
+    if (!directory) return "";
+
+    return this.pageUrlsByDirectory.get(String(directory).toLowerCase()) || "";
+  }
+
+  mergeRouteUrl(routeUrl, sourceUrl) {
+    const destination = new URL(routeUrl, window.location.origin);
+
+    sourceUrl.searchParams.forEach((value, key) => {
+      if (key.toLowerCase() !== "v") {
+        destination.searchParams.set(key, value);
+      }
+    });
+
+    destination.hash = sourceUrl.hash;
+
+    return destination.toString();
+  }
+
+  normalizeInternalUrl(url) {
     if (typeof url !== "string") return "";
 
-    const match = url.match(/^\.\.\/([^/]+)\/(?:index|News)\.php(?:[?#].*)?$/i);
+    const rawUrl = url.trim();
 
-    if (!match) return url;
+    if (
+      rawUrl === ""
+      || rawUrl.startsWith("#")
+      || /^(?:mailto|tel|javascript|data):/i.test(rawUrl)
+    ) {
+      return url;
+    }
 
-    return this.pageUrls[match[1]] || url;
+    let sourceUrl;
+
+    try {
+      sourceUrl = new URL(rawUrl, window.location.href);
+    } catch (error) {
+      return url;
+    }
+
+    if (sourceUrl.origin !== window.location.origin) return url;
+
+    const legacyMatch = rawUrl.match(
+      /(?:^|\/)(?:pages\/)?([^/?#]+)\/(?:index|News)\.php(?:[?#]|$)/i
+    );
+    const legacyRoute = legacyMatch
+      ? this.routeForDirectory(legacyMatch[1])
+      : "";
+    const permalinkRoute = this.pageUrlsByPath.get(
+      this.normalizePath(sourceUrl.pathname)
+    );
+    const routeUrl = legacyRoute || permalinkRoute;
+
+    if (!routeUrl) return url;
+
+    return this.mergeRouteUrl(routeUrl, sourceUrl);
+  }
+
+  normalizeInternalNavigation(root = document) {
+    const selector = "a[href], [data-url], form[action]";
+    const elements = [];
+
+    if (root instanceof Element && root.matches(selector)) {
+      elements.push(root);
+    }
+
+    root.querySelectorAll?.(selector).forEach((element) => {
+      elements.push(element);
+    });
+
+    elements.forEach((element) => {
+      const attribute = element.hasAttribute("href")
+        ? "href"
+        : element.hasAttribute("data-url")
+          ? "data-url"
+          : "action";
+      const currentUrl = element.getAttribute(attribute);
+      const normalizedUrl = this.normalizeInternalUrl(currentUrl);
+
+      if (normalizedUrl && normalizedUrl !== currentUrl) {
+        element.setAttribute(attribute, normalizedUrl);
+      }
+    });
+  }
+
+  setupGlobalNavigation() {
+    this.normalizeInternalNavigation(document);
+
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest?.("a[href], [data-url]");
+
+      if (target) {
+        this.normalizeInternalNavigation(target);
+      }
+    }, true);
+
+    if ("MutationObserver" in window) {
+      this.navigationObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            if (node.nodeType === Node.ELEMENT_NODE) {
+              this.normalizeInternalNavigation(node);
+            }
+          });
+        });
+      });
+
+      this.navigationObserver.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+      });
+    }
   }
 
   async buildSearchText() {

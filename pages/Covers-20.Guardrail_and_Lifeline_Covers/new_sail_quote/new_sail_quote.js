@@ -5,7 +5,7 @@ class NewSailQuote {
       const sailType = "Guardrail & Lifeline Covers"; //Sail Types, Racing Sails, The Axia Series, Cruising Sails
       const title = "Guardrail & Lifeline Covers";
 
-      const url = `../New_Cover_Quote/index.php?sailType=${encodeURIComponent(sailType)}&title=${encodeURIComponent(title)}`;
+      const url = window.ullmanPageUrl("New_Cover_Quote", { sailType, title });
 
       window.location.href = url;
     })

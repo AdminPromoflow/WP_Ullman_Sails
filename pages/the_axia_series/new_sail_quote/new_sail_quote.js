@@ -5,7 +5,7 @@ class NewSailQuote {
       const sailType = "The Axia Series"; //Sail Types, Racing Sails, The Axia Series, Cruising Sails
       const title = "The Axia Series";
 
-      const url = `../New_Sail_Quote/index.php?sailType=${encodeURIComponent(sailType)}&title=${encodeURIComponent(title)}`;
+      const url = window.ullmanPageUrl("New_Sail_Quote", { sailType, title });
 
       window.location.href = url;
     })

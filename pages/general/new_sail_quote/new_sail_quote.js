@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const quote_button = document.querySelector(".js_quote_button");
+  const quoteButtons = document.querySelectorAll(".js_quote_button");
+  const quoteUrl = window.ullmanPageUrl?.("New_Sail_Quote");
 
-  if (!quote_button) return;
+  if (!quoteUrl) return;
 
-    if (!is_confirmed) {
-      event.preventDefault();
-    }
+  quoteButtons.forEach((button) => {
+    button.setAttribute("href", quoteUrl);
   });
 });

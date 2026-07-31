@@ -65,6 +65,78 @@ function ullman_file_version(string $file): string {
         : (string) filemtime($file);
 }
 
+/**
+ * Changes whenever PHP, CSS or JavaScript inside a page directory changes.
+ */
+function ullman_directory_version(string $directory): string {
+    static $versions = [];
+
+    if (isset($versions[$directory])) {
+        return $versions[$directory];
+    }
+
+    if (!is_dir($directory)) {
+        return $versions[$directory] = (string) time();
+    }
+
+    $files = [];
+    $iterator = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS)
+    );
+
+    foreach ($iterator as $file) {
+        if (!$file->isFile()) {
+            continue;
+        }
+
+        $extension = strtolower($file->getExtension());
+
+        if (in_array($extension, ['php', 'css', 'js'], true)) {
+            $files[] = $file->getPathname();
+        }
+    }
+
+    sort($files, SORT_STRING);
+    $context = hash_init('sha256');
+
+    foreach ($files as $file) {
+        hash_update($context, $file . ':' . ullman_file_version($file) . ';');
+    }
+
+    return $versions[$directory] = substr(hash_final($context), 0, 12);
+}
+
+/**
+ * Shared components affect every public page and therefore every page version.
+ */
+function ullman_shared_version(): string {
+    static $version = null;
+
+    if ($version !== null) {
+        return $version;
+    }
+
+    $themeDirectory = get_template_directory();
+    $parts = [
+        ullman_file_version($themeDirectory . '/functions.php'),
+        ullman_directory_version($themeDirectory . '/pages/general'),
+        ullman_file_version($themeDirectory . '/pages/Search/search/search-data.js'),
+    ];
+
+    return $version = substr(hash('sha256', implode('|', $parts)), 0, 12);
+}
+
+function ullman_page_version(string $template): string {
+    return substr(
+        hash(
+            'sha256',
+            ullman_directory_version(dirname($template)) . '|' . ullman_shared_version()
+        ),
+        0,
+        12
+    );
+}
+
 function ullman_page_url(string $key): string {
     $normalizedKey = sanitize_title($key);
     $routes = ullman_page_routes();
@@ -99,14 +171,14 @@ function ullman_page_url(string $key): string {
 
     if ($normalizedKey === 'home' || !isset($routes[$normalizedKey])) {
         $homeTemplate = get_template_directory() . '/pages/Home/index.php';
-        $homeVersion = ullman_file_version($homeTemplate);
+        $homeVersion = ullman_page_version($homeTemplate);
 
         return add_query_arg('v', $homeVersion, home_url('/'));
     }
 
     $route = $routes[$normalizedKey];
     $template = get_template_directory() . '/pages/' . $route['template'];
-    $version = ullman_file_version($template);
+    $version = ullman_page_version($template);
 
     return add_query_arg('v', $version, home_url('/' . $route['slug'] . '/'));
 }
@@ -134,6 +206,14 @@ function ullman_redirect_to_versioned_page(): void {
 
     if ($normalizedKey !== 'home' && !isset($routes[$normalizedKey])) {
         return;
+    }
+
+    /* Public templates are under active migration; never cache their HTML. */
+    nocache_headers();
+
+    if (!headers_sent()) {
+        header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0', true);
+        header('Expires: Wed, 11 Jan 1984 05:00:00 GMT', true);
     }
 
     $versionedUrl = ullman_page_url($normalizedKey ?: 'home');

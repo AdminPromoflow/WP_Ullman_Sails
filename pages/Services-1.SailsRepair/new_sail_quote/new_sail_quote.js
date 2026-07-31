@@ -5,7 +5,7 @@ class NewSailQuote {
       const sailType = "Expert Sail Repair Services for Optimal Performance";
       const title = "Expert Sail Repair Services for Optimal Performance";
 
-      const url = `../New_Repair_Quote/index.php?sailType=${encodeURIComponent(sailType)}&title=${encodeURIComponent(title)}`;
+      const url = window.ullmanPageUrl("New_Repair_Quote", { sailType, title });
 
       window.location.href = url;
     })
