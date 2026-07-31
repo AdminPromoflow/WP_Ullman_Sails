@@ -1,11 +1,11 @@
 <?php
-// Asset versioning for cache-busting (changes the URL whenever the file changes)
-$introCssVersion = filemtime(__DIR__ . '/2.Services/Services.css');
-$introJsVersion  = filemtime(__DIR__ . '/2.Services/Services.js');
+$servicesCssFs = __DIR__ . '/Services.css';
+$servicesJsFs  = __DIR__ . '/Services.js';
+$servicesUrl   = get_template_directory_uri() . '/pages/Cuising-6.BlueLineSpinnakers-Customize/2.Services';
 ?>
 
-<link rel="stylesheet" href="2.Services/Services.css?v=<?= $introCssVersion ?>">
-<script defer src="2.Services/Services.js?v=<?= $introJsVersion ?>"></script>
+<link rel="stylesheet" href="<?php echo esc_url($servicesUrl . '/Services.css?v=' . ullman_file_version($servicesCssFs)); ?>">
+<script defer src="<?php echo esc_url($servicesUrl . '/Services.js?v=' . ullman_file_version($servicesJsFs)); ?>"></script>
 
 <section class="textblue" data-sr-reveal>
 

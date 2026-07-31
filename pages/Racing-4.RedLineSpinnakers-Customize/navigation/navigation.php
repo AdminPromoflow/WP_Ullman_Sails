@@ -1,20 +1,17 @@
 <?php
 declare(strict_types=1);
 
-/* Filesystem paths (for filemtime) */
-$navCssFs = __DIR__ . '/navigation/navigation.css';
-$navJsFs  = __DIR__ . '/navigation/navigation.js';
+$navCssFs = __DIR__ . "/navigation.css";
+$navJsFs  = __DIR__ . "/navigation.js";
+$navUrl   = get_template_directory_uri() . "/pages/" . basename(dirname(__DIR__)) . "/navigation";
 
-/* Public paths (as used in HTML) */
-$navCssPublic = 'navigation/navigation.css';
-$navJsPublic  = 'navigation/navigation.js';
-
-/* Version values (cache-busting) */
-$navCssV = is_file($navCssFs) ? filemtime($navCssFs) : time();
-$navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
+$navCssPublic = $navUrl . "/navigation.css";
+$navJsPublic  = $navUrl . "/navigation.js";
+$navCssV = ullman_file_version($navCssFs);
+$navJsV  = is_file($navJsFs) ? ullman_file_version($navJsFs) : "";
 ?>
 
-<link rel="stylesheet" href="<?= $navCssPublic ?>?v=<?= $navCssV ?>">
+<link rel="stylesheet" href="<?php echo esc_url($navCssPublic . "?v=" . $navCssV); ?>">
 
 <?php
 /**
@@ -22,10 +19,10 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
  * - If 'href' is null (or missing), it will render as the current page (no link).
  */
 $breadcrumbs = $breadcrumbs ?? [
-  ['label' => 'Home',          'href' => '../Home/index.php'],
-  ['label' => 'Sail Types','href' => '../SailTypes/index.php'],
-  ['label' => 'The Axia Series','href' => '../the_axia_series/index.php'],
-  ['label' => 'Red Line Spinnakers','href' => '../racing_red_line_series/index.php'],
+  ['label' => 'Home',          'href' => ullman_page_url('Home')],
+  ['label' => 'Sail Types','href' => ullman_page_url('SailTypes')],
+  ['label' => 'The Axia Series','href' => ullman_page_url('the_axia_series')],
+  ['label' => 'Red Line Spinnakers','href' => ullman_page_url('racing_red_line_series')],
   ['label' => 'Customize Red Line','href' => null],
 ];
 ?>

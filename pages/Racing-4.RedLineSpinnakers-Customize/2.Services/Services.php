@@ -1,10 +1,10 @@
 <?php
-// Asset versioning for cache-busting (changes the URL whenever the file changes)
-$introCssVersion = filemtime(__DIR__ . '/2.Services/Services.css');
-$introJsVersion  = filemtime(__DIR__ . '/2.Services/Services.js');
+$servicesCssFs = __DIR__ . '/Services.css';
+$servicesJsFs  = __DIR__ . '/Services.js';
+$servicesUrl   = get_template_directory_uri() . '/pages/Racing-4.RedLineSpinnakers-Customize/2.Services';
 ?>
 
-<link rel="stylesheet" href="2.Services/Services.css?v=<?= $introCssVersion ?>" >
+<link rel="stylesheet" href="<?php echo esc_url($servicesUrl . '/Services.css?v=' . ullman_file_version($servicesCssFs)); ?>">
 
 <section class="textRed" data-sr-reveal>
 
@@ -20,9 +20,11 @@ $introJsVersion  = filemtime(__DIR__ . '/2.Services/Services.js');
     <p class="sr-item">Have fun!</p>
 
     <div class="buttonTitleRed sr-item">
-      <h3 class="openContactUsRed">Contact us</h3>
+      <a href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">
+        <h3 class="openContactUsRed">Contact us</h3>
+      </a>
     </div>
   </div>
 </section>
 
-<script defer src="2.Services/Services.js?v=<?= $introJsVersion ?>"></script>
+<script defer src="<?php echo esc_url($servicesUrl . '/Services.js?v=' . ullman_file_version($servicesJsFs)); ?>"></script>

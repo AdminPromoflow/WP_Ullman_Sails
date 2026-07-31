@@ -1,17 +1,17 @@
 <?php
 declare(strict_types=1);
 
-/* Filesystem paths (for filemtime) */
-$navCssFs = __DIR__ . '/navigation.css';
+$navCssFs = __DIR__ . "/navigation.css";
+$navJsFs  = __DIR__ . "/navigation.js";
+$navUrl   = get_template_directory_uri() . "/pages/" . basename(dirname(__DIR__)) . "/navigation";
 
-/* Public paths (as used in HTML) */
-$navCssPublic = get_template_directory_uri() . '/pages/AboutUs/navigation/navigation.css';
-
-/* Version values (cache-busting) */
-$navCssV = is_file($navCssFs) ? filemtime($navCssFs) : time();
+$navCssPublic = $navUrl . "/navigation.css";
+$navJsPublic  = $navUrl . "/navigation.js";
+$navCssV = ullman_file_version($navCssFs);
+$navJsV  = is_file($navJsFs) ? ullman_file_version($navJsFs) : "";
 ?>
 
-<link rel="stylesheet" href="<?= $navCssPublic ?>?v=<?= $navCssV ?>">
+<link rel="stylesheet" href="<?php echo esc_url($navCssPublic . "?v=" . $navCssV); ?>">
 
 <?php
 /**

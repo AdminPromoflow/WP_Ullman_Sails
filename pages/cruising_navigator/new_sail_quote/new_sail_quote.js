@@ -11,5 +11,8 @@ class NewSailQuote {
     })
   }
 }
-const container_bottom = document.getElementById('container_bottom');
-const newSailQuote = new NewSailQuote();
+const container_bottom = document.getElementById('container_bottom') || document.querySelector('.container_bottom');
+
+if (container_bottom) {
+  new NewSailQuote();
+}

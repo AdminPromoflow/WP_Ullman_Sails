@@ -1,19 +1,17 @@
 <?php
 declare(strict_types=1);
 
-/* Filesystem paths (for filemtime) */
-$navCssFs = __DIR__ . '/General/navigation/navigation.css';
-$navJsFs  = __DIR__ . '/General/navigation/navigation.js';
+$navCssFs = __DIR__ . "/navigation.css";
+$navJsFs  = __DIR__ . "/navigation.js";
+$navUrl   = get_template_directory_uri() . "/pages/" . basename(dirname(__DIR__)) . "/navigation";
 
-/* Public paths (as used in HTML) */
-$navCssPublic = '../General/navigation/navigation.css';
-
-/* Version values (cache-busting) */
-$navCssV = is_file($navCssFs) ? filemtime($navCssFs) : time();
-$navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
+$navCssPublic = $navUrl . "/navigation.css";
+$navJsPublic  = $navUrl . "/navigation.js";
+$navCssV = ullman_file_version($navCssFs);
+$navJsV  = is_file($navJsFs) ? ullman_file_version($navJsFs) : "";
 ?>
 
-<link rel="stylesheet" href="<?= $navCssPublic ?>?v=<?= $navCssV ?>">
+<link rel="stylesheet" href="<?php echo esc_url($navCssPublic . "?v=" . $navCssV); ?>">
 
 <?php
 /**
@@ -21,7 +19,7 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
  * - If 'href' is null (or missing), it will render as the current page (no link).
  */
 $breadcrumbs = $breadcrumbs ?? [
-  ['label' => 'Home',  'href' => '../Home/index.php'],
+  ['label' => 'Home',  'href' => ullman_page_url('Home')],
     ['label' => 'Terms And Conditions','href' => null],
 
 ];

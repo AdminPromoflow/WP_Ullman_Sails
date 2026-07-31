@@ -1,17 +1,13 @@
 <?php
-$customizeCss = '../Racing-4.RedLineSpinnakers-Customize/Customize/customize.css';
-$customizeJs = '../Racing-4.RedLineSpinnakers-Customize/Customize/customize.js';
-
-$svgPath = '../Racing-4.RedLineSpinnakers-Customize/Customize/svg/';
-
-function assetVersion($filePath) {
-  return file_exists($filePath) ? filemtime($filePath) : time();
-}
+$customizeCssFs = __DIR__ . '/customize.css';
+$customizeJsFs  = __DIR__ . '/customize.js';
+$customizeUrl   = get_template_directory_uri() . '/pages/Racing-4.RedLineSpinnakers-Customize/Customize';
+$svgPath        = __DIR__ . '/svg/';
 ?>
 
 <link
   rel="stylesheet"
-  href="<?php echo $customizeCss; ?>?v=<?php echo assetVersion($customizeCss); ?>"
+  href="<?php echo esc_url($customizeUrl . '/customize.css?v=' . ullman_file_version($customizeCssFs)); ?>"
 >
 
 <section class="customize" id="customize">
@@ -95,4 +91,4 @@ function assetVersion($filePath) {
 </section>
 
 <?php ullman_ajax_config(); ?>
-<script src="<?php echo esc_url(get_template_directory_uri() . '/pages/Racing-4.RedLineSpinnakers-Customize/Customize/customize.js?v=' . assetVersion($customizeJs)); ?>"></script>
+<script src="<?php echo esc_url($customizeUrl . '/customize.js?v=' . ullman_file_version($customizeJsFs)); ?>"></script>
