@@ -93,9 +93,34 @@ function ullman_load_page_template(string $template): string {
 
     $pageTemplate = get_template_directory() . '/pages/' . $routes[$key]['template'];
 
-    return is_file($pageTemplate) ? $pageTemplate : $template;
+    if (!is_file($pageTemplate)) {
+        return $template;
+    }
+
+    ob_start('ullman_rewrite_legacy_asset_urls');
+
+    return $pageTemplate;
 }
 add_filter('template_include', 'ullman_load_page_template');
+
+/**
+ * Preserves legacy section markup while serving it from WordPress permalinks.
+ * A source path such as ../Cruising/section/style.css becomes the public theme
+ * asset URL /wp-content/themes/<theme>/pages/Cruising/section/style.css.
+ */
+function ullman_rewrite_legacy_asset_urls(string $html): string {
+    $pagesUrl = rtrim(get_template_directory_uri(), '/') . '/pages/';
+
+    return preg_replace_callback(
+        '/\b(href|src|poster)=([' . "\"'" . '])\.\.\/([^' . "\"'" . ']+)\2/i',
+        static function (array $match) use ($pagesUrl): string {
+            return $match[1] . '=' . $match[2]
+                . esc_url($pagesUrl . ltrim($match[3], '/'))
+                . $match[2];
+        },
+        $html
+    );
+}
 
 /**
  * Prints the AJAX endpoint and nonce before legacy section scripts execute.
