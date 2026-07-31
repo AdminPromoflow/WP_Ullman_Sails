@@ -258,7 +258,7 @@
     </section>
 
     <nav aria-label="Ullman Sails navigation">
-      <h2 class="footer__heading">Explore</h2>
+      <!-- <h2 class="footer__heading">Explore</h2> -->
       <ul class="footer__list">
         <li><a href="<?php echo esc_url(ullman_page_url('home')); ?>">Home</a></li>
         <li><a href="<?php echo esc_url(ullman_page_url('sail_care')); ?>">Sail Care</a></li>
