@@ -51,6 +51,34 @@ function ullman_page_url(string $key): string {
     $normalizedKey = sanitize_title($key);
     $routes = ullman_page_routes();
 
+    $aliases = [
+        'about_us' => 'AboutUs',
+        'about-us' => 'AboutUs',
+        'contact_us' => 'ContactUs',
+        'contact-us' => 'ContactUs',
+        'sail_care' => 'SailCare',
+        'sail-care' => 'SailCare',
+        'sail_types' => 'SailTypes',
+        'sail-types' => 'SailTypes',
+        'new_sail_quote' => 'New_Sail_Quote',
+        'new-sail-quote' => 'New_Sail_Quote',
+        'new_repair_quote' => 'New_Repair_Quote',
+        'new-repair-quote' => 'New_Repair_Quote',
+        'new_cover_quote' => 'New_Cover_Quote',
+        'new-cover-quote' => 'New_Cover_Quote',
+        'services_1_sails_repair' => 'Services-1.SailsRepair',
+        'services-1-sails-repair' => 'Services-1.SailsRepair',
+        'services_2_sails_cleaning' => 'Services-2.SailsCleaning',
+        'services-2-sails-cleaning' => 'Services-2.SailsCleaning',
+        'services_3_canvas_repair' => 'Services-3.CanvasRepair',
+        'services-3-canvas-repair' => 'Services-3.CanvasRepair',
+        'racing-2-endurance' => 'cruising_endurance',
+    ];
+
+    if (isset($aliases[$normalizedKey])) {
+        $normalizedKey = sanitize_title($aliases[$normalizedKey]);
+    }
+
     if ($normalizedKey === 'home' || !isset($routes[$normalizedKey])) {
         $homeTemplate = get_template_directory() . '/pages/Home/index.php';
         $homeVersion = is_file($homeTemplate) ? filemtime($homeTemplate) : time();
