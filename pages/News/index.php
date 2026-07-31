@@ -48,7 +48,7 @@
       .leftPanel{
         height: 100vh;
         overflow: hidden;
-        background-color: #005598;
+        background-color: #202E52;
         flex: 0 0 clamp(17rem, 23vw, 21rem);
         z-index: 10;
       }
