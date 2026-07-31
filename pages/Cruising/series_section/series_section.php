@@ -2,7 +2,16 @@
      series_section.html — CLEAN (Reveal only)
 ========================= -->
 
-<link rel="stylesheet" href="../Cruising/series_section/series_section.css">
+<?php
+$sectionCss = __DIR__ . '/series_section.css';
+$sectionJs = __DIR__ . '/series_section.js';
+$sectionCssTime = file_exists($sectionCss) ? filemtime($sectionCss) : time();
+$sectionJsTime = file_exists($sectionJs) ? filemtime($sectionJs) : time();
+$sectionUrl = get_template_directory_uri() . '/pages/Cruising/series_section';
+$sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section';
+?>
+
+<link rel="stylesheet" href="<?php echo esc_url($sectionUrl . '/series_section.css?v=' . $sectionCssTime); ?>">
 
 <div class="series-list">
 
@@ -16,7 +25,7 @@
     <div class="series-container">
       <figure class="series-image">
         <img
-          src="../Cruising/sail_types_section/img/Navigator.png"
+          src="<?php echo esc_url($sailTypesUrl . '/img/Navigator.png'); ?>"
           alt="Navigator Series cruising sails"
           loading="lazy"
           decoding="async"
@@ -63,7 +72,7 @@
       </div>
       <figure class="series-image">
         <img
-          src="../Cruising/sail_types_section/img/Endurance.png"
+          src="<?php echo esc_url($sailTypesUrl . '/img/Endurance.png'); ?>"
           alt="Endurance Series cruising sails"
           loading="lazy"
           decoding="async"
@@ -83,7 +92,7 @@
     <div class="series-container">
       <figure class="series-image">
         <img
-          src="../Cruising/sail_types_section/img/Voyager.png"
+          src="<?php echo esc_url($sailTypesUrl . '/img/Voyager.png'); ?>"
           alt="Voyager Series cruising sails"
           loading="lazy"
           decoding="async"
@@ -131,7 +140,7 @@
       </div>
       <figure class="series-image">
         <img
-          src="../Cruising/sail_types_section/img/Performance.png"
+          src="<?php echo esc_url($sailTypesUrl . '/img/Performance.png'); ?>"
           alt="Expedition Series cruising sails"
           loading="lazy"
           decoding="async"
@@ -150,7 +159,7 @@
     <div class="series-container">
       <figure class="series-image">
         <img
-          src="../Cruising/sail_types_section/img/Downwind.png"
+          src="<?php echo esc_url($sailTypesUrl . '/img/Downwind.png'); ?>"
           alt="Blue Line Spinnakers downwind sails"
           loading="lazy"
           decoding="async"
@@ -175,4 +184,4 @@
 
 </div>
 
-<script src="../Cruising/series_section/series_section.js" defer></script>
+<script src="<?php echo esc_url($sectionUrl . '/series_section.js?v=' . $sectionJsTime); ?>" defer></script>

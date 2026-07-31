@@ -5,23 +5,24 @@
 declare(strict_types=1);
 
 /* CSS + JS (filemtime) */
-$cssV = filemtime(__DIR__ . '/../Cruising/sail_types_section/sail_types_section.css');
-$jsV  = filemtime(__DIR__ . '/../Cruising/sail_types_section/sail_types_section.js');
+$cssV = filemtime(__DIR__ . '/sail_types_section.css');
+$jsV  = filemtime(__DIR__ . '/sail_types_section.js');
 
 /* Arrows */
-$arrowLeftV  = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/arrow_left.png');
-$arrowRightV = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/arrow_right.png');
+$arrowLeftV  = filemtime(__DIR__ . '/img/arrow_left.png');
+$arrowRightV = filemtime(__DIR__ . '/img/arrow_right.png');
 
 /* Slides */
-$navigatorV   = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Navigator.png');
-$enduranceV   = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Endurance.png');
-$voyagerV     = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Voyager.png');
-$performanceV = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Performance.png');
-$downwindV    = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Downwind.png');
+$navigatorV   = filemtime(__DIR__ . '/img/Navigator.png');
+$enduranceV   = filemtime(__DIR__ . '/img/Endurance.png');
+$voyagerV     = filemtime(__DIR__ . '/img/Voyager.png');
+$performanceV = filemtime(__DIR__ . '/img/Performance.png');
+$downwindV    = filemtime(__DIR__ . '/img/Downwind.png');
+$sectionUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section';
 ?>
 
-<link rel="stylesheet" href="../Cruising/sail_types_section/sail_types_section.css?v=<?= $cssV ?>">
-<script defer src="../Cruising/sail_types_section/sail_types_section.js?v=<?= $jsV ?>"></script>
+<link rel="stylesheet" href="<?php echo esc_url($sectionUrl . '/sail_types_section.css?v=' . $cssV); ?>">
+<script defer src="<?php echo esc_url($sectionUrl . '/sail_types_section.js?v=' . $jsV); ?>"></script>
 
 <section class="sail-types-section" aria-labelledby="sail-types-heading">
   <h2 id="sail-types-heading" data-st-parallax-text>
@@ -35,11 +36,11 @@ $downwindV    = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Downwin
   <div class="sail-types-container">
 
     <button class="sail-types-arrow sail-types-arrow-left" type="button" aria-label="Previous">
-      <img src="../Cruising/sail_types_section/img/arrow_left.png?v=<?= $arrowLeftV ?>" alt="">
+      <img src="<?php echo esc_url($sectionUrl . '/img/arrow_left.png?v=' . $arrowLeftV); ?>" alt="">
     </button>
 
     <button class="sail-types-arrow sail-types-arrow-right" type="button" aria-label="Next">
-      <img src="../Cruising/sail_types_section/img/arrow_right.png?v=<?= $arrowRightV ?>" alt="">
+      <img src="<?php echo esc_url($sectionUrl . '/img/arrow_right.png?v=' . $arrowRightV); ?>" alt="">
     </button>
 
     <div class="sail-types-scroller-container">
@@ -48,7 +49,7 @@ $downwindV    = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Downwin
         <article class="sail-types-box">
           <img
             data-st-parallax-img
-            src="../Cruising/sail_types_section/img/Navigator.png?v=<?= $navigatorV ?>"
+            src="<?php echo esc_url($sectionUrl . '/img/Navigator.png?v=' . $navigatorV); ?>"
             alt="Navigator"
             loading="lazy"
             decoding="async"
@@ -66,7 +67,7 @@ $downwindV    = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Downwin
         <article class="sail-types-box">
           <img
             data-st-parallax-img
-            src="../Cruising/sail_types_section/img/Endurance.png?v=<?= $enduranceV ?>"
+            src="<?php echo esc_url($sectionUrl . '/img/Endurance.png?v=' . $enduranceV); ?>"
             alt="Endurance"
             loading="lazy"
             decoding="async"
@@ -84,7 +85,7 @@ $downwindV    = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Downwin
         <article class="sail-types-box">
           <img
             data-st-parallax-img
-            src="../Cruising/sail_types_section/img/Voyager.png?v=<?= $voyagerV ?>"
+            src="<?php echo esc_url($sectionUrl . '/img/Voyager.png?v=' . $voyagerV); ?>"
             alt="Voyager"
             loading="lazy"
             decoding="async"
@@ -102,7 +103,7 @@ $downwindV    = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Downwin
         <article class="sail-types-box">
           <img
             data-st-parallax-img
-            src="../Cruising/sail_types_section/img/Performance.png?v=<?= $performanceV ?>"
+            src="<?php echo esc_url($sectionUrl . '/img/Performance.png?v=' . $performanceV); ?>"
             alt="Performance"
             loading="lazy"
             decoding="async"
@@ -120,7 +121,7 @@ $downwindV    = filemtime(__DIR__ . '/../Cruising/sail_types_section/img/Downwin
         <article class="sail-types-box">
           <img
             data-st-parallax-img
-            src="../Cruising/sail_types_section/img/Downwind.png?v=<?= $downwindV ?>"
+            src="<?php echo esc_url($sectionUrl . '/img/Downwind.png?v=' . $downwindV); ?>"
             alt="Downwind"
             loading="lazy"
             decoding="async"
