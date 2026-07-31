@@ -291,6 +291,11 @@ add_filter('template_include', 'ullman_load_page_template');
  */
 function ullman_rewrite_legacy_asset_urls(string $html): string {
     $pagesUrl = rtrim(get_template_directory_uri(), '/') . '/pages/';
+    $routes = ullman_page_routes();
+    $pageKey = get_query_var('ullman_page');
+    $pageDirectory = is_string($pageKey) && isset($routes[$pageKey])
+        ? trim(str_replace('\\', '/', dirname($routes[$pageKey]['template'])), '/')
+        : '';
 
     $publicAssetUrl = static function (string $path) use ($pagesUrl): string {
         $normalizedPath = ltrim($path, '/');
@@ -314,6 +319,41 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
         },
         $html
     );
+
+    /*
+     * Section templates historically use paths such as
+     * "2_handling_and_performance/handling_and_performance.css". Those paths
+     * work only when the PHP file is opened directly. On a WordPress permalink
+     * the browser instead requests /racing-race-series/2_handling..., causing
+     * 404 responses. Resolve existing local assets from the current page's
+     * directory to their public theme URL.
+     */
+    if ($pageDirectory !== '') {
+        $pageAssetsDirectory = get_template_directory() . '/pages/' . $pageDirectory . '/';
+
+        $html = (string) preg_replace_callback(
+            '/\b(href|src|poster)=([' . "\"'" . '])'
+                . '(?![a-z][a-z0-9+.-]*:|\/\/|\/|#|\.\.\/)'
+                . '([^' . "\"'" . ']+\.(?:css|js|png|jpe?g|gif|webp|svg|avif|ico|mp4|webm)(?:\?[^' . "\"'" . ']*)?)\2/i',
+            static function (array $match) use ($pagesUrl, $pageDirectory, $pageAssetsDirectory): string {
+                $assetPath = (string) wp_parse_url($match[3], PHP_URL_PATH);
+                $assetPath = rawurldecode(ltrim($assetPath, '/'));
+
+                if (
+                    $assetPath === ''
+                    || str_contains($assetPath, '..')
+                    || !is_file($pageAssetsDirectory . $assetPath)
+                ) {
+                    return $match[0];
+                }
+
+                return $match[1] . '=' . $match[2]
+                    . esc_url($pagesUrl . $pageDirectory . '/' . $match[3])
+                    . $match[2];
+            },
+            $html
+        );
+    }
 
     /* Also migrate legacy paths inside inline CSS background-image declarations. */
     return (string) preg_replace_callback(
