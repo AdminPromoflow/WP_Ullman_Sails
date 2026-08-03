@@ -442,6 +442,17 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
   transform: translateY(-2px);
 }
 
+/* Sail Types: el único botón azul claro de la página es el retorno a inicio. */
+.ullman-context-back--sail-types .ullman-context-back__link {
+  background: #5db9d0;
+  border-color: #5db9d0;
+}
+
+.ullman-context-back--sail-types .ullman-context-back__link:is(:hover, :focus-visible) {
+  background: #2d91ac;
+  border-color: #2d91ac;
+}
+
 /* Cards use a restrained editorial surface rather than heavy rounded panels. */
 :is(.svc-card, .st-card, .dac-card, .srm-card, .cart_perfiles_about) {
   background: var(--ullman-white) !important;

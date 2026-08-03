@@ -391,7 +391,14 @@ function ullman_contextual_back_navigation(string $html, string $pageKey): strin
         }
     }
 
-    if ($targetLabel === 'Home') {
+    if ($targetLabel === 'Home' && $pageKey === 'sail_types') {
+        $button = sprintf(
+            '<section class="ullman-context-back ullman-context-back--sail-types" aria-label="%1$s"><a class="ullman-context-back__link" href="%2$s">%3$s</a></section>',
+            esc_attr('Back to Home'),
+            esc_url(ullman_page_url('home')),
+            esc_html('Back to Home')
+        );
+    } elseif ($targetLabel === 'Home') {
         $button = sprintf(
             '<section class="ullman-context-back" aria-label="%1$s"><a class="ullman-context-back__link" href="#">%2$s</a></section>',
             esc_attr('Scroll to the top of this page'),

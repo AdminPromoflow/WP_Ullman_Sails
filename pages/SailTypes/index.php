@@ -68,9 +68,6 @@
 
     <div id="searchHide" class="searchHide">
     <?php include __DIR__ . "/1.Slider/Slider.php" ?>
-    <a class="sailtypes-back-home" href="<?php echo esc_url(ullman_page_url('home')); ?>">
-      Back to Home
-    </a>
     <?php include __DIR__ . "/../SailTypes/new_sail_quote/new_sail_quote.php" ?>
 
     <?php include __DIR__ . "/navigation/navigation.php" ?>
