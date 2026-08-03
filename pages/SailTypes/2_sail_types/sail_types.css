@@ -11,16 +11,27 @@
   --st-gutter: clamp(1rem, 4vw, 3rem);
   --st-py: clamp(2.75rem, 6vw, 5rem);
 
-  --st-card-bg: #ffffff;
+  --st-card-bg: rgba(255, 255, 255, .6);
+  --st-card-bg-hover: rgba(255, 255, 255, .82);
   --st-card-border: rgba(15,33,64,.12);
+  --st-card-border-hover: rgba(15,33,64,.22);
   --st-card-shadow: 0 18px 50px rgba(15,33,64,.12);
   --st-card-shadow-hover: 0 14px 10px rgba(15,33,64,.16);
+  --st-title: #005598;
+  --st-btn-light: rgb(0, 85, 152);
+  --st-btn-dark: rgb(32, 46, 82);
+  --st-btn-text: #fafafa;
+  --st-btn-border: rgba(255, 255, 255, .18);
+  --st-btn-shadow: 0 10px 24px rgba(15,33,64,.12);
   --st-radius: 28px;
 
   position: relative;
 
-  background: #F8F8FA;
+  padding-block: var(--st-py);
+  padding-top: 0;
+  padding-inline: 2vw;
   text-align: center;
+  background: #fafafa;
 }
 
 .st-wrap{
@@ -49,15 +60,13 @@
 }
 
 .sail_types_title{
-  color: #005598;
+  color: var(--st-title);
   font-size: clamp(3rem, 4.5vw, 6rem);
   line-height: 1.1;
   font-weight: 600;
-  margin: 0.5rem 0 1.5rem 0;
+  margin: 0.5rem auto 1.5rem;
   letter-spacing: -0.02em;
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
   text-transform: none;
   z-index: 1;
 
@@ -113,7 +122,7 @@
   width: 100%;
   max-width: 26rem;
   text-align: center;
-  background: rgba(255, 255, 255, .6);
+  background: var(--st-card-bg);
   padding: clamp(1.1rem, 2.2vw, 1.5rem);
   display: flex;
   flex-direction: column;
@@ -145,8 +154,8 @@
 .st-card:focus-within{
   transform: translateY(-6px);
   box-shadow: var(--st-card-shadow-hover);
-  border-color: rgba(15,33,64,.22);
-  background: rgba(255,255,255,.82);
+  border-color: var(--st-card-border-hover);
+  background: var(--st-card-bg-hover);
 }
 
 .st-icon{
@@ -169,8 +178,27 @@
   font-weight: 500;
   line-height: 1.2;
   max-width: 28ch;
-  color: rgb(0, 85, 152);
+  color: var(--st-title);
   margin-inline: auto;
+}
+
+.st-card-title__link{
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.st-card-title__link:hover,
+.st-card-title__link:focus-visible{
+  color: var(--st-btn-dark);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.st-card-title__link:focus-visible{
+  outline: 2px solid var(--st-btn-light);
+  outline-offset: .25rem;
 }
 
 .st-card-text{
@@ -181,34 +209,36 @@
   max-width: 34ch;
 }
 
-.st-btn{
+.sail-types .st-btn{
   display: inline-block;
   width: max-content;
   margin-top: 1.2rem;
   padding: 3px 20px;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: var(--btn-shadow);
+  color: var(--st-btn-text);
+  border: 1px solid var(--st-btn-border);
+  box-shadow: var(--st-btn-shadow);
   font-size: 1.3em;
   font-weight: 300;
   text-decoration: none;
   cursor: pointer;
   transition:
-    all .4s;
+    transform .4s, background-color .4s;
+  background: var(--st-btn-light);
 }
-.st-btn-dark{
-  background: rgb(32,46,82);
-}
-.st-btn-clear{
-  background: rgb(0, 85, 152);
-}
-.st-btn-dark:hover{
-  background: rgb(0, 85, 152);
-  transform: translateY(-2px)!important;
 
+.sail-types .st-btn:hover,
+.sail-types .st-btn:focus-visible {
+  background: #004a84;
 }
-.st-btn-clear:hover{
-  background: rgb(32,46,82);
+
+.sail-types .st-btn-dark,
+.sail-types .st-btn-clear{
+  background: var(--st-btn-light);
+}
+
+.sail-types .st-btn-dark:hover,
+.sail-types .st-btn-clear:hover{
+  background: var(--st-btn-dark);
   transform: translateY(-2px)!important;
 }
 
@@ -236,11 +266,20 @@
   .st-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .st-card:nth-child(3){
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
 }
 
 @media (max-width: 640px){
   .st-grid{
     grid-template-columns: 1fr;
+  }
+
+  .st-card:nth-child(3){
+    grid-column: auto;
   }
 
   .st-card-text{

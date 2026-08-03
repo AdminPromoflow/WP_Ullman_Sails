@@ -523,8 +523,36 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
   font-weight: 600 !important;
 }
 
+/* Primary page and section headings share the Sail Types treatment. */
+body :is(
+  .sail_types_title,
+  .covers-title,
+  #covers-title,
+  .services-title,
+  .services__title,
+  #services-title,
+  .cruising-title,
+  .axia-title,
+  .tips__title,
+  .sailcare__title,
+  .sci__pageTitle,
+  .au-title,
+  .contactus-side-title,
+  .terms__title
+) {
+  color: var(--ullman-blue) !important;
+  font-size: clamp(3rem, 4.5vw, 6rem) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.1 !important;
+  margin: .5rem auto 1.5rem !important;
+  max-width: 50rem;
+  text-align: center;
+  text-transform: none !important;
+}
+
 /* Red rules are reserved for hierarchy: headings, editorial emphasis and card cues. */
-:is(.sail_types_title, .covers-title, .services-title, .services__title, .cruising-title, .axia-title, .tips__title, .sailcare__title, .sci__pageTitle, .au-title, .contactus-side-title)::after {
+:is(.sail_types_title, .covers-title, #covers-title, .services-title, .services__title, #services-title, .cruising-title, .axia-title, .tips__title, .sailcare__title, .sci__pageTitle, .au-title, .contactus-side-title, .terms__title)::after {
   background: var(--ullman-red) !important;
   box-shadow: none !important;
   content: "";
