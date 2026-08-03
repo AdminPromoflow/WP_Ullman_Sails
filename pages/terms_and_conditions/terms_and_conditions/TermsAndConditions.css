@@ -58,6 +58,11 @@ body .termsAndConditions > p:not(.terms__company) {
   text-justify: inter-word;
 }
 
+body .termsAndConditions .terms__clause-number {
+  color: #111c42;
+  font-weight: 700;
+}
+
 @media (max-width: 40rem) {
   body .termsAndConditions .terms__title {
     font-size: clamp(2rem, 10vw, 3rem) !important;

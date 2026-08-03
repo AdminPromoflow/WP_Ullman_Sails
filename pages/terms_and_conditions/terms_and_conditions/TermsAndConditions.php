@@ -166,3 +166,23 @@ $sliderCssTime = file_exists($sliderCss) ? filemtime($sliderCss) : time();
       <h2>22. HEADINGS</h2>
       <p>The headings of these conditions are for convenience only and shall have no effect on the interpretation thereof.</p>
     </section>
+
+    <script>
+      document.querySelectorAll('.termsAndConditions > h2, .termsAndConditions > p:not(.terms__company)').forEach((element) => {
+        const firstNode = element.firstChild;
+
+        if (!firstNode || firstNode.nodeType !== Node.TEXT_NODE) return;
+
+        const match = firstNode.nodeValue.match(/^(\d+(?:\.\d+)+(?:\.)?)(\s*)/);
+
+        if (!match) return;
+
+        const number = document.createElement('span');
+        number.className = 'terms__clause-number';
+        number.textContent = match[1];
+
+        firstNode.nodeValue = firstNode.nodeValue.slice(match[0].length);
+        element.insertBefore(number, firstNode);
+        element.insertBefore(document.createTextNode(match[2]), firstNode);
+      });
+    </script>
