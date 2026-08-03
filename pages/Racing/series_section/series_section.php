@@ -1,13 +1,14 @@
 <?php
-$cssTime = filemtime('../Racing/series_section/series_section.css');
-$jsTime  = filemtime('../Racing/series_section/series_section.js');
+$sectionUrl = get_template_directory_uri() . '/pages/Racing/series_section';
+$cssTime = filemtime(__DIR__ . '/series_section.css');
+$jsTime  = filemtime(__DIR__ . '/series_section.js');
 
-$img1Time = filemtime('../Racing/series_section/img/race.jpg');
-$img2Time = filemtime('../Racing/series_section/img/fiberpath.jpg');
-$img3Time = filemtime('../Racing/series_section/img/red_line.jpg');
+$img1Time = filemtime(__DIR__ . '/img/race.jpg');
+$img2Time = filemtime(__DIR__ . '/img/fiberpath.jpg');
+$img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
 ?>
 
-<link rel="stylesheet" href="../Racing/series_section/series_section.css?v=<?= $cssTime ?>">
+<link rel="stylesheet" href="<?php echo esc_url($sectionUrl . '/series_section.css?v=' . $cssTime); ?>">
 
 <div class="series-list">
 
@@ -37,7 +38,7 @@ $img3Time = filemtime('../Racing/series_section/img/red_line.jpg');
       </div>
       <figure class="series-image">
         <img
-          src="../Racing/series_section/img/race.jpg?v=<?= $img1Time ?>"
+          src="<?php echo esc_url($sectionUrl . '/img/race.jpg?v=' . $img1Time); ?>"
           alt="Race Series sails"
           loading="lazy"
           decoding="async"
@@ -60,7 +61,7 @@ $img3Time = filemtime('../Racing/series_section/img/red_line.jpg');
     <div class="series-container">
       <figure class="series-image">
         <img
-          src="../Racing/series_section/img/fiberpath.jpg?v=<?= $img2Time ?>"
+          src="<?php echo esc_url($sectionUrl . '/img/fiberpath.jpg?v=' . $img2Time); ?>"
           alt="FiberPath Series sails"
           loading="lazy"
           decoding="async"
@@ -108,7 +109,7 @@ $img3Time = filemtime('../Racing/series_section/img/red_line.jpg');
       </div>
       <figure class="series-image">
         <img
-          src="../Racing/series_section/img/red_line.jpg?v=<?= $img3Time ?>"
+          src="<?php echo esc_url($sectionUrl . '/img/red_line.jpg?v=' . $img3Time); ?>"
           alt="Axia Red Line downwind sails"
           loading="lazy"
           decoding="async"
@@ -119,4 +120,4 @@ $img3Time = filemtime('../Racing/series_section/img/red_line.jpg');
 
 </div>
 
-<script src="../Racing/series_section/series_section.js?v=<?= $jsTime ?>" defer></script>
+<script src="<?php echo esc_url($sectionUrl . '/series_section.js?v=' . $jsTime); ?>" defer></script>

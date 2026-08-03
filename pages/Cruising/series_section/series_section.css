@@ -174,21 +174,22 @@
 }
 
 /* Match the Sail Types section-heading treatment. */
-.series-header{
+.series-section .series-header{
   text-align: center;
 }
 
-.series-title{
+body .series-section .series-title{
+  display: block;
   margin: 0 auto;
-  color: #005598;
-  font-size: clamp(2.1rem, 3.7vw, 4.15rem);
-  font-weight: 600;
+  color: #005598 !important;
+  font-size: clamp(2.1rem, 3.7vw, 4.15rem) !important;
+  font-weight: 600 !important;
   letter-spacing: -.045em;
   line-height: 1.02;
   text-align: center;
 }
 
-.series-title::after{
+.series-section .series-title::after{
   display: block;
   width: clamp(3.25rem, 6vw, 4.75rem);
   height: 3px;
@@ -197,7 +198,8 @@
   background: #c5234a;
 }
 
-.series-subtitle{
+.series-section .series-subtitle{
+  display: block;
   margin: 0 auto .55rem;
   color: #c5234a;
   font-size: clamp(.68rem, .82vw, .82rem);

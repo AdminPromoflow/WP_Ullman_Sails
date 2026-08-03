@@ -4,8 +4,11 @@
 
 <?php
 $sectionUrl = get_template_directory_uri() . '/pages/the_axia_series/series_section';
+$imageUrl = get_template_directory_uri() . '/pages/the_axia_series/sail_types_section/img';
 $cssVersion = filemtime(__DIR__ . '/series_section.css');
 $jsVersion = filemtime(__DIR__ . '/series_section.js');
+$redImageVersion = filemtime(__DIR__ . '/../sail_types_section/img/red_line.jpg');
+$blueImageVersion = filemtime(__DIR__ . '/../sail_types_section/img/blue_line.jpg');
 ?>
 
 <link rel="stylesheet" href="<?php echo esc_url($sectionUrl . '/series_section.css?v=' . $cssVersion); ?>">
@@ -43,7 +46,7 @@ $jsVersion = filemtime(__DIR__ . '/series_section.js');
       </div>
       <figure class="series-image">
         <img
-          src="../Racing/series_section/img/red_line.jpg?v=<?= $img3Time ?>"
+          src="<?php echo esc_url($imageUrl . '/red_line.jpg?v=' . $redImageVersion); ?>"
           alt="Axia Red Line downwind sails"
           loading="lazy"
           decoding="async"
@@ -62,7 +65,7 @@ $jsVersion = filemtime(__DIR__ . '/series_section.js');
     <div class="series-container">
       <figure class="series-image">
         <img
-          src="../Cruising/sail_types_section/img/Downwind.png"
+          src="<?php echo esc_url($imageUrl . '/blue_line.jpg?v=' . $blueImageVersion); ?>"
           alt="Blue Line Spinnakers downwind sails"
           loading="lazy"
           decoding="async"
