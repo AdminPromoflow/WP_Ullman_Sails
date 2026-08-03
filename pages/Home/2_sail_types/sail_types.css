@@ -202,7 +202,7 @@
    Buttons
 ========================= */
 
-.st-btn{
+.sail-types .st-btn{
   display: inline-block;
   width: max-content;
   margin-top: 1.2rem;
@@ -215,10 +215,6 @@
   text-decoration: none;
   cursor: pointer;
   transition: transform .4s, background-color .4s;
-}
-
-/* Keep every Sail Types CTA in the Ullman light blue. */
-.sail-types .st-btn {
   background: #005598;
 }
 
@@ -227,20 +223,20 @@
   background: #004a84;
 }
 
-.st-btn-dark{
+.sail-types .st-btn-dark{
   background: var(--st-btn-dark);
 }
 
-.st-btn-clear{
+.sail-types .st-btn-clear{
   background: var(--st-btn-light);
 }
 
-.st-btn-dark:hover{
+.sail-types .st-btn-dark:hover{
   background: var(--st-btn-light);
   transform: translateY(-2px) !important;
 }
 
-.st-btn-clear:hover{
+.sail-types .st-btn-clear:hover{
   background: var(--st-btn-dark);
   transform: translateY(-2px) !important;
 }
