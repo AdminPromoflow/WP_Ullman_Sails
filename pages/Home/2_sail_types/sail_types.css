@@ -217,6 +217,16 @@
   transition: transform .4s, background-color .4s;
 }
 
+/* Keep every Sail Types CTA in the Ullman light blue. */
+.sail-types .st-btn {
+  background: #005598;
+}
+
+.sail-types .st-btn:hover,
+.sail-types .st-btn:focus-visible {
+  background: #004a84;
+}
+
 .st-btn-dark{
   background: var(--st-btn-dark);
 }
