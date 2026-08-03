@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-$cssFile = __DIR__ . '/../SailTypes/cruising_section/cruising_section.css';
-$jsFile  = __DIR__ . '/../SailTypes/cruising_section/cruising_section.js';
+$cssFile = __DIR__ . '/cruising_section.css';
+$jsFile  = __DIR__ . '/cruising_section.js';
 $assetUrl = get_template_directory_uri() . '/pages/SailTypes/cruising_section';
 
 $cssVer = is_file($cssFile) ? filemtime($cssFile) : null;

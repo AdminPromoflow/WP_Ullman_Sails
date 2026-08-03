@@ -204,6 +204,11 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
   padding: .25rem .45rem !important;
 }
 
+/* Navigation tiles stay square everywhere this shared component appears. */
+body li.cruising-icon > a.cruising-link {
+  border-radius: 0 !important;
+}
+
 .home-slider__caption {
   width: min(100% - (var(--page-gutter) * 2), 72rem) !important;
   padding-inline: var(--page-gutter) !important;

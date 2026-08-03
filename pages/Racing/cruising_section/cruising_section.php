@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-$cssFs = __DIR__ . '/../Racing/cruising_section/cruising_section.css';
-$jsFs  = __DIR__ . '/../Racing/cruising_section/cruising_section.js';
+$cssFs = __DIR__ . '/cruising_section.css';
+$jsFs  = __DIR__ . '/cruising_section.js';
 
 $cssUrl = '../Racing/cruising_section/cruising_section.css';
 $jsUrl  = '../Racing/cruising_section/cruising_section.js';
