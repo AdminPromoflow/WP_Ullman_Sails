@@ -2,7 +2,13 @@
      series_section.html — CLEAN (Reveal only)
 ========================= -->
 
-<link rel="stylesheet" href="../Cruising/series_section/series_section.css">
+<?php
+$sectionUrl = get_template_directory_uri() . '/pages/the_axia_series/series_section';
+$cssVersion = filemtime(__DIR__ . '/series_section.css');
+$jsVersion = filemtime(__DIR__ . '/series_section.js');
+?>
+
+<link rel="stylesheet" href="<?php echo esc_url($sectionUrl . '/series_section.css?v=' . $cssVersion); ?>">
 
 <div class="series-list">
 
@@ -81,4 +87,4 @@
 
 </div>
 
-<script src="../Cruising/series_section/series_section.js" defer></script>
+<script src="<?php echo esc_url($sectionUrl . '/series_section.js?v=' . $jsVersion); ?>" defer></script>
