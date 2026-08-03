@@ -46,39 +46,55 @@
 
 /* Separador de navegación visual entre categorías. */
 .sail-section-marker{
-  --marker-line: rgba(15,33,64,.20);
+  --marker-line: #1c6b91;
   align-items: center;
-  background: #fafafa;
-  color: #005598;
+  background: #f8fcfd;
+  border-bottom: 1px solid rgba(28,107,145,.22);
+  border-top: 1px solid rgba(28,107,145,.22);
+  color: #0f557a;
   display: flex;
-  font-size: .68rem;
+  font-size: .72rem;
   font-weight: 700;
   gap: .85rem;
   letter-spacing: .18em;
-  padding: .35rem clamp(1.25rem, 5vw, 4rem);
+  min-height: 4.5rem;
+  padding: .8rem clamp(1.25rem, 5vw, 4rem);
   text-transform: uppercase;
 }
 
 .sail-section-marker::before,
 .sail-section-marker::after{
-  background: linear-gradient(90deg, transparent, var(--marker-line));
+  background: var(--marker-line);
   content: "";
-  height: 1px;
+  height: 2px;
   flex: 1;
+  max-width: 18rem;
 }
 
 .sail-section-marker::after{
-  background: linear-gradient(90deg, var(--marker-line), transparent);
+  background: var(--marker-line);
+}
+
+.sail-section-marker span{
+  align-items: center;
+  background: #fff;
+  border: 1px solid rgba(28,107,145,.28);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(15,33,64,.08);
+  display: inline-flex;
+  padding: .5rem 1rem;
+  white-space: nowrap;
 }
 
 .sail-section-marker span::before{
-  background: currentColor;
+  background: #32a0bd;
   border-radius: 50%;
   content: "";
   display: inline-block;
-  height: .42rem;
-  margin: 0 .6rem .06rem 0;
-  width: .42rem;
+  height: .5rem;
+  margin: 0 .6rem 0 0;
+  box-shadow: 0 0 0 4px rgba(50,160,189,.13);
+  width: .5rem;
 }
 
 /* brillo diagonal suave */

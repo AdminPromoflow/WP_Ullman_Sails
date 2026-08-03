@@ -32,8 +32,8 @@
   padding-inline: 2vw;
   text-align: center;
   background:
-    radial-gradient(circle at 88% 14%, rgba(0,85,152,.08), transparent 28%),
-    linear-gradient(160deg, #fafcff 0%, #f0f6fa 100%);
+    radial-gradient(circle at 12% 15%, rgba(91, 177, 198, .13), transparent 34%),
+    linear-gradient(160deg, #f8fcfd 0%, #eaf6f8 100%);
 }
 
 .st-wrap{
