@@ -397,6 +397,13 @@ function ullman_contextual_back_navigation(string $html, string $pageKey): strin
             esc_attr('Scroll to the top of this page'),
             esc_html('Back to top')
         );
+    } elseif ($targetLabel === 'Terms And Conditions') {
+        $button = sprintf(
+            '<section class="ullman-context-back" aria-label="%1$s"><a class="ullman-context-back__link" href="%2$s">%3$s</a></section>',
+            esc_attr('Back to Home'),
+            esc_url(ullman_page_url('home')),
+            esc_html('Back to Home')
+        );
     } else {
         $button = sprintf(
             '<section class="ullman-context-back" aria-label="%1$s"><a class="ullman-context-back__link" href="%2$s">%3$s</a></section>',

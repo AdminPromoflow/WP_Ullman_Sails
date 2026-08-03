@@ -4,7 +4,7 @@ p {
 }
 
 .termsAndConditions {
-  padding: 5% 10%;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 8vw, 10%);
   background-color: #fafafa;
 }
 
@@ -42,11 +42,33 @@ body .termsAndConditions .terms__company {
   text-transform: uppercase;
 }
 
-/* Uses the type scale and colour of the “Discover Your Perfect Sail” subtitle. */
+/* Clause headings retain the same scale but use the Ullman blue hierarchy. */
 body .termsAndConditions h2 {
   margin: 2rem 15px .7rem;
-  color: #5f6b7a !important;
+  color: #005598 !important;
   font-size: clamp(1rem, 1.2vw, 1.4rem) !important;
   font-weight: 600;
   line-height: 1.4;
+}
+
+body .termsAndConditions > p:not(.terms__company) {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+@media (max-width: 40rem) {
+  body .termsAndConditions .terms__title {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+  }
+
+  body .termsAndConditions h2 {
+    margin: 1.6rem 0 .6rem;
+    font-size: 1rem !important;
+  }
+
+  body .termsAndConditions > p:not(.terms__company) {
+    margin-inline: 0;
+  }
 }
