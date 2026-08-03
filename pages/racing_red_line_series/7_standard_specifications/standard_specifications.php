@@ -63,7 +63,7 @@ $ss_features = [
           <li class="ss-row sr-item" style="--sr-delay: <?= (int)$delay ?>ms;">
             <span class="ss-num" aria-hidden="true"><?= $num ?></span>
             <div class="ss-main">
-              <h3 class="ss-row-title"><?= $safe_feature ?></h3>
+              <p class="ss-row-title"><?= $safe_feature ?></p>
             </div>
           </li>
         <?php endforeach; ?>

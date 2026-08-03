@@ -66,7 +66,7 @@ $ss_features = [
           <li class="ss-row sr-item">
             <span class="ss-num" aria-hidden="true"><?= $num ?></span>
             <div class="ss-main">
-              <h3 class="ss-row-title"><?= $safe_feature ?></h3>
+              <p class="ss-row-title"><?= $safe_feature ?></p>
             </div>
           </li>
         <?php endforeach; ?>

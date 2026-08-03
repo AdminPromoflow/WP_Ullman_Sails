@@ -124,6 +124,39 @@ h2{
   .card:last-child{ border-bottom: none; }
 }
 
+/* Flex layout keeps incomplete rows centered. */
+.wrap .grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(1rem, 2.4vw, 1.5rem);
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.wrap .grid .card{
+  width: min(100%, 15rem);
+  max-width: 15rem;
+  flex: 1 1 13rem;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 600px){
+  .wrap .grid .card{
+    width: 100%;
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+}
+
+
 /* Reduce motion (kept consistent) */
 @media (prefers-reduced-motion: reduce){
   .grid, .card, .wrap *{

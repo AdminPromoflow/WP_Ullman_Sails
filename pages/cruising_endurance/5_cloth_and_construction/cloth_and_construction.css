@@ -16,7 +16,7 @@ body .nav-specsheet__panel{
   position: relative;
   overflow: hidden;
   border: 1px solid var(--ns-line);
-  border-radius: 24px;
+  border-radius: 0;
   background: rgba(255, 255, 255, .96);
   box-shadow: 0 24px 70px rgba(15, 63, 105, .12);
 }
@@ -171,7 +171,7 @@ body .nav-specsheet__groupTitle::before{
 
 @media (max-width: 680px){
   body .nav-specsheet__panel{
-    border-radius: 18px;
+    border-radius: 0;
   }
 
   body .nav-specsheet__row{
@@ -236,7 +236,7 @@ body .nav-specsheet__groupTitle::before{
 .nav-specsheet__panel{
   background: #fff;
   border: 1px solid var(--ns-border);
-  border-radius: 18px;
+  border-radius: 0;
   box-shadow: var(--ns-shadow);
   padding: clamp(1.25rem, 3vw, 3rem);
 }
