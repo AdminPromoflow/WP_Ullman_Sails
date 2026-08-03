@@ -328,7 +328,7 @@ Cloth Weight: $clothWeight";
           $mail->Encoding = 'base64';
 
           $mail->setFrom('admin@promoflow.net', 'Jon Pegg');
-          $mail->addReplyTo('jon@ullmansails.co.uk', 'Jon Pegg');
+          $mail->addReplyTo('vicky@ullmansails.co.uk', 'Jon Pegg');
           $mail->addAddress('aleinarossui@gmail.com', 'Aleja');
 
           $mail->Subject = 'New Cover Quote Request';
@@ -465,7 +465,7 @@ Cloth Weight: $clothWeight";
           $mail->Encoding = 'base64';
 
           $mail->setFrom('admin@promoflow.net', 'Jon Pegg');
-          $mail->addReplyTo('jon@ullmansails.co.uk', 'Jon Pegg');
+          $mail->addReplyTo('vicky@ullmansails.co.uk', 'Jon Pegg');
           $mail->addAddress('aleinarossui@gmail.com', 'Aleja');
 
           $mail->Subject = 'New Repair Quote Request';
