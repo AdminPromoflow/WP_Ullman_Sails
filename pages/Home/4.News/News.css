@@ -234,12 +234,16 @@
 
 .news-card__title-link{
   color: inherit;
+  cursor: pointer;
   text-decoration: none;
-  transition: color .2s ease;
+  transition: color .2s ease, text-decoration-color .2s ease;
 }
 
-.news-card__title-link:hover{
+.news-card__title-link:hover,
+.news-card__title-link:focus-visible{
   color: var(--ull-navy);
+  text-decoration: underline;
+  text-underline-offset: .2em;
 }
 
 .news-card__title-link:focus-visible{
