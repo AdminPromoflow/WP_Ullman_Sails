@@ -103,6 +103,13 @@ body :is(main, section, article) h3.series {
   font-size: var(--text-sm) !important;
 }
 
+/* Series labels and any future .series containers remain square. */
+body .series,
+body .series::before,
+body .series::after {
+  border-radius: 0 !important;
+}
+
 body :is(p, li, dd, dt) {
   font-family: var(--font-brand);
 }
