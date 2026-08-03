@@ -178,7 +178,7 @@
 .home-slider__slide.bg-cruising-2 { --slide-bg: url("img/cruising_sails_2.jpg"); }
 .home-slider__slide.bg-axia-1     { --slide-bg: url("img/axia_1.jpg"); }
 .home-slider__slide.bg-axia-2     { --slide-bg: url("img/axia_2.jpg"); }
-.home-slider__slide.bg-covers     { --slide-bg: url("img/covers.jpg"); }
+.home-slider__slide.bg-covers     { --slide-bg: url("img/cover.jpg"); }
 .home-slider__slide.bg-services   { --slide-bg: url("img/services.jpg"); }
 
 /* Overlay */
