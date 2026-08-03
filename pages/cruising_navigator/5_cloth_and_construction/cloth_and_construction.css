@@ -3,6 +3,199 @@
    File: cruising_navigator/6_cloth_and_construction/cloth_and_construction.css
 ========================= */
 
++/* Refined shared presentation for the technical specification sheet. */
+body .nav-specsheet{
+  --ns-blue: #005598;
+  --ns-blue-dark: #123f68;
+  --ns-blue-soft: #eef6fc;
+  --ns-line: rgba(0, 85, 152, .14);
+  background: linear-gradient(180deg, #f7fbfe 0%, #ffffff 45%, #f7fafd 100%);
+}
+
+body .nav-specsheet__panel{
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--ns-line);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 24px 70px rgba(15, 63, 105, .12);
+}
+
+body .nav-specsheet__panel::before{
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  content: "";
+  background: linear-gradient(90deg, var(--ns-blue), #55a9d5);
+}
+
+body .nav-specsheet__grid{
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: stretch;
+}
+
+body .nav-rotator{
+  align-content: center;
+  padding: clamp(1rem, 2.4vw, 1.75rem);
+  border: 1px solid rgba(0, 85, 152, .10);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #f2f8fc, #ffffff);
+}
+
+body .nav-rotator__frame{
+  filter: drop-shadow(0 16px 20px rgba(15, 63, 105, .12));
+}
+
+body .nav-rotator__capTitle{
+  color: var(--ns-blue);
+}
+
+body .nav-rotator__capSub{
+  color: var(--ns-blue-dark);
+}
+
+body .nav-rotator__dot{
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgba(0, 85, 152, .22);
+  background: #dcebf5;
+}
+
+body .nav-rotator__dot.is-active{
+  background: var(--ns-blue);
+  box-shadow: 0 0 0 4px rgba(0, 85, 152, .12);
+  transform: scale(1.12);
+}
+
+body .nav-specsheet__text{
+  align-self: center;
+}
+
+body .nav-specsheet__meta{
+  margin-bottom: clamp(1.4rem, 3vw, 2rem);
+  padding: 1rem 1.15rem;
+  border-left: 4px solid var(--ns-blue);
+  border-radius: 0 12px 12px 0;
+  background: var(--ns-blue-soft);
+}
+
+body .nav-specsheet__metaTop{
+  color: var(--ns-blue);
+  font-weight: 800;
+}
+
+body .nav-specsheet__metaSub{
+  color: var(--ns-blue-dark);
+  letter-spacing: .08em;
+}
+
+body .nav-specsheet__subtitle{
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin: 0 0 1.25rem;
+  color: var(--ns-blue);
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+body .nav-specsheet__subtitle::before{
+  width: 2.25rem;
+  height: 3px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  content: "";
+  background: var(--ns-blue);
+}
+
+body .nav-specsheet__list{
+  gap: .7rem;
+}
+
+body .nav-specsheet__row{
+  grid-template-columns: minmax(7.5rem, .7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 1rem;
+  padding: .85rem 1rem;
+  border: 1px solid rgba(0, 85, 152, .10);
+  border-radius: 12px;
+  background: #fbfdff;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+body .nav-specsheet__row:hover{
+  border-color: rgba(0, 85, 152, .28);
+  box-shadow: 0 10px 24px rgba(15, 63, 105, .08);
+  transform: translateY(-2px);
+}
+
+body .nav-specsheet__key,
+body .nav-specsheet__groupTitle{
+  color: var(--ns-blue);
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+body .nav-specsheet__val,
+body .nav-specsheet__item{
+  color: #40566b;
+  letter-spacing: .04em;
+  line-height: 1.55;
+}
+
+body .nav-specsheet__group{
+  gap: .7rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 85, 152, .10);
+  border-radius: 12px;
+  background: #fbfdff;
+}
+
+body .nav-specsheet__groupTitle{
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+
+body .nav-specsheet__groupTitle::before{
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  content: "";
+  background: var(--ns-blue);
+  box-shadow: 0 0 0 4px rgba(0, 85, 152, .10);
+}
+
+@media (max-width: 680px){
+  body .nav-specsheet__panel{
+    border-radius: 18px;
+  }
+
+  body .nav-specsheet__row{
+    grid-template-columns: 1fr;
+    gap: .3rem;
+  }
+
+  body .nav-specsheet__subtitle{
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  body .nav-specsheet__row{
+    transition: none;
+  }
+
+  body .nav-specsheet__row:hover{
+    transform: none;
+  }
+}
+
+
 .nav-specsheet{
   --cs-ink:#0f2140;
   --cs-muted:#5f6b7a;
