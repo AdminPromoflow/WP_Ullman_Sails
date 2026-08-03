@@ -11,7 +11,7 @@ $jsTime  = is_file('10_sub_models/sub_models.js')  ? filemtime('10_sub_models/su
   <section class="wrap" data-sr-reveal>
     <h2 class="sr-item">How we build things that last</h2>
 
-    <div class="grid sr-item">
+    <div class="cards-flex sr-item">
       <article class="card sr-item">
         <h3>Blue Line Series</h3>
         <p>

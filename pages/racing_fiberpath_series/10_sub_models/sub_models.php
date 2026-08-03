@@ -9,7 +9,7 @@ $jsTime  = filemtime('10_sub_models/sub_models.js');
   <section class="wrap" data-sr-reveal>
     <h2 class="sr-item">How we build things that last</h2>
 
-    <div class="grid">
+    <div class="cards-flex">
       <article class="card sr-item">
         <h3>Grand Prix</h3>
         <p>

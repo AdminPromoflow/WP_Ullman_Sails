@@ -44,9 +44,11 @@ h2{
 }
 
 /* Main grid */
-.grid{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.cards-flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
   border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
@@ -91,7 +93,6 @@ h2{
 
 /* Responsive */
 @media (max-width: 900px){
-  .grid{ grid-template-columns: repeat(2, 1fr); }
   .card:nth-child(4n){ border-right: 1px solid var(--border); } /* reset */
   .card:nth-child(2n){ border-right: none; } /* última col en 2 cols */
 
@@ -100,14 +101,13 @@ h2{
 }
 
 @media (max-width: 520px){
-  .grid{ grid-template-columns: 1fr; }
   .card{ border-right: none; }
   .card:nth-last-child(-n + 2){ border-bottom: 1px solid var(--border); } /* reset */
   .card:last-child{ border-bottom: none; }
 }
 
 /* Flex layout keeps incomplete rows centered. */
-.wrap .grid{
+.wrap .cards-flex{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -119,7 +119,7 @@ h2{
   box-shadow: none;
 }
 
-.wrap .grid .card{
+.wrap .cards-flex .card{
   width: min(100%, 15rem);
   max-width: 15rem;
   flex: 1 1 13rem;
@@ -131,7 +131,7 @@ h2{
 }
 
 @media (max-width: 600px){
-  .wrap .grid .card{
+  .wrap .cards-flex .card{
     width: 100%;
     max-width: 100%;
     flex-basis: 100%;
@@ -141,7 +141,7 @@ h2{
 
 /* Reduce motion (kept consistent) */
 @media (prefers-reduced-motion: reduce){
-  .grid, .card, .wrap *{
+  .cards-flex, .card, .wrap *{
     transition: none !important;
     animation: none !important;
   }
