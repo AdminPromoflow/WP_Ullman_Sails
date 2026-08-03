@@ -65,6 +65,7 @@
       }
     </style>
     <?php include __DIR__ . "/../general/menu/menu.php" ?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
     <div id="searchHide" class="searchHide">
     <?php include __DIR__ . "/1.Slider/Slider.php" ?>
