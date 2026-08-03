@@ -46,7 +46,7 @@
 
 
       <?php include __DIR__ . '/cruising_section/cruising_section.php'; ?>
-      <?php include __DIR__ . '/sail_types_section/sail_types_section.php'; ?>
+      <?php // include __DIR__ . '/sail_types_section/sail_types_section.php'; // Discover Your Perfect Sail ?>
       <?php include __DIR__ . '/series_section/series_section.php'; ?>
 
 

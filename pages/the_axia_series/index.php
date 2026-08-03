@@ -45,7 +45,7 @@
       <?php include __DIR__ . "/../the_axia_series/navigation/navigation.php" ?>
 
       <?php include __DIR__ . "/the_axia_series_section/the_axia_series_section.php" ?>
-      <?php include __DIR__ . "/sail_types_section/sail_types_section.php" ?>
+      <?php // include __DIR__ . "/sail_types_section/sail_types_section.php"; // Discover Your Perfect Sail ?>
       <?php include __DIR__ . "/series_section/series_section.php" ?>
     </div>
     <?php include __DIR__ . "/../general/charging/charging.php"; ?>
