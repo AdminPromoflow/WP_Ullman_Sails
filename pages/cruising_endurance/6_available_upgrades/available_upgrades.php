@@ -65,7 +65,7 @@ $total = count($upgrades);
 
     <header class="au-header">
       <p class="au-tagline sr-item">Endurance Series</p>
-      <h2 id="au-title" class="au-title sr-item">Available Upgrades</h2>
+      <h2 id="au-title" class="au-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
         Selected upgrades to boost performance, durability and easier handling for Endurance sails offshore.
       </p>

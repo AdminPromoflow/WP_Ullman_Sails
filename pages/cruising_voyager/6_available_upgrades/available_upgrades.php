@@ -77,7 +77,7 @@ $total = count($upgrades);
 
     <header class="au-header">
       <p class="au-tagline sr-item" data-sr-delay="0">Voyager Series</p>
-      <h2 id="au-title" class="au-title sr-item" data-sr-delay="70">Available Upgrades</h2>
+      <h2 id="au-title" class="au-title sr-item" data-sr-delay="70">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item" data-sr-delay="140">
         Durability-focused options to extend service life and improve handling for Voyager sails.
       </p>
