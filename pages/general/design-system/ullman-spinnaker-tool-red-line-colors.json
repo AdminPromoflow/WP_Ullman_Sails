@@ -1,0 +1,486 @@
+{
+  "source": "https://ullmansails.com/spinnaker-tool/",
+  "line": "Red Line",
+  "palette_reference": "Each cloth weight references a palette of available sail-panel colors.",
+  "palettes": {
+    "palette_01": [
+      {
+        "name": "Classic Light Cream",
+        "value": "#EFE8D2"
+      },
+      {
+        "name": "Fluor Pink",
+        "value": "#FB1091"
+      },
+      {
+        "name": "Orange",
+        "value": "#FF5200"
+      },
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Gold",
+        "value": "#E49400"
+      },
+      {
+        "name": "Yellow",
+        "value": "#F7DE2B"
+      },
+      {
+        "name": "Green",
+        "value": "#036433"
+      },
+      {
+        "name": "Aquamarine",
+        "value": "#18AEA8"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Light Blue",
+        "value": "#0883BB"
+      },
+      {
+        "name": "Lilac/Purple",
+        "value": "#5706B4"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_02": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_03": [
+      {
+        "name": "Fluor Pink",
+        "value": "#FB1091"
+      },
+      {
+        "name": "Orange",
+        "value": "#FF5200"
+      },
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Yellow",
+        "value": "#F7DE2B"
+      },
+      {
+        "name": "Green",
+        "value": "#036433"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Light Blue",
+        "value": "#0883BB"
+      },
+      {
+        "name": "Lilac/Purple",
+        "value": "#5706B4"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "Coastal Gold",
+        "value": "#DE9106"
+      },
+      {
+        "name": "Navy",
+        "value": "#1E273F"
+      },
+      {
+        "name": "Fluor Green",
+        "value": "#73DE5B"
+      },
+      {
+        "name": "Fluor Raspberry",
+        "value": "#E314A4"
+      },
+      {
+        "name": "Fluor Yellow",
+        "value": "#F9FF10"
+      },
+      {
+        "name": "Ocean Blue",
+        "value": "#0C738C"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_04": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_05": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_06": [
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_07": [
+      {
+        "name": "Fluor Pink",
+        "value": "#FB1091"
+      },
+      {
+        "name": "Orange",
+        "value": "#FF5200"
+      },
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Gold",
+        "value": "#E49400"
+      },
+      {
+        "name": "Yellow",
+        "value": "#F7DE2B"
+      },
+      {
+        "name": "Green",
+        "value": "#036433"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Light Blue",
+        "value": "#0883BB"
+      },
+      {
+        "name": "Lilac/Purple",
+        "value": "#5706B4"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_08": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      }
+    ],
+    "palette_09": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Yellow",
+        "value": "#F7DE2B"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Light Blue",
+        "value": "#0883BB"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "Tempest Grey",
+        "value": "#475361"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ]
+  },
+  "sail_types": [
+    {
+      "name": "Race: Axia Asym",
+      "cloth_weights": [
+        {
+          "name": "Nylite 90",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 150",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Fibermax 44",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 64",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Superlite 50",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Superkote 60",
+          "palette": "palette_02"
+        },
+        {
+          "name": "Superkote 70",
+          "palette": "palette_06"
+        },
+        {
+          "name": "Superkote 75",
+          "palette": "palette_07"
+        },
+        {
+          "name": "Superkote 80",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Superkote 90",
+          "palette": "palette_07"
+        },
+        {
+          "name": "Superkote 130",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Superkote 150",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Superkote 200",
+          "palette": "palette_06"
+        },
+        {
+          "name": "Superkote 250",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Superkote 350",
+          "palette": "palette_06"
+        },
+        {
+          "name": "Stormlite 210",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Stormlite 510",
+          "palette": "palette_06"
+        },
+        {
+          "name": "AIRX 500",
+          "palette": "palette_08"
+        },
+        {
+          "name": "AIRX 600",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 650",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 700",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 800",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 900",
+          "palette": "palette_09"
+        }
+      ]
+    },
+    {
+      "name": "Race: Axia Symm",
+      "cloth_weights": [
+        {
+          "name": "Nylite 90",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 150",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Fibermax 44",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 64",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Superlite 50",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Superkote 60",
+          "palette": "palette_02"
+        },
+        {
+          "name": "Superkote 70",
+          "palette": "palette_06"
+        },
+        {
+          "name": "Superkote 75",
+          "palette": "palette_07"
+        },
+        {
+          "name": "Superkote 80",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Superkote 90",
+          "palette": "palette_07"
+        },
+        {
+          "name": "Superkote 130",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Superkote 150",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Superkote 200",
+          "palette": "palette_06"
+        },
+        {
+          "name": "Superkote 250",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Superkote 350",
+          "palette": "palette_06"
+        },
+        {
+          "name": "Stormlite 210",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Stormlite 510",
+          "palette": "palette_06"
+        },
+        {
+          "name": "AIRX 500",
+          "palette": "palette_08"
+        },
+        {
+          "name": "AIRX 600",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 650",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 700",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 800",
+          "palette": "palette_09"
+        },
+        {
+          "name": "AIRX 900",
+          "palette": "palette_09"
+        }
+      ]
+    }
+  ]
+}
+

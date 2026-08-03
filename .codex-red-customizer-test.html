@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<body>
+  <div class="charging_background"></div>
+  <section id="customize" data-colours-url="/pages/general/design-system/ullman-spinnaker-tool-red-line-colors.json">
+    <select id="sailType">
+      <option value="raceAsym">Race: Axia Asym</option>
+      <option value="raceSymm">Race: Axia Symm</option>
+    </select>
+    <select id="clothWeight"></select>
+    <div id="availableColours"></div>
+    <div id="contentDownload">
+      <div class="sail-option active" id="raceAsym"><svg><path id="redPaintable" d="M0 0h10v10H0z"></path></svg></div>
+      <div class="sail-option" id="raceSymm"><svg><path d="M0 0h10v10H0z"></path></svg></div>
+    </div>
+    <button id="downloadPDF" type="button">Download PDF</button>
+    <form id="customizeForm">
+      <input id="customerName"><input id="customerEmail"><input id="salespersonEmail">
+      <input id="boatName"><input id="boatDesignLength"><button type="submit">Submit</button>
+    </form>
+  </section>
+  <script src="/pages/Racing-4.RedLineSpinnakers-Customize/Customize/customize.js"></script>
+</body>
+</html>

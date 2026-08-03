@@ -1,0 +1,395 @@
+{
+  "source": "https://ullmansails.com/spinnaker-tool/",
+  "line": "Blue Line",
+  "palette_reference": "Each cloth weight references a palette of available sail-panel colors.",
+  "palettes": {
+    "palette_01": [
+      {
+        "name": "Classic Light Cream",
+        "value": "#EFE8D2"
+      },
+      {
+        "name": "Fluor Pink",
+        "value": "#FB1091"
+      },
+      {
+        "name": "Orange",
+        "value": "#FF5200"
+      },
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Gold",
+        "value": "#E49400"
+      },
+      {
+        "name": "Yellow",
+        "value": "#F7DE2B"
+      },
+      {
+        "name": "Green",
+        "value": "#036433"
+      },
+      {
+        "name": "Aquamarine",
+        "value": "#18AEA8"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Light Blue",
+        "value": "#0883BB"
+      },
+      {
+        "name": "Lilac/Purple",
+        "value": "#5706B4"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_02": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_03": [
+      {
+        "name": "Fluor Pink",
+        "value": "#FB1091"
+      },
+      {
+        "name": "Orange",
+        "value": "#FF5200"
+      },
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Yellow",
+        "value": "#F7DE2B"
+      },
+      {
+        "name": "Green",
+        "value": "#036433"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Light Blue",
+        "value": "#0883BB"
+      },
+      {
+        "name": "Lilac/Purple",
+        "value": "#5706B4"
+      },
+      {
+        "name": "Grey",
+        "value": "#5D6261"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "Coastal Gold",
+        "value": "#DE9106"
+      },
+      {
+        "name": "Navy",
+        "value": "#1E273F"
+      },
+      {
+        "name": "Fluor Green",
+        "value": "#73DE5B"
+      },
+      {
+        "name": "Fluor Raspberry",
+        "value": "#E314A4"
+      },
+      {
+        "name": "Fluor Yellow",
+        "value": "#F9FF10"
+      },
+      {
+        "name": "Ocean Blue",
+        "value": "#0C738C"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_04": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_05": [
+      {
+        "name": "Red",
+        "value": "#DD0A0A"
+      },
+      {
+        "name": "Dark Blue",
+        "value": "#0A0E84"
+      },
+      {
+        "name": "Black",
+        "value": "#000000"
+      },
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ],
+    "palette_06": [
+      {
+        "name": "White",
+        "value": "#FFFFFF"
+      }
+    ]
+  },
+  "sail_types": [
+    {
+      "name": "Cruise: Axia Code 50",
+      "cloth_weights": [
+        {
+          "name": "Nylite 90",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 150",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 250",
+          "palette": "palette_02"
+        },
+        {
+          "name": "Fibermax 44",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 64",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 94",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Fibermax 144",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Stormlite 210",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Stormlite 510",
+          "palette": "palette_06"
+        }
+      ]
+    },
+    {
+      "name": "Cruise: Axia Code 60",
+      "cloth_weights": [
+        {
+          "name": "Nylite 90",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 150",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 250",
+          "palette": "palette_02"
+        },
+        {
+          "name": "Fibermax 44",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 64",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 94",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Fibermax 144",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Stormlite 210",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Stormlite 510",
+          "palette": "palette_06"
+        }
+      ]
+    },
+    {
+      "name": "Cruise: Axia Code 70",
+      "cloth_weights": [
+        {
+          "name": "Nylite 90",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 150",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 250",
+          "palette": "palette_02"
+        },
+        {
+          "name": "Fibermax 44",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 64",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 94",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Fibermax 144",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Stormlite 210",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Stormlite 510",
+          "palette": "palette_06"
+        }
+      ]
+    },
+    {
+      "name": "Cruise: Axia Asym",
+      "cloth_weights": [
+        {
+          "name": "Nylite 90",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 150",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 250",
+          "palette": "palette_02"
+        },
+        {
+          "name": "Fibermax 44",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 64",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 94",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Fibermax 144",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Stormlite 210",
+          "palette": "palette_05"
+        },
+        {
+          "name": "Stormlite 510",
+          "palette": "palette_06"
+        }
+      ]
+    },
+    {
+      "name": "Cruise: Axia Symm",
+      "cloth_weights": [
+        {
+          "name": "Nylite 90",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 150",
+          "palette": "palette_01"
+        },
+        {
+          "name": "Nylite 250",
+          "palette": "palette_02"
+        },
+        {
+          "name": "Fibermax 44",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 64",
+          "palette": "palette_03"
+        },
+        {
+          "name": "Fibermax 94",
+          "palette": "palette_04"
+        },
+        {
+          "name": "Fibermax 144",
+          "palette": "palette_04"
+        }
+      ]
+    }
+  ]
+}
+

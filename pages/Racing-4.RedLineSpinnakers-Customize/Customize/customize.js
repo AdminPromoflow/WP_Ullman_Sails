@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   let colourCustomize = "white";
 
   class Charging {
@@ -17,162 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const chargingClass = new Charging();
 
-  const sharedColours = {
-    nyliteFull: [
-      "#EFE8D2",
-      "#F70F8A",
-      "#FF5A0A",
-      "#E60808",
-      "#E99A00",
-      "#FFE329",
-      "#06733B",
-      "#22B3AE",
-      "#12128B",
-      "#168CBC",
-      "#5D08B9",
-      "#606664",
-      "#000000",
-      "#FFFFFF"
-    ],
-
-    fibermaxFull: [
-      "#F70F8A",
-      "#FF5A0A",
-      "#E60808",
-      "#FFE329",
-      "#06733B",
-      "#12128B",
-      "#168CBC",
-      "#5D08B9",
-      "#606664",
-      "#000000",
-      "#E99A00",
-      "#20293F",
-      "#6BDC56",
-      "#E015A5",
-      "#F5FF00",
-      "#147F91",
-      "#FFFFFF"
-    ],
-
-    raceBasicFull: [
-      "#F70F8A",
-      "#FF5A0A",
-      "#E60808",
-      "#E99A00",
-      "#FFE329",
-      "#06733B",
-      "#12128B",
-      "#168CBC",
-      "#5D08B9",
-      "#606664",
-      "#000000",
-      "#FFFFFF"
-    ],
-
-    redBlueWhite: [
-      "#E60808",
-      "#12128B",
-      "#FFFFFF"
-    ],
-
-    redBlueBlackWhite: [
-      "#E60808",
-      "#12128B",
-      "#000000",
-      "#FFFFFF"
-    ],
-
-    redBlueGreyBlackWhite: [
-      "#E60808",
-      "#12128B",
-      "#606664",
-      "#000000",
-      "#FFFFFF"
-    ],
-
-    whiteOnly: [
-      "#FFFFFF"
-    ],
-
-    airxFull: [
-      "#E60808",
-      "#FFE329",
-      "#12128B",
-      "#168CBC",
-      "#606664",
-      "#000000",
-      "#4B5663",
-      "#FFFFFF"
-    ]
-  };
-
-  const sailData = {
-    raceAsym: {
-      name: "Race: Axia Asym",
-      clothWeights: {
-        "Nylite 90": sharedColours.nyliteFull,
-        "Nylite 150": sharedColours.nyliteFull,
-        "Fibermax 44": sharedColours.fibermaxFull,
-        "Fibermax 64": sharedColours.fibermaxFull,
-        "Superlite 50": sharedColours.redBlueWhite,
-        "Superkote 60": sharedColours.redBlueBlackWhite,
-        "Superkote 70": sharedColours.whiteOnly,
-        "Superkote 75": sharedColours.redBlueBlackWhite,
-        "Superkote 80": sharedColours.whiteOnly,
-        "Superkote 90": sharedColours.redBlueBlackWhite,
-        "Superkote 130": sharedColours.whiteOnly,
-        "Superkote 150": sharedColours.redBlueBlackWhite,
-        "Superkote 200": sharedColours.whiteOnly,
-        "Superkote 250": sharedColours.redBlueWhite,
-        "Superkote 350": sharedColours.airxFull,
-        "Stormlite 210": sharedColours.redBlueWhite,
-        "Stormlite 510": sharedColours.whiteOnly,
-        "AIRX 500": sharedColours.airxFull,
-        "AIRX 600": sharedColours.airxFull,
-        "AIRX 650": sharedColours.airxFull,
-        "AIRX 700": sharedColours.airxFull,
-        "AIRX 800": sharedColours.airxFull,
-        "AIRX 900": sharedColours.airxFull
-      }
-    },
-
-    raceSymm: {
-      name: "Race: Axia Symm",
-      clothWeights: {
-        "Nylite 90": sharedColours.nyliteFull,
-        "Nylite 150": sharedColours.nyliteFull,
-        "Fibermax 44": sharedColours.fibermaxFull,
-        "Fibermax 64": sharedColours.fibermaxFull,
-        "Superlite 50": sharedColours.redBlueWhite,
-        "Superkote 60": sharedColours.redBlueBlackWhite,
-        "Superkote 70": sharedColours.whiteOnly,
-        "Superkote 75": sharedColours.redBlueBlackWhite,
-        "Superkote 80": sharedColours.whiteOnly,
-        "Superkote 90": sharedColours.redBlueBlackWhite,
-        "Superkote 130": sharedColours.whiteOnly,
-        "Superkote 150": sharedColours.redBlueBlackWhite,
-        "Superkote 200": sharedColours.whiteOnly,
-        "Superkote 250": sharedColours.redBlueWhite,
-        "Superkote 350": sharedColours.raceBasicFull,
-        "Stormlite 210": sharedColours.redBlueWhite,
-        "Stormlite 510": sharedColours.whiteOnly,
-        "AIRX 500": sharedColours.raceBasicFull,
-        "AIRX 600": sharedColours.raceBasicFull,
-        "AIRX 650": sharedColours.raceBasicFull,
-        "AIRX 700": sharedColours.raceBasicFull,
-        "AIRX 800": sharedColours.raceBasicFull,
-        "AIRX 900": sharedColours.raceBasicFull
-      }
-    }
-  };
-
+  const customizeSection = document.getElementById("customize");
   const sailTypeSelect = document.getElementById("sailType");
   const clothWeightSelect = document.getElementById("clothWeight");
   const availableColours = document.getElementById("availableColours");
   const contentDownload = document.getElementById("contentDownload");
   const sailOptions = document.querySelectorAll(".sail-option");
   const downloadPDF = document.getElementById("downloadPDF");
+  let sailData = {};
 
   if (!sailTypeSelect) {
     console.error("No existe #sailType");
@@ -192,6 +44,87 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!contentDownload) {
     console.error("No existe #contentDownload");
     return;
+  }
+
+  const coloursUrl = customizeSection?.dataset.coloursUrl;
+
+  if (!coloursUrl) {
+    console.error("No existe la URL del JSON de colores.");
+    return;
+  }
+
+  function buildSailData(config) {
+    const sailTypesByName = new Map(
+      (config.sail_types || []).map(function (sail) {
+        return [sail.name, sail];
+      })
+    );
+
+    const normalizedSailData = {};
+
+    Array.from(sailTypeSelect.options).forEach(function (option) {
+      const sail = sailTypesByName.get(option.textContent.trim());
+
+      if (!sail) return;
+
+      normalizedSailData[option.value] = {
+        name: sail.name,
+        clothWeights: Object.fromEntries(
+          sail.cloth_weights.map(function (weight) {
+            const palette = config.palettes?.[weight.palette] || [];
+
+            return [
+              weight.name,
+              palette.map(function (colour) {
+                return {
+                  name: colour.name,
+                  value: colour.value
+                };
+              })
+            ];
+          })
+        )
+      };
+    });
+
+    return normalizedSailData;
+  }
+
+  chargingClass.hideShowcharging(true);
+
+  try {
+    const response = await fetch(coloursUrl, {
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Could not load colour data (HTTP ${response.status}).`);
+    }
+
+    const colourConfig = await response.json();
+    sailData = buildSailData(colourConfig);
+
+    const missingSails = Array.from(sailTypeSelect.options)
+      .filter(function (option) {
+        return !sailData[option.value];
+      })
+      .map(function (option) {
+        return option.textContent.trim();
+      });
+
+    if (missingSails.length > 0) {
+      throw new Error(`Missing colour data for: ${missingSails.join(", ")}`);
+    }
+  } catch (error) {
+    console.error("Could not initialize the sail colours:", error);
+    availableColours.textContent = "Colour options could not be loaded.";
+    sailTypeSelect.disabled = true;
+    clothWeightSelect.disabled = true;
+    return;
+  } finally {
+    chargingClass.hideShowcharging(false);
   }
 
   const allSvgs = contentDownload.querySelectorAll("svg");
@@ -253,12 +186,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const colourButton = document.createElement("div");
 
       colourButton.classList.add("colour");
-      colourButton.style.backgroundColor = colour;
-      colourButton.dataset.colour = colour;
-      colourButton.title = colour;
+      colourButton.style.backgroundColor = colour.value;
+      colourButton.dataset.colour = colour.value;
+      colourButton.title = colour.name;
+      colourButton.setAttribute("aria-label", colour.name);
 
       colourButton.addEventListener("click", function () {
-        colourCustomize = colour;
+        colourCustomize = colour.value;
 
         const allColourButtons = availableColours.querySelectorAll(".colour");
 
@@ -273,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (index === 0) {
         colourButton.classList.add("active");
-        colourCustomize = colour;
+        colourCustomize = colour.value;
       }
     });
   }

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   let colourCustomize = "white";
 
   class Charging {
@@ -17,151 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const chargingClass = new Charging();
 
-  const sharedColours = {
-    fullNylite: [
-      "#EFE8D2", // Cream
-      "#F70F8A", // Pink
-      "#FF5A0A", // Orange
-      "#E60808", // Red
-      "#E99A00", // Gold
-      "#FFE329", // Yellow
-      "#06733B", // Green
-      "#22B3AE", // Turquoise
-      "#12128B", // Navy blue
-      "#168CBC", // Blue
-      "#5D08B9", // Purple
-      "#606664", // Grey
-      "#000000", // Black
-      "#FFFFFF"  // White
-    ],
-
-    nylite250: [
-      "#E60808", // Red
-      "#12128B", // Navy blue
-      "#606664", // Grey
-      "#000000", // Black
-      "#FFFFFF"  // White
-    ],
-
-    fibermaxFull: [
-      "#F70F8A", // Pink
-      "#FF5A0A", // Orange
-      "#E60808", // Red
-      "#FFE329", // Yellow
-      "#06733B", // Green
-      "#12128B", // Navy blue
-      "#168CBC", // Blue
-      "#5D08B9", // Purple
-      "#606664", // Grey
-      "#000000", // Black
-      "#E99A00", // Gold
-      "#20293F", // Dark navy
-      "#6BDC56", // Light green
-      "#E015A5", // Magenta
-      "#F5FF00", // Neon yellow
-      "#147F91", // Teal
-      "#FFFFFF"  // White
-    ],
-
-    fibermaxRedBlueWhite: [
-      "#E60808", // Red
-      "#12128B", // Navy blue
-      "#FFFFFF"  // White
-    ],
-
-    stormlite210: [
-      "#E60808", // Red
-      "#12128B", // Navy blue
-      "#000000", // Black
-      "#FFFFFF"  // White
-    ],
-
-    stormlite510: [
-      "#FFFFFF" // White
-    ]
-  };
-
-  const sailData = {
-    asymetric: {
-      name: "Cruise: Axia Asym",
-      clothWeights: {
-        "Nylite 90": sharedColours.fullNylite,
-        "Nylite 150": sharedColours.fullNylite,
-        "Nylite 250": sharedColours.nylite250,
-        "Fibermax 44": sharedColours.fibermaxFull,
-        "Fibermax 64": sharedColours.fibermaxFull,
-        "Fibermax 94": sharedColours.fibermaxRedBlueWhite,
-        "Fibermax 144": sharedColours.fibermaxRedBlueWhite,
-        "Stormlite 210": sharedColours.stormlite210,
-        "Stormlite 510": sharedColours.stormlite510
-      }
-    },
-
-    symetric: {
-      name: "Cruise: Axia Code 50",
-      clothWeights: {
-        "Nylite 90": sharedColours.fullNylite,
-        "Nylite 150": sharedColours.fullNylite,
-        "Nylite 250": sharedColours.nylite250,
-        "Fibermax 44": sharedColours.fibermaxFull,
-        "Fibermax 64": sharedColours.fibermaxFull,
-        "Fibermax 94": sharedColours.fibermaxRedBlueWhite,
-        "Fibermax 144": sharedColours.fibermaxRedBlueWhite,
-        "Stormlite 210": sharedColours.stormlite210,
-        "Stormlite 510": sharedColours.stormlite510
-      }
-    },
-
-    design3: {
-      name: "Cruise: Axia Code 60",
-      clothWeights: {
-        "Nylite 90": sharedColours.fullNylite,
-        "Nylite 150": sharedColours.fullNylite,
-        "Nylite 250": sharedColours.nylite250,
-        "Fibermax 44": sharedColours.fibermaxFull,
-        "Fibermax 64": sharedColours.fibermaxFull,
-        "Fibermax 94": sharedColours.fibermaxRedBlueWhite,
-        "Fibermax 144": sharedColours.fibermaxRedBlueWhite,
-        "Stormlite 210": sharedColours.stormlite210,
-        "Stormlite 510": sharedColours.stormlite510
-      }
-    },
-
-    design4: {
-      name: "Cruise: Axia Code 70",
-      clothWeights: {
-        "Nylite 90": sharedColours.fullNylite,
-        "Nylite 150": sharedColours.fullNylite,
-        "Nylite 250": sharedColours.nylite250,
-        "Fibermax 44": sharedColours.fibermaxFull,
-        "Fibermax 64": sharedColours.fibermaxFull,
-        "Fibermax 94": sharedColours.fibermaxRedBlueWhite,
-        "Fibermax 144": sharedColours.fibermaxRedBlueWhite,
-        "Stormlite 210": sharedColours.stormlite210,
-        "Stormlite 510": sharedColours.stormlite510
-      }
-    },
-
-    design5: {
-      name: "Cruise: Axia Symm",
-      clothWeights: {
-        "Nylite 90": sharedColours.fullNylite,
-        "Nylite 150": sharedColours.fullNylite,
-        "Nylite 250": sharedColours.nylite250,
-        "Fibermax 44": sharedColours.fibermaxFull,
-        "Fibermax 64": sharedColours.fibermaxFull,
-        "Fibermax 94": sharedColours.fibermaxRedBlueWhite,
-        "Fibermax 144": sharedColours.fibermaxRedBlueWhite
-      }
-    }
-  };
-
+  const customizeSection = document.getElementById("customize");
   const sailTypeSelect = document.getElementById("sailType");
   const clothWeightSelect = document.getElementById("clothWeight");
   const availableColours = document.getElementById("availableColours");
   const contentDownload = document.getElementById("contentDownload");
   const sailOptions = document.querySelectorAll(".sail-option");
   const downloadPDF = document.getElementById("downloadPDF");
+  let sailData = {};
 
   if (!sailTypeSelect) {
     console.error("No existe #sailType");
@@ -181,6 +44,87 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!contentDownload) {
     console.error("No existe #contentDownload");
     return;
+  }
+
+  const coloursUrl = customizeSection?.dataset.coloursUrl;
+
+  if (!coloursUrl) {
+    console.error("No existe la URL del JSON de colores.");
+    return;
+  }
+
+  function buildSailData(config) {
+    const sailTypesByName = new Map(
+      (config.sail_types || []).map(function (sail) {
+        return [sail.name, sail];
+      })
+    );
+
+    const normalizedSailData = {};
+
+    Array.from(sailTypeSelect.options).forEach(function (option) {
+      const sail = sailTypesByName.get(option.textContent.trim());
+
+      if (!sail) return;
+
+      normalizedSailData[option.value] = {
+        name: sail.name,
+        clothWeights: Object.fromEntries(
+          sail.cloth_weights.map(function (weight) {
+            const palette = config.palettes?.[weight.palette] || [];
+
+            return [
+              weight.name,
+              palette.map(function (colour) {
+                return {
+                  name: colour.name,
+                  value: colour.value
+                };
+              })
+            ];
+          })
+        )
+      };
+    });
+
+    return normalizedSailData;
+  }
+
+  chargingClass.hideShowcharging(true);
+
+  try {
+    const response = await fetch(coloursUrl, {
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Could not load colour data (HTTP ${response.status}).`);
+    }
+
+    const colourConfig = await response.json();
+    sailData = buildSailData(colourConfig);
+
+    const missingSails = Array.from(sailTypeSelect.options)
+      .filter(function (option) {
+        return !sailData[option.value];
+      })
+      .map(function (option) {
+        return option.textContent.trim();
+      });
+
+    if (missingSails.length > 0) {
+      throw new Error(`Missing colour data for: ${missingSails.join(", ")}`);
+    }
+  } catch (error) {
+    console.error("Could not initialize the sail colours:", error);
+    availableColours.textContent = "Colour options could not be loaded.";
+    sailTypeSelect.disabled = true;
+    clothWeightSelect.disabled = true;
+    return;
+  } finally {
+    chargingClass.hideShowcharging(false);
   }
 
   const allSvgs = contentDownload.querySelectorAll("svg");
@@ -242,12 +186,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const colourButton = document.createElement("div");
 
       colourButton.classList.add("colour");
-      colourButton.style.backgroundColor = colour;
-      colourButton.dataset.colour = colour;
-      colourButton.title = colour;
+      colourButton.style.backgroundColor = colour.value;
+      colourButton.dataset.colour = colour.value;
+      colourButton.title = colour.name;
+      colourButton.setAttribute("aria-label", colour.name);
 
       colourButton.addEventListener("click", function () {
-        colourCustomize = colour;
+        colourCustomize = colour.value;
 
         const allColourButtons = availableColours.querySelectorAll(".colour");
 
@@ -262,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (index === 0) {
         colourButton.classList.add("active");
-        colourCustomize = colour;
+        colourCustomize = colour.value;
       }
     });
   }

@@ -2,6 +2,8 @@
 $customizeCssFs = __DIR__ . '/customize.css';
 $customizeJsFs  = __DIR__ . '/customize.js';
 $customizeUrl   = get_template_directory_uri() . '/pages/Cuising-6.BlueLineSpinnakers-Customize/Customize';
+$colorsJsonFs   = __DIR__ . '/../../general/design-system/ullman-spinnaker-tool-blue-line-colors.json';
+$colorsJsonUrl  = get_template_directory_uri() . '/pages/general/design-system/ullman-spinnaker-tool-blue-line-colors.json';
 $svgPath        = __DIR__ . '/svg/';
 ?>
 
@@ -10,7 +12,11 @@ $svgPath        = __DIR__ . '/svg/';
   href="<?php echo esc_url($customizeUrl . '/customize.css?v=' . ullman_file_version($customizeCssFs)); ?>"
 >
 
-<section class="customize" id="customize">
+<section
+  class="customize"
+  id="customize"
+  data-colours-url="<?php echo esc_url($colorsJsonUrl . '?v=' . ullman_file_version($colorsJsonFs)); ?>"
+>
 
   <div class="customize-selects">
 
