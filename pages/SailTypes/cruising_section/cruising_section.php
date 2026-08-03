@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 $cssFile = __DIR__ . '/../SailTypes/cruising_section/cruising_section.css';
 $jsFile  = __DIR__ . '/../SailTypes/cruising_section/cruising_section.js';
+$assetUrl = get_template_directory_uri() . '/pages/SailTypes/cruising_section';
 
 $cssVer = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
@@ -56,7 +57,7 @@ $sections = [
 
 <script>document.documentElement.classList.add('js');</script>
 
-<link rel="stylesheet" href="../SailTypes/cruising_section/cruising_section.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
+<link rel="stylesheet" href="<?= esc_url($assetUrl . '/cruising_section.css' . ($cssVer ? '?v=' . $cssVer : '')) ?>">
 
 <?php for ($i=1; $i<=3; $i++): $cfg = $sections[$i]; ?>
   <div class="sail-section-marker" aria-hidden="true">
@@ -98,4 +99,4 @@ $sections = [
 </section>
 <?php endfor; ?>
 
-<script defer src="../SailTypes/cruising_section/cruising_section.js<?= $jsVer ? '?v='.$jsVer : '' ?>"></script>
+<script defer src="<?= esc_url($assetUrl . '/cruising_section.js' . ($jsVer ? '?v=' . $jsVer : '')) ?>"></script>

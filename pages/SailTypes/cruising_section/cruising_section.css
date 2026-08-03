@@ -13,7 +13,7 @@
     radial-gradient(circle at 12% 10%, var(--section-glow, rgba(0,85,152,.10)), transparent 32%),
     linear-gradient(135deg, var(--section-background-start, #f5f9fc), var(--section-background-end, #edf4f9));
   padding: 2rem;
-  margin: 2rem auto;
+  margin: 0 auto;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -27,9 +27,9 @@
 
 /* Cada gama tiene un matiz propio, muy suave, sin competir con el contenido. */
 .cruising-section--cruising{
-  --section-background-start: #f2f8fa;
-  --section-background-end: #e6f1f4;
-  --section-glow: rgba(34, 128, 154, .13);
+  --section-background-start: #eaf6f8;
+  --section-background-end: #e3f1f4;
+  --section-glow: rgba(91, 177, 198, .10);
 }
 
 .cruising-section--racing{
