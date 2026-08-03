@@ -27,21 +27,21 @@
 
 /* Cada gama tiene un matiz propio, muy suave, sin competir con el contenido. */
 .cruising-section--cruising{
-  --section-background-start: #eaf6f8;
-  --section-background-end: #e3f1f4;
-  --section-glow: rgba(91, 177, 198, .10);
+  --section-background-start: #f8f9fa;
+  --section-background-end: #f8f9fa;
+  --section-glow: rgba(15, 33, 64, .025);
 }
 
 .cruising-section--racing{
-  --section-background-start: #f3f5fa;
-  --section-background-end: #e5ebf4;
-  --section-glow: rgba(17, 28, 66, .12);
+  --section-background-start: #f8f9fa;
+  --section-background-end: #f8f9fa;
+  --section-glow: rgba(15, 33, 64, .025);
 }
 
 .cruising-section--downwind{
-  --section-background-start: #fbf8f2;
-  --section-background-end: #f3ede2;
-  --section-glow: rgba(177, 126, 50, .12);
+  --section-background-start: #f8f9fa;
+  --section-background-end: #f8f9fa;
+  --section-glow: rgba(15, 33, 64, .025);
 }
 
 /* brillo diagonal suave */
