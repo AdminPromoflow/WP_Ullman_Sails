@@ -6,6 +6,7 @@
     --footer-red: #c5234a;
     --footer-text: rgba(255, 255, 255, .76);
     position: relative;
+    z-index: 20;
     overflow: hidden;
     margin: 0;
     padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 5vw, 5rem) 0 !important;
