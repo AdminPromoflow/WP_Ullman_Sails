@@ -13,21 +13,23 @@ body .termsAndConditions .terms__title {
   margin: .5rem auto 1rem;
   color: #005598 !important;
   font-size: clamp(3rem, 4.5vw, 6rem) !important;
-  font-weight: 600;
+  font-weight: 600 !important;
   letter-spacing: -.02em;
   line-height: 1.1;
   max-width: 800px;
+  opacity: 1;
   text-align: center;
-  text-transform: none;
+  text-transform: none !important;
+  transform: none;
 }
 
 body .termsAndConditions .terms__title::after {
   display: block;
-  width: clamp(90px, 10vw, 140px);
+  width: clamp(3.5rem, 7vw, 6rem);
   height: 2px;
-  margin: 18px auto 0;
+  margin: 1rem auto 0;
   content: "";
-  background: linear-gradient(90deg, transparent, rgba(15, 33, 64, .45), transparent);
+  background: #c5234a;
 }
 
 body .termsAndConditions .terms__company {
