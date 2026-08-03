@@ -53,8 +53,7 @@ $enduranceV = filemtime(__DIR__ . '/img/red_line.jpg');
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              <span class="sail-types-kicker">The Axia Series</span>
-              <span class="sail-types-label">Blue Line</span>
+              Blue Line
             </p>
           </div>
         </article>
@@ -72,8 +71,7 @@ $enduranceV = filemtime(__DIR__ . '/img/red_line.jpg');
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              <span class="sail-types-kicker">The Axia Series</span>
-              <span class="sail-types-label">Red Line</span>
+              Red Line
             </p>
           </div>
         </article>
