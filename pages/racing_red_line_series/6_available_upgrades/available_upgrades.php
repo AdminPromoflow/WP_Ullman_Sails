@@ -72,7 +72,7 @@ $total = count($upgrades);
 
     <header class="au-header">
       <p class="au-tagline sr-item">The Axia&nbsp;Series&nbsp;- Red Line</p>
-      <h2 id="au-title" class="au-title sr-item">Available Options and Upgrades</h2>
+      <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
         Downwind racing codes and spinnakers: quick launch, clean rotation, and Active Luff furling options.
       </p>

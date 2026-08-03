@@ -73,7 +73,7 @@ $total = count($upgrades);
 
     <header class="au-header">
       <p class="au-tagline sr-item">Performance Series</p>
-      <h2 id="au-title" class="au-title sr-item">Available Options and Upgrades</h2>
+      <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
         Luff control and load management, reefing and handling, plus protection upgrades to extend service life.
       </p>

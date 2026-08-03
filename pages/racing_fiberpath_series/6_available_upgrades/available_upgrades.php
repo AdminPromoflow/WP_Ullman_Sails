@@ -72,7 +72,7 @@ $total = count($upgrades);
 
     <header class="au-header">
       <p class="au-tagline sr-item">The FiberPath&nbsp;Series</p>
-      <h2 id="au-title" class="au-title sr-item">Available Options and Upgrades</h2>
+      <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
         Custom string-laminate upwind sails: low stretch, locked-in shape, race-ready options, fast.
       </p>

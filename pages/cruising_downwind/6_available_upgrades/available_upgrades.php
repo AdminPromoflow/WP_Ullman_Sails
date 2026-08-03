@@ -29,7 +29,7 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
     <header class="au-header">
       <p class="au-tagline sr-item">Downwind Series</p>
-      <h2 id="au-title" class="au-title sr-item">Available Options and Upgrades</h2>
+      <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
         Enhance performance, durability, and ease of use with tailored options for your sail and sailing style.
       </p>
