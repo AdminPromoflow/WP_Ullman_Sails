@@ -174,7 +174,7 @@
 /* Background images */
 .home-slider__slide.bg-racing-1   { --slide-bg: url("img/racing_1.jpg"); }
 .home-slider__slide.bg-racing-2   { --slide-bg: url("img/racing_2.jpg"); }
-.home-slider__slide.bg-cruising-1 { --slide-bg: url("img/cruising_sails_voyager"); }
+.home-slider__slide.bg-cruising-1 { --slide-bg: url("img/cruising_sails_voyager.jpg"); }
 .home-slider__slide.bg-cruising-2 { --slide-bg: url("img/cruising_sails_2.jpg"); }
 .home-slider__slide.bg-axia-1     { --slide-bg: url("img/axia_1.jpg"); }
 .home-slider__slide.bg-axia-2     { --slide-bg: url("img/axia_2.jpg"); }
