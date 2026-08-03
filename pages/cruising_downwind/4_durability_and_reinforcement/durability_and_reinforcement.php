@@ -50,7 +50,7 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   <div class="sid-wrap">
 
     <header class="sid-header">
-      <p class="sid-tagline sr-item">Blue Line & Axia Blue Line</p>
+      <p class="sid-tagline sr-item">Downwind Series</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Handling</h2>
       <p class="sid-intro sr-item">
         Both Blue Line and Axia Blue Line emphasise durability for downwind cruising, pairing robust nylon cloth with radial builds, plus handling options and custom upgrades to suit your rig.

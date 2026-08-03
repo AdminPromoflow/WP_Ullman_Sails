@@ -23,6 +23,9 @@
       overflow-x: hidden;
     }
 
+    :root { --series-section-subtitle: "Downwind Series"; }
+    body :is(.ph-tagline, .dac-tagline, .sid-tagline, .au-tagline), body :is(.csp-title, .ss-title, .efee-title, .customize-cta__title, section.wrap > h2)::before { color: #c5234a; font-size: clamp(.68rem, .82vw, .82rem); font-weight: 600; letter-spacing: .18em; line-height: 1.3; text-transform: uppercase; }
+    body :is(.csp-title, .ss-title, .efee-title, .customize-cta__title, section.wrap > h2)::before { display: block; margin: 0 0 .55rem; content: var(--series-section-subtitle); }
     </style>
   </head>
   <body>

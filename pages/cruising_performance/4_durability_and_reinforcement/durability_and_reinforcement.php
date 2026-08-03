@@ -46,7 +46,7 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
   <div class="sid-wrap">
 
     <header class="sid-header">
-      <p class="sid-tagline sr-item">Ullman Sails Performance</p>
+      <p class="sid-tagline sr-item">Performance Series</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Reinforcement</h2>
       <p class="sid-intro sr-item">
         Built for offshore miles and harsh climates, Ullman’s Performance sails prioritise strength, reinforced build, and high-spec finishing to hold shape and integrity over long passages.

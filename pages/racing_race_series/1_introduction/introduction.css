@@ -64,17 +64,12 @@
 /* Título */
 .sailing-content h1{
   position: relative;
-  margin: 0;
-
-  /* Escala más estable en móvil y amplia en desktop */
-  font-size: clamp(3rem, 4.5vw, 6rem);
-  font-weight: 600;
-  line-height: 1.05;
-
-  /* Evita cortes raros y overflow */
+  margin: .5rem auto 1.25rem;
+  font-size: clamp(2.4rem, 3.6vw, 4.8rem);
+  line-height: 1.2;
   max-width: 22ch;
-  padding-inline: clamp(0rem, 1.5vw, 0.5rem);
-  color: var(--cs-ink);
+  color: #005598;
+  text-align: center;
   z-index: 1;
 }
 
@@ -85,11 +80,11 @@
 .sailing-content h1::after{
   content: "";
   display: block;
-  width: clamp(72px, 18vw, 140px);
+  width: clamp(90px, 10vw, 140px);
   height: 2px;
-  margin: clamp(0.9rem, 2.2vw, 1.2rem) auto 0;
+  margin: 18px auto 0;
   background: linear-gradient(90deg, transparent, rgba(15,33,64,.45), transparent);
-  transform: scaleX(.9);
+  transform: scaleX(.85);
 }
 
 /* Párrafo */
@@ -117,8 +112,8 @@
     padding-inline: 1rem;
   }
   .sailing-content h1{
-    font-size: clamp(1.75rem, 9vw, 2.35rem);
-    max-width: 18ch;
+    font-size: clamp(2.4rem, 3.6vw, 4.8rem);
+    max-width: 22ch;
   }
 }
 
@@ -142,7 +137,7 @@
 /* Desktop grande (>= 1200px) */
 @media (min-width: 1200px){
   .sailing-content h1{
-    max-width: 24ch;
+    max-width: 22ch;
   }
 }
 

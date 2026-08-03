@@ -36,7 +36,7 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   <div class="dac-wrap">
 
     <header class="dac-header">
-      <p class="dac-tagline">Blue Line</p>
+      <p class="dac-tagline">Downwind Series</p>
       <h2 id="dac-title" class="dac-title">Reliable by Design</h2>
 
       <p class="dac-subtitle">

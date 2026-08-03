@@ -53,7 +53,7 @@ $ph_img_v = is_file($ph_img_fs) ? filemtime($ph_img_fs) : time();
   <div class="ph-grid">
 
     <header class="ph-left">
-      <p class="ph-tagline sr-item">Navigator Series</p>
+      <p class="ph-tagline sr-item">Voyager Series</p>
       <h2 id="ph-title" class="ph-title sr-item">Performance and Handling</h2>
 
       <img
