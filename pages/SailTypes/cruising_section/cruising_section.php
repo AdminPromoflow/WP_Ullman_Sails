@@ -60,9 +60,6 @@ $sections = [
 <link rel="stylesheet" href="<?= esc_url($assetUrl . '/cruising_section.css' . ($cssVer ? '?v=' . $cssVer : '')) ?>">
 
 <?php for ($i=1; $i<=3; $i++): $cfg = $sections[$i]; ?>
-  <div class="sail-section-marker" aria-hidden="true">
-    <span><?= htmlspecialchars($cfg['title'], ENT_QUOTES, 'UTF-8') ?></span>
-  </div>
 <section class="cruising-section cruising-section--<?= htmlspecialchars($cfg['theme'], ENT_QUOTES, 'UTF-8') ?>" data-sr-reveal aria-labelledby="cruising-title-<?= $i ?>">
   <div class="img-title-sailing-content">
     <img

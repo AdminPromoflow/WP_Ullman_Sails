@@ -68,7 +68,9 @@
 
     <div id="searchHide" class="searchHide">
     <?php include __DIR__ . "/1.Slider/Slider.php" ?>
-    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php" ?>
+    <a class="sailtypes-back-home" href="<?php echo esc_url(ullman_page_url('home')); ?>">
+      Back to Home
+    </a>
     <?php include __DIR__ . "/../SailTypes/new_sail_quote/new_sail_quote.php" ?>
 
     <?php include __DIR__ . "/navigation/navigation.php" ?>
@@ -82,9 +84,6 @@
 
 
     <div id="searchContent" class="searchContent">
-    </div>
-    <div class="sail-section-marker sail-section-marker--accessories" aria-hidden="true">
-      <span>Accessories</span>
     </div>
     <?php include __DIR__ . "/../general/footer/Footer.php" ?>
 

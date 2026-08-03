@@ -31,9 +31,44 @@
   padding-top: 0;
   padding-inline: 2vw;
   text-align: center;
-  background:
-    radial-gradient(circle at 12% 15%, rgba(91, 177, 198, .13), transparent 34%),
-    linear-gradient(160deg, #f8fcfd 0%, #eaf6f8 100%);
+  background: transparent;
+}
+
+/* Sail Types usa una sola acción auxiliar: volver al inicio. */
+.sailtypes-back-home{
+  align-items: center;
+  background: #5db9d0;
+  border: 1px solid #5db9d0;
+  border-radius: 999px;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  box-shadow: 0 8px 24px rgba(15, 77, 105, .22);
+  color: #fff;
+  display: inline-flex;
+  font-size: .72rem;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: .08em;
+  line-height: 1;
+  padding: .9rem 1.15rem;
+  position: fixed;
+  right: 1.25rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+  z-index: 35;
+}
+
+.sailtypes-back-home:hover,
+.sailtypes-back-home:focus-visible{
+  background: #2d91ac;
+  border-color: #2d91ac;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.sailtypes-back-home:focus-visible{
+  outline: 3px solid rgba(93, 185, 208, .35);
+  outline-offset: 3px;
 }
 
 .st-wrap{
