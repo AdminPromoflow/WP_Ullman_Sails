@@ -6,8 +6,8 @@ $sliderCssTime = file_exists($sliderCss) ? filemtime($sliderCss) : time();
 
 <link rel="stylesheet" href="../terms_and_conditions/terms_and_conditions/TermsAndConditions.css?v=<?= $sliderCssTime ?>">
     <section class="termsAndConditions">
-      <h1>TERMS AND CONDITIONS OF BUSINESS</h1>
-      <p><strong>Warndon Sails Ltd t/a Ullman Sails</strong></p>
+      <h1 class="terms__title">TERMS AND CONDITIONS OF BUSINESS</h1>
+      <p class="terms__company">Warndon Sails Ltd t/a Ullman Sails</p>
       <p>These terms and conditions apply to all contracts for works or goods undertaken by us on or after 1 January 2017</p>
       <br>
 
