@@ -159,7 +159,7 @@ html.js .axia-section:not(.is-visible) .axia-image{
   justify-content: center;
   gap:10px;
   padding: 14px 18px;
-  border-radius: 16px;
+  border-radius: 0;
   background: rgba(255,255,255,.92);
   border: 1px solid var(--cs-border);
   box-shadow: 0 1px 0 rgba(15,33,64,.04);
