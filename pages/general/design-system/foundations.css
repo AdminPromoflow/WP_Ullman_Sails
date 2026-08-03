@@ -444,13 +444,13 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
 
 /* Sail Types: el único botón azul claro de la página es el retorno a inicio. */
 .ullman-context-back--sail-types .ullman-context-back__link {
-  background: #5db9d0;
-  border-color: #5db9d0;
+  background: var(--ullman-blue);
+  border-color: var(--ullman-blue);
 }
 
 .ullman-context-back--sail-types .ullman-context-back__link:is(:hover, :focus-visible) {
-  background: #2d91ac;
-  border-color: #2d91ac;
+  background: #004a84;
+  border-color: #004a84;
 }
 
 /* Cards use a restrained editorial surface rather than heavy rounded panels. */
