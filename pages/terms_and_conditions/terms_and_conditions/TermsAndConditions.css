@@ -65,7 +65,7 @@ body .termsAndConditions .terms__clause-number {
 
 body .termsAndConditions > p .terms__clause-number {
   display: inline-block;
-  font-size: clamp(2.175rem, 3vw, 3rem);
+  font-size: clamp(1.45rem, 2vw, 2rem);
   line-height: 1;
   vertical-align: -.08em;
 }
@@ -85,6 +85,6 @@ body .termsAndConditions > p .terms__clause-number {
   }
 
   body .termsAndConditions > p .terms__clause-number {
-    font-size: 2rem;
+    font-size: 1.35rem;
   }
 }
