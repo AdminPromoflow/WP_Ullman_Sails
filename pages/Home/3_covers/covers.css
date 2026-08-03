@@ -195,6 +195,12 @@
   transition-delay: .70s;
 }
 
+.covers.is-visible .covers_button:hover,
+.covers.is-visible .covers_button:focus-visible{
+  transform: translateY(-2px);
+  transition-duration: .18s;
+}
+
 @media (max-width: 900px){
   .section_covers{
     padding-inline: var(--page-gutter, 2rem);
