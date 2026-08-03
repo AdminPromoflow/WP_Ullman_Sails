@@ -391,7 +391,7 @@ function ullman_contextual_back_navigation(string $html, string $pageKey): strin
         }
     }
 
-    if ($targetLabel === 'Home' && $pageKey === 'sail_types') {
+    if ($targetLabel === 'Home' && $pageKey === 'sailtypes') {
         $button = sprintf(
             '<section class="ullman-context-back ullman-context-back--sail-types" aria-label="%1$s"><a class="ullman-context-back__link" href="%2$s">%3$s</a></section>',
             esc_attr('Back to Home'),
