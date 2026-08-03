@@ -9,6 +9,7 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
 $sections = [
   1 => [
+    'theme' => 'cruising',
     'title' => 'Cruising sails',
     'subtitle' => "When it comes to cruising sails, durability and ease of use are key. The Navigator Series, Endurance Series,
     Voyager Series, and Expedition Series are all popular choices for cruisers, each with their own unique
@@ -25,6 +26,7 @@ $sections = [
   ],
 
   2 => [
+    'theme' => 'racing',
     'title' => 'Racing Sails',
     'subtitle' => "When it comes to racing sails, speed, stability, and control are key. Our race ranges are designed to deliver
     confident handling, efficient shapes, and the responsiveness you need to push harder when it counts.",
@@ -38,6 +40,7 @@ $sections = [
   ],
 
   3 => [
+    'theme' => 'downwind',
     'title' => 'The Axia Series',
     'subtitle' => "Built for high-performance sailing, The Axia Series delivers responsive handling, efficient shapes,
     and reliable control when conditions demand more.",
@@ -56,7 +59,10 @@ $sections = [
 <link rel="stylesheet" href="../SailTypes/cruising_section/cruising_section.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
 
 <?php for ($i=1; $i<=3; $i++): $cfg = $sections[$i]; ?>
-<section class="cruising-section" data-sr-reveal aria-labelledby="cruising-title-<?= $i ?>">
+  <div class="sail-section-marker" aria-hidden="true">
+    <span><?= htmlspecialchars($cfg['title'], ENT_QUOTES, 'UTF-8') ?></span>
+  </div>
+<section class="cruising-section cruising-section--<?= htmlspecialchars($cfg['theme'], ENT_QUOTES, 'UTF-8') ?>" data-sr-reveal aria-labelledby="cruising-title-<?= $i ?>">
   <div class="img-title-sailing-content">
     <img
       src="../cruising_navigator/1_introduction/img/ullman_sails.png"

@@ -83,6 +83,9 @@
 
     <div id="searchContent" class="searchContent">
     </div>
+    <div class="sail-section-marker sail-section-marker--accessories" aria-hidden="true">
+      <span>Accessories</span>
+    </div>
     <?php include __DIR__ . "/../general/footer/Footer.php" ?>
 
 

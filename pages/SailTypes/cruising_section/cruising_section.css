@@ -9,7 +9,9 @@
   --cs-shadow:0 18px 45px rgba(15,33,64,.10);
   --cs-soft:0 10px 26px rgba(15,33,64,.08);
 
-  background: #fafafa;
+  background:
+    radial-gradient(circle at 12% 10%, var(--section-glow, rgba(0,85,152,.10)), transparent 32%),
+    linear-gradient(135deg, var(--section-background-start, #f5f9fc), var(--section-background-end, #edf4f9));
   padding: 2rem;
   margin: 2rem auto;
   text-align: center;
@@ -21,6 +23,62 @@
   align-items: center;
   min-height: 60vh;
   flex-direction: column;
+}
+
+/* Cada gama tiene un matiz propio, muy suave, sin competir con el contenido. */
+.cruising-section--cruising{
+  --section-background-start: #f2f8fa;
+  --section-background-end: #e6f1f4;
+  --section-glow: rgba(34, 128, 154, .13);
+}
+
+.cruising-section--racing{
+  --section-background-start: #f3f5fa;
+  --section-background-end: #e5ebf4;
+  --section-glow: rgba(17, 28, 66, .12);
+}
+
+.cruising-section--downwind{
+  --section-background-start: #fbf8f2;
+  --section-background-end: #f3ede2;
+  --section-glow: rgba(177, 126, 50, .12);
+}
+
+/* Separador de navegación visual entre categorías. */
+.sail-section-marker{
+  --marker-line: rgba(15,33,64,.20);
+  align-items: center;
+  background: #fafafa;
+  color: #005598;
+  display: flex;
+  font-size: .68rem;
+  font-weight: 700;
+  gap: .85rem;
+  letter-spacing: .18em;
+  padding: .35rem clamp(1.25rem, 5vw, 4rem);
+  text-transform: uppercase;
+}
+
+.sail-section-marker::before,
+.sail-section-marker::after{
+  background: linear-gradient(90deg, transparent, var(--marker-line));
+  content: "";
+  height: 1px;
+  flex: 1;
+}
+
+.sail-section-marker::after{
+  background: linear-gradient(90deg, var(--marker-line), transparent);
+}
+
+.sail-section-marker span::before{
+  background: currentColor;
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: .42rem;
+  margin: 0 .6rem .06rem 0;
+  width: .42rem;
 }
 
 /* brillo diagonal suave */
@@ -253,6 +311,14 @@ html.js .cruising-icons .cruising-icon{
 /* Responsive */
 @media (max-width: 900px){
   .cruising-icons{ margin: 40px 0 28px; }
+}
+
+@media (max-width: 480px){
+  .sail-section-marker{
+    font-size: .6rem;
+    gap: .55rem;
+    letter-spacing: .12em;
+  }
 }
 
 /* Reduce motion */
