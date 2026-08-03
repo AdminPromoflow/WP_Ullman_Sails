@@ -105,25 +105,6 @@ background-color: rgba(197, 35, 74, .3);
 .comeBackBlue:hover{
   text-decoration: underline;
 }
-.buttonTitleBlue{
-   position: relative;
-   width: 200px;
-   margin: 20px auto;
-   background-color: #005598;
-   padding: 14px 0px;
-   cursor: pointer;
-   border: 1px solid #202E52;
-}
-.buttonTitleBlue:hover{
-  background-color: #202E52;
-}
-.buttonTitleBlue h3{
-   text-align: center;
-   font-size: 1.3em;
-   font-weight: 300;
-   color: #F2F2F2;
-}
-
 /* =========================================
    Reveal only (ADD-ON) — NO cambia tu estilo
    - data-sr-reveal

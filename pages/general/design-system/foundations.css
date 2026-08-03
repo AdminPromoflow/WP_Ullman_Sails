@@ -482,7 +482,7 @@ body li.cruising-icon > a.cruising-link {
 }
 
 /* Legacy button markup sometimes uses heading elements for a short action label. */
-:is(.covers_button__label, .buttonTitle__label, .buttonTitle h3, .buttonTitleRed h3, .buttonTitleBlue h3, .openContactUs, .openContactUsRed, .openContactUsBlueBlue, .service-cta) {
+:is(.covers_button__label, .buttonTitle__label, .buttonTitle h3, .openContactUs, .service-cta) {
   color: var(--ullman-white) !important;
   font-family: var(--font-brand) !important;
   font-size: var(--text-sm) !important;

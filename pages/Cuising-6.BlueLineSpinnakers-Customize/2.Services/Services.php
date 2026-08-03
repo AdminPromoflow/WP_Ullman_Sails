@@ -20,8 +20,5 @@ $servicesUrl   = get_template_directory_uri() . '/pages/Cuising-6.BlueLineSpinna
     <p class="sr-item">When you are happy with your design, click the Download Spinnaker Image button at the bottom of the page. Send us the image and we can get to work on making your perfect spinnaker!</p>
     <p class="sr-item">Have fun!</p>
 
-    <div class="buttonTitleBlue sr-item">
-    <a href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>"><span class="openContactUsBlueBlue">Contact us</span></a>
-    </div>
   </div>
 </section>

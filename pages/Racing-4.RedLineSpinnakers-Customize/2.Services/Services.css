@@ -106,25 +106,6 @@
   text-decoration: underline;
 }
 
-.buttonTitleRed {
-  position: relative;
-  width: 200px;
-  background-color: #005598;
-  padding: 14px 0;
-  margin: 20px auto;
-  cursor: pointer;
-  border: 1px solid #202E52;
-}
-.buttonTitleRed:hover {
-  background-color: #202E52;
-}
-.buttonTitleRed h3 {
-  text-align: center;
-  font-size: 1.3em;
-  font-weight: 300;
-  color: #F2F2F2;
-}
-
 /* =========================================================
    REVEAL ONLY (ADD-ON) — IntersectionObserver + stagger
    Solo: data-sr-reveal, .sr-item, .is-revealed y delays
