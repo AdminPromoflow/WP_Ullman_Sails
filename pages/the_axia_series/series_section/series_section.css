@@ -109,6 +109,25 @@
   outline-offset: 3px;
 }
 
+.series-heading-link{
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+
+.series-heading-link:hover,
+.series-heading-link:focus-visible{
+  color: #202e52;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.series-heading-link:focus-visible{
+  outline: 2px solid #c5234a;
+  outline-offset: 4px;
+}
+
 /* Text */
 .series-text{
   color: var(--ink);

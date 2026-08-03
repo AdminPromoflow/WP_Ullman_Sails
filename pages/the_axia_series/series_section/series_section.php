@@ -75,7 +75,7 @@ $blueImageVersion = filemtime(__DIR__ . '/../sail_types_section/img/blue_line.jp
       </figure>
 
       <div class="series-text">
-        <h3 class="series-code">BLUE LINE</h3>
+        <h3 class="series-code"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_downwind')); ?>">BLUE LINE</a></h3>
         <p class="series-tagline">Built for Downwind Enjoyment</p>
 
         <p>Blue Line Spinnakers are designed to make downwind sailing more fun, stable, and efficient—ideal for cruising programs.</p>
@@ -83,7 +83,7 @@ $blueImageVersion = filemtime(__DIR__ . '/../sail_types_section/img/blue_line.jp
 
         <hr class="series-divider" aria-hidden="true">
 
-        <h4 class="series-cloth">Cloth <em>Selection</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_downwind')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>SPINNAKER CLOTH</strong></p>
         <p>A purpose-built cloth selection for downwind sails, balancing stability, strength, and handling.</p>
       </div>

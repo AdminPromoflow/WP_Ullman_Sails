@@ -29,7 +29,7 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
       <div class="series-text">
         <hr class="series-divider" aria-hidden="true">
 
-        <h4 class="series-cloth">Cloth <em>Selection</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_race_series')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>RACE DACRON</strong></p>
         <p>Lightweight, durable choice for bay sailing, offering easy handling and reliable performance. Designed for recreational use, it features practical reinforcements and a clean finish.</p>
 
@@ -74,11 +74,11 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
         <hr class="series-divider" aria-hidden="true">
 
         <p><strong>FiberPath Regatta</strong></p>
-        <h4 class="series-cloth">Precision Engineered <em>for Speed</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_fiberpath_series')); ?>">Precision Engineered <em>for Speed</em></a></h4>
         <p>FiberPath Regatta sails deliver high-performance with a custom string laminate design. Engineered with carbon and aramid fibers, they offer strength and efficiency. Available with film, taffeta, or NWT skins for optimal durability and speed.</p>
 
         <p><strong>FiberPath Grand Prix</strong></p>
-        <h4 class="series-cloth">Ultimate Strength, <em>Maximum Performance</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_fiberpath_series')); ?>">Ultimate Strength, <em>Maximum Performance</em></a></h4>
         <p>FiberPath Grand Prix sails deliver elite performance and superior strength. By combining a custom string laminate with cutting-edge design, these sails offer exceptional load management and shape-holding abilities, making them the fastest sails on the water.</p>
       </div>
     </div>

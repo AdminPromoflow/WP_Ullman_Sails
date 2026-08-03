@@ -34,7 +34,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
       </figure>
 
       <div class="series-text">
-        <h3 class="series-code">NAVIGATOR</h3>
+        <h3 class="series-code"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_navigator')); ?>">NAVIGATOR</a></h3>
         <p class="series-tagline">Built for Everyday Cruising</p>
 
         <p>The Navigator Series is designed for reliable, all-round cruising. A balanced build helps maintain shape and deliver consistent handling across a wide range of conditions.</p>
@@ -42,7 +42,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
 
         <hr class="series-divider" aria-hidden="true">
 
-        <h4 class="series-cloth">Cloth <em>Selection</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_navigator')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>NAVIGATOR DACRON</strong></p>
         <p>A proven Dacron option focused on durability, easy care, and long-term cruising performance.</p>
       </div>
@@ -59,7 +59,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
     <div class="series-container">
 
       <div class="series-text">
-        <h3 class="series-code">ENDURANCE</h3>
+        <h3 class="series-code"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_endurance')); ?>">ENDURANCE</a></h3>
         <p class="series-tagline">Built for Longer Seasons &amp; Heavy Use</p>
 
         <p>The Endurance Series is designed for cruisers who sail often and want extra longevity. Reinforcements are focused on high-load areas to reduce wear over time.</p>
@@ -67,7 +67,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
 
         <hr class="series-divider" aria-hidden="true">
 
-        <h4 class="series-cloth">Cloth <em>Selection</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_endurance')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>ENDURANCE DACRON</strong></p>
         <p>A more robust Dacron option aimed at durability and long-term cruising reliability, with practical details and a clean, hard-wearing finish.</p>
       </div>
@@ -103,7 +103,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
       </figure>
 
       <div class="series-text">
-        <h3 class="series-code">VOYAGER</h3>
+        <h3 class="series-code"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_voyager')); ?>">VOYAGER</a></h3>
         <p class="series-tagline">Built for Smooth Handling &amp; Versatility</p>
 
         <p>The Voyager Series is aimed at comfortable cruising with a focus on balanced handling and dependable shape.</p>
@@ -111,7 +111,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
 
         <hr class="series-divider" aria-hidden="true">
 
-        <h4 class="series-cloth">Cloth <em>Selection</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_voyager')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>VOYAGER DACRON</strong></p>
         <p>A cruising-focused cloth choice for reliable performance and everyday durability.</p>
       </div>
@@ -129,7 +129,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
 
 
       <div class="series-text">
-        <h3 class="series-code">EXPEDITION</h3>
+        <h3 class="series-code"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_performance')); ?>">EXPEDITION</a></h3>
         <p class="series-tagline">Built for Distance &amp; Demanding Conditions</p>
 
         <p>The Expedition Series is built for sailors planning longer passages and wanting a stronger, confidence-inspiring build.</p>
@@ -137,7 +137,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
 
         <hr class="series-divider" aria-hidden="true">
 
-        <h4 class="series-cloth">Cloth <em>Selection</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_performance')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>EXPEDITION CLOTH</strong></p>
         <p>A tougher specification aimed at durability and shape retention for extended cruising.</p>
       </div>
@@ -172,7 +172,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
       </figure>
 
       <div class="series-text">
-        <h3 class="series-code">BLUE LINE</h3>
+        <h3 class="series-code"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_downwind')); ?>">BLUE LINE</a></h3>
         <p class="series-tagline">Built for Downwind Enjoyment</p>
 
         <p>Blue Line Spinnakers are designed to make downwind sailing more fun, stable, and efficient—ideal for cruising programs.</p>
@@ -180,7 +180,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
 
         <hr class="series-divider" aria-hidden="true">
 
-        <h4 class="series-cloth">Cloth <em>Selection</em></h4>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('cruising_downwind')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>SPINNAKER CLOTH</strong></p>
         <p>A purpose-built cloth selection for downwind sails, balancing stability, strength, and handling.</p>
       </div>
