@@ -242,14 +242,15 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
   text-transform: none;
 }
 
+.ullman-button,
 .home-slider__btn,
 .button_quote,
 .button_quote_2,
 .contactus-btn--secondary,
 .customize-cta__btn,
 .ullman-button--primary {
-  background: var(--ullman-red) !important;
-  border-color: var(--ullman-red) !important;
+  background: var(--ullman-button-bg, var(--ullman-red)) !important;
+  border-color: var(--ullman-button-bg, var(--ullman-red)) !important;
   color: var(--ullman-white) !important;
   font-family: var(--font-brand) !important;
   font-size: var(--text-sm) !important;
@@ -258,14 +259,15 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
   text-transform: uppercase;
 }
 
+.ullman-button:hover,
 .home-slider__btn:hover,
 .button_quote:hover,
 .button_quote_2:hover,
 .contactus-btn--secondary:hover,
 .customize-cta__btn:hover,
 .ullman-button--primary:hover {
-  background: #a7193d !important;
-  border-color: #a7193d !important;
+  background: var(--ullman-button-bg-hover, #a7193d) !important;
+  border-color: var(--ullman-button-bg-hover, #a7193d) !important;
 }
 
 /* Slider: controlled contrast, calm motion and compact, tactile controls. */
@@ -320,11 +322,11 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
   font-weight: 500;
 }
 
-/* Shared actions: one clear primary action, with reliable touch and keyboard states. */
-:is(.btn, .button > button, .button_quote, .customize-cta__btn, .customize-submit, .home-slider__btn, .st-btn, .ullman-button--primary) {
+/* Shared action base: add a colour modifier on the same element. */
+:is(.ullman-button, .btn, .button > button, .button_quote, .customize-cta__btn, .customize-submit, .home-slider__btn, .st-btn, .ullman-button--primary) {
   align-items: center;
-  background: var(--ullman-red) !important;
-  border: 1px solid var(--ullman-red) !important;
+  background: var(--ullman-button-bg, var(--ullman-red)) !important;
+  border: 1px solid var(--ullman-button-bg, var(--ullman-red)) !important;
   border-radius: 2px;
   box-shadow: none !important;
   color: var(--ullman-white) !important;
@@ -343,15 +345,31 @@ body .nav-section :is(.nav-breadcrumbs__link, .nav-breadcrumbs__current) {
   transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
-:is(.btn, .button > button, .button_quote, .customize-cta__btn, .customize-submit, .home-slider__btn, .st-btn, .ullman-button--primary):is(:hover, :focus-visible) {
-  background: #a7193d !important;
-  border-color: #a7193d !important;
+:is(.ullman-button, .btn, .button > button, .button_quote, .customize-cta__btn, .customize-submit, .home-slider__btn, .st-btn, .ullman-button--primary):is(:hover, :focus-visible) {
+  background: var(--ullman-button-bg-hover, #a7193d) !important;
+  border-color: var(--ullman-button-bg-hover, #a7193d) !important;
   color: var(--ullman-white) !important;
   transform: translateY(-2px);
 }
 
-:is(.btn, .button > button, .button_quote, .customize-cta__btn, .customize-submit, .home-slider__btn, .st-btn, .ullman-button--primary):active {
+:is(.ullman-button, .btn, .button > button, .button_quote, .customize-cta__btn, .customize-submit, .home-slider__btn, .st-btn, .ullman-button--primary):active {
   transform: translateY(0);
+}
+
+/* Colour modifiers: pair one with .ullman-button on each action. */
+.ullman-button--red {
+  --ullman-button-bg: var(--ullman-red);
+  --ullman-button-bg-hover: #a7193d;
+}
+
+.ullman-button--blue {
+  --ullman-button-bg: var(--ullman-blue);
+  --ullman-button-bg-hover: var(--ullman-navy);
+}
+
+.ullman-button--navy {
+  --ullman-button-bg: var(--ullman-navy);
+  --ullman-button-bg-hover: #111c42;
 }
 
 .contactus-btn--secondary,
@@ -728,6 +746,25 @@ footer#footer_container .TermsAndConditions:is(:hover, :focus-visible) {
 
   body h1 {
     letter-spacing: 0.035em;
+  }
+}
+
+/* On responsive layouts, floating bottom-right actions keep their icon only. */
+@media (max-width: 50rem) {
+  body .container_bottom > :is(a, button) {
+    width: 3.25rem !important;
+    min-width: 3.25rem !important;
+    min-height: 3.25rem !important;
+    height: 3.25rem !important;
+    padding: 0 !important;
+    font-size: 0 !important;
+    letter-spacing: 0 !important;
+  }
+
+  body .container_bottom > .button_quote::before {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-basis: 1.5rem;
   }
 }
 

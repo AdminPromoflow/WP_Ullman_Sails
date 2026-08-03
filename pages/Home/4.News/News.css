@@ -346,7 +346,22 @@
    Responsive
 ========================= */
 
+@media (min-width: 701px) and (max-width: 1150px){
+  .news-group{
+    grid-template-columns: repeat(2, minmax(0, 360px));
+  }
+
+  .news-group > .news-card:nth-child(odd):last-child{
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
 @media (max-width: 700px){
+  .news-group{
+    grid-template-columns: minmax(0, 360px);
+  }
+
   .news-home__shell{
     width: min(100%, calc(100% - 24px));
   }

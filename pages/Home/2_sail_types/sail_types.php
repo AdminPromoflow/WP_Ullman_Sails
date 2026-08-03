@@ -75,14 +75,14 @@ $st_js_v  = is_file($st_js_fs) ? filemtime($st_js_fs) : time();
           >
         </div>
 
-        <h3 class="st-card-title">Racing Sails</h3>
+        <h3 class="st-card-title"><a class="st-card-title__link" href="<?php echo esc_url(ullman_page_url('racing')); ?>">Racing Sails</a></h3>
 
         <p class="st-card-text">
           Built for speed and control—lightweight shapes, crisp trim response,
           and race-ready materials that help you secure seconds each leg.
         </p>
 
-        <a class="st-btn st-btn-clear" href="<?php echo esc_url(ullman_page_url('racing')); ?>">
+        <a class="ullman-button ullman-button--blue st-btn st-btn-clear" href="<?php echo esc_url(ullman_page_url('racing')); ?>">
           See more
           <span class="st-btn-icon" aria-hidden="true">→</span>
         </a>
@@ -102,14 +102,14 @@ $st_js_v  = is_file($st_js_fs) ? filemtime($st_js_fs) : time();
           >
         </div>
 
-        <h3 class="st-card-title">Cruising Sails</h3>
+        <h3 class="st-card-title"><a class="st-card-title__link" href="<?php echo esc_url(ullman_page_url('cruising')); ?>">Cruising Sails</a></h3>
 
         <p class="st-card-text">
           Made for relaxed, reliable miles—hardwearing cloth, easy handling,
           and balanced power so you sail comfortably, day after day at sea.
         </p>
 
-        <a class="st-btn st-btn-dark" href="<?php echo esc_url(ullman_page_url('cruising')); ?>">
+        <a class="ullman-button ullman-button--blue st-btn st-btn-dark" href="<?php echo esc_url(ullman_page_url('cruising')); ?>">
           See more
           <span class="st-btn-icon" aria-hidden="true">→</span>
         </a>
@@ -129,14 +129,14 @@ $st_js_v  = is_file($st_js_fs) ? filemtime($st_js_fs) : time();
           >
         </div>
 
-        <h3 class="st-card-title">The Axia Series</h3>
+        <h3 class="st-card-title"><a class="st-card-title__link" href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">The Axia Series</a></h3>
 
         <p class="st-card-text">
           A high-end performance range—advanced construction, excellent shape
           retention, and meticulous detailing for sailors who demand more.
         </p>
 
-        <a class="st-btn st-btn-clear" href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">
+        <a class="ullman-button ullman-button--blue st-btn st-btn-clear" href="<?php echo esc_url(ullman_page_url('the_axia_series')); ?>">
           See more
           <span class="st-btn-icon" aria-hidden="true">→</span>
         </a>

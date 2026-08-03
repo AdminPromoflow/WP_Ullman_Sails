@@ -47,9 +47,9 @@ $sectionUrl = get_template_directory_uri() . '/pages/Home/5.Video';
 
 
       <div class="contactus-hero__actions">
-        <a href="<?php echo esc_url(ullman_page_url('new_sail_quote')); ?>" class="contactus-btn contactus-btn--quote">New Sail Quote</a>
-        <a href="<?php echo esc_url(ullman_page_url('new_repair_quote')); ?>" class="contactus-btn contactus-btn--quote">New Repair Quote</a>
-        <a href="<?php echo esc_url(ullman_page_url('contact_us')); ?>" class="contactus-btn contactus-btn--contact">Contact us</a>
+        <a href="<?php echo esc_url(ullman_page_url('new_sail_quote')); ?>" class="ullman-button ullman-button--navy contactus-btn contactus-btn--quote">New Sail Quote</a>
+        <a href="<?php echo esc_url(ullman_page_url('new_repair_quote')); ?>" class="ullman-button ullman-button--navy contactus-btn contactus-btn--quote">New Repair Quote</a>
+        <a href="<?php echo esc_url(ullman_page_url('contact_us')); ?>" class="ullman-button ullman-button--red contactus-btn contactus-btn--contact">Contact us</a>
 
       </div>
 

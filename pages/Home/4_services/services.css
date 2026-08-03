@@ -163,6 +163,25 @@
   transition: transform .5s ease, opacity .5s ease;
 }
 
+.event-card__title-link{
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.event-card__title-link:hover,
+.event-card__title-link:focus-visible{
+  color: #005598;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.event-card__title-link:focus-visible{
+  outline: 2px solid #005598;
+  outline-offset: .25rem;
+}
+
 .event-card__subtitle{
   margin: 0.75rem 0 0;
   font-size: var(--text-xs);

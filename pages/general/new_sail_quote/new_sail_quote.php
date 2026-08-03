@@ -11,7 +11,7 @@ $sectionUrl = get_template_directory_uri() . '/pages/general/new_sail_quote';
 
 <div class="container_bottom">
   <a
-    class="button_quote button_quote_2 js_quote_button"
+    class="ullman-button ullman-button--red button_quote button_quote_2 js_quote_button"
     href="<?php echo esc_url(ullman_page_url('new_sail_quote')); ?>"
     aria-label="Get a new sail quote"
   >
