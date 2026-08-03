@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 /* Filesystem paths (for filemtime) */
-$introCssFs = __DIR__ . '/8_gore_tenara/introduction.css';
-$introJsFs  = __DIR__ . '/8_gore_tenara/introduction.js';
+$introCssFs = __DIR__ . '/introduction.css';
+$introJsFs  = __DIR__ . '/introduction.js';
 
 /* Public paths */
 $introCssPublic = '8_gore_tenara/introduction.css';

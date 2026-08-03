@@ -1,6 +1,6 @@
 <!-- CLOTH SELECTION AND PERFORMANCE -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/cloth_selection_and_performance/cloth_selection_and_performance.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/cloth_selection_and_performance/cloth_selection_and_performance.css'); ?>">
+      href="../Sails-Types-Example/cloth_selection_and_performance/cloth_selection_and_performance.css?v=<?= filemtime(__DIR__ . '/cloth_selection_and_performance.css'); ?>">
 
 <section class="cloth_selection_and_performance" aria-labelledby="csp-title">
   <div class="csp-wrap">

@@ -1,6 +1,6 @@
 <!-- GORE TENARA THREAD -->
 <?php
-$cssFile    = __DIR__ . '/gore_tenara_thread/gore_tenara_thread.css';
+$cssFile    = __DIR__ . '/gore_tenara_thread.css';
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 ?>
 

@@ -1,7 +1,7 @@
 <?php
 // Asset versioning for cache-busting (changes the URL whenever the file changes)
-$introCssVersion = filemtime(__DIR__ . '/9_engineering_for_extreme_environments/engineering_for_extreme_environments.css');
-$introJsVersion  = filemtime(__DIR__ . '/9_engineering_for_extreme_environments/engineering_for_extreme_environments.js');
+$introCssVersion = filemtime(__DIR__ . '/engineering_for_extreme_environments.css');
+$introJsVersion  = filemtime(__DIR__ . '/engineering_for_extreme_environments.js');
 ?>
 
 <link

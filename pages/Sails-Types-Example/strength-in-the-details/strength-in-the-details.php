@@ -1,6 +1,6 @@
 <!-- STRENGTH IN THE DETAILS -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/strength-in-the-details/strength-in-the-details.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/strength-in-the-details/strength-in-the-details.css'); ?>">
+      href="../Sails-Types-Example/strength-in-the-details/strength-in-the-details.css?v=<?= filemtime(__DIR__ . '/strength-in-the-details.css'); ?>">
 
 <section class="strength-in-the-details" aria-labelledby="sid-title">
   <div class="sid-wrap">
@@ -81,5 +81,5 @@
 
 
 <script defer
-        src="../Sails-Types-Example/strength-in-the-details/strength-in-the-details.js?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/strength-in-the-details/strength-in-the-details.js'); ?>">
+        src="../Sails-Types-Example/strength-in-the-details/strength-in-the-details.js?v=<?= filemtime(__DIR__ . '/strength-in-the-details.js'); ?>">
 </script>

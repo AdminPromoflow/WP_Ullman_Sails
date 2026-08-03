@@ -1,6 +1,6 @@
 <!-- ENGINEERING FOR EXTREME ENVIRONMENTS -->
 <?php
-$cssFile    = __DIR__ . '/engineering_for_extreme_environments/engineering_for_extreme_environments.css';
+$cssFile    = __DIR__ . '/engineering_for_extreme_environments.css';
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 ?>
 

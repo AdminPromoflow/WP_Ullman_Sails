@@ -16,11 +16,11 @@ function versioned_asset(string $publicPath, string $fsPath): string {
 
 /* Public + filesystem paths */
 $cssPublic = '6_available_upgrades/available_upgrades.css';
-$cssFs     = __DIR__ . '/6_available_upgrades/available_upgrades.css';
+$cssFs     = __DIR__ . '/available_upgrades.css';
 $cssHref   = versioned_asset($cssPublic, $cssFs);
 
 $jsPublic = '6_available_upgrades/available_upgrades.js';
-$jsFs     = __DIR__ . '/6_available_upgrades/available_upgrades.js';
+$jsFs     = __DIR__ . '/available_upgrades.js';
 $jsSrc    = versioned_asset($jsPublic, $jsFs);
 
 $upgrades = [

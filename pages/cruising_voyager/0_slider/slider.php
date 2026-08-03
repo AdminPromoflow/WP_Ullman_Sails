@@ -53,9 +53,9 @@ $cssHref = with_version($cssPublic, asset_version($cssFs));
 $jsSrc   = with_version($jsPublic,  asset_version($jsFs));
 
 /* UI assets */
-$logoFs  = __DIR__ . '/../home/1_slider/img/ullman_sails.png';
-$leftFs  = __DIR__ . '/../home/1_slider/img/left.png';
-$rightFs = __DIR__ . '/../home/1_slider/img/right.png';
+$logoFs  = __DIR__ . '/../../Home/1_slider/img/ullman_sails.png';
+$leftFs  = __DIR__ . '/../../Home/1_slider/img/left.png';
+$rightFs = __DIR__ . '/../../Home/1_slider/img/right.png';
 
 $logoSrc   = with_version('../home/1_slider/img/ullman_sails.png', asset_version($logoFs));
 $leftIcon  = with_version('../home/1_slider/img/left.png',        asset_version($leftFs));

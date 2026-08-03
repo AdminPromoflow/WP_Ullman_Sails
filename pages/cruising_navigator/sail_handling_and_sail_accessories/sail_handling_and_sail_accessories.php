@@ -1,6 +1,6 @@
 <!-- SAIL HANDLING AND SAIL ACCESSORIES -->
 <link rel="stylesheet"
-      href="sail_handling_and_sail_accessories/sail_handling_and_sail_accessories.css?v=<?= filemtime(__DIR__ . '/sail_handling_and_sail_accessories/sail_handling_and_sail_accessories.css'); ?>">
+      href="sail_handling_and_sail_accessories/sail_handling_and_sail_accessories.css?v=<?= filemtime(__DIR__ . '/sail_handling_and_sail_accessories.css'); ?>">
 
       <section class="sail_handling_and_sail_accessories" aria-labelledby="shsa-title">
         <div class="shsa-wrap">

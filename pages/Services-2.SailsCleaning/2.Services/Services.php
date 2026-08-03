@@ -1,7 +1,7 @@
 
 <?php
-$cssFs = __DIR__ . '/../Services-2.SailsCleaning/2.Services/Services.css';
-$jsFs  = __DIR__ . '/../Services-2.SailsCleaning/2.Services/Services.js';
+$cssFs = __DIR__ . '/Services.css';
+$jsFs  = __DIR__ . '/Services.js';
 
 $cssVer = is_file($cssFs) ? filemtime($cssFs) : time();
 $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : time();

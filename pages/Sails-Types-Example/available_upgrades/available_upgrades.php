@@ -1,6 +1,6 @@
 <!-- AVAILABLE UPGRADES -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/available_upgrades/available_upgrades.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/available_upgrades/available_upgrades.css'); ?>">
+      href="../Sails-Types-Example/available_upgrades/available_upgrades.css?v=<?= filemtime(__DIR__ . '/available_upgrades.css'); ?>">
 
 <section class="available_upgrades" aria-labelledby="au-title">
   <div class="au-wrap">

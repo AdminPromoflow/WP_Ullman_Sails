@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 /* Filesystem paths (for filemtime) */
-$ssCssFs = __DIR__ . '/7_standard_specifications/standard_specifications.css';
-$ssJsFs  = __DIR__ . '/7_standard_specifications/standard_specifications.js';
-$ssImgFs = __DIR__ . '/7_standard_specifications/img/standard_specifications.jpg';
+$ssCssFs = __DIR__ . '/standard_specifications.css';
+$ssJsFs  = __DIR__ . '/standard_specifications.js';
+$ssImgFs = __DIR__ . '/img/standard_specifications.jpg';
 
 /* Public paths */
 $ssCssPublic = '7_standard_specifications/standard_specifications.css';

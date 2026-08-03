@@ -29,8 +29,8 @@ $st_items = [
 ];
 
 // Filesystem paths (for filemtime)
-$stCssFs = __DIR__ . '/3_design_and_construction/design_and_construction.css';
-$stJsFs  = __DIR__ . '/3_design_and_construction/design_and_construction.js';
+$stCssFs = __DIR__ . '/design_and_construction.css';
+$stJsFs  = __DIR__ . '/design_and_construction.js';
 
 // Public paths
 $stCssPublic = '3_design_and_construction/design_and_construction.css';

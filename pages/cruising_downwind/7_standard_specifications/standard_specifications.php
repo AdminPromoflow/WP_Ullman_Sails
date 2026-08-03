@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 /* Filesystem paths (for filemtime) */
-$cssFile = __DIR__ . '/7_standard_specifications/standard_specifications.css';
-$jsFile  = __DIR__ . '/7_standard_specifications/standard_specifications.js';
+$cssFile = __DIR__ . '/standard_specifications.css';
+$jsFile  = __DIR__ . '/standard_specifications.js';
 
 /* Versions */
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;

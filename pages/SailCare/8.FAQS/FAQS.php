@@ -1,13 +1,13 @@
 
 <?php
-$cssFile = __DIR__ . '/../SailCare/8.tips/tips.css';
-$jsFile  = __DIR__ . '/../SailCare/8.tips/tips.js';
+$cssFile = __DIR__ . '/FAQS.css';
+$jsFile  = __DIR__ . '/FAQS.js';
 
 $cssVer = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 ?>
 
-<link rel="stylesheet" href="../SailCare/8.tips/tips.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
+<link rel="stylesheet" href="8.FAQS/FAQS.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
 
 <section class="tips" aria-labelledby="tips-title">
   <div class="tips__shell">
@@ -82,4 +82,4 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
   </div>
 </section>
-<script defer src="../SailCare/8.tips/tips.js<?= $jsVer ? '?v='.$jsVer : '' ?>"></script>
+<script defer src="8.FAQS/FAQS.js<?= $jsVer ? '?v='.$jsVer : '' ?>"></script>

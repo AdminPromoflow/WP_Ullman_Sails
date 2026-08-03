@@ -1,7 +1,7 @@
 <?php
 // Asset versioning for cache-busting (changes the URL whenever the file changes)
-$introCssVersion = filemtime(__DIR__ . '/8_gore_tenara/introduction.css');
-$introJsVersion  = filemtime(__DIR__ . '/8_gore_tenara/introduction.js');
+$introCssVersion = filemtime(__DIR__ . '/introduction.css');
+$introJsVersion  = filemtime(__DIR__ . '/introduction.js');
 ?>
 
 <link rel="stylesheet" href="8_gore_tenara/introduction.css?v=<?= $introCssVersion ?>">

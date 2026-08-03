@@ -1,6 +1,6 @@
 <?php
-$css_file = __DIR__ . '/../New_Sail_Quote/seccion/New_Sail_Quote.css';
-$js_file  = __DIR__ . '/../New_Sail_Quote/seccion/New_Sail_Quote.js';
+$css_file = __DIR__ . '/New_Sail_Quote.css';
+$js_file  = __DIR__ . '/New_Sail_Quote.js';
 
 $css_time = is_file($css_file) ? filemtime($css_file) : time();
 $js_time  = is_file($js_file) ? filemtime($js_file) : time();

@@ -43,8 +43,8 @@ function render_caption(string $logoSrc, string $title, string $subtitle, string
 <?php }
 
 /* Assets (absolute for filemtime, public for browser) */
-$cssFile = __DIR__ . '/0_slider/slider.css';
-$jsFile  = __DIR__ . '/0_slider/slider.js';
+$cssFile = __DIR__ . '/slider.css';
+$jsFile  = __DIR__ . '/slider.js';
 
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;

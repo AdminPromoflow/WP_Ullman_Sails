@@ -14,10 +14,10 @@ function with_v(string $url, ?int $v): string {
   return $v ? ($url . '?v=' . $v) : $url;
 }
 
-$img1Fs = __DIR__ . '/../Racing/cruising_section/img/navigator.png';
-$img2Fs = __DIR__ . '/../Racing/cruising_section/img/Endurance.png';
-$img3Fs = __DIR__ . '/../Racing/cruising_section/img/voyager.png';
-$img4Fs = __DIR__ . '/../Racing/cruising_section/img/racing_section.jpg';
+$img1Fs = __DIR__ . '/img/navigator.png';
+$img2Fs = __DIR__ . '/img/Endurance.png';
+$img3Fs = __DIR__ . '/img/voyager.png';
+$img4Fs = __DIR__ . '/img/racing_section.jpg';
 
 $img1Url = '../Racing/cruising_section/img/navigator.png';
 $img2Url = '../Racing/cruising_section/img/Endurance.png';

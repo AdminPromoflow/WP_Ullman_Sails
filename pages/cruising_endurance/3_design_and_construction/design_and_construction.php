@@ -36,8 +36,8 @@ $dac_items = [
 ];
 
 // Filesystem paths (for filemtime)
-$dacCssFs = __DIR__ . '/3_design_and_construction/design_and_construction.css';
-$dacJsFs  = __DIR__ . '/3_design_and_construction/design_and_construction.js';
+$dacCssFs = __DIR__ . '/design_and_construction.css';
+$dacJsFs  = __DIR__ . '/design_and_construction.js';
 
 // Public paths
 $dacCssPublic = '3_design_and_construction/design_and_construction.css';

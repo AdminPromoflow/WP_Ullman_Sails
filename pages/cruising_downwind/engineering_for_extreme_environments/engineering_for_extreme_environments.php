@@ -1,7 +1,7 @@
 <!-- ENGINEERING FOR EXTREME ENVIRONMENTS -->
 <?php
-$cssFile    = __DIR__ . '/engineering_for_extreme_environments/engineering_for_extreme_environments.css';
-$jsFile     = __DIR__ . '/engineering_for_extreme_environments/engineering_for_extreme_environments.js';
+$cssFile    = __DIR__ . '/engineering_for_extreme_environments.css';
+$jsFile     = __DIR__ . '/engineering_for_extreme_environments.js';
 
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;

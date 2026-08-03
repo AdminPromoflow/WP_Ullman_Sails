@@ -1,6 +1,6 @@
 <!-- DESIGN & CONSTRUCTION -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/performance-and-handling/performance-and-handling.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/performance-and-handling/performance-and-handling.css'); ?>">
+      href="../Sails-Types-Example/performance-and-handling/performance-and-handling.css?v=<?= filemtime(__DIR__ . '/performance-and-handling.css'); ?>">
 
       <!-- PERFORMANCE AND HANDLING -->
       <section class="performance-and-handling" aria-labelledby="ph-title">
@@ -84,5 +84,5 @@
 
 
 <script defer
-        src="../Sails-Types-Example/performance-and-handling/performance-and-handling.js?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/performance-and-handling/performance-and-handling.js'); ?>">
+        src="../Sails-Types-Example/performance-and-handling/performance-and-handling.js?v=<?= filemtime(__DIR__ . '/performance-and-handling.js'); ?>">
 </script>

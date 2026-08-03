@@ -1,6 +1,6 @@
 <!-- ENGINEERING FOR EXTREME ENVIRONMENTS -->
 <link rel="stylesheet"
-      href="9_engineering_for_extreme_environments/engineering_for_extreme_environments.css?v=<?= filemtime(__DIR__ . '/9_engineering_for_extreme_environments/engineering_for_extreme_environments.css'); ?>">
+      href="9_engineering_for_extreme_environments/engineering_for_extreme_environments.css?v=<?= filemtime(__DIR__ . '/engineering_for_extreme_environments.css'); ?>">
 
 <section class="engineering_for_extreme_environments" data-sr-reveal aria-labelledby="efee-title">
   <div class="efee-wrap">
@@ -55,5 +55,5 @@
 </section>
 
 <script defer
-        src="9_engineering_for_extreme_environments/engineering_for_extreme_environments.js?v=<?= filemtime(__DIR__ . '/9_engineering_for_extreme_environments/engineering_for_extreme_environments.js'); ?>">
+        src="9_engineering_for_extreme_environments/engineering_for_extreme_environments.js?v=<?= filemtime(__DIR__ . '/engineering_for_extreme_environments.js'); ?>">
 </script>

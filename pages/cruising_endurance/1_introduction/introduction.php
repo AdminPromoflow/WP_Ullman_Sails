@@ -1,8 +1,8 @@
 <?php
 // Asset versioning for cache-busting (changes the URL whenever the file changes)
-$introCssFile    = __DIR__ . '/1_introduction/introduction.css';
-$introJsFile     = __DIR__ . '/1_introduction/introduction.js';
-$introImgFile    = __DIR__ . '/1_introduction/img/ullman_sails.png';
+$introCssFile    = __DIR__ . '/introduction.css';
+$introJsFile     = __DIR__ . '/introduction.js';
+$introImgFile    = __DIR__ . '/img/ullman_sails.png';
 
 $introCssVersion = is_file($introCssFile) ? filemtime($introCssFile) : null;
 $introJsVersion  = is_file($introJsFile)  ? filemtime($introJsFile)  : null;

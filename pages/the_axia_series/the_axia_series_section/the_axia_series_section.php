@@ -6,8 +6,8 @@ declare(strict_types=1);
  * Paths: ajusta las rutas si tu carpeta real no es TheAxiaSeries/axia_section
  */
 
-$cssFile = __DIR__ . '/../the_axia_series/the_axia_series_section/the_axia_series_section.css';
-$jsFile  = __DIR__ . '/../the_axia_series/the_axia_series_section/the_axia_series_section.js';
+$cssFile = __DIR__ . '/the_axia_series_section.css';
+$jsFile  = __DIR__ . '/the_axia_series_section.js';
 
 $cssUrl = '../the_axia_series/the_axia_series_section/the_axia_series_section.css';
 $jsUrl  = '../the_axia_series/the_axia_series_section/the_axia_series_section.js';
@@ -20,9 +20,9 @@ function with_v(string $url, ?int $v): string {
 }
 
 // Iconos (ajusta nombres/rutas a los tuyos reales)
-$blueFs  = __DIR__ . '/../the_axia_series/the_axia_series_section/img/downwind.png';
-$redFs   = __DIR__ . '/../the_axia_series/the_axia_series_section/img/downwind.png';
-$heroFs  = __DIR__ . '/../the_axia_series/the_axia_series_section/img/axia_series.jpg';
+$blueFs  = __DIR__ . '/img/downwind.png';
+$redFs   = __DIR__ . '/img/downwind.png';
+$heroFs  = __DIR__ . '/img/axia_series.jpg';
 
 $blueUrl = '../the_axia_series/the_axia_series_section/img/downwind.png';
 $redUrl  = '../the_axia_series/the_axia_series_section/img/downwind.png';

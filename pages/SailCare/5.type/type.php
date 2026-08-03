@@ -1,6 +1,6 @@
 <?php
-$cssFile = __DIR__ . '/SailCare/5.type/type.css';
-$jsFile  = __DIR__ . '/SailCare/5.type/type.js';
+$cssFile = __DIR__ . '/type.css';
+$jsFile  = __DIR__ . '/type.js';
 
 $cssVer = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;

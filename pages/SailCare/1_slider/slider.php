@@ -44,7 +44,7 @@ function render_caption(string $logoSrc, string $title, string $subtitle, string
 
 /* Assets (absolute for filemtime, public for browser) */
 $cssFs = __DIR__ . '/slider.css';
-$jsFs  = __DIR__ . '/slider.css';
+$jsFs  = __DIR__ . '/slider.js';
 
 $cssPublic = '1_slider/slider.css';
 $jsPublic  = '1_slider/slider.js';

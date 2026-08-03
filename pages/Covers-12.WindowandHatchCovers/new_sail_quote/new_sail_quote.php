@@ -1,6 +1,6 @@
 <?php
-$css_file = __DIR__ . '/../Covers-12.WindowandHatchCovers/new_sail_quote/new_sail_quote.css';
-$js_file  = __DIR__ . '/../Covers-12.WindowandHatchCovers/new_sail_quote/new_sail_quote.js';
+$css_file = __DIR__ . '/new_sail_quote.css';
+$js_file  = __DIR__ . '/new_sail_quote.js';
 
 $css_time = is_file($css_file) ? filemtime($css_file) : time();
 $js_time  = is_file($js_file) ? filemtime($js_file) : time();

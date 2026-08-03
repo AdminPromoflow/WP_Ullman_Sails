@@ -1,6 +1,6 @@
 <?php
-$cssFile = __DIR__ . '/../Racing/2.Services/services.css';
-$jsFile  = __DIR__ . '/../Racing/2.Services/services.js';
+$cssFile = __DIR__ . '/services.css';
+$jsFile  = __DIR__ . '/services.js';
 
 $cssVer = file_exists($cssFile) ? filemtime($cssFile) : time();
 $jsVer  = file_exists($jsFile)  ? filemtime($jsFile)  : time();

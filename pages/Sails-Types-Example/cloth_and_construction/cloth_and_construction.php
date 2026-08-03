@@ -1,6 +1,6 @@
 <!-- CLOTH AND CONSTRUCTION -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/cloth_and_construction/cloth_and_construction.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/cloth_and_construction/cloth_and_construction.css'); ?>">
+      href="../Sails-Types-Example/cloth_and_construction/cloth_and_construction.css?v=<?= filemtime(__DIR__ . '/cloth_and_construction.css'); ?>">
 
 <section class="cloth_and_construction" aria-labelledby="cac-title">
   <div class="cac-wrap">

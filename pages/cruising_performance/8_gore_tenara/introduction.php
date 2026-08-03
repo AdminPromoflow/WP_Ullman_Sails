@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 // Asset versioning for cache-busting (changes the URL whenever the file changes)
-$introCssFs = __DIR__ . '/8_gore_tenara/introduction.css';
-$introJsFs  = __DIR__ . '/8_gore_tenara/introduction.js';
+$introCssFs = __DIR__ . '/introduction.css';
+$introJsFs  = __DIR__ . '/introduction.js';
 
 $introCssVersion = is_file($introCssFs) ? filemtime($introCssFs) : time();
 $introJsVersion  = is_file($introJsFs)  ? filemtime($introJsFs)  : time();

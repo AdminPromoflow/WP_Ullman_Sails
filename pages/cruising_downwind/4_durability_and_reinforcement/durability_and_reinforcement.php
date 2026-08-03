@@ -36,8 +36,8 @@ $sid_items = [
 ];
 
 // Filesystem paths (for filemtime)
-$cssFile = __DIR__ . '/4_durability_and_reinforcement/durability_and_reinforcement.css';
-$jsFile  = __DIR__ . '/4_durability_and_reinforcement/durability_and_reinforcement.js';
+$cssFile = __DIR__ . '/durability_and_reinforcement.css';
+$jsFile  = __DIR__ . '/durability_and_reinforcement.js';
 
 // Versions
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;

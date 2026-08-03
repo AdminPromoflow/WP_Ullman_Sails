@@ -43,8 +43,8 @@ function render_caption(string $logoSrc, string $title, string $subtitle, string
 <?php }
 
 /* Assets (absolute for filemtime, public for browser) */
-$cssFs = __DIR__ . '/Services/1.slider/slider.css';
-$jsFs  = __DIR__ . '/Services/1.slider/slider.js';
+$cssFs = __DIR__ . '/slider.css';
+$jsFs  = __DIR__ . '/slider.js';
 
 $cssPublic = '../Services/1.slider/slider.css';
 $jsPublic  = '../Services/1.slider/slider.js';

@@ -5,16 +5,16 @@
 declare(strict_types=1);
 
 /* CSS + JS (filemtime) */
-$cssV = filemtime(__DIR__ . '/../Racing/sail_types_section/sail_types_section.css');
-$jsV  = filemtime(__DIR__ . '/../Racing/sail_types_section/sail_types_section.js');
+$cssV = filemtime(__DIR__ . '/../../Racing/sail_types_section/sail_types_section.css');
+$jsV  = filemtime(__DIR__ . '/../../Racing/sail_types_section/sail_types_section.js');
 
 /* Arrows */
-$arrowLeftV  = filemtime(__DIR__ . '/../Racing/sail_types_section/img/arrow_left.png');
-$arrowRightV = filemtime(__DIR__ . '/../Racing/sail_types_section/img/arrow_right.png');
+$arrowLeftV  = filemtime(__DIR__ . '/../../Racing/sail_types_section/img/arrow_left.png');
+$arrowRightV = filemtime(__DIR__ . '/../../Racing/sail_types_section/img/arrow_right.png');
 
 /* Slides */
-$navigatorV = filemtime(__DIR__ . '/../the_axia_series/sail_types_section/img/blue_line.jpg');
-$enduranceV = filemtime(__DIR__ . '/../the_axia_series/sail_types_section/img/red_line.jpg');
+$navigatorV = filemtime(__DIR__ . '/img/blue_line.jpg');
+$enduranceV = filemtime(__DIR__ . '/img/red_line.jpg');
 ?>
 
 <link rel="stylesheet" href="../Racing/sail_types_section/sail_types_section.css?v=<?= $cssV ?>">

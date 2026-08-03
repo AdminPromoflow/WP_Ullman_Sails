@@ -1,5 +1,5 @@
 <link rel="stylesheet"
-      href="../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.css'); ?>">
+      href="../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.css?v=<?= filemtime(__DIR__ . '/sailing-types-introduction.css'); ?>">
 
       <section class="sailing-types-introduction">
         <div class="sailing-content">
@@ -15,5 +15,5 @@
       </section>
 
 <script defer
-        src="../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.js?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.js'); ?>">
+        src="../Sails-Types-Example/sailing-types-introduction/sailing-types-introduction.js?v=<?= filemtime(__DIR__ . '/sailing-types-introduction.js'); ?>">
 </script>

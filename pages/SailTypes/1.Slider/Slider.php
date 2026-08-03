@@ -1,6 +1,6 @@
 <?php
-$sliderCss = __DIR__ . '/../SailTypes/1.Slider/Slider.css';
-$sliderJs  = __DIR__ . '/../SailTypes/1.Slider/Slider.js';
+$sliderCss = __DIR__ . '/Slider.css';
+$sliderJs  = __DIR__ . '/Slider.js';
 
 $sliderCssTime = file_exists($sliderCss) ? filemtime($sliderCss) : time();
 $sliderJsTime  = file_exists($sliderJs)  ? filemtime($sliderJs)  : time();

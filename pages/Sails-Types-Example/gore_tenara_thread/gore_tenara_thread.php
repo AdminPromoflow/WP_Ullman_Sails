@@ -1,6 +1,6 @@
 <!-- GORE TENARA THREAD -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/gore_tenara_thread/gore_tenara_thread.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/gore_tenara_thread/gore_tenara_thread.css'); ?>">
+      href="../Sails-Types-Example/gore_tenara_thread/gore_tenara_thread.css?v=<?= filemtime(__DIR__ . '/gore_tenara_thread.css'); ?>">
 
 <section class="gore_tenara_thread" aria-labelledby="gtt-title">
   <div class="gtt-wrap">

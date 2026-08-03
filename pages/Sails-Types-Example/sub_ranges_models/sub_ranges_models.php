@@ -1,6 +1,6 @@
 <!-- SUB-RANGES / MODELS -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/sub_ranges_models/sub_ranges_models.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/sub_ranges_models/sub_ranges_models.css'); ?>">
+      href="../Sails-Types-Example/sub_ranges_models/sub_ranges_models.css?v=<?= filemtime(__DIR__ . '/sub_ranges_models.css'); ?>">
 
 <section class="sub_ranges_models" aria-labelledby="srm-title">
   <div class="srm-wrap">

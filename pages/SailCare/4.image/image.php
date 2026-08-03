@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 /* Filesystem paths (for filemtime) */
-$navCssFs = __DIR__ . '/SailCare/4.image/image.css';
-$navJsFs  = __DIR__ . '/SailCare/4.image/image.js';
+$navCssFs = __DIR__ . '/image.css';
+$navJsFs  = __DIR__ . '/image.js';
 
 /* Public paths (as used in HTML) */
 $navCssPublic = '../SailCare/4.image/image.css';

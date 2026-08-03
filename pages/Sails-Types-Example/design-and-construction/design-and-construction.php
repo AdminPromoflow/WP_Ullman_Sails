@@ -1,10 +1,10 @@
 <!-- DESIGN & CONSTRUCTION -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/design-and-construction/design-and-construction.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/design-and-construction/design-and-construction.css'); ?>">
+      href="../Sails-Types-Example/design-and-construction/design-and-construction.css?v=<?= filemtime(__DIR__ . '/design-and-construction.css'); ?>">
 
       <!-- DESIGN AND CONSTRUCTION (GRID 4 ITEMS) -->
       <link rel="stylesheet"
-            href="../Sails-Types-Example/design-and-construction/design-and-construction.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/design-and-construction/design-and-construction.css'); ?>">
+            href="../Sails-Types-Example/design-and-construction/design-and-construction.css?v=<?= filemtime(__DIR__ . '/design-and-construction.css'); ?>">
 
       <section class="design-and-construction" aria-labelledby="dac-title">
         <header class="dac-header">
@@ -82,5 +82,5 @@
 
 
 <script defer
-        src="../Sails-Types-Example/design-and-construction/design-and-construction.js?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/design-and-construction/design-and-construction.js'); ?>">
+        src="../Sails-Types-Example/design-and-construction/design-and-construction.js?v=<?= filemtime(__DIR__ . '/design-and-construction.js'); ?>">
 </script>

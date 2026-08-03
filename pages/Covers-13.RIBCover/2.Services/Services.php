@@ -1,6 +1,6 @@
 <?php
-$cssFile = __DIR__ . '/../Covers/2.Services/Services.css';
-$jsFile  = __DIR__ . '/../Covers/2.Services/Services.js';
+$cssFile = __DIR__ . '/../../Covers/2.Services/Services.css';
+$jsFile  = __DIR__ . '/../../Covers/2.Services/Services.js';
 
 $cssVer = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;

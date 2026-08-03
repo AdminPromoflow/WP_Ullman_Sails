@@ -1,7 +1,7 @@
 <!-- CLOTH SELECTION AND PERFORMANCE -->
 <?php
-$cssFile    = __DIR__ . '/cloth_selection_and_performance/cloth_selection_and_performance.css';
-$jsFile     = __DIR__ . '/cloth_selection_and_performance/cloth_selection_and_performance.js';
+$cssFile    = __DIR__ . '/cloth_selection_and_performance.css';
+$jsFile     = __DIR__ . '/cloth_selection_and_performance.js';
 
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;

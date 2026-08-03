@@ -1,6 +1,6 @@
 <!-- CLOTH SELECTION AND PERFORMANCE -->
 <link rel="stylesheet"
-      href="cloth_selection_and_performance/cloth_selection_and_performance.css?v=<?= filemtime(__DIR__ . '/cloth_selection_and_performance/cloth_selection_and_performance.css'); ?>">
+      href="cloth_selection_and_performance/cloth_selection_and_performance.css?v=<?= filemtime(__DIR__ . '/cloth_selection_and_performance.css'); ?>">
 
 
       <section class="nav-specsheet" aria-label="Navigator cloth and components">
@@ -89,5 +89,5 @@
         </div>
       </section>
       <script defer
-              src="cloth_selection_and_performance/cloth_selection_and_performance.js?v=<?= filemtime(__DIR__ . '/cloth_selection_and_performance/cloth_selection_and_performance.js'); ?>">
+              src="cloth_selection_and_performance/cloth_selection_and_performance.js?v=<?= filemtime(__DIR__ . '/cloth_selection_and_performance.js'); ?>">
       </script>

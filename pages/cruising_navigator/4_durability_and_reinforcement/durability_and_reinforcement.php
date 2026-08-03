@@ -52,8 +52,8 @@ $sid_items = [
 ];
 
 // Filesystem paths (for filemtime)
-$sidCssFs = __DIR__ . '/4_durability_and_reinforcement/durability_and_reinforcement.css';
-$sidJsFs  = __DIR__ . '/4_durability_and_reinforcement/durability_and_reinforcement.js';
+$sidCssFs = __DIR__ . '/durability_and_reinforcement.css';
+$sidJsFs  = __DIR__ . '/durability_and_reinforcement.js';
 
 // Public paths
 $sidCssPublic = '4_durability_and_reinforcement/durability_and_reinforcement.css';

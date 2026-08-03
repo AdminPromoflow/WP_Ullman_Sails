@@ -1,6 +1,6 @@
 <?php
-$cssFile = __DIR__ . '/1_introduction/introduction.css';
-$jsFile  = __DIR__ . '/1_introduction/introduction.js';
+$cssFile = __DIR__ . '/introduction.css';
+$jsFile  = __DIR__ . '/introduction.js';
 
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;

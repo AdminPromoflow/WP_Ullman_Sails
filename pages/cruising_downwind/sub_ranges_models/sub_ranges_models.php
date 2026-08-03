@@ -1,6 +1,6 @@
 <!-- SUB-RANGES / MODELS -->
 <?php
-$cssFile    = __DIR__ . '/sub_ranges_models/sub_ranges_models.css';
+$cssFile    = __DIR__ . '/sub_ranges_models.css';
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 ?>
 

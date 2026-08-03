@@ -36,9 +36,9 @@ $ph_steps = [
 ];
 
 // Filesystem paths (for filemtime)
-$ph_css_fs = __DIR__ . '/2_handling_and_performance/handling_and_performance.css';
-$ph_js_fs  = __DIR__ . '/2_handling_and_performance/handling_and_performance.js';
-$ph_img_fs = __DIR__ . '/2_handling_and_performance/img/performance-and-handling.jpg';
+$ph_css_fs = __DIR__ . '/handling_and_performance.css';
+$ph_js_fs  = __DIR__ . '/handling_and_performance.js';
+$ph_img_fs = __DIR__ . '/img/performance-and-handling.jpg';
 
 // Public paths
 $ph_css_public = '2_handling_and_performance/handling_and_performance.css';

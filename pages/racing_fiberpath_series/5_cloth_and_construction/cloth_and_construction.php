@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 /* Filesystem paths (for filemtime) */
-$nsCssFs = __DIR__ . '/5_cloth_and_construction/cloth_and_construction.css';
-$nsJsFs  = __DIR__ . '/5_cloth_and_construction/cloth_and_construction.js';
+$nsCssFs = __DIR__ . '/cloth_and_construction.css';
+$nsJsFs  = __DIR__ . '/cloth_and_construction.js';
 
 /* Rotator images (filesystem paths for filemtime) */
 $fpRegattaMainFs = __DIR__ . '/img/GrandPrix_Main.png';

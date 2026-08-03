@@ -1,7 +1,7 @@
 
 <?php
-$cssFile = __DIR__ . '/../SailCare/6.tips/tips.css';
-$jsFile  = __DIR__ . '/../SailCare/6.tips/tips.js';
+$cssFile = __DIR__ . '/tips.css';
+$jsFile  = __DIR__ . '/tips.js';
 
 $cssVer = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;

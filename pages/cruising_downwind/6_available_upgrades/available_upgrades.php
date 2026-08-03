@@ -15,8 +15,8 @@ function versioned_asset(string $publicPath, string $fsPath): string {
 }
 
 /* Public + filesystem paths */
-$cssFile    = __DIR__ . '/6_available_upgrades/available_upgrades.css';
-$jsFile     = __DIR__ . '/6_available_upgrades/available_upgrades.js';
+$cssFile    = __DIR__ . '/available_upgrades.css';
+$jsFile     = __DIR__ . '/available_upgrades.js';
 
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;

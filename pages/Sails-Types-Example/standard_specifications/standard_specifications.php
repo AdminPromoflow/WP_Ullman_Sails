@@ -1,6 +1,6 @@
 <!-- STANDARD SPECIFICATIONS -->
 <link rel="stylesheet"
-      href="../Sails-Types-Example/standard_specifications/standard_specifications.css?v=<?= filemtime(__DIR__ . '/../Sails-Types-Example/standard_specifications/standard_specifications.css'); ?>">
+      href="../Sails-Types-Example/standard_specifications/standard_specifications.css?v=<?= filemtime(__DIR__ . '/standard_specifications.css'); ?>">
 
 <section class="standard_specifications" aria-labelledby="ss-title">
   <div class="ss-wrap">

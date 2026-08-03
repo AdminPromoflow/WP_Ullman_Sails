@@ -1,6 +1,6 @@
 <?php
-$cssFile    = __DIR__ . '/12_sub_models/sub_models.css';
-$jsFile     = __DIR__ . '/12_sub_models/sub_models.js';
+$cssFile    = __DIR__ . '/sub_models.css';
+$jsFile     = __DIR__ . '/sub_models.js';
 
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;

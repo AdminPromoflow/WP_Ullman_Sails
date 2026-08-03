@@ -1,5 +1,5 @@
 <?php
-$sliderCss = __DIR__ . '/terms_and_conditions/terms_and_conditions/TermsAndConditions.css';
+$sliderCss = __DIR__ . '/TermsAndConditions.css';
 
 $sliderCssTime = file_exists($sliderCss) ? filemtime($sliderCss) : time();
 ?>

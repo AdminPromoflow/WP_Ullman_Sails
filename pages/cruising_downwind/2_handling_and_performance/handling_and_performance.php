@@ -24,8 +24,8 @@ $ph_steps = [
 ];
 
 // Filesystem paths (for filemtime)
-$cssFile = __DIR__ . '/2_handling_and_performance/handling_and_performance.css';
-$jsFile  = __DIR__ . '/2_handling_and_performance/handling_and_performance.js';
+$cssFile = __DIR__ . '/handling_and_performance.css';
+$jsFile  = __DIR__ . '/handling_and_performance.js';
 
 // Versions
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;

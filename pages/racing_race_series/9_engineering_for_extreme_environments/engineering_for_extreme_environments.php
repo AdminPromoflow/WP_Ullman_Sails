@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 
-$efeeCssFs = __DIR__ . '/9_engineering_for_extreme_environments/engineering_for_extreme_environments.css';
-$efeeJsFs  = __DIR__ . '/9_engineering_for_extreme_environments/engineering_for_extreme_environments.js';
+$efeeCssFs = __DIR__ . '/engineering_for_extreme_environments.css';
+$efeeJsFs  = __DIR__ . '/engineering_for_extreme_environments.js';
 
 $efeeCssPublic = '9_engineering_for_extreme_environments/engineering_for_extreme_environments.css';
 $efeeJsPublic  = '9_engineering_for_extreme_environments/engineering_for_extreme_environments.js';

@@ -1,6 +1,6 @@
 <!-- SAIL HANDLING AND SAIL ACCESSORIES -->
 <?php
-$cssFile    = __DIR__ . '/sail_handling_and_sail_accessories/sail_handling_and_sail_accessories.css';
+$cssFile    = __DIR__ . '/sail_handling_and_sail_accessories.css';
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
 ?>
 

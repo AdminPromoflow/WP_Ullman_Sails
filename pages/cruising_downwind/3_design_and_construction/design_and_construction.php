@@ -22,8 +22,8 @@ $dac_items = [
 ];
 
 // Filesystem paths (for filemtime)
-$cssFile = __DIR__ . '/3_design_and_construction/design_and_construction.css';
-$jsFile  = __DIR__ . '/3_design_and_construction/design_and_construction.js';
+$cssFile = __DIR__ . '/design_and_construction.css';
+$jsFile  = __DIR__ . '/design_and_construction.js';
 
 // Versions
 $cssVersion = is_file($cssFile) ? filemtime($cssFile) : null;
