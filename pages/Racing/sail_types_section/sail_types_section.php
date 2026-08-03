@@ -54,7 +54,8 @@ $voyagerV     = filemtime(__DIR__ . '/img/red_line.jpg');
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              Race Series
+              <span class="sail-types-kicker">Racing Sails</span>
+              <span class="sail-types-label">Race Series</span>
             </p>
           </div>
         </article>
@@ -72,7 +73,8 @@ $voyagerV     = filemtime(__DIR__ . '/img/red_line.jpg');
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              Fiberpath Series
+              <span class="sail-types-kicker">Racing Sails</span>
+              <span class="sail-types-label">FiberPath Series</span>
             </p>
           </div>
         </article>
@@ -90,7 +92,8 @@ $voyagerV     = filemtime(__DIR__ . '/img/red_line.jpg');
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              The Axia Series - Red Line
+              <span class="sail-types-kicker">Racing Sails Downwind</span>
+              <span class="sail-types-label">The Axia Series – Red Line</span>
             </p>
           </div>
         </article>

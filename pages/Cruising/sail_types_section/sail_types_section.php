@@ -57,7 +57,8 @@ $sectionUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              Navigator Series
+              <span class="sail-types-kicker">Cruising Sails</span>
+              <span class="sail-types-label">Navigator Series</span>
             </p>
           </div>
         </article>
@@ -75,7 +76,8 @@ $sectionUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              Endurance Series
+              <span class="sail-types-kicker">Cruising Sails</span>
+              <span class="sail-types-label">Endurance Series</span>
             </p>
           </div>
         </article>
@@ -93,7 +95,8 @@ $sectionUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              Voyager Series
+              <span class="sail-types-kicker">Cruising Sails</span>
+              <span class="sail-types-label">Voyager Series</span>
             </p>
           </div>
         </article>
@@ -111,7 +114,8 @@ $sectionUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              Performance
+              <span class="sail-types-kicker">Cruising Sails</span>
+              <span class="sail-types-label">Performance</span>
             </p>
           </div>
         </article>
@@ -129,7 +133,8 @@ $sectionUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_section
           <div class="sail-types-overlay"></div>
           <div class="sail-types-caption">
             <p class="sail-types-title" data-st-parallax-text>
-              Downwind
+              <span class="sail-types-kicker">Cruising Sails</span>
+              <span class="sail-types-label">Downwind</span>
             </p>
           </div>
         </article>
