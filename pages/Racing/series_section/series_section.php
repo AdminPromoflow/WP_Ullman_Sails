@@ -43,6 +43,7 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('racing_race_series')); ?>">View Brochure</a>
       </figure>
     </div>
   </section>
@@ -66,6 +67,7 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('racing_fiberpath_series')); ?>">View Brochure</a>
       </figure>
 
       <div class="series-text">
@@ -114,6 +116,7 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('racing_red_line_series')); ?>">View Brochure</a>
       </figure>
     </div>
   </section>

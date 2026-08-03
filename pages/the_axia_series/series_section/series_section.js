@@ -17,7 +17,7 @@
     // 1) Mark items + stagger delay
     sections.forEach((section) => {
       const items = [
-        ...section.querySelectorAll(".series-subtitle, .series-title, .series-image img, .series-text > *")
+        ...section.querySelectorAll(".series-subtitle, .series-title, .series-image img, .view-brochure, .series-text > *")
       ].filter(Boolean);
 
       items.forEach((el, i) => {

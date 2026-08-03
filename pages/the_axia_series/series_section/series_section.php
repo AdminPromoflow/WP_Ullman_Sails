@@ -51,6 +51,7 @@ $blueImageVersion = filemtime(__DIR__ . '/../sail_types_section/img/blue_line.jp
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('racing_red_line_series')); ?>">View Brochure</a>
       </figure>
     </div>
   </section>
@@ -70,6 +71,7 @@ $blueImageVersion = filemtime(__DIR__ . '/../sail_types_section/img/blue_line.jp
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('cruising_downwind')); ?>">View Brochure</a>
       </figure>
 
       <div class="series-text">

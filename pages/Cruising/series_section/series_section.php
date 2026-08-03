@@ -30,6 +30,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('cruising_navigator')); ?>">View Brochure</a>
       </figure>
 
       <div class="series-text">
@@ -77,6 +78,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('cruising_endurance')); ?>">View Brochure</a>
       </figure>
 
     </div>
@@ -97,6 +99,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('cruising_voyager')); ?>">View Brochure</a>
       </figure>
 
       <div class="series-text">
@@ -145,6 +148,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('cruising_performance')); ?>">View Brochure</a>
       </figure>
     </div>
   </section>
@@ -164,6 +168,7 @@ $sailTypesUrl = get_template_directory_uri() . '/pages/Cruising/sail_types_secti
           loading="lazy"
           decoding="async"
         />
+        <a class="view-brochure" href="<?php echo esc_url(ullman_page_url('cruising_downwind')); ?>">View Brochure</a>
       </figure>
 
       <div class="series-text">
