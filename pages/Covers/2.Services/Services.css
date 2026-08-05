@@ -410,8 +410,8 @@
 .services__media--guardrail-lifeline{ background-image: url("img/Guardrail_Lifeline_Covers.png"); }
 .services__media--dodgers{ background-image: url("img/Dodgers.png"); }
 .services__media--exteriorcushions{ background-image: url("img/Exterior_Cushions.png"); }
-.services__media--sail-repair{ background-image: url("../../Services-1.SailsRepair/2.Services/RepairSails.jpg"); }
-.services__media--canvas-repair{ background-image: url("../../Services-3.CanvasRepair/2.Services/CanvasRepairs.jpg"); }
+.services__media--sail-repair{ background-image: url("../../Services/1.Slider/img/service-repair.jpg"); }
+.services__media--canvas-repair{ background-image: url("../../Services/1.Slider/img/canvas-repair.jpg"); }
 
 @media (max-width: 980px){
   .services--single .services__layout{

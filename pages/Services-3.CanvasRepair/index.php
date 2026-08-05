@@ -78,7 +78,6 @@
     <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
     <div id="searchHide" class="searchHide">
-    <?php include __DIR__ . "/1.Slider/Slider.php" ?>
     <?php include __DIR__ . "/../Services-3.CanvasRepair/new_sail_quote/new_sail_quote.php" ?>
     <?php include __DIR__ . "/../Services-3.CanvasRepair/navigation/navigation.php" ?>
     <?php include __DIR__ . "/2.Services/Services.php" ?>

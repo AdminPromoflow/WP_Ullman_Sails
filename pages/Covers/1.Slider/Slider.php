@@ -133,7 +133,7 @@
 
 /* Fondo específico de este slide */
 .home-slider__slide.bg-services{
-  --slide-bg: url("img/services.jpg");
+  --slide-bg: url("../Covers/1.Slider/Slider.jpg");
 }
 
 /* Caption */

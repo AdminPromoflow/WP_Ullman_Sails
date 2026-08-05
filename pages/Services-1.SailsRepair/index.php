@@ -79,7 +79,6 @@
 
     <div id="searchHide" class="searchHide">
     <?php include __DIR__ . "/../Services-1.SailsRepair/new_sail_quote/new_sail_quote.php" ?>
-    <?php include __DIR__ . "/1.Slider/Slider.php" ?>
     <?php include __DIR__ . "/../Services-1.SailsRepair/navigation/navigation.php" ?>
 
     <?php include __DIR__ . "/2.Services/Services.php" ?>

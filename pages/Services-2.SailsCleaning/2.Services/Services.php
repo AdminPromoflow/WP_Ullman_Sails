@@ -5,18 +5,35 @@ $jsFs  = __DIR__ . '/Services.js';
 
 $cssVer = is_file($cssFs) ? filemtime($cssFs) : time();
 $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : time();
+
+$cleaningImageFs = get_template_directory() . '/pages/Services/1.Slider/img/sails-cleaning.jpg';
+$cleaningImageVer = is_file($cleaningImageFs) ? filemtime($cleaningImageFs) : time();
+$cleaningImageUrl = rtrim(get_template_directory_uri(), '/')
+  . '/pages/Services/1.Slider/img/sails-cleaning.jpg?v=' . $cleaningImageVer;
 ?>
 
 <link rel="stylesheet" href="../Services-2.SailsCleaning/2.Services/Services.css?v=<?= $cssVer ?>">
 <script defer src="../Services-2.SailsCleaning/2.Services/Services.js?v=<?= $jsVer ?>"></script>
 <section class="text">
-  <h1>Sail & Canvas Cleaning</h1>
-  <p>
-Professional cleaning can address dirt, salt residue, algae, mildew and some
-stains on sails and marine canvas. The safe process depends on the fibre,
-laminate, coating, age and condition of the item, so specialist assessment is
-recommended before stain removers or protective treatments are used.
-  </p>
+  <div class="cleaning-intro">
+    <div class="cleaning-intro__copy">
+      <h1>Sail &amp; Canvas Cleaning</h1>
+      <p>
+        Professional cleaning can address dirt, salt residue, algae, mildew and some
+        stains on sails and marine canvas. The safe process depends on the fibre,
+        laminate, coating, age and condition of the item, so specialist assessment is
+        recommended before stain removers or protective treatments are used.
+      </p>
+    </div>
+
+    <figure class="cleaning-intro__media">
+      <img
+        src="<?= esc_url($cleaningImageUrl) ?>"
+        alt="Sail and canvas cleaning service"
+        decoding="async"
+      >
+    </figure>
+  </div>
 
 
   <div class="common_issues-container">
