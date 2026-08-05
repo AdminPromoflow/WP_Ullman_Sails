@@ -60,8 +60,8 @@
   background-size:cover;
 }
 
-.home-slider__slide.bg-racing-1{ background-image:url("../../Services/1.slider/img/SlideHome.jpg"); }
-.home-slider__slide.bg-services{  background-image:url("../../Services/1.slider/img/ServicesHeader.jpg"); }
+.home-slider__slide.bg-racing-1{ background-image:url("img/SlideHome.jpg"); }
+.home-slider__slide.bg-services{  background-image:url("img/ServicesHeader.jpg"); }
 
 .home-slider__caption{
   position:absolute;

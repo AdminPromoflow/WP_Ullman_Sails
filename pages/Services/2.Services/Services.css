@@ -176,6 +176,19 @@
   position: relative;
 }
 
+/* Match the shared dark-navy action buttons used throughout the site. */
+.svc-link.ullman-button--navy{
+  gap: .55rem;
+  min-height: 2.75rem;
+  padding: .78rem 1.25rem !important;
+  border-radius: 2px;
+  color: #ffffff !important;
+  font-size: .82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .07em;
+  line-height: 1.2;
+}
+
 .svc-link::after{
   content:"";
   position:absolute;
@@ -186,6 +199,16 @@
   background: rgba(0,85,152,.55);
   transform: translateX(-50%);
   transition: width .25s ease;
+}
+
+.svc-link.ullman-button--navy::after{
+  content: none;
+}
+
+.svc-card:is(:hover, :focus-visible) .svc-link.ullman-button--navy{
+  --ullman-button-bg: #111c42;
+  --ullman-button-bg-hover: #111c42;
+  transform: translateY(-2px);
 }
 
 .svc-card:hover .svc-link::after{

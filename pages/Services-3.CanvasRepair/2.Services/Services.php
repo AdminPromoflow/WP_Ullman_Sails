@@ -37,7 +37,7 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         </div>
       </div>
 
-      <div class="services__media services__media--repair sr-item" aria-hidden="true"></div>
+      <div class="services__media services__media--canvas-repair sr-item" aria-hidden="true"></div>
     </div>
 
   </div>

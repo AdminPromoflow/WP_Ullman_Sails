@@ -8,8 +8,9 @@ declare(strict_types=1);
 $cssFs  = __DIR__ . '/Services.css';
 $jsFs   = __DIR__ . '/Services.js';
 
-$cssUrl = '../Services/2.Services/Services.css';
-$jsUrl  = '../Services/2.Services/Services.js';
+$servicesBaseUrl = rtrim(get_template_directory_uri(), '/') . '/pages/Services/2.Services';
+$cssUrl = $servicesBaseUrl . '/Services.css';
+$jsUrl  = $servicesBaseUrl . '/Services.js';
 
 $cssVer = is_file($cssFs) ? filemtime($cssFs) : null;
 $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
@@ -38,7 +39,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
       <!-- Card 1 -->
       <a class="svc-card" href="<?php echo esc_url(ullman_page_url('Services-1.SailsRepair')); ?>" role="listitem" aria-label="All Sail Repairs" data-sr-item>
         <figure class="svc-media">
-          <img src="../Services/2.Services/img/services.jpg" alt="All Sail Repairs" loading="lazy" decoding="async">
+          <img src="<?= esc_url($servicesBaseUrl . '/img/services.jpg?v=' . ullman_file_version(__DIR__ . '/img/services.jpg')) ?>" alt="All Sail Repairs" loading="lazy" decoding="async">
         </figure>
 
         <div class="svc-body">
@@ -46,7 +47,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
           <h2 class="svc-title">REPAIRS</h2>
           <span class="svc-rule" aria-hidden="true"></span>
           <p class="svc-text">From small tears to major damage, we repair and restore sails of all types.</p>
-          <span class="svc-link">LEARN MORE <span aria-hidden="true">→</span></span>
+          <span class="svc-link ullman-button ullman-button--navy">LEARN MORE <span aria-hidden="true">→</span></span>
         </div>
 
         <span class="svc-bottomline" aria-hidden="true"></span>
@@ -55,7 +56,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
       <!-- Card 2 -->
       <a class="svc-card" href="<?php echo esc_url(ullman_page_url('Services-2.SailsCleaning')); ?>" role="listitem" aria-label="Sail and Canvas Cleaning" data-sr-item>
         <figure class="svc-media">
-          <img src="../Services/2.Services/img/cleaning.jpg" alt="Sail and Canvas Cleaning" loading="lazy" decoding="async">
+          <img src="<?= esc_url($servicesBaseUrl . '/img/cleaning.jpg?v=' . ullman_file_version(__DIR__ . '/img/cleaning.jpg')) ?>" alt="Sail and Canvas Cleaning" loading="lazy" decoding="async">
         </figure>
 
         <div class="svc-body">
@@ -63,7 +64,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
           <h2 class="svc-title">CLEANING</h2>
           <span class="svc-rule" aria-hidden="true"></span>
           <p class="svc-text">Thorough cleaning to remove dirt, salt and mildew from sails and canvas.</p>
-          <span class="svc-link">LEARN MORE <span aria-hidden="true">→</span></span>
+          <span class="svc-link ullman-button ullman-button--navy">LEARN MORE <span aria-hidden="true">→</span></span>
         </div>
 
         <span class="svc-bottomline" aria-hidden="true"></span>
@@ -72,7 +73,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
       <!-- Card 3 -->
       <a class="svc-card" href="<?php echo esc_url(ullman_page_url('Services-3.CanvasRepair')); ?>" role="listitem" aria-label="Canvas Repairs" data-sr-item>
         <figure class="svc-media">
-          <img src="../Services/2.Services/img/covers.jpg" alt="Canvas Repairs" loading="lazy" decoding="async">
+          <img src="<?= esc_url($servicesBaseUrl . '/img/covers.jpg?v=' . ullman_file_version(__DIR__ . '/img/covers.jpg')) ?>" alt="Canvas Repairs" loading="lazy" decoding="async">
         </figure>
 
         <div class="svc-body">
@@ -80,7 +81,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
           <h2 class="svc-title">REPAIRS</h2>
           <span class="svc-rule" aria-hidden="true"></span>
           <p class="svc-text">Expert repair services for boat covers, biminis, and other marine canvas.</p>
-          <span class="svc-link">LEARN MORE <span aria-hidden="true">→</span></span>
+          <span class="svc-link ullman-button ullman-button--navy">LEARN MORE <span aria-hidden="true">→</span></span>
         </div>
 
         <span class="svc-bottomline" aria-hidden="true"></span>

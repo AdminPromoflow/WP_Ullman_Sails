@@ -46,8 +46,9 @@ function render_caption(string $logoSrc, string $title, string $subtitle, string
 $cssFs = __DIR__ . '/slider.css';
 $jsFs  = __DIR__ . '/slider.js';
 
-$cssPublic = '../Services/1.slider/slider.css';
-$jsPublic  = '../Services/1.slider/slider.js';
+$sliderPublic = rtrim(get_template_directory_uri(), '/') . '/pages/Services/1.Slider';
+$cssPublic = $sliderPublic . '/slider.css';
+$jsPublic  = $sliderPublic . '/slider.js';
 
 $cssHref = with_version($cssPublic, asset_version($cssFs));
 $jsSrc   = with_version($jsPublic,  asset_version($jsFs));

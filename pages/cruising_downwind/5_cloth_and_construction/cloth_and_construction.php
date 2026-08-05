@@ -5,18 +5,19 @@ declare(strict_types=1);
 $nsCssFs = __DIR__ . '/cloth_and_construction.css';
 $nsJsFs  = __DIR__ . '/cloth_and_construction.js';
 
-/* Current public directory of the main page */
-$currentDir = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/');
-if ($currentDir === '') {
-  $currentDir = '/';
-}
+/* Absolute public paths: WordPress permalinks are not filesystem directories. */
+$nsBasePublic = rtrim(get_template_directory_uri(), '/') . '/pages/cruising_downwind/5_cloth_and_construction';
+$nsCssPublic  = $nsBasePublic . '/cloth_and_construction.css';
+$nsJsPublic   = $nsBasePublic . '/cloth_and_construction.js';
 
-/* Public paths resolved from the main page URL */
-$nsCssPublic = $currentDir . '/5_cloth_and_construction/cloth_and_construction.css';
-$nsJsPublic  = $currentDir . '/5_cloth_and_construction/cloth_and_construction.js';
+/* Keep this section self-contained so it does not depend on another series. */
+$nsAssetUrl = static function (string $relativePath) use ($nsBasePublic): string {
+  $relativePath = ltrim($relativePath, '/');
+  $assetFs = __DIR__ . '/' . $relativePath;
+  $version = is_file($assetFs) ? (int) filemtime($assetFs) : time();
 
-/* Sibling section paths */
-$racingBase = $currentDir . '/../racing_red_line_series/5_cloth_and_construction';
+  return $nsBasePublic . '/' . $relativePath . '?v=' . $version;
+};
 
 /* Versions */
 $nsCssV = is_file($nsCssFs) ? filemtime($nsCssFs) : time();
@@ -35,22 +36,22 @@ $nsJsV  = is_file($nsJsFs)  ? filemtime($nsJsFs)  : time();
         <figure class="nav-rotator sr-item" aria-label="Code sails image rotator" data-interval="3000">
           <div class="nav-rotator__frame">
             <img class="nav-rotator__img is-active"
-                 src="<?= htmlspecialchars($racingBase . '/img/Red_Line-Axia_JT_3.2048_0_1.png', ENT_QUOTES) ?>"
+                 src="<?= esc_url($nsAssetUrl('img/Red_Line-Axia_JT_3.2048_0_1.png')) ?>"
                  alt="Axia Code 50 sail view"
                  data-sub="AXIA JT REACHING HEADSAIL">
 
             <img class="nav-rotator__img"
-                 src="<?= htmlspecialchars($racingBase . '/img/RL_CODE_50.2048_0_1.png', ENT_QUOTES) ?>"
+                 src="<?= esc_url($nsAssetUrl('img/RL_CODE_50.2048_0_1.png')) ?>"
                  alt="Axia Code 60 sail view"
                  data-sub="AXIA CODE 50 50-60% MID-GIRTH">
 
             <img class="nav-rotator__img"
-                 src="<?= htmlspecialchars($racingBase . '/img/RL_CODE_60.2048_0_1.png', ENT_QUOTES) ?>"
+                 src="<?= esc_url($nsAssetUrl('img/RL_CODE_60.2048_0_1.png')) ?>"
                  alt="Axia Code 70 sail view"
                  data-sub="AXIA CODE 60 60-70% MID-GIRTH">
 
             <img class="nav-rotator__img"
-                 src="<?= htmlspecialchars($racingBase . '/img/RL_CODE_75.2048_0_1.png', ENT_QUOTES) ?>"
+                 src="<?= esc_url($nsAssetUrl('img/RL_CODE_75.2048_0_1.png')) ?>"
                  alt="Axia Code 75 sail view"
                  data-sub="AXIA CODE 75 75% MID GIRTH">
           </div>
@@ -116,12 +117,12 @@ $nsJsV  = is_file($nsJsFs)  ? filemtime($nsJsFs)  : time();
         <figure class="nav-rotator sr-item" aria-label="Classic spinnakers image rotator" data-interval="3000">
           <div class="nav-rotator__frame">
             <img class="nav-rotator__img is-active"
-                 src="<?= htmlspecialchars($racingBase . '/img2/RL_AXIA_SYMM.2048_0_1.png', ENT_QUOTES) ?>"
+                 src="<?= esc_url($nsAssetUrl('img/RL_AXIA_SYMM.2048_0_1.png')) ?>"
                  alt="Axia Symm sail view"
                  data-sub="AXIA SYMM SYMMETRICAL DOWNWIND">
 
             <img class="nav-rotator__img"
-                 src="<?= htmlspecialchars($racingBase . '/img2/RL_AXIA_ASYMM.2048_0_1.png', ENT_QUOTES) ?>"
+                 src="<?= esc_url($nsAssetUrl('img/RL_AXIA_ASYMM.2048_0_1.png')) ?>"
                  alt="Axia Asymm sail view"
                  data-sub="AXIA ASSYM 80%+ MID-GIRTH">
           </div>

@@ -331,3 +331,95 @@
 .no_image{
   background-image: url("../../Covers/2.Services/img/no_image.jpg");
 }
+
+/* =========================
+   Shared detail-page layout and media
+   All cover/service detail templates load this stylesheet.
+========================= */
+
+.services--single{
+  --single-card: #ffffff;
+  --single-border: rgba(15, 33, 64, .10);
+  --single-shadow: 0 18px 45px rgba(15, 33, 64, .10);
+  --single-radius: 22px;
+}
+
+.services--single .services__inner{
+  width: min(1100px, 92vw);
+}
+
+.services--single .services__layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 28px);
+  width: 100%;
+  margin-top: clamp(14px, 2.4vw, 22px);
+  padding: clamp(18px, 3vw, 34px);
+  border: 1px solid var(--single-border);
+  border-radius: var(--single-radius);
+  background: var(--single-card);
+  box-shadow: var(--single-shadow);
+  box-sizing: border-box;
+}
+
+.services--single .services__title{
+  margin: 0;
+  color: var(--brand);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+}
+
+.services--single .services__lead{
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.services--single .services__media{
+  min-height: 320px;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: calc(var(--single-radius) - 8px);
+  background-color: #e9edf3;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.services__media--stackpack{ background-image: url("img/Stackpack.jpg"); }
+.services__media--boomcover{ background-image: url("img/Boom_cover3.jpg"); }
+.services__media--blanketcover{ background-image: url("img/3.BlanketCover.jpg"); }
+.services__media--sprayhood{ background-image: url("img/Sprayhood.jpg"); }
+.services__media--cockpitcover{ background-image: url("img/Cockpit_cover.jpg"); }
+.services__media--cockpit-enclosure{ background-image: url("img/Cockpit_enclosure2.JPG"); }
+.services__media--cockpitcushions{ background-image: url("img/Cockpit_cushions.jpg"); }
+.services__media--wheelcover{ background-image: url("../../Covers-8.WheelCover/1.Slider/wheel_cover.jpg"); }
+.services__media--wheelleathering{ background-image: url("img/Wheel_leathering.jpg"); }
+.services__media--wheelbinnacle{ background-image: url("img/Wheel_Binnical_cover.jpg"); }
+.services__media--winchcovers{ background-image: url("img/Winch_covers.jpg"); }
+.services__media--windowhatch{ background-image: url("img/Windo_and_hatch_covers.jpg"); }
+.services__media--rib-cover{ background-image: url("img/Rib_cover.jpg"); }
+.services__media--wintercover{ background-image: url("../../Covers-14.WinterCover/1.Slider/Winter_cover.jpg"); }
+.services__media--boatcover{ background-image: url("img/Boat_cover.jpg"); }
+.services__media--bimini{ background-image: url("img/Bimini_sunshade.jpg"); }
+.services__media--jibsock{ background-image: url("img/jib_sock.png"); }
+.services__media--windscoop{ background-image: url("img/Wind_Scoop.png"); }
+.services__media--dinghycover{ background-image: url("img/Dinghy_Cover.png"); }
+.services__media--guardrail-lifeline{ background-image: url("img/Guardrail_Lifeline_Covers.png"); }
+.services__media--dodgers{ background-image: url("img/Dodgers.png"); }
+.services__media--exteriorcushions{ background-image: url("img/Exterior_Cushions.png"); }
+.services__media--sail-repair{ background-image: url("../../Services-1.SailsRepair/2.Services/RepairSails.jpg"); }
+.services__media--canvas-repair{ background-image: url("../../Services-3.CanvasRepair/2.Services/CanvasRepairs.jpg"); }
+
+@media (max-width: 980px){
+  .services--single .services__layout{
+    grid-template-columns: 1fr;
+  }
+
+  .services--single .services__media{
+    order: -1;
+    min-height: 240px;
+  }
+}
