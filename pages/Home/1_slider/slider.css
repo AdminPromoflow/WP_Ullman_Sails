@@ -181,14 +181,6 @@
 .home-slider__slide.bg-covers     { --slide-bg: url("img/cover.jpg"); }
 .home-slider__slide.bg-services   { --slide-bg: url("img/services.jpg"); }
 
-/* Overlay */
-.home-slider__slide::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
 /* Caption */
 .home-slider__caption{
   position: absolute;

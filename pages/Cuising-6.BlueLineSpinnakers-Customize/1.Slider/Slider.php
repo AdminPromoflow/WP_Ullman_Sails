@@ -136,17 +136,6 @@
   --slide-bg: url("img/services.jpg");
 }
 
-/* Overlay */
-.home-slider__slide::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(1200px 600px at 20% 40%, rgba(0, 0, 0, 0.28), transparent 55%),
-    radial-gradient(900px 520px at 80% 30%, rgba(0, 0, 0, 0.18), transparent 58%);
-}
-
 /* Caption */
 .home-slider__caption{
   position: absolute;

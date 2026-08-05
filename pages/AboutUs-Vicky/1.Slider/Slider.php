@@ -12,8 +12,6 @@
   position: relative;
   height: 100%;
   width: 100%;
-  background: rgba(235,51,35,.5);
-  background: linear-gradient(90deg, rgba(235,51,35,0.35) 7%, rgba(17,62,164,0.35) 77%);
 }
 
 @media  (orientation: landscape) {
