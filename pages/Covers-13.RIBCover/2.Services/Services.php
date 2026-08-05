@@ -19,10 +19,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">RIB Cover</h1>
 
         <p class="services__lead sr-item">
-          Need a cover for your RIB? Whether it’s to protect the console and seating or
-          the whole boat, we can make sure it fits properly and does exactly what you
-          need it to. Just give us a call — we’re happy to talk through the options and
-          help you get it right. <br><br>
+          A RIB cover can be made for the console and seating or for the complete boat,
+          reducing direct exposure to UV, rain and dirt during storage. Fit, support,
+          drainage and ventilation depend on where and how the RIB is stored. A cover used
+          while towing must be specifically designed and secured for transport.<br><br>
         </p>
 
         <div class="services__actions sr-item">

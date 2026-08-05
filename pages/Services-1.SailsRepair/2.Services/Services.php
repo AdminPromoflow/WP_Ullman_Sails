@@ -22,19 +22,19 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         </h1>
 
         <p class="services__lead sr-item">
-          Welcome to your trusted destination for comprehensive sail repair solutions.
-          Our team of skilled sailmakers and technicians is dedicated to giving new life to your sails,
-          ensuring they perform at their peak on every voyage.
+          A professional sail inspection can identify worn stitching, tears, chafe, UV-damaged covers,
+          tired hardware and other issues before repair work begins. The recommended work depends on
+          the sail's material, construction, age and overall condition.
         </p>
 
         <p class="services__lead sr-item">
-          From minor repairs to major overhauls, we specialise in addressing a wide range of sail issues —
-          including tears, stitching, UV damage, and more. With a commitment to quality craftsmanship and attention to detail,
-          we take pride in extending the lifespan of your sails and maximising your sailing experience.
+          Our sailmakers undertake routine servicing and repairs such as patching damaged cloth,
+          replacing failed stitching or UV protection and attending to fittings where appropriate.
+          If a sail is no longer safely or economically repairable, the loft will explain the available options.
         </p>
 
         <p class="services__lead sr-item">
-          Choose us for reliable, expert sail repairs that keep you sailing confidently — whatever the conditions.
+          Contact the loft for an assessment and a repair recommendation suited to your sail and intended use.
         </p>
 
         <div class="services__actions sr-item">

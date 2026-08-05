@@ -20,12 +20,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Cockpit Cover</h1>
 
         <p class="services__lead sr-item">
-          A cockpit cover (or tonneau cover) helps keep your cockpit clean and dry,
-          and protects your wheel, instruments, floor, and winches while you’re away.
-          It can attach to your sprayhood fittings or to the back edge of the sprayhood.
-          Available in a range of colours—if you’ll be using it often or leaving it in
-          place over winter, chat with the team about options that pack small and go
-          the distance.
+          A cockpit cover (or tonneau cover) helps reduce direct exposure to rain, UV and
+          dirt while the boat is not in use. It can attach to existing sprayhood fittings
+          or to the back edge of the sprayhood. Support, drainage and ventilation should be
+          considered to limit water pooling and trapped moisture, especially during long storage.
         </p>
 
         <div class="services__actions sr-item">

@@ -18,11 +18,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Dodgers</h1>
 
         <p class="services__lead sr-item">
-          Dodgers make time in the cockpit more comfortable—shielding you from wind
-          and spray while adding a touch of personal style. Ours are made from durable
-          acrylic canvas and fixed securely to guardrails and stanchions. We can add
-          your boat name or sail number too—just let us know what you have in mind.
-          Any questions? Give us a call—we’re always happy to help.
+          Side dodgers fitted to guardrails and stanchions can reduce wind and spray around
+          the cockpit. They can be made in acrylic marine canvas and personalised with a boat
+          name or sail number. Shape, height and fastening positions should preserve the required
+          visibility, access and operation of lines and deck equipment.
         </p>
 
         <div class="services__actions sr-item">

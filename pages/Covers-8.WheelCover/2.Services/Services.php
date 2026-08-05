@@ -18,31 +18,15 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Wheel Cover</h1>
 
         <p class="services__lead sr-item">
-          A wheel cover is an essential accessory for any sailing yacht with a helm station.
-          Designed to protect the wheel from the elements, it offers UV protection that prevents
-          the material from cracking or fading over time. Whether your vessel is moored, docked,
-          or at anchor, this cover preserves the appearance and function of your steering gear.
-          Built from marine-grade materials, it resists saltwater, sun exposure, and general wear.
-          Its fit is often customized to your wheel’s dimensions for maximum effectiveness. Keeping
-          your helm protected extends the life of one of the boat's most used components. <br><br>
+          A fitted wheel cover reduces direct exposure to UV, rain, salt spray and dirt while the
+          helm is not in use. The cover can be shaped to the wheel and closed with a zip, drawcord
+          or other fastening selected for the installation.
+        </p>
 
-          These covers often feature a zipper or drawstring closure, allowing for quick fit and easy
-          removal when setting sail. In addition to shielding against sun, they are rainproof, keeping
-          moisture off delicate leather or metal finishes. Some sailors even opt for double-layered
-          options for better thermal protection. A proper wheel cover also provides dirt protection,
-          especially in marinas or windy anchorages. Keeping grime off the wheel helps maintain grip
-          and steering performance. It’s a small investment with long-term benefits. <br><br>
-
-          Wheel covers not only preserve your helm from weather damage but also contribute to the yacht’s
-          overall aesthetics. Matching your wheel cover to your cockpit’s look adds a sense of completeness
-          and care to the boat. Many models are now designed to complement other canvas elements such as
-          sprayhoods or biminis. A neglected steering wheel can crack, fade, and even become unsafe. With
-          a well-fitted, high-quality cover, you protect a crucial system with style. Plus, it only takes
-          a few seconds to slip on. <br><br>
-
-          Fun fact: The first yacht wheel covers were repurposed barbecue lids or towels! Sailors quickly
-          realized that UV protection and marine-grade material were necessary to preserve modern helm
-          wheels — now it’s a standard among seasoned cruisers.
+        <p class="services__lead sr-item">
+          Marine canvas can be chosen to coordinate with a sprayhood, bimini or other cockpit canvas.
+          A cover supports routine care but does not replace inspection, cleaning or maintenance of
+          the wheel and steering system, and it must be removed before operating the boat.
         </p>
 
         <div class="services__actions sr-item">

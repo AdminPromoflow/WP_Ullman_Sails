@@ -18,10 +18,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Window and Hatch Covers</h1>
 
         <p class="services__lead sr-item">
-          Protect your windows and manage light, privacy, or airflow with custom covers.
-          Choose mesh to allow ventilation while limiting visibility when you’re in a
-          marina, or opt for acrylic canvas to shield PVC windows from UV damage and
-          darken interior spaces. Made to fit and easy to use — just let us know what you need.
+          Custom window and hatch covers can manage light, privacy and direct UV exposure.
+          Mesh can preserve some airflow and outward visibility, while opaque acrylic canvas
+          provides more shade and darkness. The result depends on fabric openness, colour,
+          fit and the hatch or window arrangement.
         </p>
 
         <div class="services__actions sr-item">

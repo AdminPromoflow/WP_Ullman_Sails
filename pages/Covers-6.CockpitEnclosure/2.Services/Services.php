@@ -20,13 +20,11 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Cockpit Enclosure</h1>
 
         <p class="services__lead sr-item">
-          Turn your cockpit into a sheltered living space with a well-made enclosure—ideal
-          for extending comfort and usability in unpredictable UK weather. We can cover
-          existing bars or design bars to your requirements. Linking to your sprayhood,
-          enclosures include clear windows and wind-up panels for flexibility. Whether
-          you’re looking for extra protection, space to socialise, or simply a warmer
-          cup of tea in the cockpit, we’re happy to talk through the best setup for your
-          boat.<br><br>
+          A cockpit enclosure adds removable shelter around the cockpit and can make the
+          space more usable in rain, spray and wind. It can connect to a sprayhood and use
+          clear windows plus roll-up or removable panels for access and ventilation. The
+          enclosure can be patterned to existing bars or developed with a new frame; it is
+          weather-resistant shelter, not a guarantee of a watertight or heated space.<br><br>
         </p>
 
         <div class="services__actions sr-item">

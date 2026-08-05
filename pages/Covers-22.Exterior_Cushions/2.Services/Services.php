@@ -18,11 +18,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Exterior Cushions</h1>
 
         <p class="services__lead sr-item">
-          Add comfort to your cockpit with custom exterior cushions—made from matching
-          acrylic canvas for a smart, coordinated look. Whether you're racing hard or
-          cruising gently, a well-padded seat makes all the difference at the end of
-          the day. Built to handle life outdoors, our cushions are practical, durable,
-          and a welcome luxury. Let us know what you're after—we’re happy to help. <br><br>
+          Custom exterior cushions add padding and comfort to cockpit or deck seating.
+          Foam, drainage and cover fabric can be selected for the exposure, storage and
+          appearance required, including coordination with other canvas. Resistance to UV,
+          water and mildew depends on the specified materials, construction and ongoing care.<br><br>
         </p>
 
         <div class="services__actions sr-item">

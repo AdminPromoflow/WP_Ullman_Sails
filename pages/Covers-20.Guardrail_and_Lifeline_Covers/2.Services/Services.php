@@ -20,10 +20,11 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Guardrail &amp; Lifeline Covers</h1>
 
         <p class="services__lead sr-item">
-          Soften the blow of the guardrails during a long hike—hence the nickname
-          “gut busters”. These covers do the job. Available in a range of colours,
-          they’re a simple upgrade in both comfort and care. Let us know what you
-          need covered and we’ll tailor them to fit. <br><br>
+          Guardrail and lifeline covers add a padded or fabric contact surface where crew
+          regularly lean or sit, improving comfort and reducing local rubbing. They can be
+          tailored to selected sections and made in coordinating colours. Covers are not
+          structural safety equipment, so lifelines, terminals and stanchions still require
+          unobstructed inspection and maintenance.<br><br>
         </p>
 
         <div class="services__actions sr-item">

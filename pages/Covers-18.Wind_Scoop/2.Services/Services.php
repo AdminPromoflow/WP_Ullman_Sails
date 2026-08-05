@@ -19,9 +19,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Wind Scoop</h1>
 
         <p class="services__lead sr-item">
-          A wind scoop channels breeze down through your foredeck hatch, bringing fresh air into the cabin—even on still, stuffy days.
-          Made from lightweight spinnaker cloth, it’s simple to set up and surprisingly effective, whether you're in a UK marina or anchored
-          somewhere warmer. A small bit of kit that makes a big difference to life onboard.
+          A wind scoop directs available breeze through an open foredeck hatch to increase
+          passive airflow below deck. It can be made from lightweight sailcloth and rigged
+          from a halyard or supporting line. Performance depends on wind speed and direction,
+          the scoop’s orientation and the hatch arrangement; it does not create airflow in still air.
         </p>
 
         <div class="services__actions sr-item">

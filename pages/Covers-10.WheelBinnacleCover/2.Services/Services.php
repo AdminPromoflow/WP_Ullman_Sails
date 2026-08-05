@@ -17,8 +17,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Wheel and Binnacle Cover</h1>
 
         <p class="services__lead sr-item">
-          Protect your leather wheel and instruments with a wheel and binnacle cover,
-          tailored to fit neatly in your cockpit. Let us know what you're looking for — we’re happy to help. <br><br>
+          A wheel and binnacle cover reduces direct exposure to UV, rain, salt spray and
+          dirt while the helm is not in use. It is tailored around the wheel, binnacle and
+          instrument arrangement, but does not replace the equipment manufacturers’ care,
+          inspection or storage guidance.<br><br>
         </p>
 
         <div class="services__actions sr-item">

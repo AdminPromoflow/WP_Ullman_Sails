@@ -20,9 +20,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Dinghy Cover</h1>
 
         <p class="services__lead sr-item">
-          From club racers to classics like the Devon Yawl, we’re happy to make covers for
-          all types of dinghies—big or small. Whether you need something tough for towing
-          or breathable for storage, just give us a ring or drop us a line. We’ll get you sorted.
+          Dinghy covers can be patterned for different hulls and storage arrangements, from
+          club racers to traditional designs. Support, drainage and ventilation should suit
+          how the boat is stored. A road cover is a separate application and must be designed,
+          fitted and secured specifically for towing.
         </p>
 
         <div class="services__actions sr-item">

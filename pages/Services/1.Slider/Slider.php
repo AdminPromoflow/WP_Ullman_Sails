@@ -62,7 +62,7 @@ $slides = [
   [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
-    'title'       => 'Keep Performance Longe',
+    'title'       => 'Keep Performance Longer',
     'subtitle'    => 'Sail Care',
   ],
   [

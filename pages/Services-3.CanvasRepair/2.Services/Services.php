@@ -22,14 +22,15 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         </h1>
 
         <p class="services__lead sr-item">
-          Discover the highest level of canvas repair at Ullman Sails, where we excel in restoring your nautical equipment to its best condition.
-          Our dedicated team of canvas specialists takes pride in meticulously repairing tears, reinforcing seams, and rejuvenating weathered fabrics.
+          Ullman Sails UK lists canvas among its services and has dedicated canvas personnel.
+          A professional inspection can identify repairable tears, failed seams, worn fasteners,
+          damaged zips or clear panels and areas weakened by exposure.
         </p>
 
         <p class="services__lead sr-item">
-          Whether it's boat covers, sail bags, or awnings, we understand the importance of durable and functional canvas equipment for your maritime activities.
-          With an unwavering commitment to quality and expert craft, we ensure your gear is ready to withstand the elements and accompany you on many more journeys.
-          Choose Ullman Sails for canvas repair that ensures your equipment remains dependable and resilient for all your seafaring adventures.
+          Repair options depend on the fabric, thread, hardware, age and overall condition of the item.
+          Work may include patching, re-stitching or replacement components where appropriate;
+          severely degraded material may need partial or complete replacement rather than repair.
         </p>
 
         <div class="services__actions sr-item">

@@ -17,9 +17,9 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Stack Pack</h1>
 
         <p class="services__lead sr-item">
-          A stack pack works with your lazyjacks to make lowering and stowing your mainsail simple, guiding it
-          straight into the bag. Once zipped closed, it keeps the sail protected and tidy, so you can enjoy a
-          clutter-free cockpit. Made to fit your rig and rigging — just get in touch to start the conversation.
+          A stack pack works with lazyjacks to receive and contain the mainsail as it is lowered.
+          Once the sail is fully stowed and the cover is zipped closed, the fabric reduces its direct
+          exposure to UV and weather. The pack must be designed around the boom, sail and existing rigging.
         </p>
 
         <div class="services__actions sr-item">

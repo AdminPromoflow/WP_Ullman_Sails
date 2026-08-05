@@ -20,11 +20,11 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Sprayhood</h1>
 
         <p class="services__lead sr-item">
-          A sprayhood offers welcome shelter from wind, waves, and weather—covering the
-          companionway and forward part of the cockpit. With windows for visibility,
-          it creates a more livable space aboard, especially on longer passages.<br><br>
-          Frames typically come with the boat, but if they don’t, or if you’d like to
-          change the setup, we can help. Just give us a ring.<br><br>
+          A sprayhood shelters the companionway and forward part of the cockpit from wind,
+          rain and spray. Clear panels preserve forward visibility, although they still
+          require routine inspection and care.<br><br>
+          A replacement can be patterned to an existing frame, or the frame and canvas can
+          be considered together when the arrangement needs to change.<br><br>
         </p>
 
         <div class="services__actions sr-item">

@@ -18,9 +18,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Bimini Sunshade</h1>
 
         <p class="services__lead sr-item">
-          A bimini provides welcome shade on hot summer days—an acrylic canvas "roof" for your cockpit that offers protection from the sun without blocking the breeze.
-          Add a clear viewing panel above the helm if you want to keep an eye on the sail and choose from a wide range of colours to suit your boat’s look.
-          All our biminis are built with UV-stable materials and thread for lasting performance. Questions? Just ask—we’re here to help.
+          A bimini creates shade above the cockpit while leaving the sides open. It can be
+          designed around the frame, helm, rigging and sailing controls, with an optional clear
+          viewing panel where overhead visibility is needed. Marine canvas and thread are selected
+          for outdoor use; exact UV, water and weather resistance depend on the specified materials.
         </p>
 
         <div class="services__actions sr-item">

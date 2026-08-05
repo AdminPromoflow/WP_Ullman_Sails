@@ -12,12 +12,10 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : time();
 <section class="text">
   <h1>Sail & Canvas Cleaning</h1>
   <p>
-Keep your sails and canvas in top condition with professional cleaning and
-targeted treatments designed for UK conditions. From algae, mildew and salt
- build-up to rust marks, food stains and pollution discolouration, we tackle
-  the causes first—then apply the right protective finish where it adds real
-  benefit. The result is cleaner, smarter-looking fabrics that dry better, last
-  longer, and are easier to maintain season after season.
+Professional cleaning can address dirt, salt residue, algae, mildew and some
+stains on sails and marine canvas. The safe process depends on the fibre,
+laminate, coating, age and condition of the item, so specialist assessment is
+recommended before stain removers or protective treatments are used.
   </p>
 
 
@@ -25,52 +23,49 @@ targeted treatments designed for UK conditions. From algae, mildew and salt
 
     <h2>Common Issues We See on Sails & Canvas</h2>
     <p>UK weather is hard on marine fabrics. From algae and mildew to salt
-      crystals, rust, food spills and pollution marks, these are the everyday
-      problems that can shorten fabric life and spoil the finish. Below you’ll
-      find what each issue means and the right first step to keep your sails
-      and canvas clean, smart, and performing as they should.</p>
+      crystals, rust, food spills and pollution marks, these are common sources
+      of staining, retained moisture or abrasion. Cleaning advice must be matched
+      to the particular sailcloth or canvas material.</p>
 
     <div class="common_issues-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/green_algae_and_dilldew.png" alt="">
       <h2>GREEN ALGAE AND MILDEW</h2>
-      <p>The UK's ever changing weather conditions make it difficult to stay algae and mildew free. Maintain your fabrics with regular seasonal cleaning.</p>
+      <p>Damp storage and residue on a fabric can encourage mildew. Store items dry and arrange material-appropriate cleaning when growth or staining appears.</p>
     <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
     <div class="common_issues-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/rust_stains.png" alt="">
       <h2>RUST STAINS</h2>
-      <p>Tip Top Sail Laundry can make fresh rust stains from fittings vanish!
-
-Don't delay treatment of your fabrics, the longer you leave it the less likely they will fade at all.</p>
+      <p>Rust marks should be assessed promptly. Early professional treatment may improve the chance of reducing a stain, but complete removal cannot be guaranteed.</p>
 <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
     <div class="common_issues-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/acid_pollution.png" alt="">
       <h2>ACIDIC POLLUTION</h2>
-      <p>Pollution caused by exhaust fumes and powerstation chimney fall out can miscolour fabrics. A regular clean will keep them looking good as new.</p>
+      <p>Exhaust deposits and airborne pollution can discolour marine fabrics. Suitable cleaning may reduce the deposits, with results depending on the material and age of the stain.</p>
       <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
     <div class="common_issues-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/sailt_crystals.png" alt="">
       <h2>SALT CRYSTALS</h2>
-      <p>Keep your fabrics salt crystal free to avoid abrasion to threads. If left to dry they will attract moisture and allow damp growth.</p>
+      <p>Remove salt residue with the cleaning method recommended for the material. Dry salt crystals can abrade fibres and salt can retain moisture.</p>
       <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
     <div class="common_issues-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/food_and_beverage_stains.png" alt="">
       <h2>FOOD & BEVERAGE STAINS</h2>
-      <p>Avoid mildew growth by keeping on top of food and beverage stains.</p>
+      <p>Address food and drink spills promptly because mildew can grow on dirt and other residue left on a fabric.</p>
       <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
     <div class="common_issues-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/coatings.png" alt="">
       <h2>COATINGS</h2>
-      <p>Water repellent coatings are used with our experience to determine which product suits your fabric best.</p>
+      <p>Some marine fabrics can be re-treated for water repellency after cleaning. Compatibility and application must follow the fabric and treatment manufacturer's guidance.</p>
       <!--  <button type="button" name="button">Contact details</button> -->
     </div>
   </div>
@@ -79,30 +74,28 @@ Don't delay treatment of your fabrics, the longer you leave it the less likely t
   <div class="services-container">
 
     <h2>Specialist Treatments & Protective Finishes</h2>
-    <p>Sometimes a standard clean isn’t enough. Our specialist processes are
-       designed to tackle persistent problems, improve water repellency and
-       handling, and enhance clear panels with a polished, rain-shedding finish.
-       Choose a treatment when you want longer-lasting results and added
-       protection.</p>
+    <p>Persistent mildew, loss of water repellency and weathered clear panels may
+       need specialist treatment after cleaning. Availability, compatibility and
+       expected results should be confirmed after the material has been inspected.</p>
 
     <div class="services-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/M5_LOG.png" alt="">
       <h2>M5 PROCESS</h2>
-      <p>Our new anti-fungal process, this involves cleaning and coating your fabric, If you suffer from black dot mildew or green algae growth, specify this service. It will prevent growth for up to 9 months</p>
+      <p>Specialist providers describe M5 as a cleaning and coating treatment for black-dot mildew or green algae, intended to help inhibit regrowth for up to nine months. Duration varies with use and conditions; confirm current availability with the loft.</p>
     <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
     <div class="services-box">
-      <img src="../Services-2.SailsCleaning/2.Services/images/SEAl_N_GLIDE_LOGO.png" alt="">
-      <h2>SEAL & GLIDE</h2>
-      <p>If your fabrics are soft and tired or your furling genoa or main needs to stay dryer and furl tighter, specify this treatment and see the amazing results.</p>
+      <img src="../Services-2.SailsCleaning/2.Services/images/coatings.png" alt="">
+      <h2>WATER-REPELLENT RE-TREATMENT</h2>
+      <p>Compatible marine fabrics may benefit from a manufacturer-approved re-treatment after cleaning. It can renew water repellency, but it cannot restore structural strength or correct a worn-out sail shape.</p>
   <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
     <div class="services-box">
       <img src="../Services-2.SailsCleaning/2.Services/images/SEAVIEW_LOGO.png" alt="">
       <h2>SEAVIEW</h2>
-      <p>Transparent fabrics, leave the workshop polished using our own, specifically developed 'window' coating. Watch the rain just run off as standard at no extra cost.</p>
+      <p>Specialist providers offer polishing and dedicated coatings for compatible clear window panels. Suitability, expected results and price must be confirmed before treatment.</p>
       <!--  <button type="button" name="button">Contact details</button> -->
     </div>
 
@@ -127,24 +120,23 @@ Don't delay treatment of your fabrics, the longer you leave it the less likely t
           Best when you’re seeing recurring growth, black spotting, green algae, or that damp smell that keeps coming back.
         </p>
         <p><strong>What it involves:</strong> thorough cleaning followed by an anti-fungal coating.</p>
-        <p><strong>Why specify it:</strong> it’s designed to help prevent regrowth for up to 9 months, depending on use and conditions.</p>
+          <p><strong>Why specify it:</strong> specialist providers state that it can help inhibit regrowth for up to nine months; this is not a fixed guarantee and depends on use and conditions.</p>
       </div>
 
       <div class="how_connect_card">
-        <h4>Poor water repellency / soft, tired fabric / furling not as tight → SEAL &amp; GLIDE</h4>
+        <h4>Reduced water repellency → material-compatible re-treatment</h4>
         <p>
-          Ideal if your sail feels less “crisp”, holds moisture, takes longer to dry, or your furling genoa/main won’t roll
-          as neatly or tightly as it should.
+          Some canvas and sail materials can receive a new water-repellent treatment after cleaning and complete drying.
         </p>
-        <p><strong>What it does:</strong> restores performance feel and improves water shedding, helping the sail stay drier and furl tighter.</p>
+        <p><strong>What it does:</strong> renews water shedding on compatible fabrics. It does not repair damaged fibres, laminates, stitching or sail shape.</p>
       </div>
 
       <div class="how_connect_card">
         <h4>Clear window panels → SEAVIEW</h4>
         <p>
-          For transparent fabrics where you want a cleaner, clearer finish and better wet-weather visibility.
+          For compatible transparent panels that require professional cleaning and polishing.
         </p>
-        <p><strong>What it does:</strong> a dedicated “window” coating that leaves panels polished, with rain running off as standard.</p>
+        <p><strong>What it does:</strong> specialist providers describe a dedicated clear-panel polish or coating. Results depend on the panel material and its condition.</p>
       </div>
 
       <div class="how_connect_card how_connect_card_wide">
@@ -158,7 +150,7 @@ Don't delay treatment of your fabrics, the longer you leave it the less likely t
           <li><strong>Acidic pollution:</strong> regular cleaning helps prevent discolouration and keeps fabrics looking smart.</li>
         </ul>
 
-        <p><strong>Afterwards:</strong> if your fabric is suitable, a water-repellent coating can help keep it cleaner for longer and make future maintenance easier.</p>
+        <p><strong>Afterwards:</strong> if the fabric manufacturer permits it, an appropriate re-treatment can renew water repellency after cleaning.</p>
       </div>
 
     </div>

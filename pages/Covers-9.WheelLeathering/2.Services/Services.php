@@ -17,10 +17,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Wheel Leathering</h1>
 
         <p class="services__lead sr-item">
-          A leather-wrapped wheel offers both comfort and control—providing a warmer,
-          more reliable grip than bare metal. Made from marine-grade leather, it’s a
-          subtle upgrade that adds a touch of style while enhancing your helm feel.
-          Each piece is tailored by hand for a precise fit.
+          A leather-wrapped wheel provides a warmer contact surface than bare metal and
+          can improve comfort at the helm. Each cover is tailored to the wheel and hand
+          stitched in leather selected for marine use. Like any exterior leather, it
+          still needs regular cleaning, inspection and care.
         </p>
 
         <div class="services__actions sr-item">

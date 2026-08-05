@@ -18,10 +18,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Jib Sock</h1>
 
         <p class="services__lead sr-item">
-          A jib sock offers simple, effective protection for your furled headsail—ideal
-          if you prefer not to add the weight of a UV strip along the leech and foot.
-          It shields your genoa from sun and weather, helping extend its life. Available
-          in a range of colours and made to suit your rig—just get in touch to find the right fit.<br><br>
+          A jib sock is hoisted over a furled headsail to reduce direct UV and weather
+          exposure while the sail is stowed. It can be considered as an alternative to a
+          sacrificial UV strip on the leech and foot. Correct length, diameter, tensioning
+          and rigging are important so the sock fits securely and limits movement.<br><br>
         </p>
 
         <div class="services__actions sr-item">

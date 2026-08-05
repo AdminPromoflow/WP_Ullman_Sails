@@ -46,7 +46,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
           <p class="svc-kicker">ALL SAIL</p>
           <h2 class="svc-title">REPAIRS</h2>
           <span class="svc-rule" aria-hidden="true"></span>
-          <p class="svc-text">From small tears to major damage, we repair and restore sails of all types.</p>
+          <p class="svc-text">Professional inspection and repairs for common issues including tears, worn stitching, chafe and UV-damaged components.</p>
           <span class="svc-link ullman-button ullman-button--navy">LEARN MORE <span aria-hidden="true">→</span></span>
         </div>
 
@@ -63,7 +63,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
           <p class="svc-kicker">SAIL AND CANVAS</p>
           <h2 class="svc-title">CLEANING</h2>
           <span class="svc-rule" aria-hidden="true"></span>
-          <p class="svc-text">Thorough cleaning to remove dirt, salt and mildew from sails and canvas.</p>
+          <p class="svc-text">Professional sail and canvas cleaning, with treatments selected for the material and its condition.</p>
           <span class="svc-link ullman-button ullman-button--navy">LEARN MORE <span aria-hidden="true">→</span></span>
         </div>
 
@@ -80,7 +80,7 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
           <p class="svc-kicker">CANVAS</p>
           <h2 class="svc-title">REPAIRS</h2>
           <span class="svc-rule" aria-hidden="true"></span>
-          <p class="svc-text">Expert repair services for boat covers, biminis, and other marine canvas.</p>
+          <p class="svc-text">Inspection and repair of boat covers, biminis and other marine-canvas products where their condition allows.</p>
           <span class="svc-link ullman-button ullman-button--navy">LEARN MORE <span aria-hidden="true">→</span></span>
         </div>
 

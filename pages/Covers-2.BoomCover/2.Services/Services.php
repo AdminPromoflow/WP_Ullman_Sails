@@ -19,11 +19,10 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Boom Cover</h1>
 
         <p class="services__lead sr-item">
-          A boom cover protects your mainsail from damaging UV light while it’s furled
-          on the boom—helping extend its life between sails. Made from UV-stable acrylic
-          canvas in a wide range of colours, our covers include a collar to wrap neatly
-          around the mast and secure clip fastenings beneath the boom. Simple, smart,
-          and built to last.
+          A boom cover reduces the mainsail’s direct exposure to UV, rain, salt and dirt while
+          it is stowed on the boom. It can be made in acrylic marine canvas, with a collar around
+          the mast and fastenings beneath the boom. The exact fabric and fastening layout are
+          selected to suit the sail, rig and intended use.
         </p>
 
           <div class="services__actions sr-item">

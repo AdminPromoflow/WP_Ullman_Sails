@@ -19,10 +19,9 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <h1 id="services-title" class="services__title sr-item">Blanket Cover</h1>
 
         <p class="services__lead sr-item">
-          Perfect for short stays or weekends afloat, a blanket cover offers quick,
-          effective protection for your mainsail when it’s left on the boom. Made from
-          durable acrylic canvas and secured underneath, it’s easy to fit and remove.
-          Add your boat name on either side to make it your own.
+          A blanket cover is a quick-to-fit option for a mainsail stowed on the boom. It
+          reduces direct exposure to UV, rain and dirt, and is secured beneath the boom.
+          The cover can be made in acrylic marine canvas and personalised with the boat name.
         </p>
 
         <div class="services__actions sr-item">
