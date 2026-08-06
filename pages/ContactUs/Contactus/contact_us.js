@@ -76,13 +76,14 @@ class ContactUs {
     formData.set("action", "ullman_send_forms");
     formData.append("nonce", window.ullmanAjax.nonce);
 
-    alert(window.ullmanAjax.url);
 
     const response = await fetch(window.ullmanAjax.url, {
       method: "POST",
       body: formData
     });
     const data = await response.json();
+
+    alert(data);
 
     if (!data.success) {
       throw new Error(data.message || 'Unable to send your message.');
