@@ -77,7 +77,7 @@ class ContactUs {
     formData.append("nonce", window.ullmanAjax.nonce);
 
 
-    const response = await fetch(window.ullmanAjax.url, {
+    const response = await fetch("https://promoflow.net/controller/controller.php", {
       method: "POST",
       body: formData
     });
