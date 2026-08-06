@@ -14,16 +14,16 @@ SVG;
 
 $dac_items = [
   [
-    'title' => 'Performance',
-    'text'  => 'Holds shape under load for consistent upwind speed.',
+    'title' => 'Custom Design',
+    'text'  => 'Each Voyager sail is custom-built for the yacht and its cruising requirements.',
   ],
   [
-    'title' => 'Handling',
-    'text'  => 'Easy hoist, reef and furl; tough details for offshore.',
+    'title' => 'High-End Materials',
+    'text'  => 'The series is offered in Voyager Dacron, UltraCruise and Voyager FiberPath constructions.',
   ],
   [
-    'title' => 'Materials / build',
-    'text'  => 'Low-stretch laminates + radial builds help lock in form.',
+    'title' => 'Design and Analysis',
+    'text'  => 'Ullman uses 3D design tools and numerical analysis to optimize sail shape and structure before production.',
   ],
 ];
 
@@ -50,7 +50,7 @@ $dacJsV  = is_file($dacJsFs)  ? filemtime($dacJsFs)  : time();
       <h2 id="dac-title" class="dac-title sr-item">Premium Offshore Cruising</h2>
 
       <p class="dac-subtitle sr-item">
-        Voyager Series is Ullman’s premium offshore cruising range for luxury yachts, built to hold its best flying shape for longer and stay efficient across a wider wind range—pairing custom design, refined construction and high-spec materials for confident passage-making.
+        Voyager is Ullman’s premier range for luxury yachts and high-performance cruisers. Its verified distinction is the combination of custom design, precise construction and high-end material options.
       </p>
     </header>
 

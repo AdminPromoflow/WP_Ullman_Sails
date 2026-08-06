@@ -57,9 +57,9 @@ $logoFs  = __DIR__ . '/../../Home/1_slider/img/ullman_sails.png';
 $leftFs  = __DIR__ . '/../../Home/1_slider/img/left.png';
 $rightFs = __DIR__ . '/../../Home/1_slider/img/right.png';
 
-$logoSrc   = with_version('../home/1_slider/img/ullman_sails.png', asset_version($logoFs));
-$leftIcon  = with_version('../home/1_slider/img/left.png',        asset_version($leftFs));
-$rightIcon = with_version('../home/1_slider/img/right.png',       asset_version($rightFs));
+$logoSrc   = with_version('../Home/1_slider/img/ullman_sails.png', asset_version($logoFs));
+$leftIcon  = with_version('../Home/1_slider/img/left.png',        asset_version($leftFs));
+$rightIcon = with_version('../Home/1_slider/img/right.png',       asset_version($rightFs));
 
 $ctaHref = '#sailing-types-introduction';
 
@@ -69,13 +69,13 @@ $slides = [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
     'title'       => 'Race Series',
-    'subtitle'    => 'Fast trim, stable shape, wide control.',
+    'subtitle'    => 'Race Dacron and laminate options.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
     'title'       => 'Race Series',
-    'subtitle'    => 'Radial build. Durable. Race-ready.',
+    'subtitle'    => 'Custom-designed for your programme.',
   ],
 ];
 

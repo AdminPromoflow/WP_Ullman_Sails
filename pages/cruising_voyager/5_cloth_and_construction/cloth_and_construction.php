@@ -74,7 +74,7 @@ $sail3V  = is_file($sail3Fs) ? filemtime($sail3Fs) : time();
           <div class="nav-specsheet__group" aria-label="Cloth Selection and Construction">
             <div class="nav-specsheet__groupTitle">ULTRACRUISE</div>
             <div class="nav-specsheet__groupItems">
-              <div class="nav-specsheet__item">RADIAL WOVEN ULTRA PE</div>
+              <div class="nav-specsheet__item">WOVEN ULTRA-PE &amp; POLYESTER</div>
             </div>
           </div>
 
@@ -92,37 +92,37 @@ $sail3V  = is_file($sail3Fs) ? filemtime($sail3Fs) : time();
             </div>
           </div>
 
-          <h3 class="nav-specsheet__subtitle">Standard Components</h3>
+          <h3 class="nav-specsheet__subtitle">Verified Series Profile</h3>
 
           <div class="nav-specsheet__list">
             <div class="nav-specsheet__row">
-              <div class="nav-specsheet__key">STITCHING</div>
-              <div class="nav-specsheet__val">MULTIPLE TRIPLE-STEP</div>
+              <div class="nav-specsheet__key">APPLICATION</div>
+              <div class="nav-specsheet__val">LUXURY YACHTS &amp; PERFORMANCE CRUISERS</div>
             </div>
 
             <div class="nav-specsheet__row">
-              <div class="nav-specsheet__key">RINGS</div>
-              <div class="nav-specsheet__val">STAINLESS STEEL &amp; SPECTRA/DYNEEMA WEBBING</div>
+              <div class="nav-specsheet__key">DESIGN</div>
+              <div class="nav-specsheet__val">CUSTOM TO THE YACHT</div>
             </div>
 
             <div class="nav-specsheet__row">
-              <div class="nav-specsheet__key">THREAD</div>
-              <div class="nav-specsheet__val">UV RESISTANT THREAD ON ALL SEAMING &amp; U.V COVERS</div>
+              <div class="nav-specsheet__key">DACRON OPTION</div>
+              <div class="nav-specsheet__val">CROSS-CUT WOVEN POLYESTER</div>
             </div>
 
             <div class="nav-specsheet__row">
-              <div class="nav-specsheet__key">SLIDES</div>
-              <div class="nav-specsheet__val">ADDITIONAL REINFORCEMENTS</div>
+              <div class="nav-specsheet__key">ULTRACRUISE</div>
+              <div class="nav-specsheet__val">WOVEN ULTRA-PE &amp; POLYESTER</div>
             </div>
 
             <div class="nav-specsheet__row">
-              <div class="nav-specsheet__key">BATTEN POCKETS</div>
-              <div class="nav-specsheet__val">REINFORCED POCKETS &amp; BATTENS</div>
+              <div class="nav-specsheet__key">FIBERPATH</div>
+              <div class="nav-specsheet__val">CUSTOM FIBER LAYOUT WITH CRUISING SKIN</div>
             </div>
 
             <div class="nav-specsheet__row">
-              <div class="nav-specsheet__key">PATCHES</div>
-              <div class="nav-specsheet__val">OVERSIZED RADIAL PATCHES</div>
+              <div class="nav-specsheet__key">FINAL SPECIFICATION</div>
+              <div class="nav-specsheet__val">CONFIRMED WITH THE LOCAL LOFT</div>
             </div>
           </div>
         </div>

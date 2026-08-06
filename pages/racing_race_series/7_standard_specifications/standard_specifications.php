@@ -21,16 +21,16 @@ $ssImgV = is_file($ssImgFs) ? filemtime($ssImgFs) : time();
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Triple-step stitching',
-  'Stainless rings + webbing',
-  'High-performance threadd',
-  'Reinforced slide entry points',
-  'Adjustable batten pockets',
-  'Radial reinforcement patches',
-  'Ultrabond on laminate sails',
-  'Standard sail numbers',
-  'Race draft stripes + mid-marks',
-  'Leech & body telltales',
+  'Race Dacron or race-laminate construction',
+  'Cross-cut or radial panel layout',
+  'Cloth weight and fibre specification',
+  'Corner and attachment reinforcement',
+  'Luff, slide and batten systems',
+  'Reefing details where required',
+  'Class, rating and measurement requirements',
+  'Sail numbers and insignia',
+  'Draft stripes, telltales and windows',
+  'Bag and handling details',
 ];
 ?>
 
@@ -41,7 +41,7 @@ $ss_features = [
 
     <header class="ss-header">
       <h2 id="ss-title" class="ss-title sr-item">Standard Specifications</h2>
-      <p class="ss-subtitle sr-item">Race-ready control and durability for fast club and class competition:</p>
+      <p class="ss-subtitle sr-item">The final written quotation defines what is standard for the individual sail; these are the main areas to confirm.</p>
     </header>
 
     <div class="ss-grid">
@@ -50,7 +50,7 @@ $ss_features = [
         <div class="ss-image">
           <img
             src="<?= $ssImgPublic ?>?v=<?= $ssImgV ?>"
-            alt="Navigator sail standard specifications"
+            alt="Race Series sail specification details"
             loading="lazy"
             decoding="async"
           >

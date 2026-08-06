@@ -13,12 +13,12 @@ $dac_cube_svg = <<<SVG
 SVG;
 
 $dac_items = [
-  [ 'title' => 'Cruising Focus',     'text' => 'Designed for downwind cruising with everyday comfort.' ],
-  [ 'title' => 'Easy Trimming',      'text' => 'Easy to trim across a wide range of downwind conditions.' ],
-  [ 'title' => 'Speed with Control', 'text' => 'Adds usable power while keeping handling safe and calm.' ],
-  [ 'title' => 'Durability First',   'text' => 'Materials and build choices prioritise long service life.' ],
-  [ 'title' => 'Tailored to Your Rig','text' => 'Built around your rig and your cruising goals.' ],
-  [ 'title' => 'Handling Systems',   'text' => 'Works with socks and furlers to simplify hoists and drops.' ],
+  [ 'title' => 'Cruising Blue Line', 'text' => 'Purpose-built for cruising sailors who prioritize dependable downwind performance and approachable handling.' ],
+  [ 'title' => 'Code Range', 'text' => 'Code 50, Code 60 and Code 70 are differentiated by mid-girth and progressively broader target angles.' ],
+  [ 'title' => 'Spinnaker Range', 'text' => 'Custom symmetrical and asymmetrical spinnakers extend the inventory into deeper downwind sailing.' ],
+  [ 'title' => 'Luff Technology', 'text' => 'Axia combines Active Luff™ development with proven cable-based options; the correct solution depends on the model.' ],
+  [ 'title' => 'Verified Materials', 'text' => 'Ullman identifies Code Zero laminate and nylon spinnaker cloth as core Axia material families.' ],
+  [ 'title' => 'Custom Specification', 'text' => 'Shape, size, cloth and handling systems are selected for the yacht and the owner’s requirements.' ],
 ];
 
 // Filesystem paths (for filemtime)
@@ -36,11 +36,11 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   <div class="dac-wrap">
 
     <header class="dac-header">
-      <p class="dac-tagline">Downwind Series</p>
-      <h2 id="dac-title" class="dac-title">Reliable by Design</h2>
+      <p class="dac-tagline">Axia Blue Line</p>
+      <h2 id="dac-title" class="dac-title">Purpose-Built Downwind Design</h2>
 
       <p class="dac-subtitle">
-        Both Blue Line and Axia Blue Line are built for relaxed downwind cruising: sails that trim easily in varied conditions, add usable speed without drama, prioritise durability, and can be tailored to your rig with handling aids such as socks or furlers.
+        Axia Blue Line is the current Ullman cruising range for Code sails and symmetrical and asymmetrical spinnakers. Each model has a distinct role and must be specified for the individual yacht.
       </p>
     </header>
 

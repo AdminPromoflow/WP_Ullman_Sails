@@ -21,17 +21,12 @@ $ssImgV = is_file($ssImgFs) ? filemtime($ssImgFs) : time();
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Triple-step stitching',
-  'Gore Tenara® thread',
-  'Stainless steel rings',
-  'Spectra/Dyneema webbing',
-  'Radial point patches',
-  'Reinforced slides/hanks',
-  'Reinforced batten pockets',
-  'Vinylester battens',
-  'Aluminium headboards',
-  'Draft stripes',
-  'Telltales',
+  'Custom design for the yacht and cruising program',
+  'Voyager Dacron, UltraCruise or Voyager FiberPath',
+  'Material and construction matched to expected loads',
+  'Hardware matched to the yacht’s handling systems',
+  'UV protection and finishing selected for the sailing area',
+  'Optional seam and reinforcement details documented by the loft',
 ];
 
 ?>
@@ -46,9 +41,9 @@ $ss_features = [
   <div class="ss-wrap">
 
     <header class="ss-header">
-      <h2 id="ss-title" class="ss-title sr-item">Standard Specifications</h2>
+      <h2 id="ss-title" class="ss-title sr-item">Custom Specification</h2>
       <p class="ss-subtitle sr-item">
-        Premium reinforcements and finishing (triple-step stitching, stainless rings, Tenara®, reinforced batten pockets).
+        Voyager sails share this verified product profile; exact components vary with the yacht and selected construction.
       </p>
     </header>
 

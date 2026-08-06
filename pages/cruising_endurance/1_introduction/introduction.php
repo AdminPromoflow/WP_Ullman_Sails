@@ -37,7 +37,7 @@ $introImgVersion = is_file($introImgFile) ? filemtime($introImgFile) : null;
 
     <!-- Keep the intro copy as a single paragraph for clean semantics -->
     <p class="sr-item">
-      Endurance Series sails are Ullman’s most durable cruising option for offshore and passagemaking. Custom-designed and reinforced for long-distance exposure, they deliver dependable bluewater strength and control.
+      Endurance Series sails are among Ullman’s most durable cruising products, developed for offshore and passage-making use. Reinforced high-load areas and material choices focused on longevity support dependable long-distance sailing.
     </p>
   </div>
 </section>

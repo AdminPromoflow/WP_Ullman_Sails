@@ -15,23 +15,23 @@ SVG;
 $sid_items = [
   [
     'title' => 'High-pressure lamination',
-    'text'  => 'High-pressure, high-heat lamination bonds fibres and skins into a tougher membrane, resisting fatigue and delamination while staying light aloft for long life.',
+    'text'  => 'Ullman describes a high-pressure, high-heat process for combining the fibre layout and laminate. Service life still depends on use, handling and exposure.',
   ],
   [
     'title' => 'Load-path fibre mapping',
-    'text'  => 'Custom string layouts follow true load paths, cutting stretch so entry, draft and leech stay steadier and fast upwind, even as trim changes in gusts and lulls.',
+    'text'  => 'Custom string paths are arranged around calculated sail loads to support shape control without claiming identical performance on every boat.',
   ],
   [
-    'title' => ' Carbon & aramid fibres',
-    'text'  => 'Carbon and aramid fibres deliver high strength with very low stretch, resisting creep so entry and draft stay where you designed them for repeatable speed too.',
+    'title' => 'Fibre selection',
+    'text'  => 'Carbon, aramid and blended layouts have different stretch, weight, flex and durability characteristics; the selected specification depends on the programme.',
   ],
   [
     'title' => 'Protective skin options',
-    'text'  => 'Choose film for minimum weight, or add taffeta/NWT skins for abrasion resistance; they protect the membrane from deck wear and flogging with small weight gain.',
+    'text'  => 'Film, taffeta and non-woven textile options change weight, handling and surface protection. Availability differs between FiberPath configurations.',
   ],
   [
-    'title' => 'Reinforced load points',
-    'text'  => 'Triple-step seams, radial patches, and stainless rings backed by Spectra/Dyneema webbing reinforce corners and reduce chafe at high-load points on every hoist.',
+    'title' => 'Sail-specific finishing',
+    'text'  => 'Corner reinforcement, rings, webbing, luff hardware and batten systems are specified for the individual sail, boat and applicable rules.',
   ],
 ];
 
@@ -57,7 +57,9 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
       <p class="sid-tagline sr-item">The FiberPath&nbsp;Series</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Handling</h2>
       <p class="sid-intro sr-item">
-        String-mapped membrane race sails built with high-pressure, high-heat lamination carbon/aramid fibres and film or taffeta/NWT skins for low stretch and abrasion life afloat.
+        FiberPath construction is selected to balance load management, weight, handling
+        and protection. No material choice removes the need for correct use, inspection,
+        cleaning, dry storage and timely professional service.
       </p>
     </header>
 

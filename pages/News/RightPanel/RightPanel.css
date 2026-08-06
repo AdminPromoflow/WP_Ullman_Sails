@@ -1,8 +1,42 @@
 .facebook-feed-section{
   position: relative;
-  width: 95%;
+  width: min(100% - 1.5rem, 24rem);
   margin: 0 auto;
-  padding: 10px ;
+  padding: 0 0 1.5rem;
+}
+
+.facebook-feed-header{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 0 -.25rem 1rem;
+  padding: 1.35rem .25rem 1rem;
+  border-bottom: 1px solid rgba(32,46,82,.12);
+  background: rgba(238,243,248,.96);
+  backdrop-filter: blur(10px);
+}
+
+.facebook-feed-eyebrow{
+  margin: 0 0 .35rem;
+  color: #c5234a !important;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.facebook-feed-title{
+  margin: 0;
+  color: #202e52 !important;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.facebook-feed-intro{
+  margin: .35rem 0 0;
+  color: #5d6f82 !important;
+  font-size: .82rem;
+  line-height: 1.5;
 }
 
 .facebook-feed-grid{
@@ -15,8 +49,8 @@
   position: relative;
   background: #fafafa;
   border: 1px solid rgba(32, 46, 82, 0.10);
-  border-radius: 0;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 10px;
   box-shadow: 0 16px 35px rgba(15, 20, 40, 0.08);
   transition: transform .28s ease, box-shadow .28s ease;
 }
@@ -32,7 +66,7 @@
   width: 100%;
   border: none;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 10px;
   background-color: #ffffff;
 }
 
@@ -60,6 +94,6 @@
 
   .facebook-feed-card{
     padding: 10px;
-    border-radius: 0;
+    border-radius: 12px;
   }
 }

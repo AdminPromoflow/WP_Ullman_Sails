@@ -5,7 +5,7 @@
   try {
     document.documentElement.classList.add("js-sr");
 
-    const sections = Array.from(document.querySelectorAll(".series-section[data-sr-reveal]"));
+    const sections = Array.from(document.querySelectorAll("#sailcare-material-guides .series-section[data-sr-reveal]"));
     if (!sections.length) return;
 
     const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;

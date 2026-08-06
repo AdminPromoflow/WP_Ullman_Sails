@@ -21,18 +21,12 @@ $ssImgV = is_file($ssImgFs) ? filemtime($ssImgFs) : time();
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Four reefs with webbing handles, reef blocks, and low-friction rings',
-  'Colour-coded mainsail luff reefs for accuracy',
-  'Mainsail luff furling reef system',
-  'Covered seams for enhanced UV and chafe protection',
-  'Multi-layer batten pockets with external webbing',
-  'Double leech and foot tapes',
-  'Dual overhead leechlines',
-  'External stainless steel rings with webbing',
-  'Rope luff pads for headsails',
-  'Spectra/Dyneema webbings',
-  'Extra-wide seams with triple-step stitching',
-  'UV covers standard',
+  'Custom design for offshore, high-latitude or superyacht use',
+  'UltraLam or Performance FiberPath construction',
+  '3D-designed flying shape and engineered structure',
+  'Material and fiber specification matched to expected loads',
+  'Reefing and handling details matched to the yacht’s systems',
+  'Reinforcement, thread and UV protection documented per project',
 ];
 ?>
 
@@ -42,9 +36,9 @@ $ss_features = [
   <div class="ss-wrap">
 
     <header class="ss-header">
-      <h2 id="ss-title" class="ss-title sr-item">Standard Specifications</h2>
+      <h2 id="ss-title" class="ss-title sr-item">Custom Specification</h2>
       <p class="ss-subtitle sr-item">
-        All Performance Series sails are built to our highest standards, with finishing details upgraded from the Voyager Series.
+        The Performance Series has no single universal component list; each sail is engineered for its yacht and use.
       </p>
     </header>
 

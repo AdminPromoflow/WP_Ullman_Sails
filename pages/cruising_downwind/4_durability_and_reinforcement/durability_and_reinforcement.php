@@ -14,24 +14,24 @@ SVG;
 
 $sid_items = [
   [
-    'title' => 'Nylon spinnaker cloth',
-    'text'  => 'Uses cruising nylon spinnaker cloth for strength and long service life; Blue Line commonly uses 1.5oz nylon, while Axia Blue Line specifies nylon cloth too.',
+    'title' => 'Model-specific Materials',
+    'text'  => 'Axia sails use Code Zero laminate or nylon spinnaker cloth depending on the selected Code or spinnaker model.',
   ],
   [
-    'title' => 'Radial construction',
-    'text'  => 'Built with radial construction (tri-radial layouts and radial patches) to align loads, hold shape longer, and reduce distortion as the sail works downwind.',
+    'title' => 'Active or Cable-Based Luff',
+    'text'  => 'The Axia range includes Active Luff™ development and proven cable-based solutions; the appropriate construction is selected for the sail’s role.',
   ],
   [
-    'title' => 'Cruising durability focus',
-    'text'  => 'Positioned as durable cruising downwind sails, focusing on strength, longevity and reliable performance across changing conditions rather than race-only edge.',
+    'title' => 'Cruising Durability Focus',
+    'text'  => 'Blue Line prioritizes ease of use, durability and dependable downwind performance rather than a race-only specification.',
   ],
   [
-    'title' => 'Handling aids and furling',
-    'text'  => 'Supports easier hoists and drops with handling systems such as spinnaker socks, and integrates furling options like top-down setups and torsional luff cables.',
+    'title' => 'Appropriate Handling System',
+    'text'  => 'Furling equipment or a spinnaker sock may simplify handling, but compatibility depends on the selected model and must be confirmed with the loft.',
   ],
   [
-    'title' => 'Custom graphics',
-    'text'  => 'Offers custom graphics as an upgrade, letting owners personalise the sail’s look for easy identification while keeping cruising-focused materials and construction.',
+    'title' => 'Custom Yacht Specification',
+    'text'  => 'Cloth weight, size, reinforcement, graphics and wind limits vary by boat and sail; the loft documents the final specification.',
   ],
 ];
 
@@ -50,10 +50,10 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   <div class="sid-wrap">
 
     <header class="sid-header">
-      <p class="sid-tagline sr-item">Downwind Series</p>
+      <p class="sid-tagline sr-item">Axia Blue Line</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Handling</h2>
       <p class="sid-intro sr-item">
-        Both Blue Line and Axia Blue Line emphasise durability for downwind cruising, pairing robust nylon cloth with radial builds, plus handling options and custom upgrades to suit your rig.
+        Axia Blue Line combines model-specific material, luff and handling choices. Code sails and classic spinnakers do not share one universal construction.
       </p>
     </header>
 

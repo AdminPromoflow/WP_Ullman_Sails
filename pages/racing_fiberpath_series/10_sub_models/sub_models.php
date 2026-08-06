@@ -1,26 +1,28 @@
 <?php
-$cssTime = filemtime('10_sub_models/sub_models.css');
-$jsTime  = filemtime('10_sub_models/sub_models.js');
+$cssFile = __DIR__ . '/sub_models.css';
+$jsFile  = __DIR__ . '/sub_models.js';
+$cssTime = is_file($cssFile) ? filemtime($cssFile) : time();
+$jsTime  = is_file($jsFile) ? filemtime($jsFile) : time();
 ?>
 <link rel="stylesheet" href="10_sub_models/sub_models.css?v=<?= $cssTime ?>">
 
-<body>
-
-  <section class="wrap" data-sr-reveal>
-    <h2 class="sr-item">How we build things that last</h2>
+<section class="wrap" data-sr-reveal>
+    <h2 class="sr-item">FiberPath Racing Options</h2>
 
     <div class="cards-flex">
       <article class="card sr-item">
         <h3>Grand Prix</h3>
         <p>
-          The highest-performance FibrePath option, built for exceptional load management and the strongest shape-holding for maximum speed.
+          Ullman’s higher-specification custom string-laminate option. Fibre layout,
+          skin and finishing are selected for the loads and racing programme.
         </p>
       </article>
 
       <article class="card sr-item">
         <h3>Regatta</h3>
         <p>
-          Custom membrane sails that stay lightweight and low-stretch, with an optional rugged “skin” to extend racing life with minimal weight gain.
+          Custom string-laminate sails available with carbon, aramid or specified blends
+          and film, taffeta or non-woven surface options, subject to the final specification.
         </p>
       </article>
 
@@ -28,5 +30,4 @@ $jsTime  = filemtime('10_sub_models/sub_models.js');
     </div>
   </section>
 
-  <script defer src="10_sub_models/sub_models.js?v=<?= $jsTime ?>"></script>
-</body>
+<script defer src="10_sub_models/sub_models.js?v=<?= $jsTime ?>"></script>

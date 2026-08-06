@@ -20,14 +20,12 @@ $ssImgV = is_file($ssImgFs) ? filemtime($ssImgFs) : null;
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Triple-step stitching on every seam',
-  'Stainless steel rings',
-  'Aluminium headboards for mainsails',
-  'Standard battened mainsails',
-  'Fibreglass battens',
-  'Reinforced batten pockets',
-  'Hanks or slides',
-  'Telltales on headsails',
+  'Custom design for the boat’s specifications',
+  'Premium, tightly woven Navigator Dacron',
+  'Cross-cut panel construction',
+  'Configuration for day sailing and coastal cruising',
+  'Hardware matched to the sail-handling system',
+  'Finishing and UV protection confirmed with the loft',
 ];
 ?>
 
@@ -37,8 +35,8 @@ $ss_features = [
   <div class="ss-wrap">
 
     <header class="ss-header">
-      <h2 id="ss-title" class="ss-title sr-item" data-sr-delay="0">Standard Specifications</h2>
-      <p class="ss-subtitle sr-item" data-sr-delay="70">Navigator sails come standard with the following features:</p>
+      <h2 id="ss-title" class="ss-title sr-item" data-sr-delay="0">Custom Specification</h2>
+      <p class="ss-subtitle sr-item" data-sr-delay="70">Navigator sails share this verified profile; exact hardware and finishing vary by project:</p>
     </header>
 
     <div class="ss-grid">

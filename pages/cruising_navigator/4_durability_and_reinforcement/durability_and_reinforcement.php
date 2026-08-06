@@ -15,39 +15,23 @@ SVG;
 $sid_items = [
   [
     'title' => 'Premium Dacron Cloth',
-    'text'  => 'Tightly woven premium Dacron resists UV, flogging and marine wear, reducing stretch and tearing so the sail holds its shape for longer in regular cruising use.',
+    'text'  => 'The series uses premium, tightly woven polyester sailcloth selected for dependable durability in day sailing and coastal cruising.',
   ],
   [
     'title' => 'Cross-Cut Panel Layout',
-    'text'  => 'Traditional cross-cut panels spread loads evenly and support long-term shape stability, making the sail reliable and easy to handle across varied coastal conditions.',
+    'text'  => 'Navigator Dacron is built in a cross-cut layout, matching the straightforward construction described for the series by Ullman Sails.',
   ],
   [
-    'title' => 'Layered Corner Reinforcements',
-    'text'  => 'Multi-layer “block patches” strengthen tack, clew and head, distributing high loads from sheets and halyards to prevent distortion, stretching and early corner failure.',
+    'title' => 'Custom Fit',
+    'text'  => 'Every sail is designed around the boat’s measurements and the owner’s sailing style instead of being supplied as a standard stock sail.',
   ],
   [
-    'title' => 'Triple-Step Stitching & UV Thread',
-    'text'  => 'Triple-step zigzag seams add redundancy and strength, while UV-resistant thread helps stitching last in sunlight; UV covers may use Tenara for maximum longevity.',
+    'title' => 'Practical Reinforcement',
+    'text'  => 'Reinforcement and finishing are specified for the individual sail and intended recreational use; exact components are confirmed by the loft.',
   ],
   [
-    'title' => 'Marine-Grade Corner Hardware',
-    'text'  => 'Stainless steel rings withstand high loads without corrosion, and an aluminium headboard on mainsails spreads stress at the head for a durable, secure attachment.',
-  ],
-  [
-    'title' => 'Reinforced Batten Pockets',
-    'text'  => 'Reinforced batten pockets reduce chafe and splitting, keeping fibreglass battens secure and lowering the risk of pocket damage during flogging or heavy handling.',
-  ],
-  [
-    'title' => 'Furling Fit & UV Protection Options',
-    'text'  => 'Hardware and finishing can be tailored to your furling unit, with optional UV covers protecting leech and foot when furled, extending service life in sunny climates.',
-  ],
-  [
-    'title' => 'Cruising-Focused Specs & Upgrades',
-    'text'  => 'Built for coastal cruising with solid baseline construction, plus options like extra reefs, foam luff pads and anti-mildew treatments for tougher use and longer life.',
-  ],
-  [
-    'title' => 'Manufacturer Claims & User Feedback',
-    'text'  => 'Ullman positions Navigator as affordable yet durable, and owner feedback commonly cites strong build quality, good shape retention and confidence over multiple seasons.',
+    'title' => 'UV and Handling Choices',
+    'text'  => 'UV protection, roller-furling compatibility and sail inventory choices should be agreed with the local loft for the boat and sailing area.',
   ],
 ];
 
@@ -73,7 +57,7 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
       <p class="sid-tagline sr-item" data-sr-delay="0">Navigator Series</p>
       <h2 id="sid-title" class="sid-title sr-item" data-sr-delay="70">Durability and Reinforcement</h2>
       <p class="sid-intro sr-item" data-sr-delay="140">
-        Built for coastal cruising and day sailing, the Ullman Sails Navigator Series blends premium Dacron with proven reinforcement for reliable shape and durability. Explore the nine key features below.
+        Navigator is Ullman’s affordable, durable choice for day sailing and coastal cruising. Its final reinforcement, hardware and protection package is customized for the boat.
       </p>
     </header>
 

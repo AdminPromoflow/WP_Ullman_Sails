@@ -14,16 +14,16 @@ SVG;
 
 $sid_items = [
   [
-    'title' => 'Reinforced construction',
-    'text'  => 'Built with multiple triple-step stitching, extra reinforcements and oversized radial patches to spread loads, reduce fatigue, and stay reliable.',
+    'title' => 'Material-led durability',
+    'text'  => 'UltraLam and Performance FiberPath constructions are selected to balance low stretch, load management and durability for demanding cruising.',
   ],
   [
-    'title' => 'High-spec components',
-    'text'  => 'Uses stainless rings with Spectra/Dyneema webbing, UV-resistant thread, plus reinforced slides and batten pockets for longer service life.',
+    'title' => 'Custom reinforcement',
+    'text'  => 'Fiber density, patches, hardware and finishing are engineered for the individual yacht rather than applied as one universal specification.',
   ],
   [
-    'title' => 'Durability upgrades',
-    'text'  => 'Add-ons like luff systems, extra reefs, full-length battens and furling/UV solutions improve control while extending wear resistance.',
+    'title' => 'Protection and seam choices',
+    'text'  => 'UV protection and thread choices, including GORE® TENARA® where specified, are selected for the climate and service requirements.',
   ],
 ];
 
@@ -49,7 +49,7 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
       <p class="sid-tagline sr-item">Performance Series</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Reinforcement</h2>
       <p class="sid-intro sr-item">
-        Built for offshore miles and harsh climates, Ullman’s Performance sails prioritise strength, reinforced build, and high-spec finishing to hold shape and integrity over long passages.
+        Performance sails are custom projects. Durability depends on the selected construction, reinforcement, protection and appropriate operation within the sail’s design limits.
       </p>
     </header>
 

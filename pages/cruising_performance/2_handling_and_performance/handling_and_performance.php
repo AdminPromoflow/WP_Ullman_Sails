@@ -14,16 +14,16 @@ SVG;
 
 $ph_steps = [
   [
-    'title' => 'Stable shape = easier, consistent trim',
-    'text'  => 'The sail holds its designed profile under load, so you make fewer tweaks and stay balanced.',
+    'title' => 'Custom high-performance design',
+    'text'  => 'The shape and structure are designed for the individual yacht using Ullman’s 3D tools and numerical analysis.',
   ],
   [
-    'title' => 'Materials/build that endure (without losing pace)',
-    'text'  => 'Tight-spec cloth and reinforced build deliver passage durability without dulling performance.',
+    'title' => 'UltraLam or Performance FiberPath',
+    'text'  => 'Material selection is centered on low stretch, load management and durability for the intended offshore or high-latitude program.',
   ],
   [
-    'title' => 'Options for control and manoeuvres',
-    'text'  => 'Luff systems, extra reefs, furling/UV solutions and battens improve handling, safer manoeuvres and a wider range.',
+    'title' => 'Handling details matched to the yacht',
+    'text'  => 'Reefing, furling, luff hardware and finishing are specified around the yacht’s systems and the crew’s operating requirements.',
   ],
 ];
 
@@ -59,7 +59,7 @@ $ph_img_v = is_file($ph_img_fs) ? filemtime($ph_img_fs) : time();
       <img
         class="ph-image sr-item"
         src="<?= $ph_img_public ?>?v=<?= $ph_img_v ?>"
-        alt="Navigator Series sails shown under load"
+        alt="Performance Series sails shown under load"
         loading="lazy"
         decoding="async"
       >

@@ -64,14 +64,14 @@ $slides = [
   [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
-    'title'       => 'Downwind Sails',
-    'subtitle'    => 'Purpose-built for fast, stable downwind sailing.',
+    'title'       => 'Axia Blue Line',
+    'subtitle'    => 'Downwind cruising sails designed for easy trimming.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
-    'title'       => 'Downwind Sails',
-    'subtitle'    => 'Optimised for broad reaches and deep angles.',
+    'title'       => 'Axia Blue Line',
+    'subtitle'    => 'Code sails plus symmetrical and asymmetrical spinnakers.',
   ],
 ];
 

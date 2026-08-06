@@ -14,20 +14,20 @@ SVG;
 
 $ph_steps = [
   [
-    'title' => 'Trim Range',
-    'text'  => 'Wide trim range and predictable response keep the boat balanced as conditions change.',
+    'title' => 'Custom Sail Shape',
+    'text'  => 'The flying shape is designed for the boat, sail type and intended wind range rather than supplied as a universal profile.',
   ],
   [
-    'title' => 'Control Under Load',
-    'text'  => 'Stable shaping holds form through tacks, gybes and lulls for confident handling.',
+    'title' => 'Race Dacron Option',
+    'text'  => 'Woven race polyester can be specified in cross-cut or radial construction where it suits the programme.',
   ],
   [
-    'title' => 'Fast Transitions',
-    'text'  => 'Quick acceleration and crisp response through manoeuvres helps you hold pace on the racecourse.',
+    'title' => 'Race Laminate Option',
+    'text'  => 'Laminate construction can reduce weight and stretch, with fibre and panel layout selected for loads and durability priorities.',
   ],
   [
-    'title' => 'Durable Performance',
-    'text'  => 'Race-grade finishing supports hard use while preserving an efficient flying shape.',
+    'title' => 'Programme-Specific Handling',
+    'text'  => 'Luff, battens, reefing, hardware and trim references are specified around the rig, crew and applicable rules.',
   ],
 ];
 
@@ -59,7 +59,7 @@ $ph_img_v = is_file($ph_img_fs) ? filemtime($ph_img_fs) : time();
       <img
         class="ph-image sr-item"
         src="<?= $ph_img_public ?>?v=<?= $ph_img_v ?>"
-        alt="Navigator Series sails shown under load"
+        alt="Race Series sail shown under load"
         loading="lazy"
         decoding="async"
       >

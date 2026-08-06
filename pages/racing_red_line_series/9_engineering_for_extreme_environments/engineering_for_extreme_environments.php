@@ -22,7 +22,7 @@ $introJsVersion  = filemtime(__DIR__ . '/engineering_for_extreme_environments.js
         class="efee-title sr-item"
         style="--sr-delay: 0ms"
       >
-        Engineering for extreme environments
+        Building an Axia Red Line Inventory
       </h2>
     </header>
 
@@ -30,9 +30,9 @@ $introJsVersion  = filemtime(__DIR__ . '/engineering_for_extreme_environments.js
       <article class="efee-item sr-item" role="listitem" style="--sr-delay: 70ms">
         <div class="efee-num" aria-hidden="true">01</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">Ultra-high performance membrane design</h3>
+          <h3 class="efee-item-title">Choose the required angles</h3>
           <p class="efee-text">
-            Axia Red Line sails use advanced membrane technology to achieve maximum strength-to-weight ratios, delivering explosive response and precision control at the highest racing levels.
+            Start with the gaps in the existing inventory: close reaching, reaching, broad reaching or running. Each Axia model serves a different application.
           </p>
         </div>
       </article>
@@ -40,9 +40,9 @@ $introJsVersion  = filemtime(__DIR__ . '/engineering_for_extreme_environments.js
       <article class="efee-item sr-item" role="listitem" style="--sr-delay: 140ms">
         <div class="efee-num" aria-hidden="true">02</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">Carbon-driven load management</h3>
+          <h3 class="efee-item-title">Check girth and rating treatment</h3>
           <p class="efee-text">
-            High-modulus carbon fibres dominate the load structure, minimising stretch under extreme loads and locking in sail shape during heavy-air racing and sustained upwind pressure.
+            Mid-girth and geometry affect both the sail’s intended use and how a class or rating rule may classify it.
           </p>
         </div>
       </article>
@@ -50,9 +50,9 @@ $introJsVersion  = filemtime(__DIR__ . '/engineering_for_extreme_environments.js
       <article class="efee-item sr-item" role="listitem" style="--sr-delay: 210ms">
         <div class="efee-num" aria-hidden="true">03</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">Lightweight without compromise</h3>
+          <h3 class="efee-item-title">Specify cloth and wind limits</h3>
           <p class="efee-text">
-            Optimised film and fibre combinations reduce overall weight while preserving durability, allowing faster hoists, smoother manoeuvres and superior performance in marginal conditions.
+            Code laminate or spinnaker cloth and its weight are selected for the model, boat and conditions. The loft must provide boat-specific operating guidance.
           </p>
         </div>
       </article>
@@ -60,9 +60,9 @@ $introJsVersion  = filemtime(__DIR__ . '/engineering_for_extreme_environments.js
       <article class="efee-item sr-item" role="listitem" style="--sr-delay: 280ms">
         <div class="efee-num" aria-hidden="true">04</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">Elite racing focus</h3>
+          <h3 class="efee-item-title">Match the handling system</h3>
           <p class="efee-text">
-            Designed for professional and top-level amateur racers, Red Line sails prioritise speed, stability and confidence when sailing at the limit, where small gains decide results.
+            Pole, tack point, sheets, furler, luff cable and retrieval method must work together with the selected sail and deck layout.
           </p>
         </div>
       </article>

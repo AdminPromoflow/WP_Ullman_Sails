@@ -7,53 +7,45 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 ?>
 <link rel="stylesheet" href="12_sub_models/sub_models.css<?= $cssVersion ? '?v='.$cssVersion : '' ?>">
 
-<body>
-
   <section class="wrap" data-sr-reveal>
-      <h2 class="sr-item">How we build things that last</h2>
+      <h2 class="sr-item">Axia Blue Line Models</h2>
 
       <div class="cards-flex sr-item">
         <article class="card sr-item">
-          <h3>Blue Line Series</h3>
+          <h3>Axia Code 50</h3>
           <p>
-            Easy-trim cruising spinnakers that add downwind
-            speed while keeping handling safe—plus options like the ATN sock.
+            50–60% mid-girth screecher for close reaching. Ullman lists a typical target of 65–80° TWA in 5–10 knots TWS, with broader angles as wind increases.
           </p>
         </article>
 
         <article class="card sr-item">
-          <h3>Cruising AP Spinnaker</h3>
+          <h3>Axia Code 60</h3>
           <p>
-            Standard 165% asym for power with control,
-            typically 1.5oz nylon, built to stay hoisted across a wide range.
+            60–70% mid-girth reaching to broad-reaching sail, normally sheeted outside the cap shrouds. In lighter wind it can work below 95° TWA.
           </p>
         </article>
 
         <article class="card sr-item">
-          <h3>Cruising Mini Spinnaker</h3>
+          <h3>Axia Code 70</h3>
           <p>
-            145% Mini for simpler, forgiving downwind
-            sailing—great for singlehanders, easier hoists/douses with an ATN sock.
+            70–80% mid-girth furling asymmetric spinnaker for reaching. Ullman lists light-air angles below 110° TWA, broadening as wind increases.
           </p>
         </article>
 
         <article class="card sr-item">
-          <h3>The Axia Series — Blue Line (Downwind Cruising)</h3>
+          <h3>Axia Symmetrical</h3>
           <p>
-            Dedicated downwind cruising sails for stable,
-            smooth flying shapes and confident broad-reaching/running, tailored to your rig.
+            A custom symmetrical downwind spinnaker for boats equipped with a spinnaker pole.
           </p>
         </article>
 
         <article class="card sr-item">
-          <h3>Lightweight fabrics for easier handling</h3>
+          <h3>Axia Asymmetrical</h3>
           <p>
-            Comfortable ride and greater confidence on passage
-            Built for cruisers who want to sail deeper, faster, and with control.
+            An 80–97% mid-girth all-purpose asymmetric spinnaker for reaching through running. The wind limit depends on the yacht and cloth selection.
           </p>
         </article>
       </div>
     </section>
 
   <script defer src="12_sub_models/sub_models.js<?= $jsVersion ? '?v='.$jsVersion : '' ?>" type="text/javascript"></script>
-</body>

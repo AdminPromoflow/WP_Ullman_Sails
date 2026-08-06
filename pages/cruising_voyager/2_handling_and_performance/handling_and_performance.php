@@ -14,16 +14,16 @@ SVG;
 
 $ph_steps = [
   [
-    'title' => 'Performance',
-    'text'  => 'Holds a stable, efficient shape across a wide wind range, with low stretch under load for steady upwind speed on long passages.',
+    'title' => 'Wider working wind range',
+    'text'  => 'The combination of custom design, construction and high-end materials is intended to preserve an efficient flying shape across a wider wind range.',
   ],
   [
-    'title' => 'Handling',
-    'text'  => 'Smooth hoists, reefs and furling; clear trim cues; and tough reinforcements so sail handling stays calm and reliable offshore.',
+    'title' => 'Custom yacht specification',
+    'text'  => 'Sail shape, cloth, construction and handling details are selected for the individual yacht and cruising program.',
   ],
   [
-    'title' => 'Materials/Build',
-    'text'  => 'Low-stretch laminates with radial layouts (Enduro, carbon/Dyneema) boost strength, tear resistance and shape retention.',
+    'title' => 'Three verified material families',
+    'text'  => 'Current Ullman information lists Voyager Dacron, UltraCruise woven Ultra-PE cloth and Voyager FiberPath as the principal cloth choices.',
   ],
 ];
 
@@ -59,7 +59,7 @@ $ph_img_v = is_file($ph_img_fs) ? filemtime($ph_img_fs) : time();
       <img
         class="ph-image sr-item"
         src="<?= $ph_img_public ?>?v=<?= $ph_img_v ?>"
-        alt="Navigator Series sails shown under load"
+        alt="Voyager Series sails shown under load"
         loading="lazy"
         decoding="async"
       >

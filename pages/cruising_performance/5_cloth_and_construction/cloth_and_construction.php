@@ -66,8 +66,8 @@ $sail3V  = is_file($sail3Fs) ? filemtime($sail3Fs) : time();
           <div class="nav-specsheet__group sr-item" aria-label="Cloth Selection and Construction" data-sr-delay="210">
             <div class="nav-specsheet__groupTitle">ULTRALAM</div>
             <div class="nav-specsheet__groupItems">
-              <div class="nav-specsheet__item">RADIAL CARBON ULTRA PE</div>
-              <div class="nav-specsheet__item">HIGH END LAMINATE</div>
+              <div class="nav-specsheet__item">HIGH-END CRUISING LAMINATE</div>
+              <div class="nav-specsheet__item">LOW-STRETCH PERFORMANCE OPTION</div>
             </div>
           </div>
 
@@ -78,37 +78,37 @@ $sail3V  = is_file($sail3Fs) ? filemtime($sail3Fs) : time();
             </div>
           </div>
 
-          <h3 class="nav-specsheet__subtitle sr-item" data-sr-delay="350">Standard Components</h3>
+          <h3 class="nav-specsheet__subtitle sr-item" data-sr-delay="350">Verified Series Profile</h3>
 
           <div class="nav-specsheet__list">
             <div class="nav-specsheet__row sr-item" data-sr-delay="420">
-              <div class="nav-specsheet__key">STITCHING</div>
-              <div class="nav-specsheet__val">MULTIPLE TRIPLE-STEP</div>
+              <div class="nav-specsheet__key">APPLICATION</div>
+              <div class="nav-specsheet__val">OFFSHORE, HIGH-LATITUDE &amp; SUPERYACHTS</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="490">
-              <div class="nav-specsheet__key">RINGS</div>
-              <div class="nav-specsheet__val">STAINLESS STEEL &amp; SPECTRA/DYNEEMA WEBBING</div>
+              <div class="nav-specsheet__key">DESIGN</div>
+              <div class="nav-specsheet__val">CUSTOM 3D-DESIGNED SHAPE &amp; STRUCTURE</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="560">
-              <div class="nav-specsheet__key">THREAD</div>
-              <div class="nav-specsheet__val">UV RESISTANT THREAD ON ALL SEAMING &amp; U.V COVERS</div>
+              <div class="nav-specsheet__key">ULTRALAM</div>
+              <div class="nav-specsheet__val">HIGH-END CRUISING LAMINATE</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="630">
-              <div class="nav-specsheet__key">SLIDES</div>
-              <div class="nav-specsheet__val">ADDITIONAL REINFORCEMENTS</div>
+              <div class="nav-specsheet__key">FIBERPATH</div>
+              <div class="nav-specsheet__val">CUSTOM FIBER-LAYOUT CONSTRUCTION</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="700">
-              <div class="nav-specsheet__key">BATTEN POCKETS</div>
-              <div class="nav-specsheet__val">REINFORCED POCKETS &amp; BATTENS</div>
+              <div class="nav-specsheet__key">PRIORITIES</div>
+              <div class="nav-specsheet__val">LOW STRETCH, LOAD MANAGEMENT &amp; DURABILITY</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="770">
-              <div class="nav-specsheet__key">PATCHES</div>
-              <div class="nav-specsheet__val">OVERSIZED RADIAL PATCHES</div>
+              <div class="nav-specsheet__key">FINAL SPECIFICATION</div>
+              <div class="nav-specsheet__val">CONFIRMED WITH THE LOCAL LOFT</div>
             </div>
           </div>
         </div>

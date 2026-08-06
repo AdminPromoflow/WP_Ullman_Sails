@@ -22,9 +22,9 @@ $sectionUrl = get_template_directory_uri() . '/pages/Cruising/cruising_section';
   <h1 id="cruising-title" class="cruising-title">Cruising sails</h1>
 
   <p class="cruising-subtitle">
-    When it comes to cruising sails, durability and ease of use are key. The Navigator Series, Endurance Series,
-    Voyager Series, and Expedition Series are all popular choices for cruisers, each with their own unique
-    features and benefits...
+    Every Ullman cruising sail is custom-built around the boat, cruising style and budget. The range covers
+    day and coastal sailing, offshore and high-latitude cruising, performance-focused yachts and dedicated
+    downwind sailing.
   </p>
 
   <ul class="cruising-icons" role="list">

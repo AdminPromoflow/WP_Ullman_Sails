@@ -14,20 +14,20 @@ SVG;
 
 $dac_items = [
   [
-    'title' => 'Decades of Experience',
-    'text'  => 'Our design team has decades of expertise to draw upon.',
+    'title' => 'Custom sail design',
+    'text'  => 'Each sail is developed for the individual boat rather than supplied as a generic stock shape.',
   ],
   [
-    'title' => 'Specialised Software',
-    'text'  => 'We use SMAR Azure software to ensure technical precision.',
+    'title' => '3D design and analysis',
+    'text'  => 'Ullman’s design team uses 3D tools and numerical analysis to refine flying shape and structure before production.',
   ],
   [
-    'title' => 'Ease of Handling',
-    'text'  => 'These sails remain easy to handle even as conditions change.',
+    'title' => 'Navigator Dacron',
+    'text'  => 'The series uses tightly woven polyester sailcloth selected for durability and straightforward handling.',
   ],
   [
-    'title' => 'Enhanced Reliability',
-    'text'  => 'We design for reliable, long-lasting performance under load.',
+    'title' => 'Cross-cut construction',
+    'text'  => 'Navigator Dacron is built in a cross-cut panel layout for day sailing and coastal cruising.',
   ],
 ];
 
@@ -54,7 +54,7 @@ $dacJsV  = is_file($dacJsFs)  ? filemtime($dacJsFs)  : time();
       <h2 id="dac-title" class="dac-title sr-item">Reliable by Design</h2>
 
       <p class="dac-subtitle sr-item">
-        Building on our introduction, this section highlights how our seasoned design team and advanced technology come together to deliver sails that are reliable and effortless to manage. Below are four key points that support lasting performance and ease of use.
+        Navigator combines a custom design with premium cross-cut Dacron. The boat, sailing area, handling systems and owner’s priorities determine the final specification.
       </p>
     </header>
 

@@ -47,4 +47,16 @@ $breadcrumbs = $breadcrumbs ?? [
       <?php endforeach; ?>
     </ol>
   </nav>
+
+  <nav class="sailcare-jump-nav" aria-label="Sail care sections">
+    <span class="sailcare-jump-nav__label">On this page</span>
+    <div class="sailcare-jump-nav__scroller">
+      <a class="sailcare-jump-nav__link" href="#sailcare-title">Best practices</a>
+      <a class="sailcare-jump-nav__link" href="#sci-title">Find your guide</a>
+      <a class="sailcare-jump-nav__link" href="#Woven_Dacron">By material</a>
+      <a class="sailcare-jump-nav__link" href="#Keelboat_Multihull">By boat type</a>
+      <a class="sailcare-jump-nav__link" href="#sailcare-tips">Care tips</a>
+      <a class="sailcare-jump-nav__link" href="#sailcare-faq">FAQ</a>
+    </div>
+  </nav>
 </section>

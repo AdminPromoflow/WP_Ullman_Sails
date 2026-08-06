@@ -20,13 +20,12 @@ $ssImgV = is_file($ssImgFs) ? filemtime($ssImgFs) : null;
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Multiple triple-step stitching on seams',
-  'Stainless steel rings with load-bearing webbing',
-  'UV-resistant thread',
-  'Reinforced slides for added strength',
-  'Radial patches in high-load areas',
-  'Double leech tape for stability',
-  'Sunbrella UV cover on furling sails',
+  'Custom design for offshore or passage-making use',
+  'Enduro Dacron or taffeta-coated Enduro Laminate',
+  'Multiple rows of triple-step stitching on each seam',
+  'Additional reinforcement in mainsail reefing areas',
+  'Head and tack reinforcement on roller-reefing genoas',
+  'Hardware, UV protection and finishing specified per project',
 ];
 ?>
 
@@ -36,8 +35,8 @@ $ss_features = [
   <div class="ss-wrap">
 
     <header class="ss-header">
-      <h2 id="ss-title" class="ss-title sr-item">Standard Specifications</h2>
-      <p class="ss-subtitle sr-item">Navigator sails come standard with the following features:</p>
+      <h2 id="ss-title" class="ss-title sr-item">Custom Specification</h2>
+      <p class="ss-subtitle sr-item">Endurance sails share this verified profile; the final specification varies by yacht and sail:</p>
     </header>
 
     <div class="ss-grid">
@@ -46,7 +45,7 @@ $ss_features = [
         <div class="ss-image">
           <img
             src="7_standard_specifications/img/standard_specifications.jpg<?= $ssImgV ? '?v='.$ssImgV : '' ?>"
-            alt="Navigator sail standard specifications"
+            alt="Endurance sail custom specification"
             loading="lazy"
             decoding="async"
           >

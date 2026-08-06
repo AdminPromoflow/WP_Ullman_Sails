@@ -32,7 +32,7 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
 
     <!-- Keep the intro copy as a single paragraph for clean semantics -->
     <p class="sr-item" data-sr-delay="140">
-      Performance Series is Ullman’s advanced cruising sail for offshore high-latitude and superyacht sailing. Exceptional design plus precise construction deliver higher performance and durability in hard conditions.
+      The Performance Series is built for offshore and high-latitude cruising and superyachts. Advanced sail design, precise construction and high-specification materials combine durability with performance in demanding conditions.
     </p>
   </div>
 </section>

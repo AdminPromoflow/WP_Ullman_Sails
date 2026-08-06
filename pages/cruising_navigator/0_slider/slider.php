@@ -62,13 +62,13 @@ $slides = [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
     'title'       => 'Navigator Series',
-    'subtitle'    => 'Designed for coastal cruising and day sailing.',
+    'subtitle'    => 'Affordable, durable sails for day and coastal cruising.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
     'title'       => 'Navigator Series',
-    'subtitle'    => 'Built for everyday cruising.',
+    'subtitle'    => 'Custom-built in cross-cut Navigator Dacron.',
   ],
 ];
 

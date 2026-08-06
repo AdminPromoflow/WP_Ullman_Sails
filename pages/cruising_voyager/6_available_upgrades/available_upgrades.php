@@ -26,44 +26,28 @@ $jsSrc    = versioned_asset($jsPublic, $jsFs);
 
 $upgrades = [
   [
-    'title' => '100% Gore® Tenara® thread stitching',
-    'text'  => 'All seams stitched in 100% Gore® Tenara® for maximum UV resistance and seam longevity.',
+    'title' => 'Voyager Dacron',
+    'text'  => 'A reinforced cross-cut woven-polyester option for durable, straightforward offshore cruising sails.',
   ],
   [
-    'title' => 'Limited leather finishings (corners)',
-    'text'  => 'Selective leather corner patches reduce chafe and abrasion where loads and wear are highest.',
+    'title' => 'UltraCruise',
+    'text'  => 'A woven Ultra-PE and polyester option selected where low stretch and high tear resistance are priorities.',
   ],
   [
-    'title' => 'Anti-mildew treatment',
-    'text'  => 'Anti-mildew treatment helps keep the sail fresher, reducing staining and odours in damp stowage.',
+    'title' => 'Voyager FiberPath',
+    'text'  => 'A custom fiber-layout option engineered around the sail’s expected loads and required cruising durability.',
   ],
   [
-    'title' => 'Luff systems',
-    'text'  => 'Luff system options improve hoists and tension control for smoother handling and better headsail shape.',
+    'title' => 'Handling system integration',
+    'text'  => 'Luff, furling, reefing and attachment details are configured for the yacht’s installed equipment.',
   ],
   [
-    'title' => 'Additional reefs for mainsails',
-    'text'  => 'Extra reef points let you reduce area quickly and keep the boat balanced as conditions build.',
+    'title' => 'UV protection and finishing',
+    'text'  => 'Covers, protective treatments, hardware and finishing are specified for the intended climate and use.',
   ],
   [
-    'title' => 'Foam luff for headsails',
-    'text'  => 'Foam luff inserts support shape when reefed on the furler, keeping the draft forward and stable.',
-  ],
-  [
-    'title' => 'UV covers / treatments (furling systems)',
-    'text'  => 'UV covers or treatments protect exposed leech and foot on furlers, extending cloth life in sun.',
-  ],
-  [
-    'title' => 'Sail numbers',
-    'text'  => 'Sail numbers add clear identification for racing or marina control, applied to suit your layout.',
-  ],
-  [
-    'title' => 'Full-length battens',
-    'text'  => 'Full-length battens support roach and shape, improving stability and reducing flogging in lulls.',
-  ],
-  [
-    'title' => 'UV-resistant thread upgrade',
-    'text'  => 'Upgrade to UV-resistant thread throughout to improve stitch durability in harsh, high-UV use.',
+    'title' => 'GORE® TENARA® thread',
+    'text'  => 'Where specified, ePTFE thread provides resistance to UV, saltwater and extreme weather; confirm its use with the loft.',
   ],
 ];
 
@@ -79,7 +63,7 @@ $total = count($upgrades);
       <p class="au-tagline sr-item" data-sr-delay="0">Voyager Series</p>
       <h2 id="au-title" class="ss-title sr-item" data-sr-delay="70">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item" data-sr-delay="140">
-        Durability-focused options to extend service life and improve handling for Voyager sails.
+        Voyager is a custom range. Select the material, construction and finishing with the local Ullman Sails loft.
       </p>
     </header>
 

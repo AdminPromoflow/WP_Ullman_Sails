@@ -21,16 +21,15 @@ $ssImgV = is_file($ssImgFs) ? filemtime($ssImgFs) : time();
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Stitching',
-  'Rings',
-  'Thread ',
-  'Slides',
-  'Batten pockets',
-  'Patches',
-  'Construction adhesive',
-  'Sail numbers',
-  'Draft stripes',
-  'Telltales',
+  'FiberPath configuration: Regatta or Grand Prix',
+  'Fibre blend and custom string layout',
+  'Film, taffeta or non-woven skin where available',
+  'Corner reinforcement and attachment hardware',
+  'Luff, slide and batten systems',
+  'Reefing details where specified',
+  'Class, rating and measurement requirements',
+  'Sail numbers, draft stripes and telltales',
+  'Handling, bag and storage details',
 ];
 ?>
 
@@ -41,7 +40,7 @@ $ss_features = [
 
     <header class="ss-header">
       <h2 id="ss-title" class="ss-title sr-item">Standard Specifications</h2>
-      <p class="ss-subtitle sr-item">Triple-step seams, Dyneema rings, UV thread, reinforcements, trim aids—race durable &amp; repeatable.</p>
+      <p class="ss-subtitle sr-item">These are specification areas, not universal standard components. Confirm the final written build specification with the loft.</p>
     </header>
 
     <div class="ss-grid">
@@ -50,7 +49,7 @@ $ss_features = [
         <div class="ss-image">
           <img
             src="<?= $ssImgPublic ?>?v=<?= $ssImgV ?>"
-            alt="Navigator sail standard specifications"
+            alt="FiberPath sail specification details"
             loading="lazy"
             decoding="async"
           >

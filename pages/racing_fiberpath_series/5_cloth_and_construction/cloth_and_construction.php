@@ -10,9 +10,9 @@ $fpRegattaMainFs = __DIR__ . '/img/GrandPrix_Main.png';
 $fpRegattaHeadFs = __DIR__ . '/img/Regatta_Head.png';
 $fpRegattaJibFs  = __DIR__ . '/img/Regatta_Jib.png';
 
-$fpGrandPrixMainFs = __DIR__ . '/../../cruising_navigator/5_cloth_and_construction/img/sail_1.png';
-$fpGrandPrixHeadFs = __DIR__ . '/../../cruising_navigator/5_cloth_and_construction/img/sail_2.png';
-$fpGrandPrixJibFs  = __DIR__ . '/../../cruising_navigator/5_cloth_and_construction/img/sail_2.png';
+$fpGrandPrixMainFs = __DIR__ . '/img/GrandPrix_Main.png';
+$fpGrandPrixHeadFs = __DIR__ . '/img/Regatta_Head.png';
+$fpGrandPrixJibFs  = __DIR__ . '/img/Regatta_Jib.png';
 
 /* Public paths */
 $nsCssPublic = '5_cloth_and_construction/cloth_and_construction.css';
@@ -33,7 +33,7 @@ $fpGrandPrixJibV  = is_file($fpGrandPrixJibFs)  ? filemtime($fpGrandPrixJibFs)  
 
 <link rel="stylesheet" href="<?= $nsCssPublic ?>?v=<?= $nsCssV ?>">
 
-<section class="nav-specsheet" data-sr-reveal aria-label="Downwind cloth selection and construction">
+<section class="nav-specsheet" data-sr-reveal aria-label="FiberPath cloth selection and construction">
   <h2 id="csp-title" class="csp-title sr-item">Cloth Selection &amp; Construction</h2>
 
   <!-- =========================
@@ -48,7 +48,7 @@ $fpGrandPrixJibV  = is_file($fpGrandPrixJibFs)  ? filemtime($fpGrandPrixJibFs)  
             <img class="nav-rotator__img is-active"
                  src="../racing_fiberpath_series/5_cloth_and_construction/img/GrandPrix_Main.png?v=<?= $fpRegattaMainV ?>"
                  alt="FiberPath sail view 1"
-                 data-sub="THE FIBERPATH REGATTA SERIES — MAINSAIL">
+                 data-sub="THE FIBERPATH GRAND PRIX SERIES — MAINSAIL">
 
             <img class="nav-rotator__img"
                  src="../racing_fiberpath_series/5_cloth_and_construction/img/Regatta_Head.png?v=<?= $fpRegattaHeadV ?>"
@@ -81,43 +81,43 @@ $fpGrandPrixJibV  = is_file($fpGrandPrixJibFs)  ? filemtime($fpGrandPrixJibFs)  
             </div>
           </div>
 
-          <h3 class="nav-specsheet__subtitle">Standard Components</h3>
+          <h3 class="nav-specsheet__subtitle">Typical Specification Areas</h3>
           <div class="nav-specsheet__list">
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">RINGS</div>
-              <div class="nav-specsheet__val">STAINLESS STEEL RINGS WITH SPECTRA/DYNEEMA WEBBING REINFORCEMENT</div>
+              <div class="nav-specsheet__val">TYPE AND REINFORCEMENT CONFIRMED IN THE FINAL SPECIFICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">THREAD</div>
-              <div class="nav-specsheet__val">HIGH-PERFORMANCE DURABLE THREAD</div>
+              <div class="nav-specsheet__val">THREAD SELECTED FOR THE MATERIAL AND APPLICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key"> SLIDES</div>
-              <div class="nav-specsheet__val">ADDITIONAL REINFORCEMENTS AT SLIDE ENTRY POINTS</div>
+              <div class="nav-specsheet__val">SLIDE SYSTEM AND LOCAL REINFORCEMENT SPECIFIED FOR THE RIG</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">BATTEN POCKETS</div>
-              <div class="nav-specsheet__val">LEECH OR LUFF LOADING VELCRO PUSH-IN, ROCKET TENSIONER, OR OTHER ADJUSTABLE OUTBOARD END STYLES WITH BATTENS</div>
+              <div class="nav-specsheet__val">BATTEN AND TENSIONING SYSTEM SPECIFIED FOR THE SAIL</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">PATCHES</div>
-              <div class="nav-specsheet__val">RADIAL PATCHES</div>
+              <div class="nav-specsheet__val">CORNER AND LOAD-POINT REINFORCEMENT TO THE BUILD SPECIFICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">CONSTRUCTION ADHESIVE</div>
-              <div class="nav-specsheet__val">ULTRABOND HOJOS ON LAMINATE, ARAMID &amp; PEN SAILS</div>
+              <div class="nav-specsheet__val">LAMINATION AND JOINING DETAILS SET BY THE BUILD SPECIFICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">SAIL NUMBERS</div>
-              <div class="nav-specsheet__val">STANDARD STYLE &amp; COLOURS</div>
+              <div class="nav-specsheet__val">NUMBERS AND INSIGNIA TO CLASS OR OWNER REQUIREMENTS</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">DRAFT STRIPES</div>
-              <div class="nav-specsheet__val">RACE-STYLE MID MARKS APPLIED AT 50% OF FOOT &amp; 50% OF EACH DRAFT STRIP</div>
+              <div class="nav-specsheet__val">POSITION AND STYLE CONFIRMED WITH THE SAILMAKER</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">TELLTALES</div>
-              <div class="nav-specsheet__val">TELLTALES ON LEECH &amp; BODY</div>
+              <div class="nav-specsheet__val">NUMBER AND POSITION CONFIRMED FOR THE SAIL</div>
             </div>
           </div>
         </div>
@@ -143,12 +143,12 @@ $fpGrandPrixJibV  = is_file($fpGrandPrixJibFs)  ? filemtime($fpGrandPrixJibFs)  
             <img class="nav-rotator__img"
                  src="../racing_fiberpath_series/5_cloth_and_construction/img/Regatta_Head.png?v=<?= $fpGrandPrixHeadV ?>"
                  alt="FiberPath sail view B"
-                 data-sub="THE FIBERPATH GRAND PRIX SERIES — HEADSAIL">
+                 data-sub="THE FIBERPATH REGATTA SERIES — HEADSAIL">
 
             <img class="nav-rotator__img"
                  src="../racing_fiberpath_series/5_cloth_and_construction/img/Regatta_Jib.png?v=<?= $fpGrandPrixJibV ?>"
                  alt="FiberPath sail view C"
-                 data-sub="THE FIBERPATH GRAND PRIX SERIES — JIB">
+                 data-sub="THE FIBERPATH REGATTA SERIES — JIB">
           </div>
 
           <figcaption class="nav-rotator__caption">
@@ -171,43 +171,43 @@ $fpGrandPrixJibV  = is_file($fpGrandPrixJibFs)  ? filemtime($fpGrandPrixJibFs)  
             </div>
           </div>
 
-          <h3 class="nav-specsheet__subtitle">Standard Components</h3>
+          <h3 class="nav-specsheet__subtitle">Typical Specification Areas</h3>
           <div class="nav-specsheet__list">
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">RINGS</div>
-              <div class="nav-specsheet__val">STAINLESS STEEL RINGS WITH SPECTRA/DYNEEMA WEBBING REINFORCEMENT</div>
+              <div class="nav-specsheet__val">TYPE AND REINFORCEMENT CONFIRMED IN THE FINAL SPECIFICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">THREAD</div>
-              <div class="nav-specsheet__val">HIGH-PERFORMANCE DURABLE THREAD</div>
+              <div class="nav-specsheet__val">THREAD SELECTED FOR THE MATERIAL AND APPLICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">SLIDES</div>
-              <div class="nav-specsheet__val">ADDITIONAL REINFORCEMENTS AT SLIDE ENTRY POINTS</div>
+              <div class="nav-specsheet__val">SLIDE SYSTEM AND LOCAL REINFORCEMENT SPECIFIED FOR THE RIG</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">BATTEN POCKETS</div>
-              <div class="nav-specsheet__val">LEECH OR LUFF LOADING VELCRO PUSH-IN, ROCKET TENSIONER, OR OTHER ADJUSTABLE OUTBOARD END STYLES WITH BATTENS</div>
+              <div class="nav-specsheet__val">BATTEN AND TENSIONING SYSTEM SPECIFIED FOR THE SAIL</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">PATCHES</div>
-              <div class="nav-specsheet__val">RADIAL PATCHES</div>
+              <div class="nav-specsheet__val">CORNER AND LOAD-POINT REINFORCEMENT TO THE BUILD SPECIFICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">CONSTRUCTION ADHESIVE</div>
-              <div class="nav-specsheet__val">ULTRABOND HOJOS ON LAMINATE, ARAMID &amp; PEN SAILS</div>
+              <div class="nav-specsheet__val">LAMINATION AND JOINING DETAILS SET BY THE BUILD SPECIFICATION</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">SAIL NUMBERS</div>
-              <div class="nav-specsheet__val">STANDARD STYLE &amp; COLOURS</div>
+              <div class="nav-specsheet__val">NUMBERS AND INSIGNIA TO CLASS OR OWNER REQUIREMENTS</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">DRAFT STRIPES</div>
-              <div class="nav-specsheet__val">RACE-STYLE MID MARKS APPLIED AT 50% OF FOOT &amp; 50% OF EACH DRAFT STRIP</div>
+              <div class="nav-specsheet__val">POSITION AND STYLE CONFIRMED WITH THE SAILMAKER</div>
             </div>
             <div class="nav-specsheet__row">
               <div class="nav-specsheet__key">TELLTALES</div>
-              <div class="nav-specsheet__val">TELLTALES ON LEECH &amp; BODY</div>
+              <div class="nav-specsheet__val">NUMBER AND POSITION CONFIRMED FOR THE SAIL</div>
             </div>
           </div>
         </div>

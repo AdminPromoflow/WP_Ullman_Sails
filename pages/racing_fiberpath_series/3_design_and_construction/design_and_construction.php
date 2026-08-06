@@ -14,20 +14,20 @@ SVG;
 
 $dac_items = [
   [
-    'title' => 'FibrePath layout',
-    'text'  => 'Fibre paths tuned to loads for accurate shape control.',
+    'title' => 'Custom string laminate',
+    'text'  => 'Fibre paths are mapped for the expected loads of each sail.',
   ],
   [
-    'title' => 'Carbon + aramid',
-    'text'  => 'Low-stretch fibres: speed, with steady draft position.',
+    'title' => 'Specified fibre blend',
+    'text'  => 'Carbon, aramid or a specified blend is selected by application.',
   ],
   [
-    'title' => 'Lamination',
-    'text'  => 'Heat/pressure bonding for durability and long service.',
+    'title' => 'Lamination process',
+    'text'  => 'Ullman describes a high-pressure, high-heat lamination process.',
   ],
   [
     'title' => 'Skin options',
-    'text'  => 'Film taffeta or NWT skins to suit your programme best.',
+    'text'  => 'Film, taffeta or non-woven skins are selected where available.',
   ],
 ];
 
@@ -54,7 +54,10 @@ $dacJsV  = is_file($dacJsFs)  ? filemtime($dacJsFs)  : time();
       <h2 id="dac-title" class="dac-title sr-item">Reliable by Design</h2>
 
       <p class="dac-subtitle sr-item">
-        Elite upwind membranes for top-level racing. FiberPath uses mapped carbon/aramid fibre paths and high-pressure lamination to lock in draft position, reduce stretch, and keep peak shapes for longer so trim stays razor-precise. Suits One Design to Grand Prix.
+        FiberPath combines a custom string layout with a laminated structure. Ullman
+        describes Regatta and Grand Prix configurations with different fibre and external
+        skin options. Exact materials and finishing vary and are recorded in the final
+        specification for the individual sail.
       </p>
     </header>
 

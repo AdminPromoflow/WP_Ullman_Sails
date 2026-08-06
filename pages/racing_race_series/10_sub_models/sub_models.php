@@ -1,58 +1,49 @@
 <?php
 declare(strict_types=1);
 
-$cssTime = is_file('10_sub_models/sub_models.css') ? filemtime('10_sub_models/sub_models.css') : time();
-$jsTime  = is_file('10_sub_models/sub_models.js')  ? filemtime('10_sub_models/sub_models.js')  : time();
+$cssFile = __DIR__ . '/sub_models.css';
+$jsFile  = __DIR__ . '/sub_models.js';
+$cssTime = is_file($cssFile) ? filemtime($cssFile) : time();
+$jsTime  = is_file($jsFile) ? filemtime($jsFile) : time();
 ?>
 <link rel="stylesheet" href="10_sub_models/sub_models.css?v=<?= $cssTime ?>">
 
-<body>
-
-  <section class="wrap" data-sr-reveal>
-    <h2 class="sr-item">How we build things that last</h2>
+<section class="wrap" data-sr-reveal>
+    <h2 class="sr-item">Race Series Construction Choices</h2>
 
     <div class="cards-flex sr-item">
       <article class="card sr-item">
-        <h3>Blue Line Series</h3>
+        <h3>Race Dacron</h3>
         <p>
-          Easy-trim cruising spinnakers that add downwind
-          speed while keeping handling safe—plus options like the ATN sock.
+          Woven race polyester available in cross-cut or radial construction,
+          with cloth weight selected for the individual sail and programme.
         </p>
       </article>
 
       <article class="card sr-item">
-        <h3>Cruising AP Spinnaker</h3>
+        <h3>Race Laminate</h3>
         <p>
-          Standard 165% asym for power with control,
-          typically 1.5oz nylon, built to stay hoisted across a wide range.
+          Laminate construction can reduce weight and stretch compared with
+          woven Dacron; fibre and surface details vary by specification.
         </p>
       </article>
 
       <article class="card sr-item">
-        <h3>Cruising Mini Spinnaker</h3>
+        <h3>Panel Layout</h3>
         <p>
-          145% Mini for simpler, forgiving downwind
-          sailing—great for singlehanders, easier hoists/douses with an ATN sock
+          Cross-cut or radial layout is chosen around material properties,
+          sail geometry, load direction, class rules and budget.
         </p>
       </article>
 
       <article class="card sr-item">
-        <h3>The Axia Series — Blue Line (Downwind Cruising)</h3>
+        <h3>Final Specification</h3>
         <p>
-          Dedicated downwind cruising sails for stable,
-          smooth flying shapes and confident broad-reaching/running, tailored to your rig.
-        </p>
-      </article>
-
-      <article class="card sr-item">
-        <h3>Lightweight fabrics for easier handling</h3>
-        <p>
-          Comfortable ride and greater confidence on passage
-          Built for cruisers who want to sail deeper, faster, and with control
+          Luff, battens, reefing, hardware, reinforcements, markings and
+          accessories must be confirmed in the written quotation.
         </p>
       </article>
     </div>
   </section>
 
-  <script defer src="10_sub_models/sub_models.js?v=<?= $jsTime ?>" type="text/javascript"></script>
-</body>
+<script defer src="10_sub_models/sub_models.js?v=<?= $jsTime ?>" type="text/javascript"></script>

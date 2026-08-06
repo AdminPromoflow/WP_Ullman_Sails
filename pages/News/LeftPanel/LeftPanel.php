@@ -31,12 +31,12 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
       </button>
 
       <p class="left-panel__eyebrow">Ullman Sails GBR</p>
-      <h1 class="left-panel__title">News</h1>
+      <p class="left-panel__title">News</p>
       <p class="left-panel__intro">Stories from the loft, the racecourse and life on the water.</p>
     </header>
 
     <nav class="content-left-panel" aria-label="News navigation">
-      <p class="content-left-panel__label">Latest stories</p>
+      <p class="content-left-panel__label">Browse stories</p>
       <button type="button" id="link-news-rc1000" class="item-left-panel is-active" data-target="news-rc1000" aria-current="page">
         <span class="item-left-panel__number" aria-hidden="true">01</span><span>Ullman Sails support RC1000</span>
       </button>

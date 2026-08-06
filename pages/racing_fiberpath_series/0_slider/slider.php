@@ -53,13 +53,13 @@ $cssHref = with_version($cssPublic, asset_version($cssFs));
 $jsSrc   = with_version($jsPublic,  asset_version($jsFs));
 
 /* UI assets */
-$logoFs  = '../home/1_slider/img/ullman_sails.png';
-$leftFs  = '../home/1_slider/img/left.png';
-$rightFs = '../home/1_slider/img/right.png';
+$logoFs  = __DIR__ . '/../../Home/1_slider/img/ullman_sails.png';
+$leftFs  = __DIR__ . '/../../Home/1_slider/img/left.png';
+$rightFs = __DIR__ . '/../../Home/1_slider/img/right.png';
 
-$logoSrc   = with_version('../home/1_slider/img/ullman_sails.png', asset_version($logoFs));
-$leftIcon  = with_version('../home/1_slider/img/left.png',        asset_version($leftFs));
-$rightIcon = with_version('../home/1_slider/img/right.png',       asset_version($rightFs));
+$logoSrc   = with_version('../Home/1_slider/img/ullman_sails.png', asset_version($logoFs));
+$leftIcon  = with_version('../Home/1_slider/img/left.png',        asset_version($leftFs));
+$rightIcon = with_version('../Home/1_slider/img/right.png',       asset_version($rightFs));
 
 $ctaHref = '#sailing-types-introduction';
 
@@ -69,13 +69,13 @@ $slides = [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
     'title'       => 'FiberPath Series',
-    'subtitle'    => '3D load paths. Race-ready shape.',
+    'subtitle'    => 'Custom load paths for racing.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
     'title'       => 'FiberPath Series',
-    'subtitle'    => 'Low stretch. Fast response.',
+    'subtitle'    => 'Regatta and Grand Prix options.',
   ],
 ];
 

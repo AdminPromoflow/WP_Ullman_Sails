@@ -14,20 +14,20 @@ SVG;
 
 $ph_steps = [
   [
-    'title' => 'Stable Downwind',
-    'text'  => 'Designed to fly stable and quick downwind, building confidence when sailing deep or very hot angles.',
+    'title' => 'Model-Specific Angles',
+    'text'  => 'Axia JT, Code 50, Code 60, Code 75 and the classic spinnakers are intended for different reaching or running applications.',
   ],
   [
-    'title' => 'Aerodynamic Flow',
-    'text'  => 'Smooth aerodynamic flow delivers very controllable power, translating directly into more boat speed.',
+    'title' => 'Custom Shape and Size',
+    'text'  => 'The sail is sized and shaped for the boat, rig, rating constraints and required apparent-wind range.',
   ],
   [
-    'title' => 'Safe Handling',
-    'text'  => 'Balanced shapes and modern luff solutions make hoists, douses, and gybes cleaner, calmer, and safer.',
+    'title' => 'Handling System',
+    'text'  => 'Furling, luff structure, sheets and retrieval arrangements must be compatible with the selected sail and deck setup.',
   ],
   [
-    'title' => 'Full Angle Coverage',
-    'text'  => 'A focused inventory covers reaching to running angles, so you keep speed through weather all season.',
+    'title' => 'Boat-Specific Limits',
+    'text'  => 'The usable wind range is not universal; Ullman states that limits depend on the vessel, cloth selection and sail model.',
   ],
 ];
 
@@ -60,7 +60,7 @@ $ph_img_v = is_file($ph_img_fs) ? filemtime($ph_img_fs) : time();
         class="ph-image sr-item"
         style="--sr-delay: 140ms;"
         src="<?= $ph_img_public ?>?v=<?= $ph_img_v ?>"
-        alt="Navigator Series sails shown under load"
+        alt="Axia Red Line downwind racing sail"
         loading="lazy"
         decoding="async"
       >

@@ -8,24 +8,24 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
 
 <section
   class="sailing-types-introduction"
-  id="sailing-types-introduction"
+  id="voyager-tenara"
   data-sr-reveal
-  aria-labelledby="navigator-title"
+  aria-labelledby="voyager-tenara-title"
 >
   <div class="sailing-content">
     <!-- Brand mark: provide meaningful alt text for accessibility -->
     <!-- (si luego vuelves a poner el logo, solo agrégale class="sr-item" para que entre al stagger) -->
 
     <!-- The main heading for this section; referenced by aria-labelledby -->
-    <h1 class="au-title sr-item" id="navigator-title">Gore® Tenara® thread</h1>
+    <h2 class="au-title sr-item" id="voyager-tenara-title">GORE® TENARA® Sewing Thread</h2>
 
     <!-- Keep the intro copy as a single paragraph for clean semantics -->
     <p class="sr-item">
-      Gore® Tenara® thread is standard on all seams and UV covers. It is hydrophobic and resists UV, saltwater, extreme weather, chemicals and acid rain, helping seams last offshore.
+      GORE® TENARA® is an ePTFE sewing thread for outdoor and marine applications. Gore states that it resists UV sunlight, saltwater, extreme weather, acid rain and many chemicals.
     </p>
 
     <p class="sr-item">
-      Voyager sails can be upgraded to 100% Gore® Tenara® thread throughout every stitch, maximising long-term seam durability where sun and salt quickly punish conventional threads.
+      It does not absorb water and is designed for extended seam life. Its use on a Voyager sail is project-specific and must be confirmed with the local loft; it should not be assumed to be standard on every sail.
     </p>
 
   </div>

@@ -19,7 +19,7 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
     <!-- 1) Logo -->
     <div class="img-title-sailing-content sr-item">
       <img
-        src="../cruising_navigator/1_introduction/img/ullman_sails.png"
+        src="1_introduction/img/ullman_sails.png"
         alt="Ullman Sails"
         decoding="async"
         width="240"
@@ -32,7 +32,10 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
 
     <!-- 3) Paragraph -->
     <p class="sr-item">
-      Built to maximise racecourse performance, Ullman uses 3D modelling, CFD and two-boat testing to refine every design. Shapes are optimised for flow, balance and trim response, scaled from One Design to offshore.
+      Race Series sails are custom-designed for the boat and racing programme. Ullman
+      offers Race Dacron and race-laminate constructions and describes a design process
+      that uses 3D tools, computer analysis and on-water testing. The final material,
+      panel layout and finishing depend on the class or rating rules and expected use.
     </p>
   </div>
 </section>

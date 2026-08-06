@@ -11,7 +11,8 @@ $js_time  = is_file($js_file) ? filemtime($js_file) : time();
 <div id="container_bottom" class="container_bottom">
   <a
     class="button_quote button_quote_2 js_quote_button"
-    aria-label="Get a new sail quote"
+    href="<?php echo esc_url(ullman_page_url('New_Repair_Quote')); ?>"
+    aria-label="Get a sail repair quote"
   >
     Repair Quote
   </a>

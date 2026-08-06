@@ -1,16 +1,22 @@
+<?php
+$sailcareCss = __DIR__ . '/sailcare.css';
+$sailcareJs  = __DIR__ . '/sailcare.js';
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Ullman Sails</title>
+    <title>Sail Care | Ullman Sails</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../SailCare/sailcare.css?v=<?= htmlspecialchars(ullman_file_version($sailcareCss), ENT_QUOTES, 'UTF-8') ?>">
+    <script defer src="../SailCare/sailcare.js?v=<?= htmlspecialchars(ullman_file_version($sailcareJs), ENT_QUOTES, 'UTF-8') ?>"></script>
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
+  <body class="sailcare-page">
     <style media="screen">
       body{
         margin: 0px;
@@ -79,7 +85,7 @@
     <?php include __DIR__ . "/../general/menu/menu.php" ?>
     <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
-    <div id="searchHide" class="searchHide">
+    <main id="searchHide" class="searchHide">
     <?php include __DIR__ . "/../SailCare/1_slider/slider.php" ?>
     <?php include __DIR__ . "/../SailCare/navigation/navigation.php" ?>
 
@@ -92,40 +98,14 @@
     <?php include __DIR__ . "/../SailCare/6.tips/tips.php" ?>
     <?php include __DIR__ . "/../SailCare/7.type/type.php" ?>
     <?php include __DIR__ . "/../SailCare/8.FAQS/FAQS.php" ?>
-    </div>
+
+    </main>
     <?php include __DIR__ . "/../general/charging/charging.php"; ?>
 
 
     <div id="searchContent" class="searchContent">
     </div>
     <?php include __DIR__ . "/../general/footer/Footer.php" ?>
-
-
-    <script type="text/javascript">
-    // Función para manejar el scroll suave y respuesta rápida
-        let isScrolling = false;
-        let velocity = 0;
-        let previousY = 0;
-
-        function handleScroll() {
-        if (!isScrolling) {
-          requestAnimationFrame(() => {
-            const currentY = window.scrollY;
-            const deltaY = currentY - previousY;
-
-            // Agregar aceleración
-            velocity += deltaY * 0.05;
-            // Aplicar desaceleración gradual
-            velocity *= 0.0;
-
-            window.scrollBy(0, velocity);
-
-            previousY = currentY;
-            isScrolling = false;
-          });
-        }
-        }
-    </script>
   </body>
 
 </html>

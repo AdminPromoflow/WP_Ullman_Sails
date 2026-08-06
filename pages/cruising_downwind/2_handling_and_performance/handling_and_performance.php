@@ -14,12 +14,16 @@ SVG;
 
 $ph_steps = [
   [
-    'title' => 'Safe Speed Spinnakers',
-    'text'  => 'Easy-to-trim cruising spinnakers for varied conditions, adding speed while keeping sailing safe; sock options ease hoists.',
+    'title' => 'Easy-trim cruising power',
+    'text'  => 'Axia Blue Line is designed to add usable speed and dependable power while keeping trimming approachable across changing conditions.',
   ],
   [
-    'title' => 'Smooth Stable Cruising',
-    'text'  => 'Cruising sails with smooth rotation and stable flying shapes, delivering forgiving handling, comfort and confidence.',
+    'title' => 'A model for each downwind role',
+    'text'  => 'Code 50, Code 60 and Code 70 cover progressively broader reaching roles, while symmetrical and asymmetrical spinnakers serve deeper angles.',
+  ],
+  [
+    'title' => 'Handling selected with the loft',
+    'text'  => 'Luff technology, furling systems or spinnaker socks are matched to the chosen model, yacht, crew and intended wind range.',
   ],
 ];
 
@@ -38,13 +42,13 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   <div class="ph-grid">
 
     <header class="ph-left">
-      <p class="ph-tagline">Downwind Series</p>
+      <p class="ph-tagline">Axia Blue Line</p>
       <h2 id="ph-title" class="ph-title">Performance and Handling</h2>
 
       <img
         class="ph-image"
         src="2_handling_and_performance/img/performance-and-handling.jpg"
-        alt="Sails shown under load"
+        alt="Axia Blue Line downwind sail in use"
         loading="lazy"
         decoding="async"
       >

@@ -14,24 +14,24 @@ SVG;
 
 $dac_items = [
   [
-    'title' => 'Precision shaping',
-    'text'  => 'Maintains designed shape under load for steadier trim.',
+    'title' => '3D design and analysis',
+    'text'  => 'Ullman uses 3D design tools and numerical analysis to optimize flying shape and structure before production.',
   ],
   [
-    'title' => 'UltraLam & FiberPath',
-    'text'  => 'High-end composites balance low-stretch control and strength.',
+    'title' => 'UltraLam',
+    'text'  => 'A high-end cruising laminate option selected for low stretch, responsiveness and durability.',
   ],
   [
-    'title' => '3D design',
-    'text'  => 'Uses 3D tools and testing to refine shape and service life.',
+    'title' => 'Performance FiberPath',
+    'text'  => 'A custom fiber-layout option with reinforcement aligned to the sail’s expected loads.',
   ],
   [
-    'title' => 'Reinforced build',
-    'text'  => 'Triple-step seams and heavy reinforcements resist fatigue.',
+    'title' => 'Custom construction',
+    'text'  => 'The material, reinforcement and finishing package is developed for the yacht and operating environment.',
   ],
   [
-    'title' => 'Cruising options',
-    'text'  => 'Reefs, luff systems and furling/UV upgrades aid control.',
+    'title' => 'System integration',
+    'text'  => 'Reefing, furling and luff details are matched to the yacht’s equipment and crew requirements.',
   ],
 ];
 
@@ -58,7 +58,7 @@ $dacJsV  = is_file($dacJsFs)  ? filemtime($dacJsFs)  : time();
       <h2 id="dac-title" class="dac-title sr-item">Reliable by Design</h2>
 
       <p class="dac-subtitle sr-item">
-        Built for offshore passages, high latitudes and demanding cruising, Ullman’s Performance Series targets sustained speed, structural integrity and long service life—ideal for serious passagemakers and superyachts that need dependable performance in harsh conditions.
+        The Performance Series combines Ullman’s design process with UltraLam or custom FiberPath constructions for offshore, high-latitude and superyacht applications.
       </p>
     </header>
 

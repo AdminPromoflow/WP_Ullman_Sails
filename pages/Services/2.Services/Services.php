@@ -27,8 +27,6 @@ $jsVer  = is_file($jsFs)  ? filemtime($jsFs)  : null;
 
       <h1 id="services-title" class="services-title" data-sr-item>Services</h1>
 
-      <span class="services-divider" aria-hidden="true" data-sr-item></span>
-
       <p class="services-subtitle" data-sr-item>
         Ullman Sails offers a range of services to help you maintain and extend the life of your sail inventory.
         Our loft experts will recommend the right solution for your goals and your budget — and a new sail isn’t always the answer.

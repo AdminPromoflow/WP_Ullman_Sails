@@ -25,10 +25,10 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
       >
     </div>
 
-    <h1 id="downwind-title">Downwind Series</h1>
+    <h1 id="downwind-title">Axia Series — Blue Line</h1>
 
     <p>
-      Downwind with Blue Line and Axia Blue Line: easy-trim spinnakers and code sails built for cruisers adding smooth power and confidence. Compatible with spinnaker socks and top-down furlers across changing angles.
+      Axia Blue Line is Ullman’s downwind cruising range for sailors who prioritize ease of use, durability and dependable performance. It includes versatile Code sails and symmetrical and asymmetrical spinnakers.
     </p>
   </div>
 </section>

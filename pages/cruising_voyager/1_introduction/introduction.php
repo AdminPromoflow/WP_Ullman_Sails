@@ -32,7 +32,7 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
 
     <!-- Keep the intro copy as a single paragraph for clean semantics -->
     <p class="sr-item" data-sr-delay="140">
-      Voyager Series sails are premier offshore cruising sails for luxury yachts and performance cruisers. Custom-built with high-end materials, they hold flying shape across a wider wind range for longer life at sea.
+      Voyager Series sails are Ullman’s premier cruising range for luxury yachts and high-performance cruisers. Custom design and high-end materials help the sail retain its intended flying shape across a wider wind range.
     </p>
   </div>
 </section>

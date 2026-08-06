@@ -1,69 +1,114 @@
 document.addEventListener("DOMContentLoaded", () => {
   const homeButton = document.getElementById("goHome");
   const logoButton = document.getElementById("logoNews");
-  const menuLinks = document.querySelectorAll(".item-left-panel");
+  const panel = document.getElementById("leftPanel");
+  const menuLinks = [...document.querySelectorAll(".item-left-panel[data-target]")];
+  const articles = [...document.querySelectorAll(".news-card[id][data-title]")];
+  const storySelect = document.getElementById("newsStorySelect");
+  const status = document.querySelector(".news-reader-status");
+  const previousButtons = [...document.querySelectorAll("[data-news-previous]")];
+  const nextButtons = [...document.querySelectorAll("[data-news-next]")];
+  const newsroom = document.querySelector(".newsroom");
+
+  if (!articles.length) return;
+
+  document.documentElement.classList.add("news-reader-ready");
+
+  const indexById = new Map(articles.map((article, index) => [article.id, index]));
+  let currentIndex = 0;
 
   function goToHome() {
-    const panel = document.getElementById("leftPanel");
     const homeUrl = panel?.dataset.homeUrl;
-
-    if (homeUrl) {
-      window.location.href = homeUrl;
-    }
+    if (homeUrl) window.location.href = homeUrl;
   }
 
-  function setActiveLink(targetId) {
-    menuLinks.forEach(link => {
-      const isActive = link.dataset.target === targetId;
+  function setCurrentStory(index, options = {}) {
+    const { scroll = false, updateHash = false } = options;
+    const nextIndex = Math.max(0, Math.min(index, articles.length - 1));
+    const activeArticle = articles[nextIndex];
+
+    currentIndex = nextIndex;
+
+    articles.forEach((article, articleIndex) => {
+      article.hidden = articleIndex !== currentIndex;
+    });
+
+    menuLinks.forEach((link) => {
+      const isActive = link.dataset.target === activeArticle.id;
       link.classList.toggle("is-active", isActive);
       link.toggleAttribute("aria-current", isActive);
     });
-  }
 
-  function goToArticle(targetId) {
-    const target = document.getElementById(targetId);
-    if (!target) return;
+    if (storySelect) storySelect.value = activeArticle.id;
 
-    target.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
+    if (status) {
+      status.textContent = `Story ${currentIndex + 1} of ${articles.length}: ${activeArticle.dataset.title}`;
+    }
+
+    previousButtons.forEach((button) => {
+      button.disabled = currentIndex === 0;
     });
 
-    setActiveLink(targetId);
+    nextButtons.forEach((button) => {
+      button.disabled = currentIndex === articles.length - 1;
+    });
+
+    if (updateHash) {
+      history.replaceState(null, "", `#${activeArticle.id}`);
+    }
+
+    if (scroll) {
+      newsroom?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start"
+      });
+    }
   }
 
-  if (homeButton) {
-    homeButton.addEventListener("click", goToHome);
+  if (storySelect) {
+    const options = document.createDocumentFragment();
+
+    articles.forEach((article, index) => {
+      const option = document.createElement("option");
+      option.value = article.id;
+      option.textContent = `${String(index + 1).padStart(2, "0")} — ${article.dataset.title}`;
+      options.appendChild(option);
+    });
+
+    storySelect.appendChild(options);
+    storySelect.addEventListener("change", () => {
+      const index = indexById.get(storySelect.value);
+      if (typeof index === "number") setCurrentStory(index, { scroll: true, updateHash: true });
+    });
   }
 
-  if (logoButton) {
-    logoButton.addEventListener("click", goToHome);
-  }
-
-  menuLinks.forEach(link => {
+  menuLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      const targetId = link.dataset.target;
-      goToArticle(targetId);
+      const index = indexById.get(link.dataset.target);
+      if (typeof index === "number") setCurrentStory(index, { scroll: true, updateHash: true });
     });
   });
 
-  const articles = document.querySelectorAll(".news-card[id]");
+  previousButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setCurrentStory(currentIndex - 1, { scroll: true, updateHash: true });
+    });
+  });
 
-  if ("IntersectionObserver" in window && articles.length) {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0.35
-      }
-    );
+  nextButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setCurrentStory(currentIndex + 1, { scroll: true, updateHash: true });
+    });
+  });
 
-    articles.forEach(article => observer.observe(article));
-  }
+  homeButton?.addEventListener("click", goToHome);
+  logoButton?.addEventListener("click", goToHome);
+
+  window.addEventListener("hashchange", () => {
+    const index = indexById.get(window.location.hash.slice(1));
+    if (typeof index === "number") setCurrentStory(index, { scroll: true });
+  });
+
+  const requestedIndex = indexById.get(window.location.hash.slice(1));
+  setCurrentStory(typeof requestedIndex === "number" ? requestedIndex : 0);
 });

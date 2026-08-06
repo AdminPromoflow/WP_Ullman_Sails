@@ -15,23 +15,23 @@ SVG;
 $ph_steps = [
   [
     'title' => 'Custom Offshore Design',
-    'text'  => 'Custom-designed by Ullman’s team to keep the boat easy to sail and predictable offshore as conditions change on passage.',
+    'text'  => 'Each sail is designed for the individual yacht, sailing plans and budget, with balanced performance and straightforward handling as core priorities.',
   ],
   [
     'title' => 'Reefing Endurance',
-    'text'  => 'Mainsails add reinforcement in high-load areas so they can remain reefed for extended periods without damage, even with repeated reefing.',
+    'text'  => 'Mainsails include additional reinforcement in high-load reefing areas for extended periods of reduced sail area.',
   ],
   [
     'title' => 'Roller-Reefing Headsails',
-    'text'  => 'Genoas are built for roller reefing, with head and tack reinforcement to prevent distortion, hold shape steadier and extend service life.',
+    'text'  => 'Roller-reefing genoas receive added strength at the head and tack to help limit distortion and support longevity.',
   ],
   [
     'title' => 'Shape-Holding Cloth Choices',
-    'text'  => 'Enduro Dacron and taffeta-coated laminates are chosen for load control and shape retention, keeping trim steadier across a broad wind range.',
+    'text'  => 'Enduro Dacron prioritizes durability, while taffeta-coated Enduro Laminate provides a lighter, lower-stretch option for performance-minded cruisers.',
   ],
   [
-    'title' => 'Bluewater Confidence',
-    'text'  => 'Upgraded finishing adds strength over Navigator with robust seams and hardware, giving ocean cruisers dependable control over many miles.',
+    'title' => 'Material matched to the project',
+    'text'  => 'The local loft selects cloth, construction and finishing to match the yacht, expected mileage, handling systems and cruising goals.',
   ],
 ];
 

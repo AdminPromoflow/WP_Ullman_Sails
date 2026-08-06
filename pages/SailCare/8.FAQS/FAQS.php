@@ -9,37 +9,33 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
 <link rel="stylesheet" href="8.FAQS/FAQS.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
 
-<section class="tips" aria-labelledby="tips-title">
-  <div class="tips__shell">
+<section class="faq" id="sailcare-faq" aria-labelledby="sailcare-faq-title">
+  <div class="faq__shell">
 
     <!-- Left / Intro -->
-    <header class="tips__intro">
-      <p class="tips__kicker">tips</p> <br>
+    <header class="faq__intro">
+      <p class="faq__kicker">COMMON QUESTIONS</p>
 
-      <h1 id="tips-title" class="tips__title">
-        Sail Care FAQ <br><br>
-      </h1>
+      <h2 id="sailcare-faq-title" class="faq__title">Sail Care FAQ</h2>
 
-      <p class="tips__lead">
-        As a sailor, you understand the importance of keeping your sails in top
-        condition. A key aspect of sail maintenance is protecting them from the
-        damaging effects of UV radiation. Sunlight can rapidly degrade sailcloth,
-        weakening, fading, and eventual failure.
+      <p class="faq__lead">
+        Quick answers about inspections, cleaning and storage. For advice specific
+        to your sails, contact your local Ullman Sails loft.
       </p>
     </header>
 
     <!-- Right / Accordion -->
-    <div class="tips__panel">
+    <div class="faq__panel">
       <div class="acc" data-acc>
         <div class="acc__item">
           <h3 class="acc__h">
-            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-uv" id="acc-uv-btn">
+            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-inspection" id="faq-inspection-btn">
               <span class="acc__label">How often should sails be inspected?</span>
               <span class="acc__icon" aria-hidden="true"></span>
             </button>
           </h3>
 
-          <div class="acc__content" id="acc-uv" role="region" aria-labelledby="acc-uv-btn" hidden>
+          <div class="acc__content" id="faq-inspection" role="region" aria-labelledby="faq-inspection-btn" hidden>
             <div class="acc__inner">
               <p>Regularly, especially after heavy use or exposure to harsh conditions.</p>
             </div>
@@ -48,13 +44,13 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
         <div class="acc__item">
           <h3 class="acc__h">
-            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-mildew" id="acc-mildew-btn">
+            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="faq-cleaning" id="faq-cleaning-btn">
               <span class="acc__label">Can I use household cleaning agents on my sails?</span>
               <span class="acc__icon" aria-hidden="true"></span>
             </button>
           </h3>
 
-          <div class="acc__content" id="acc-mildew" role="region" aria-labelledby="acc-mildew-btn" hidden>
+          <div class="acc__content" id="faq-cleaning" role="region" aria-labelledby="faq-cleaning-btn" hidden>
             <div class="acc__inner">
               <p>It’s best to consult a professional before using any cleaning agents.</p>
 
@@ -64,13 +60,13 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
         <div class="acc__item is-open">
           <h3 class="acc__h">
-            <button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-replace" id="acc-replace-btn">
+            <button class="acc__btn" type="button" aria-expanded="true" aria-controls="faq-storage" id="faq-storage-btn">
               <span class="acc__label">What’s the best way to store sails?</span>
               <span class="acc__icon" aria-hidden="true"></span>
             </button>
           </h3>
 
-          <div class="acc__content" id="acc-replace" role="region" aria-labelledby="acc-replace-btn">
+          <div class="acc__content" id="faq-storage" role="region" aria-labelledby="faq-storage-btn">
             <div class="acc__inner ">
               <p>Store sails dry, rolled, and away from direct sunlight to prevent UV damage and mildew growth.</p>
             </div>

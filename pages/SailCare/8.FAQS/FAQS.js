@@ -1,6 +1,6 @@
 /* tips.js — Accordion (smooth open/close + aria + hidden) */
 (() => {
-  const DURATION = 520; // ms (sube este número si lo quieres aún más lento)
+  const DURATION = 320;
 
   function setupAccordion(acc) {
     const items = Array.from(acc.querySelectorAll(".acc__item"));
@@ -126,6 +126,6 @@
   }
 
   window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("[data-acc]").forEach(setupAccordion);
+    document.querySelectorAll(".faq [data-acc]").forEach(setupAccordion);
   });
 })();

@@ -15,23 +15,23 @@ SVG;
 $dac_items = [
   [
     'title' => 'Design Focus',
-    'text'  => 'Custom shapes for steady balance and easier trimming aboard.',
+    'text'  => 'Every sail is custom-designed for the yacht, crew and intended offshore use.',
   ],
   [
     'title' => 'Strength Details',
-    'text'  => 'Reinforcements, stitching and hardware where loads bite hard.',
+    'text'  => 'Mainsail reef zones and roller-reefing genoa head and tack areas receive additional reinforcement.',
   ],
   [
     'title' => 'Cloth Choice',
-    'text'  => 'Enduro Dacron or cruise laminates, matched to your sailing.',
+    'text'  => 'Enduro Dacron or taffeta-coated Enduro Laminate is selected to match durability, handling and performance priorities.',
   ],
   [
-    'title' => 'Cut & Layout',
-    'text'  => 'Cross-cut, radial or Tri-Axis layouts to control stretch.',
+    'title' => 'Construction Options',
+    'text'  => 'Woven Dacron may use cross-cut or radial construction; the laminate option is configured for the selected cloth and load plan.',
   ],
   [
-    'title' => 'Tenara Upgrade',
-    'text'  => 'Optional Gore Tenara thread for UV-tough, long-life seams.',
+    'title' => 'Project-specific Finishing',
+    'text'  => 'Thread, hardware, UV protection and handling details are confirmed with the loft rather than assumed to be identical on every sail.',
   ],
 ];
 
@@ -58,7 +58,7 @@ $dacJsV  = is_file($dacJsFs)  ? filemtime($dacJsFs)  : null;
       <h2 id="dac-title" class="dac-title sr-item">Reliable by Design</h2>
 
       <p class="dac-subtitle sr-item">
-        Endurance sails are Ullman’s hard-wearing choice for offshore cruising, built to keep shape and confidence over long miles. They prioritise structural strength, UV resistance and balanced handling when conditions turn demanding, tuned to your boat and crew.
+        Endurance is Ullman’s durability-focused offshore and passage-making range. Custom design, reinforced load areas and suitable cloth selection are combined for the yacht and cruising program.
       </p>
     </header>
 

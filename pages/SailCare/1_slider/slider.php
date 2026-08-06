@@ -20,7 +20,13 @@ function slide_classes(array $slide): string {
   return implode(' ', $classes);
 }
 
-function render_caption(string $logoSrc, string $title, string $subtitle, string $ctaHref): void { ?>
+function render_caption(
+  string $logoSrc,
+  string $title,
+  string $subtitle,
+  string $ctaHref,
+  bool $isPageHeading = false
+): void { ?>
   <div class="home-slider__caption">
     <div class="home-slider__kicker">
       <img
@@ -31,14 +37,18 @@ function render_caption(string $logoSrc, string $title, string $subtitle, string
       >
     </div>
 
-    <h1 class="home-slider__title"><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h1>
-    <h2 class="home-slider__subtitle"><?= htmlspecialchars($subtitle, ENT_QUOTES, 'UTF-8') ?></h2>
+    <?php if ($isPageHeading): ?>
+      <h1 class="home-slider__title"><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h1>
+    <?php else: ?>
+      <p class="home-slider__title"><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></p>
+    <?php endif; ?>
+    <p class="home-slider__subtitle"><?= htmlspecialchars($subtitle, ENT_QUOTES, 'UTF-8') ?></p>
 
     <div class="home-slider__line" aria-hidden="true"></div>
 
-    <a class="home-slider__btn"
-       href="<?= htmlspecialchars($ctaHref, ENT_QUOTES, 'UTF-8') ?>"
-       aria-label="Scroll down">↓</a>
+    <a class="home-slider__btn" href="<?= htmlspecialchars($ctaHref, ENT_QUOTES, 'UTF-8') ?>">
+      Explore sail care <span aria-hidden="true">↓</span>
+    </a>
   </div>
 <?php }
 
@@ -61,14 +71,14 @@ $slides = [
   [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
-    'title'       => 'Keep Performance Longe',
-    'subtitle'    => 'Sail Care',
+    'title'       => 'Sail Care',
+    'subtitle'    => 'Keep performance longer.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
-    'title'       => 'Protect performance. Extend lifespan.',
-    'subtitle'    => 'Sail Care Essentials',
+    'title'       => 'Sail Care',
+    'subtitle'    => 'Protect performance. Extend lifespan.',
   ],
 ];
 
@@ -88,9 +98,9 @@ $lastSlide  = $slides[count($slides) - 1];
       <?php render_caption($logoSrc, $lastSlide['title'], $lastSlide['subtitle'], $ctaHref); ?>
     </article>
 
-    <?php foreach ($slides as $slide): ?>
+    <?php foreach ($slides as $slideIndex => $slide): ?>
       <article class="<?= htmlspecialchars(slide_classes($slide), ENT_QUOTES, 'UTF-8') ?>">
-        <?php render_caption($logoSrc, $slide['title'], $slide['subtitle'], $ctaHref); ?>
+        <?php render_caption($logoSrc, $slide['title'], $slide['subtitle'], $ctaHref, $slideIndex === 0); ?>
       </article>
     <?php endforeach; ?>
 

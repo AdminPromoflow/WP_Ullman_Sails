@@ -6,16 +6,16 @@
   <div class="efee-wrap">
 
     <header class="efee-header">
-      <h2 id="efee-title" class="efee-title sr-item">Engineering for extreme environments</h2>
+      <h2 id="efee-title" class="efee-title sr-item">FiberPath Design and Material Selection</h2>
     </header>
 
     <div class="efee-grid" role="list">
       <article class="efee-item sr-item" role="listitem">
         <div class="efee-num" aria-hidden="true">01</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">Load-path engineered membranes</h3>
+          <h3 class="efee-item-title">Calculated load paths</h3>
           <p class="efee-text">
-            Continuous fibre load paths are engineered to follow real sailing loads, producing exceptional shape stability, efficient load transfer and consistent performance across a wide wind range.
+            The design team lays out fibres to follow the expected loads of the individual sail. The layout changes with sail type, geometry and use.
           </p>
         </div>
       </article>
@@ -23,9 +23,9 @@
       <article class="efee-item sr-item" role="listitem">
         <div class="efee-num" aria-hidden="true">02</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">Material-specific fibre layouts</h3>
+          <h3 class="efee-item-title">Material-specific layout</h3>
           <p class="efee-text">
-            Carbon, aramid or hybrid fibres are precisely placed to match each sail’s function, optimising strength, stretch resistance and durability without unnecessary weight or stiffness.
+            Carbon, aramid or blended fibres are selected for their different stretch, weight, flex and durability characteristics.
           </p>
         </div>
       </article>
@@ -33,9 +33,9 @@
       <article class="efee-item sr-item" role="listitem">
         <div class="efee-num" aria-hidden="true">03</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">High shape retention over time</h3>
+          <h3 class="efee-item-title">External surface options</h3>
           <p class="efee-text">
-            The moulded membrane structure resists distortion and fatigue, allowing sails to maintain their designed flying shape and trim accuracy through intensive racing seasons.
+            Film, taffeta and non-woven textile surfaces offer different trade-offs in weight, handling and abrasion protection, depending on the configuration.
           </p>
         </div>
       </article>
@@ -43,9 +43,9 @@
       <article class="efee-item sr-item" role="listitem">
         <div class="efee-num" aria-hidden="true">04</div>
         <div class="efee-body">
-          <h3 class="efee-item-title">Refined racing response</h3>
+          <h3 class="efee-item-title">Programme-specific specification</h3>
           <p class="efee-text">
-            Low stretch and controlled flex deliver crisp acceleration, reliable pointing ability and predictable handling, giving racers confidence during fast transitions and pressure changes.
+            The loft matches the FiberPath model, fibre blend, skin, hardware and finishing to the boat, rules, expected conditions and owner priorities.
           </p>
         </div>
       </article>

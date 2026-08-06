@@ -18,21 +18,21 @@ $introJsVersion  = is_file($introJsFs)  ? filemtime($introJsFs)  : time();
 
 <section
   class="sailing-types-introduction"
-  id="sailing-types-introduction"
+  id="endurance-tenara"
   data-sr-reveal
-  aria-labelledby="gore-tenara-title"
+  aria-labelledby="endurance-tenara-title"
 >
   <div class="sailing-content">
 
-    <h1 class="au-title sr-item" data-sr-delay="0" id="gore-tenara-title">Gore® Tenara®</h1>
+    <h2 class="au-title sr-item" data-sr-delay="0" id="endurance-tenara-title">GORE® TENARA® Sewing Thread</h2>
 
-    <p class="sr-item" data-sr-delay="70">Endurance Series sails can be upgraded with Gore® Tenara® thread throughout the entire sail, strengthening seam durability for long offshore use and long-term reliability.</p>
+    <p class="sr-item" data-sr-delay="70">GORE® TENARA® is an ePTFE sewing thread intended for long-lasting outdoor and marine seams. Its use and extent on an Endurance sail must be confirmed in the individual specification.</p>
 
-    <p class="sr-item" data-sr-delay="140">Tenara is hydrophobic and unaffected by UV degradation, helping seams stay stable under harsh sunlight and reducing stitch breakdown over extended passages.</p>
+    <p class="sr-item" data-sr-delay="140">Gore states that the thread does not absorb water and maintains its strength under regular exposure to sunlight’s UV rays.</p>
 
-    <p class="sr-item" data-sr-delay="210">It is resistant to saltwater, extreme weather, chemicals and acid rain, designed to keep stitching dependable through relentless exposure in demanding offshore conditions.</p>
+    <p class="sr-item" data-sr-delay="210">It also resists saltwater, extreme weather, acid rain and many cleaning chemicals, making it relevant where seam life is a priority.</p>
 
-    <p class="sr-item" data-sr-delay="280">Because stitching is critical, Ullman Sails strongly endorses Gore® Tenara® to hold your sail together long-term, protecting the load-bearing seams that keep structure intact.</p>
+    <p class="sr-item" data-sr-delay="280">Thread selection does not replace proper sail care or inspection; discuss the appropriate thread and construction with the local loft.</p>
 
   </div>
 </section>

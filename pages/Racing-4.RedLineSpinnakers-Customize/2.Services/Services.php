@@ -9,15 +9,13 @@ $servicesUrl   = get_template_directory_uri() . '/pages/Racing-4.RedLineSpinnake
 <section class="textRed" data-sr-reveal>
 
   <div class="servicesRed">
-    <h1 class="sr-item">Custom Spinnaker Graphics</h1>
-    <h2 class="sr-item">Want to customize your sails?</h2>
+    <h1 class="sr-item">Axia Spinnaker Colour Tool</h1>
+    <h2 class="sr-item">Plan a panel-colour layout</h2>
 
-    <p class="sr-item">If you want to liven up your spinnaker, or if you have sponsors to appease, we can help you apply any graphics you require to mainsails, headsails, or spinnakers.</p>
-    <p class="sr-item">All you have to do is decide what graphic you would like on your sail and send us a high-res file (if you need help with this, please let us know). The graphic is then painted or cut from vinyl or other suitable material and applied to your sail. The results are fantastic and really make your boat stand out.</p>
-    <p class="sr-item">Or you can get really creative and make your own custom-colored sail with our spinnaker customizer!</p>
-    <p class="sr-item">Choose a color and click the panels you want in that color. If you make a mistake, just choose a new color and keep clicking, or hit the clear button to start over again.</p>
-    <p class="sr-item">When you are happy with your design, click the "Download Spinnaker Image" button at the bottom of the page. Send us the image and we can get to work on making your perfect spinnaker!</p>
-    <p class="sr-item">Have fun!</p>
+    <p class="sr-item">Use the tool below to explore colour layouts for an Axia symmetrical or asymmetrical spinnaker, then download the concept and send it to your Ullman representative for review.</p>
+    <p class="sr-item">Choose the sail type and cloth weight before colouring individual panels. The digital layout is a planning aid, not a production specification or colour-accurate proof.</p>
+    <p class="sr-item">Colour availability varies by fabric type, weight and production batch, and screen colours can differ from the finished cloth. The loft must confirm the palette, material compatibility and final panel layout before an order is accepted.</p>
+    <p class="sr-item">Logos or sponsor graphics require a separate technical review because the application method, added weight, location and class or rating rules may affect what is suitable.</p>
 
   </div>
 </section>

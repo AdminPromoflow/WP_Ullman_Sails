@@ -21,14 +21,28 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
 
     <header class="newsroom__hero reveal">
       <p class="newsroom__eyebrow">Ullman Sails GBR</p>
-      <!-- <h1 id="newsroom-title" class="newsroom__title">News & Updates</h1> -->
+      <h1 id="newsroom-title" class="newsroom__title">News &amp; Updates</h1>
       <p class="newsroom__lead">
-        Race results, loft developments, customer stories and sailing news presented in a cleaner,
-        more polished and fully responsive layout.
+        Race results, loft developments, customer stories and life on the water.
       </p>
     </header>
 
-    <!-- <nav class="newsroom__index reveal" id="newsIndex" aria-label="Article quick links"></nav> -->
+    <section class="news-reader-controls reveal" aria-label="News reader controls">
+      <label class="news-story-picker" for="newsStorySelect">
+        <span>Choose a story</span>
+        <select id="newsStorySelect" aria-label="Choose a news story"></select>
+      </label>
+
+      <nav class="news-reader-nav" aria-label="Move between stories">
+        <button class="news-reader-button" type="button" data-news-previous>
+          <span aria-hidden="true">←</span> Previous
+        </button>
+        <p class="news-reader-status" aria-live="polite">Story 1 of 10</p>
+        <button class="news-reader-button" type="button" data-news-next>
+          Next <span aria-hidden="true">→</span>
+        </button>
+      </nav>
+    </section>
 
     <div class="newsroom__list">
 
@@ -610,6 +624,15 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
       </article>
 
     </div>
+
+    <nav class="news-reader-nav news-reader-nav--footer" aria-label="Continue reading news">
+      <button class="news-reader-button" type="button" data-news-previous>
+        <span aria-hidden="true">←</span> Previous story
+      </button>
+      <button class="news-reader-button" type="button" data-news-next>
+        Next story <span aria-hidden="true">→</span>
+      </button>
+    </nav>
   </div>
 </section>
 <script defer src="<?= $navJsPublic ?>?v=<?= $navJsV ?>" type="text/javascript"></script>

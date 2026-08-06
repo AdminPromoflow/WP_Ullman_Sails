@@ -106,7 +106,7 @@
 }
 .profiles_aboutUs h3{
   position: relative;
-  color:#F2F2F2;
+  color: #FFFFFF !important;
   text-align: center;
   padding:  13px 0;
   font-size: 1.5em;
@@ -198,7 +198,7 @@
 }
 .SOLEPLYM_profiles_aboutUs h3{
   position: relative;
-  color:#F2F2F2;
+  color: #FFFFFF !important;
   padding:  4px 0;
   font-size: clamp(1em, 2vw + 1em, 1.3em);
   font-weight: 400;

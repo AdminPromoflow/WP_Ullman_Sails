@@ -26,32 +26,28 @@ $jsSrc    = versioned_asset($jsPublic, $jsFs);
 
 $upgrades = [
   [
-    'title' => 'Luff systems',
-    'text'  => 'Low-friction luff systems for smooth hoists, easier drops and a cleaner sail shape under load at sea.',
+    'title' => 'Enduro Dacron or Enduro Laminate',
+    'text'  => 'Choose a durable woven polyester construction or a lighter, lower-stretch, taffeta-coated cruising laminate.',
   ],
   [
-    'title' => 'Additional reefs',
-    'text'  => 'Extra reef points to reduce area quickly, keep balance and stay comfortable as wind builds offshore.',
+    'title' => 'Cross-cut or radial woven construction',
+    'text'  => 'The official brochure lists cross-cut and radial options for woven Dacron; suitability depends on the sail and project.',
   ],
   [
-    'title' => 'UV covers / treatments',
-    'text'  => 'UV covers and treatments for furling sails protect fabric from sun and extend service life offshore.',
+    'title' => 'Reefing configuration',
+    'text'  => 'Reef layout and reinforcement are determined by the mainsail, expected conditions and the owner’s passage-making plans.',
   ],
   [
-    'title' => 'Sail numbers',
-    'text'  => 'Sail numbers for quick identification, race compliance and clearer comms at distance offshore at sea.',
+    'title' => 'Roller-reefing configuration',
+    'text'  => 'Headsail design, reinforcement and UV protection are matched to the furling system and expected use.',
   ],
   [
-    'title' => 'Full-length battens',
-    'text'  => 'Full-length battens to stabilise the leech, hold shape and reduce flutter in choppy seas for control.',
+    'title' => 'GORE® TENARA® thread',
+    'text'  => 'Where specified, this ePTFE thread resists UV, saltwater and extreme weather; confirm its use and extent with the loft.',
   ],
   [
-    'title' => 'Anti-mildew treatment',
-    'text'  => 'Anti-mildew treatment to help prevent mould, staining and odour during wet, damp stowage below decks.',
-  ],
-  [
-    'title' => 'UV-resistant thread upgrade',
-    'text'  => 'UV-resistant thread upgrade to protect seams from UV damage and deliver longer life offshore at sea.',
+    'title' => 'Handling and finishing details',
+    'text'  => 'Hardware, battens, slides and finishing are custom choices and should be documented in the individual sail quotation.',
   ],
 ];
 
@@ -67,7 +63,7 @@ $total = count($upgrades);
       <p class="au-tagline sr-item">Endurance Series</p>
       <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
-        Selected upgrades to boost performance, durability and easier handling for Endurance sails offshore.
+        Endurance sails are custom projects. These are configuration decisions to make with the local Ullman Sails loft.
       </p>
     </header>
 

@@ -26,36 +26,28 @@ $jsSrc    = versioned_asset($jsPublic, $jsFs);
 
 $upgrades = [
   [
-    'title' => 'Upgraded luff systems',
-    'text'  => 'Improves load distribution and smoother hoists for more reliable shape.',
+    'title' => 'UltraLam or Performance FiberPath',
+    'text'  => 'Select the construction that best matches the yacht’s load case, performance target, durability needs and budget.',
   ],
   [
-    'title' => 'Additional reefs',
-    'text'  => 'Extends your depowering range for heavy-weather balance and control.',
+    'title' => 'Fiber and skin specification',
+    'text'  => 'Fiber density, fiber type and protective skins are engineering choices for the individual FiberPath project.',
   ],
   [
-    'title' => 'Full-length battens (slab reefing)',
-    'text'  => 'Supports stable shape and cleaner reefs; recommended for slab systems.',
+    'title' => 'Reefing and handling integration',
+    'text'  => 'Reefs, battens, luff systems and furling details are designed around the yacht and crew’s operating plan.',
   ],
   [
-    'title' => 'Carbon batten',
-    'text'  => 'Lighter, stiffer battens for better shape retention and reduced pocket stress.',
+    'title' => 'UV and chafe protection',
+    'text'  => 'Covers, protective layers and finishing are selected for the expected climate, mileage and handling loads.',
   ],
   [
-    'title' => 'UV covers / treatments (furling systems)',
-    'text'  => 'Protects exposed sailcloth when furled, extending lifespan.',
+    'title' => 'GORE® TENARA® thread',
+    'text'  => 'Where specified, ePTFE thread provides resistance to UV, saltwater and extreme weather; confirm its use and extent with the loft.',
   ],
   [
-    'title' => 'Anti-mildew treatment',
-    'text'  => 'Helps resist mildew in humid, stowed, or tropical conditions.',
-  ],
-  [
-    'title' => 'UV-resistant thread upgrade',
-    'text'  => 'Boosts seam longevity where sun exposure is most punishing.',
-  ],
-  [
-    'title' => 'Limited leather finishings / corner reinforcements',
-    'text'  => 'Adds chafe protection at high-wear corners.',
+    'title' => 'Documented custom specification',
+    'text'  => 'Hardware, reinforcement and finishing should be recorded in the project quotation rather than assumed from a generic list.',
   ],
 ];
 
@@ -75,7 +67,7 @@ $total = count($upgrades);
       <p class="au-tagline sr-item">Performance Series</p>
       <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
-        Luff control and load management, reefing and handling, plus protection upgrades to extend service life.
+        Performance sails are engineered projects. Confirm every material, handling and finishing choice with the local loft.
       </p>
     </header>
 

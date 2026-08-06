@@ -62,13 +62,13 @@ $slides = [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
     'title'       => 'Endurance Series',
-    'subtitle'    => 'Reliable strength for offshore cruising.',
+    'subtitle'    => 'Reinforced for offshore and passage-making cruising.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
     'title'       => 'Endurance Series',
-    'subtitle'    => 'Built and reinforced for long passages.',
+    'subtitle'    => 'Enduro Dacron and taffeta-coated laminate options.',
   ],
 ];
 

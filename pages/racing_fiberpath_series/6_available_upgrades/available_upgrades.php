@@ -25,40 +25,40 @@ $jsSrc     = versioned_asset($jsPublic, $jsFs);
 
 $upgrades = [
   [
-    'title' => 'Custom string laminate',
-    'text'  => 'Crosscut or radial woven polyester for crisp shape and reliable club-race durability afloat.',
+    'title' => 'Regatta or Grand Prix',
+    'text'  => 'Select the FiberPath configuration with the loft according to boat size, racing level, load case and handling priorities.',
   ],
   [
-    'title' => 'Custom string laminate',
-    'text'  => 'Custom string-laminate membrane for low stretch and rock-solid shape retention upwind fast.',
+    'title' => 'Fibre specification',
+    'text'  => 'Carbon, aramid or a specified blend is chosen to suit the required balance of stretch resistance, weight, flex and durability.',
   ],
   [
-    'title' => 'Carbon & aramid fibres',
-    'text'  => ' Carbon/aramid fibres deliver strength efficiency and clean load paths at race speeds today.',
+    'title' => 'External skin',
+    'text'  => 'Film, taffeta or non-woven textile surfaces may be specified where offered for the selected FiberPath construction.',
   ],
   [
-    'title' => 'Film/taffeta/NWT skins',
-    'text'  => 'Choose film taffeta or NWT skins to finetune durability versus weight without losing speed.',
+    'title' => 'Luff system',
+    'text'  => 'Slides, bolt ropes, headstay systems and related reinforcement are matched to the rig and the way the sail will be handled.',
   ],
   [
-    'title' => ' Luff systems',
-    'text'  => 'Upgrade luff systems for cleaner entry, easier hoists and better control when trimming now.',
+    'title' => 'Batten configuration',
+    'text'  => 'Batten number, material, receptacles and tensioning are specified for the sail design and applicable class rules.',
   ],
   [
-    'title' => 'Telltale windows',
-    'text'  => 'Telltale windows speed up flow reading, helping you nail modes and shifts, with confidence.',
+    'title' => 'Reefing and hardware',
+    'text'  => 'Reefs, rings, webbing and attachment hardware are included only where required by the quoted specification.',
   ],
   [
-    'title' => 'Glowfast draft stripes',
-    'text'  => ' Glowfast draft stripes, keep key trim marks visible during night manoeuvres and checks now.',
+    'title' => 'Class or rating compliance',
+    'text'  => 'Measurements, materials, sail numbers and insignia must follow the relevant class or rating requirements.',
   ],
   [
-    'title' => 'Lite Skin finishing',
-    'text'  => 'Lite Skin finishing add abrasion resistance and stealth aesthetic with minimal weight gain.',
+    'title' => 'Trim references',
+    'text'  => 'Draft stripes, telltales and windows can be positioned to suit the sail and trimmer, subject to the final build.',
   ],
   [
-    'title' => 'Carbon battens',
-    'text'  => ' Carbon battens reduce weight aloft, and hold leech stability through gust response too now.',
+    'title' => 'Handling and storage',
+    'text'  => 'Bag type and handling details should reflect whether the sail will be rolled, flaked or otherwise stored between races.',
   ],
 ];
 
@@ -74,7 +74,8 @@ $total = count($upgrades);
       <p class="au-tagline sr-item">The FiberPath&nbsp;Series</p>
       <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
-        Custom string-laminate upwind sails: low stretch, locked-in shape, race-ready options, fast.
+        The available configuration is sail-specific. The written quotation and build
+        specification control over this general list.
       </p>
     </header>
 

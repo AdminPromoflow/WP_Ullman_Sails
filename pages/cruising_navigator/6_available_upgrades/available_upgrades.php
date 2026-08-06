@@ -25,32 +25,24 @@ $jsSrc     = versioned_asset($jsPublic, $jsFs);
 
 $upgrades = [
   [
-    'title' => 'Additional reefs for mainsails',
-    'text'  => 'Add extra reef points to reduce sail area quickly and keep the boat balanced as conditions build.',
+    'title' => 'Cloth weight and finish',
+    'text'  => 'The loft selects the appropriate Navigator Dacron specification for the boat size, use and local conditions.',
   ],
   [
-    'title' => 'Roller reef patch',
-    'text'  => 'Reinforce high-wear areas for reefing and furling to protect shape and extend service life.',
+    'title' => 'Sail inventory',
+    'text'  => 'Mainsail and headsail choices are planned around the boat, crew and intended day or coastal cruising.',
   ],
   [
-    'title' => 'Foam luff for headsails',
-    'text'  => 'Helps maintain a cleaner entry and more consistent drive when the sail is partially furled.',
+    'title' => 'Furling and handling compatibility',
+    'text'  => 'Hardware and finishing can be configured around the boat’s existing furling or sail-handling system.',
   ],
   [
-    'title' => 'UV covers / treatments for furling sails',
-    'text'  => 'Add UV protection on exposed edges to reduce sun damage when the sail is furled on the rig.',
+    'title' => 'UV protection',
+    'text'  => 'The appropriate UV cover or protection strategy is selected for furling sails and the expected sun exposure.',
   ],
   [
-    'title' => 'Sail numbers & draft stripes',
-    'text'  => 'Improve identification and trim visibility with clear numbers and stripes for monitoring draft position.',
-  ],
-  [
-    'title' => 'Full battens',
-    'text'  => 'Support smoother leech behaviour and shape retention, with more controlled handling in many setups.',
-  ],
-  [
-    'title' => 'Anti-mildew treatment',
-    'text'  => 'Helps reduce mildew growth in humid conditions and storage, keeping the cloth cleaner for longer.',
+    'title' => 'Reefing and finishing details',
+    'text'  => 'Reefs, battens, attachment hardware and finishing are specified individually rather than presented as universal standard features.',
   ],
 ];
 
@@ -66,7 +58,7 @@ $total = count($upgrades);
       <p class="au-tagline sr-item">Navigator Series</p>
       <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
-        Enhance performance, durability, and ease of use with tailored options for your sail and sailing style.
+        Navigator sails are custom products. Confirm these configuration choices with the local Ullman Sails loft.
       </p>
     </header>
 

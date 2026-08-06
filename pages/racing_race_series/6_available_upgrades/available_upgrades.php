@@ -26,43 +26,43 @@ $jsSrc    = versioned_asset($jsPublic, $jsFs);
 $upgrades = [
   [
     'title' => 'Race Dacron cloth',
-    'text'  => 'Crosscut or radial woven polyester for crisp shape and reliable club-race durability afloat.',
+    'text'  => 'Woven race polyester may be specified in cross-cut or radial layouts according to the sail and programme.',
   ],
   [
     'title' => 'Race Laminate cloth',
-    'text'  => 'Laminate and non-woven textile builds for lighter weight and sharper response in trim fast.',
+    'text'  => 'Laminate options can reduce weight and stretch; fibre, film and surface construction are confirmed in the quote.',
   ],
   [
-    'title' => 'Luff systems',
-    'text'  => 'Upgrade luff hardware for smoother hoists better load sharing and cleaner entry sail shape.',
+    'title' => 'Panel layout',
+    'text'  => 'Cross-cut or radial construction is selected for the material, sail geometry, loads and budget.',
   ],
   [
-    'title' => 'Telltale windows',
-    'text'  => 'Add telltale windows for quicker reads of flow and easier, more consistent trimming set-up.',
+    'title' => 'Luff system',
+    'text'  => 'Slides, bolt ropes, headstay systems and related reinforcement are matched to the rig and handling method.',
   ],
   [
-    'title' => 'Glowfast draft stripes',
-    'text'  => 'Glowfast luminous tape draft stripes improve night visibility and trim reference marks too.',
+    'title' => 'Batten configuration',
+    'text'  => 'Batten layout, material, receptacles and tensioning are specified for the sail design and class rules.',
   ],
   [
-    'title' => 'Lite Skin finishing',
-    'text'  => 'Lite Skin finishing boosts durability and adds a stealth look with minimal weight gain too.',
+    'title' => 'Reefing and hardware',
+    'text'  => 'Reefs, rings, webbing and attachments are included where required by the individual specification.',
   ],
   [
-    'title' => 'Carbon & aramid laminates',
-    'text'  => ' Carbon/aramid laminate options deliver low stretch, stable shape and fast acceleration too.',
+    'title' => 'Class or rating compliance',
+    'text'  => 'Dimensions, materials, sail numbers and insignia must follow the applicable class or rating rules.',
   ],
   [
-    'title' => 'High-performance battens',
-    'text'  => 'High-performance battens and receptacles improve stability, leech control and response too.',
+    'title' => 'Trim aids',
+    'text'  => 'Draft stripes, telltales and windows can be positioned to suit the sail and trimmer.',
   ],
   [
-    'title' => 'Corner reinforcements',
-    'text'  => ' Extra corner patches or webbed rings spread loads and resist distortion at high loads well.',
+    'title' => 'Handling and storage',
+    'text'  => 'Bag type and storage guidance should reflect whether the sail is rolled, flaked or folded.',
   ],
   [
-    'title' => 'Carbon battens',
-    'text'  => 'Carbon battens reduce weight aloft and increase stiffness for a sharper stable profile now.',
+    'title' => 'Written build specification',
+    'text'  => 'Availability and price of every option must be confirmed by the loft before production.',
   ],
 ];
 
@@ -78,7 +78,8 @@ $total = count($upgrades);
       <p class="au-tagline sr-item">The Race&nbsp;Series</p>
       <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
-        Radial-built club/class race sails: broad trim range, responsive handling, durable upgrades.
+        Options vary by sail, boat, rules and loft. The written build specification
+        controls over this general list.
       </p>
     </header>
 

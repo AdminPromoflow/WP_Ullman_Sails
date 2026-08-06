@@ -14,16 +14,16 @@ SVG;
 
 $ph_steps = [
   [
-    'title' => 'Custom Design by Ullman Sails',
-    'text'  => 'Each sail is individually crafted by an Ullman Sails designer to ensure it delivers a high-quality performance shape tailored to the boat.',
+    'title' => 'Custom-designed for your boat',
+    'text'  => 'Navigator sails are not stock sails: the shape and fit are tailored to the boat’s specifications and the owner’s sailing style.',
   ],
   [
-    'title' => 'Efficient Sail Shape for Easier Trimming',
-    'text'  => 'The sail’s efficient shape allows you to trim it easily across various conditions and helps reduce the boat’s heel, making it more stable.',
+    'title' => 'Durable cross-cut Dacron',
+    'text'  => 'Premium, tightly woven Dacron and a cross-cut panel layout provide a practical balance of durability, easy handling and dependable performance.',
   ],
   [
-    'title' => 'Custom Hardware and Finishing for Perfect Fit',
-    'text'  => 'Our sailmakers will customise the sail with the right hardware and finishing details so it fits your furling unit or any other handling system perfectly.',
+    'title' => 'Configured for your handling system',
+    'text'  => 'The local loft specifies the hardware and finishing details to suit the boat, including relevant furling or sail-handling requirements.',
   ],
 ];
 

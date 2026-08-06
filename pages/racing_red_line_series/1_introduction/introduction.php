@@ -19,7 +19,7 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
     <!-- Brand mark: provide meaningful alt text for accessibility -->
     <div class="img-title-sailing-content sr-item">
       <img
-        src="../cruising_navigator/1_introduction/img/ullman_sails.png"
+        src="1_introduction/img/ullman_sails.png"
         alt="Ullman Sails"
         decoding="async"
         width="240"
@@ -32,7 +32,10 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
 
     <!-- Keep the intro copy as a single paragraph for clean semantics -->
     <p class="sr-item">
-      Built to maximise racecourse performance, Axia Red Line is Ullman’s downwind racing range for symmetric, asymmetric and Code sails. Built for fast rotation, smooth acceleration and tight trims, with light construction and structured luffs for easy launches and pace to leeward.
+      Axia Red Line is Ullman Sails’ downwind racing range for Code sails and
+      symmetrical or asymmetrical spinnakers. The range covers different mid-girths
+      and reaching or running applications. Cloth, luff or furling arrangement and
+      usable wind range must be specified for the individual boat and sail.
     </p>
   </div>
 </section>

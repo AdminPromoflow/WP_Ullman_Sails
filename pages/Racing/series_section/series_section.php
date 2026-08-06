@@ -31,10 +31,10 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
 
         <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_race_series')); ?>">Cloth <em>Selection</em></a></h4>
         <p><strong>RACE DACRON</strong></p>
-        <p>Lightweight, durable choice for bay sailing, offering easy handling and reliable performance. Designed for recreational use, it features practical reinforcements and a clean finish.</p>
+        <p>Race Dacron is a woven-polyester option. Ullman lists cross-cut and radial construction, with the final cloth weight and layout selected for the boat and racing programme.</p>
 
         <p><strong>RACE LAMINATE</strong></p>
-        <p>Race Laminates are a lightweight option that delivers enhanced performance over Dacron, making it ideal for sailors seeking speed and efficiency. Radial Laminate provides superior durability and low stretch, ensuring long-lasting performance and reliability on the water.</p>
+        <p>Race laminates can reduce weight and stretch compared with woven Dacron. Fibre, film or non-woven components and panel layout vary with the required load, durability and class or rating constraints.</p>
       </div>
       <figure class="series-image">
         <img
@@ -74,12 +74,12 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
         <hr class="series-divider" aria-hidden="true">
 
         <p><strong>FiberPath Regatta</strong></p>
-        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_fiberpath_series')); ?>">Precision Engineered <em>for Speed</em></a></h4>
-        <p>FiberPath Regatta sails deliver high-performance with a custom string laminate design. Engineered with carbon and aramid fibers, they offer strength and efficiency. Available with film, taffeta, or NWT skins for optimal durability and speed.</p>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_fiberpath_series')); ?>">Custom Fibre Layout <em>for Racing</em></a></h4>
+        <p>FiberPath Regatta uses a custom string-laminate layout with carbon, aramid or a specified blend. Ullman lists film, taffeta and non-woven textile skin options; the selected build balances weight, handling and abrasion protection.</p>
 
         <p><strong>FiberPath Grand Prix</strong></p>
-        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_fiberpath_series')); ?>">Ultimate Strength, <em>Maximum Performance</em></a></h4>
-        <p>FiberPath Grand Prix sails deliver elite performance and superior strength. By combining a custom string laminate with cutting-edge design, these sails offer exceptional load management and shape-holding abilities, making them the fastest sails on the water.</p>
+        <h4 class="series-cloth"><a class="series-heading-link" href="<?php echo esc_url(ullman_page_url('racing_fiberpath_series')); ?>">Custom Load Paths, <em>Programme-Specific Build</em></a></h4>
+        <p>FiberPath Grand Prix is the higher-specification custom string-laminate option. Fibre layout and external surfaces are selected around the sail loads and programme; results also depend on boat setup, crew and conditions.</p>
       </div>
     </div>
   </section>
@@ -101,12 +101,10 @@ $img3Time = filemtime(__DIR__ . '/img/red_line.jpg');
       <div class="series-text">
         <p><strong>RED LINE AXIA CODE SAILS</strong></p>
         <p>
-          Axia is Ullman’s latest innovation in downwind sail technology, combining
-          Active Luff™ construction while our expertise and experience recognize that
-          cable-based technology remains one of the safest and fastest solutions
-          available. Offering a perfect balance of power, durability, and adaptability,
-          Axia delivers cutting-edge performance while remaining safe, reliable, and
-          race-proven across all wind conditions.
+          Axia Red Line is Ullman’s downwind racing range for Code sails and symmetrical
+          or asymmetrical spinnakers. Each model covers a different girth and apparent-wind
+          application. Luff structure, furling system, cloth and operating wind range must be
+          specified for the individual sail, boat and racing rules.
         </p>
       </div>
       <figure class="series-image">

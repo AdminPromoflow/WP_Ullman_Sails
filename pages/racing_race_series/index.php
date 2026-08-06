@@ -15,7 +15,7 @@ $baseDir = __DIR__;
 
   <style>
     html {
-      scroll-behaviour: smooth;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -60,7 +60,7 @@ $baseDir = __DIR__;
   <?php include $baseDir . "/5_cloth_and_construction/cloth_and_construction.php"; ?>
   <?php include $baseDir . "/7_standard_specifications/standard_specifications.php"; ?>
   <?php include $baseDir . "/6_available_upgrades/available_upgrades.php"; ?>
-  <?php include $baseDir . "/racing_race_series/9_engineering_for_extreme_environments/engineering_for_extreme_environments.php"; ?>
+  <?php include $baseDir . "/9_engineering_for_extreme_environments/engineering_for_extreme_environments.php"; ?>
   <?php include $baseDir . "/../general/footer/Footer.php"; ?>
 
 

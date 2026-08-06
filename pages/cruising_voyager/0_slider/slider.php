@@ -69,13 +69,13 @@ $slides = [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
     'title'       => 'Voyager Series',
-    'subtitle'    => 'Dependable cruising sails with upgraded finishing details.',
+    'subtitle'    => 'Premier cruising sails for luxury yachts and performance cruisers.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
     'title'       => 'Voyager Series',
-    'subtitle'    => 'Built for versatile cruising performance and easy handling.',
+    'subtitle'    => 'Custom-built with Voyager Dacron, UltraCruise or FiberPath.',
   ],
 ];
 

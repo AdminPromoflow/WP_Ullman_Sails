@@ -17,6 +17,12 @@ $navJsV  = is_file($navJsFs)  ? filemtime($navJsFs)  : time();
 
 <link rel="stylesheet" href="<?= $navCssPublic ?>?v=<?= $navCssV ?>">
 <section class="facebook-feed-section" aria-label="Ullman Sails Facebook posts">
+  <header class="facebook-feed-header">
+    <p class="facebook-feed-eyebrow">Social</p>
+    <h2 class="facebook-feed-title">From Facebook</h2>
+    <p class="facebook-feed-intro">More updates from Ullman Sails Solent.</p>
+  </header>
+
   <div class="facebook-feed-grid">
 
     <article class="facebook-feed-card">

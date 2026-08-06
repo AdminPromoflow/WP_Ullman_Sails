@@ -41,7 +41,10 @@
 }
 
 .services-brand{
-  margin: 0 0 .65rem 0;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 .65rem;
+  text-align: center;
   font-size: .95rem;
   letter-spacing: .28em;
   text-transform: uppercase;
@@ -56,14 +59,6 @@
   color: var(--ull-blue);
   font-weight: 800;
   letter-spacing: -0.02em;
-}
-
-.services-divider{
-  display:block;
-  width: clamp(110px, 12vw, 160px);
-  height: 2px;
-  margin: 18px auto 18px;
-  background: linear-gradient(90deg, transparent, rgba(32,46,82,.35), transparent);
 }
 
 .services-subtitle{

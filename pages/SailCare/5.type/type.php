@@ -8,28 +8,28 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
 <link rel="stylesheet" href="../SailCare/5.type/type.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
 
-<div class="series-list">
+<div class="series-list" id="sailcare-material-guides">
 
   <!-- Woven Dacron and Spectra/Dyneema Sails -->
-  <section class="series-section" data-sr-reveal aria-labelledby="series-title-navigator" id="Woven_Dacron">
+  <section class="series-section" data-sr-reveal aria-labelledby="material-woven-title" id="Woven_Dacron">
     <header class="series-header">
       <p class="series-subtitle">MATERIAL TYPE</p>
-      <h2 id="series-title-navigator" class="series-title">Sail Care for Material Type</h2>
+      <h2 id="sailcare-material-guides-title" class="series-title">Sail Care by Material</h2>
     </header>
 
     <div class="series-container" >
       <figure class="series-image">
         <img
           src="../SailCare/5.type/img/Woven-1.jpg"
-          alt="Navigator Series cruising sails"
+          alt="Woven sailcloth in use"
           loading="lazy"
           decoding="async"
         />
       </figure>
 
       <div class="series-text" >
-        <h3 class="series-code">Woven Dacron and Spectra/Dyneema Sails</h3> <br>
-        <h4 class="class="series-cloth"">Hard-finish Dacron sails, most commonly used for dinghy sails and One Design keelboat sails, should only be rolled and stored where they will not be crushed.</h4><br>
+        <h3 class="series-code" id="material-woven-title">Woven Dacron and Spectra/Dyneema Sails</h3> <br>
+        <h4 class="series-cloth">Hard-finish Dacron sails, most commonly used for dinghy sails and One Design keelboat sails, should only be rolled and stored where they will not be crushed.</h4><br>
         <p>Store safely rolled, rinse metal components occasionally, and avoid using harsh chemicals or chlorine.</p>
         <p>Hard-finish Dacron sails, commonly used for dinghy and One Design keelboat sails, should always be rolled and stored to avoid crushing.</p>
         <p>Never clean sails in a chlorinated swimming pool, as the stitching is not resistant to chlorine.</p>
@@ -40,12 +40,12 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   </section>
 
   <!-- Laminate and FiberPath Sails -->
-  <section class="series-section is-reversed" data-sr-reveal aria-labelledby="series-title-endurance" id="Laminate">
+  <section class="series-section is-reversed" data-sr-reveal aria-labelledby="material-laminate-title" id="Laminate">
 
     <div class="series-container">
 
       <div class="series-text">
-        <h3 class="series-code">Laminate and FiberPath Sails</h3> <br>
+        <h3 class="series-code" id="material-laminate-title">Laminate and FiberPath Sails</h3> <br>
         <h4 class="series-cloth">Laminate and FiberPath sails provide unmatched performance and durability, offering superior shape-holding characteristics. These sails require careful handling to maintain their performance. </h4><br>
         <h4 class="series-cloth">Several essential steps should be taken to ensure a long and valuable life for your sails:</h4> <br>
         <p>When storing, avoid flaking or folding the sails along the same line each time.</p>
@@ -59,7 +59,7 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
       <figure class="series-image">
         <img
           src="../SailCare/5.type/img/FiberPath-2.jpg"
-          alt="Endurance Series cruising sails"
+          alt="FiberPath sail detail"
           loading="lazy"
           decoding="async"
         />
@@ -69,19 +69,19 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   </section>
 
   <!-- Spinnaker Cloth -->
-  <section class="series-section" data-sr-reveal aria-labelledby="series-title-voyager" id="Spinnaker_Cloth">
+  <section class="series-section" data-sr-reveal aria-labelledby="material-spinnaker-title" id="Spinnaker_Cloth">
     <div class="series-container">
       <figure class="series-image">
         <img
           src="../SailCare/5.type/img/Spinnaker-3.jpg"
-          alt="Voyager Series cruising sails"
+          alt="Colorful spinnaker sail flying"
           loading="lazy"
           decoding="async"
         />
       </figure>
 
       <div class="series-text">
-        <h3 class="series-code">Spinnaker Cloth</h3><br>
+        <h3 class="series-code" id="material-spinnaker-title">Spinnaker Cloth</h3><br>
         <h4 class="series-tagline">Handle with care, as spinnaker cloth is especially sensitive to UV rays and stress. Its lightweight properties are achieved using extremely thin material, making it more fragile and particularly vulnerable to UV exposure and damage from flogging.</h4> <br>
         <p>Modern spinnaker cloth is generally color-stable, but "bleeding" can still occur if colored spinnakers are stored wet.</p>
         <p>Avoid hoisting spinnakers at the dock to dry by flapping, as this can cause destructive "flutter and impact" damage similar to manufacturer tests.</p>

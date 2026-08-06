@@ -21,12 +21,15 @@ $ssImgV = is_file($ssImgFs) ? filemtime($ssImgFs) : time();
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Racecourse shape',
-  'Lightweight build',
-  'Structured luff',
-  'Furling control ',
-  'Materials',
-  'Construction & finishing ',
+  'Axia model and intended apparent-wind range',
+  'Mid-girth, sail area and rating classification',
+  'Code laminate or spinnaker-cloth specification',
+  'Symmetrical or asymmetrical geometry',
+  'Luff, cable and furling arrangement where applicable',
+  'Sheets, attachments and retrieval arrangement',
+  'Reinforcement and finishing details',
+  'Sail numbers, trim marks, colours and graphics',
+  'Boat-specific operating limits',
 ];
 ?>
 
@@ -36,8 +39,8 @@ $ss_features = [
   <div class="ss-wrap">
 
     <header class="ss-header">
-      <h2 id="ss-title" class="ss-title sr-item" style="--sr-delay: 0ms;">Standard Specifications</h2>
-      <p class="ss-subtitle sr-item" style="--sr-delay: 70ms;">Race-ready downwind sails: light, fast rotation, structured luff, furl control, durable finish no:</p>
+      <h2 id="ss-title" class="ss-title sr-item" style="--sr-delay: 0ms;">Specification Areas</h2>
+      <p class="ss-subtitle sr-item" style="--sr-delay: 70ms;">Red Line models do not share one universal construction. Confirm each item in the final written quotation.</p>
     </header>
 
     <div class="ss-grid">
@@ -46,7 +49,7 @@ $ss_features = [
         <div class="ss-image">
           <img
             src="<?= $ssImgPublic ?>?v=<?= $ssImgV ?>"
-            alt="Navigator sail standard specifications"
+            alt="Axia Red Line specification details"
             loading="lazy"
             decoding="async"
           >

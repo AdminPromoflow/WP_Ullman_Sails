@@ -14,20 +14,20 @@ SVG;
 
 $ph_steps = [
   [
-    'title' => 'Locked-In Shape',
-    'text'  => 'Membrane construction delivers minimal stretch and a well-locked-in shape when loads build and ease.',
+    'title' => 'Custom Load Paths',
+    'text'  => 'The string layout is designed around the expected loads of the individual sail rather than a universal panel pattern.',
   ],
   [
-    'title' => 'Precision Response',
-    'text'  => 'Instant, precise response to small trim changes delivers maximum speed in pressure and ocean swells.',
+    'title' => 'Low-Stretch Objective',
+    'text'  => 'Carbon, aramid or specified blends are used to limit stretch and support draft stability; the result depends on the complete sail and its condition.',
   ],
   [
-    'title' => 'Load-Path Engineering',
-    'text'  => 'Custom fibre layouts follow real load paths to hold draft position and reduce distortion aloft, too.',
+    'title' => 'Material Selection',
+    'text'  => 'Fibre and skin choices are matched to loads, handling, expected use and durability priorities with the Ullman consultant.',
   ],
   [
-    'title' => 'Grand Prix Capability',
-    'text'  => 'Built for top-level racing: light, strong and very stable across a broad wind range, offshore daily.',
+    'title' => 'Regatta or Grand Prix',
+    'text'  => 'The current range distinguishes Regatta and Grand Prix configurations; the loft confirms which construction suits the programme.',
   ],
 ];
 
@@ -63,7 +63,7 @@ $ph_img_v = is_file($ph_img_fs) ? filemtime($ph_img_fs) : time();
       <img
         class="ph-image sr-item"
         src="<?= $ph_img_public ?>?v=<?= $ph_img_v ?>"
-        alt="Navigator Series sails shown under load"
+        alt="FiberPath racing sail shown under load"
         loading="lazy"
         decoding="async"
       >

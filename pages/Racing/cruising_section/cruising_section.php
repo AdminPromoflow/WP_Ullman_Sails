@@ -35,7 +35,7 @@ $img4V = is_file($img4Fs) ? filemtime($img4Fs) : null;
 <section class="cruising-section" aria-labelledby="cruising-title">
   <div class="img-title-sailing-content">
     <img
-      src="../cruising_navigator/1_introduction/img/ullman_sails.png"
+      src="../racing_race_series/1_introduction/img/ullman_sails.png"
       alt="Ullman Sails"
       decoding="async"
       width="240"
@@ -46,14 +46,17 @@ $img4V = is_file($img4Fs) ? filemtime($img4Fs) : null;
   <h2 id="cruising-title" class="cruising-title">Racing Sails</h2>
 
   <p class="cruising-subtitle">
-    When it comes to racing sails, performance, precision and innovation are essential. Race Icon, FiberPath, and The Axia Series – Red Line represent the pinnacle of high-performance sail design, delivering speed, control and advanced technology for competitive sailing at the highest level.
+    Ullman Sails groups its racing offer into Race Series upwind sails, FiberPath custom
+    string-laminate sails, and the Axia Series – Red Line range of downwind Codes and
+    spinnakers. The final design, cloth and equipment must be matched to the boat,
+    racing programme, rating or class rules, and expected conditions.
   </p>
 
   <ul class="cruising-icons" role="list">
 
     <li class="cruising-icon">
       <a class="cruising-link" href="<?php echo esc_url(ullman_page_url('racing_race_series')); ?>">
-        <img src="<?= with_v($img1Url, $img1V) ?>" alt="Race Icon">
+        <img src="<?= with_v($img1Url, $img1V) ?>" alt="Race Series">
         <h3 class="series">Race</h3>
       </a>
     </li>

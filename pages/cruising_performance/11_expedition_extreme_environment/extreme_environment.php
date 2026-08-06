@@ -26,11 +26,10 @@ function with_v(string $url, ?int $v): string {
     <div class="step sr-item">
       <div class="num">01</div>
       <p class="txt">
-        All Performance Series sails are custom projects—meticulously designed
-        and constructed for maximum durability and safety. In extreme cold,
-        high winds, and rough seas, crews need complete trust in their equipment.
-        These sails help manage high winds and sub-zero conditions where mistakes
-        compound quickly and physical responsiveness may be reduced.
+        The Performance Series is intended for demanding programs including
+        offshore, high-latitude and superyacht cruising. Each sail is a custom
+        project: shape, structure, cloth and reinforcement are selected for the
+        yacht’s expected loads, operating area and handling systems.
       </p>
     </div>
 
@@ -38,11 +37,10 @@ function with_v(string $url, ?int $v): string {
     <div class="step sr-item">
       <div class="num">02</div>
       <p class="txt">
-        High winds can produce significant heel, increasing the risk of the
-        mainsail being dragged into the water. Sail changes in these conditions
-        are inherently risky. The Performance Series is designed to reduce or
-        eliminate many of the challenges posed by extreme environments—preparing
-        you for the unknown.
+        A custom sail cannot remove the risks of extreme-weather sailing.
+        Reefing plans, furling systems, crew procedures, inspection intervals
+        and conservative operating limits remain essential and should be agreed
+        with the yacht’s professional advisers and the local Ullman loft.
       </p>
     </div>
   </div>

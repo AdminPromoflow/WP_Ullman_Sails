@@ -2,13 +2,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Ullman Sails</title>
+    <title>News | Ullman Sails</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <meta http-equiv='cache-control' content='no-cache'>
     <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <style media="screen">
@@ -20,65 +20,101 @@
       font-size: 1em;
     }
       .news{
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
-      background-color: #F8F8FA;
-
-      display: flex;
-      align-items: stretch;
-      justify-content: stretch;
-      flex-wrap: nowrap;
-      }
-      .content {
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
-      }
-      .content::-webkit-scrollbar {
-          display: none;  /* Safari and Chrome */
+        position: relative;
+        display: grid;
+        grid-template-columns: clamp(17rem, 21vw, 20rem) minmax(0, 1fr) clamp(18rem, 23vw, 22rem);
+        align-items: start;
+        width: 100%;
+        min-height: 100vh;
+        background: #f4f7fb;
       }
 
       .content {
-        height: 100vh;
-        overflow-y: scroll;
-        background-color: white;
-        flex: 1 1 0;
         min-width: 0;
+        min-height: 100vh;
+        background: #f4f7fb;
       }
+
       .leftPanel{
+        position: sticky;
+        top: 0;
         height: 100vh;
+        min-width: 0;
         overflow: hidden;
-        background-color: #202E52;
-        flex: 0 0 clamp(17rem, 23vw, 21rem);
+        background: #202E52;
         z-index: 10;
       }
-      .rightPanel{
-        height: 100vh;
-        overflow-y: scroll;
-        background-color: #202E52;
-        flex: 0 0 clamp(18rem, 25vw, 23rem);
 
+      .rightPanel{
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        min-width: 0;
+        overflow-y: auto;
+        background: #eef3f8;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(32,46,82,.3) transparent;
       }
+
       .IconMenuNews{
         position: fixed;
-        z-index: 12;
+        z-index: 30;
         display: none;
-        left: 15px;
-        top: 15px;
-        height: 20px;
-        width: 25px;
+        align-items: center;
+        gap: .65rem;
+        left: 1rem;
+        top: 5.5rem;
+        min-height: 2.85rem;
+        padding: .7rem 1rem;
+        border: 0;
+        border-radius: 999px;
+        color: #ffffff;
+        background: #202e52;
+        box-shadow: 0 12px 30px rgba(17,28,66,.24);
+        font: inherit;
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: .06em;
+        text-transform: uppercase;
         cursor: pointer;
       }
-      .IconCloseMenuNews{
+
+      .IconMenuNews__bars,
+      .IconMenuNews__bars::before,
+      .IconMenuNews__bars::after{
+        display: block;
+        width: 1.15rem;
+        height: 2px;
+        border-radius: 2px;
+        background: currentColor;
+      }
+
+      .IconMenuNews__bars{
         position: relative;
-        z-index: 11;
+      }
+
+      .IconMenuNews__bars::before,
+      .IconMenuNews__bars::after{
+        position: absolute;
+        left: 0;
+        content: "";
+      }
+
+      .IconMenuNews__bars::before{ top: -.36rem; }
+      .IconMenuNews__bars::after{ top: .36rem; }
+
+      .news-drawer-backdrop{
+        position: fixed;
+        inset: 0;
+        z-index: 19;
         display: none;
-        left: calc(100% - 35px);
-        top: 15px;
-        height: 20px;
-        width: 25px;
+        padding: 0;
+        border: 0;
+        background: rgba(17,28,66,.48);
+        backdrop-filter: blur(3px);
         cursor: pointer;
       }
+
       button {
         background-color: #111C42;
         padding: 15px;
@@ -91,65 +127,79 @@
         color: #111C42;
       }
 
-      @media screen and (max-width: 1130px) {
+      @media screen and (max-width: 1180px) {
+        .news{
+          grid-template-columns: clamp(17rem, 25vw, 20rem) minmax(0, 1fr);
+        }
+
         .rightPanel{
           display: none;
         }
       }
-     @media screen and (max-width: 574px) {
-       .content{
-         width: 100%;
-       }
+
+     @media screen and (max-width: 760px) {
+        .news{
+          display: block;
+        }
+
+        .content{
+          width: 100%;
+        }
+
         .leftPanel{
-          display: none;
           position: fixed;
           inset: 0 auto 0 0;
+          z-index: 20;
           width: min(88vw, 23rem);
           height: 100dvh;
+          visibility: hidden;
+          transform: translateX(-105%);
+          transition: transform .28s ease, visibility .28s ease;
           box-shadow: 18px 0 42px rgba(0, 39, 72, .28);
         }
+
+        body.news-menu-open{
+          overflow: hidden;
+        }
+
+        body.news-menu-open .leftPanel{
+          visibility: visible;
+          transform: translateX(0);
+        }
+
+        body.news-menu-open .news-drawer-backdrop{
+          display: block;
+        }
+
         .IconMenuNews{
-          display: block;
+          display: inline-flex;
         }
-
-        .IconCloseMenuNews{
-          display: block;
-        }
-
       }
 
-
-
-
+      @media (prefers-reduced-motion: reduce){
+        .leftPanel{ transition: none; }
+      }
     </style>
     <?php include __DIR__ . "/../general/menu/menu.php" ?>
     <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
     <section class="news">
 
-    <img id="IconMenuNews" class="IconMenuNews" src="../News/Images/Menu.png" alt="">
+    <button id="IconMenuNews" class="IconMenuNews" type="button" aria-controls="leftPanel" aria-expanded="false">
+      <span class="IconMenuNews__bars" aria-hidden="true"></span>
+      Stories
+    </button>
+
+    <button id="NewsMenuBackdrop" class="news-drawer-backdrop" type="button" aria-label="Close news navigation" tabindex="-1"></button>
 
     <section id="leftPanel" class="leftPanel" data-home-url="<?php echo esc_url(ullman_page_url('home')); ?>">
 
       <?php  include __DIR__ . "/LeftPanel/LeftPanel.php" ?>
-      <script type="text/javascript">
-          IconMenuNews = document.getElementById('IconMenuNews');
-          IconCloseMenuNews = document.getElementById('IconCloseMenuNews');
-          leftPanel = document.getElementById('leftPanel');
-
-          IconMenuNews.addEventListener("click", function(){
-          leftPanel.style.display = "block";
-          })
-
-          IconCloseMenuNews.addEventListener("click", function(){
-          leftPanel.style.display = "none";
-          })
-      </script>
     </section>
 
-    <section class="content">
+    <main class="content" id="newsContent">
       <?php  include __DIR__ . "/Content/Content.php" ?>
-    </section>
+    </main>
     <section class="rightPanel">
       <?php  include __DIR__ . "/RightPanel/RightPanel.php" ?>
     </section>
@@ -161,78 +211,43 @@
 
 
 <script type="text/javascript">
-const contentSections = document.querySelectorAll(".contentSections");
-const itemsLeftPanel = document.querySelectorAll(".itemsLeftPanel");
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const panel = document.getElementById("leftPanel");
+  const openButton = document.getElementById("IconMenuNews");
+  const closeButton = document.getElementById("IconCloseMenuNews");
+  const backdrop = document.getElementById("NewsMenuBackdrop");
 
-leftPanel = document.getElementById('leftPanel');
-
-
-var contentSectionsOn = 0;
-
-
-for (let i = 0; i < itemsLeftPanel.length; i++) {
-
-  contentSections[i].style.display = "none";
-  contentSections[0].style.display = "block";
-
-  itemsLeftPanel[i].addEventListener("click", function(){
-    if (  window.innerWidth <= 768) {
-      leftPanel.style.display = "none";
-    }
-    if (contentSections[i].style.display == "none" ){
-      contentSectionsOn  = i;
-      contentSections[i].style.display = "block";
-      turnOffOtherContentSections();
-    }
-  })
-}
-
-function turnOffOtherContentSections(){
-  for (let i = 0; i < itemsLeftPanel.length; i++) {
-    if (i != contentSectionsOn) {
-      contentSections[i].style.display = "none";
-    }
+  function openMenu() {
+    body.classList.add("news-menu-open");
+    openButton?.setAttribute("aria-expanded", "true");
+    window.setTimeout(() => closeButton?.focus(), 0);
   }
-}
-</script>
 
-<script type="text/javascript">
-// Función para manejar el scroll suave y respuesta rápida
-    let isScrolling = false;
-    let velocity = 0;
-    let previousY = 0;
+  function closeMenu({ returnFocus = false } = {}) {
+    body.classList.remove("news-menu-open");
+    openButton?.setAttribute("aria-expanded", "false");
+    if (returnFocus) openButton?.focus();
+  }
 
-    function handleScroll() {
-    if (!isScrolling) {
-      requestAnimationFrame(() => {
-        const currentY = window.scrollY;
-        const deltaY = currentY - previousY;
+  openButton?.addEventListener("click", openMenu);
+  closeButton?.addEventListener("click", () => closeMenu({ returnFocus: true }));
+  backdrop?.addEventListener("click", () => closeMenu({ returnFocus: true }));
 
-        // Agregar aceleración
-        velocity += deltaY * 0.05;
-        // Aplicar desaceleración gradual
-        velocity *= 0.0;
+  panel?.querySelectorAll(".item-left-panel").forEach((link) => {
+    link.addEventListener("click", () => closeMenu());
+  });
 
-        window.scrollBy(0, velocity);
-
-        previousY = currentY;
-        isScrolling = false;
-      });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && body.classList.contains("news-menu-open")) {
+      closeMenu({ returnFocus: true });
     }
-    }
+  });
 
-    // Agregar respuesta rápida al scroll
-    window.addEventListener('scroll', handleScroll);
-
-    // Eventos de mouse para inicio y finalización del scroll
-    window.addEventListener('mousedown', () => {
-    isScrolling = true;
-    velocity = 0;
-    });
-
-    window.addEventListener('mouseup', () => {
-    isScrolling = false;
-    });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) closeMenu();
+  });
+});
 </script>
   </body>
 

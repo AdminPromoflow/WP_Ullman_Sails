@@ -14,12 +14,13 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
  * Using an array keeps the markup DRY and reduces maintenance errors.
  */
 $ss_features = [
-  'Radial construction',
-  'Triple-step stitching on every seam',
-  'Radial patches',
-  'Nylon or Dacron leech tapes',
-  'High-tenacity luff lines for larger sails',
-  'Stainless steel rings',
+  'Axia Code 50: 50–60% mid-girth',
+  'Axia Code 60: 60–70% mid-girth',
+  'Axia Code 70: 70–80% mid-girth',
+  'Axia Symmetrical: custom sail for a spinnaker pole',
+  'Axia Asymmetrical: 80–97% mid-girth',
+  'Code Zero laminate or nylon spinnaker cloth by model',
+  'Final wind range, luff and handling system confirmed by the loft',
 ];
 ?>
 
@@ -29,8 +30,8 @@ $ss_features = [
   <div class="ss-wrap">
 
     <header class="ss-header">
-      <h2 id="ss-title" class="ss-title sr-item">Standard Specifications</h2>
-      <p class="ss-subtitle sr-item">Navigator sails come standard with the following features:</p>
+      <h2 id="ss-title" class="ss-title sr-item">Model Profiles</h2>
+      <p class="ss-subtitle sr-item">Axia models have different geometries and uses; no single construction applies to the entire range:</p>
     </header>
 
     <div class="ss-grid">
@@ -39,7 +40,7 @@ $ss_features = [
         <div class="ss-image">
           <img
             src="7_standard_specifications/img/standard_specifications.jpg"
-            alt="Navigator sail standard specifications"
+            alt="Axia Blue Line model profiles"
             loading="lazy"
             decoding="async"
           >

@@ -1,0 +1,891 @@
+/* Sail Care page — unified experience layer */
+.sailcare-page{
+  --sc-navy: #202e52;
+  --sc-blue: #005598;
+  --sc-red: #c5234a;
+  --sc-ink: #14233d;
+  --sc-muted: #5f6b7a;
+  --sc-line: rgba(32, 46, 82, .13);
+  --sc-surface: #ffffff;
+  --sc-soft: #f2f6fa;
+  --sc-radius: 22px;
+  --sc-shadow: 0 20px 55px rgba(25, 45, 78, .10);
+
+  background: #f7f9fc;
+  color: var(--sc-ink);
+}
+
+.sailcare-page .searchHide{
+  overflow: clip;
+}
+
+.sailcare-page :where(
+  #sailcare-title,
+  #sci-title,
+  #Woven_Dacron,
+  #Laminate,
+  #Spinnaker_Cloth,
+  #Keelboat_Multihull,
+  #Dinghy_Sails,
+  #Keelboat_Sails,
+  #sailcare-tips,
+  #sailcare-faq
+){
+  scroll-margin-top: calc(var(--nav-h, 86px) + 7rem);
+}
+
+/* Hero */
+.sailcare-page .home-slider{
+  height: clamp(34rem, 72svh, 48rem);
+  min-height: 34rem;
+  margin-bottom: 0;
+  background: #eef3f7;
+}
+
+.sailcare-page .home-slider__caption{
+  top: 50%;
+  bottom: auto;
+  left: clamp(1rem, 5vw, 5rem);
+  width: min(35rem, calc(100% - 8rem));
+  height: auto;
+  padding: clamp(1.35rem, 3vw, 2.35rem);
+  transform: translateY(-44%);
+  gap: .7rem;
+  border: 1px solid rgba(255, 255, 255, .82);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .91);
+  box-shadow: 0 24px 65px rgba(8, 27, 53, .18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sailcare-page .home-slider__slide.is-caption-right .home-slider__caption{
+  right: clamp(1rem, 5vw, 5rem);
+  left: auto;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.sailcare-page .home-slider__kicker img{
+  max-height: 36px;
+  min-height: 26px;
+}
+
+.sailcare-page .home-slider__title{
+  max-width: none;
+  color: var(--sc-blue);
+  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  line-height: .98;
+  letter-spacing: -.04em;
+  text-shadow: none;
+}
+
+.sailcare-page .home-slider__subtitle{
+  max-width: 27ch;
+  color: var(--sc-navy) !important;
+  font-size: clamp(1.15rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.35;
+  text-shadow: none;
+}
+
+.sailcare-page .home-slider__line{
+  width: 5rem;
+  height: 3px;
+  margin-top: .35rem;
+  background: var(--sc-red);
+  box-shadow: none;
+}
+
+.sailcare-page .home-slider__btn,
+.sailcare-page .sailcare__contact,
+.sailcare-page .image__link,
+.sailcare-page .series-text__toggle{
+  min-height: 48px;
+  border: 1px solid var(--sc-navy);
+  border-radius: 999px;
+  background: var(--sc-navy);
+  color: #fff !important;
+  box-shadow: 0 10px 25px rgba(32, 46, 82, .18);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.sailcare-page .home-slider__btn{
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: .75rem;
+  margin-top: .55rem;
+  padding: .8rem 1.25rem;
+  font-size: 1rem;
+}
+
+.sailcare-page .home-slider__btn span{
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.sailcare-page :is(.home-slider__btn, .sailcare__contact, .image__link, .series-text__toggle):hover{
+  transform: translateY(-2px);
+  background: var(--sc-blue);
+  border-color: var(--sc-blue);
+  box-shadow: 0 14px 30px rgba(0, 85, 152, .22);
+}
+
+.sailcare-page :is(.home-slider__btn, .sailcare__contact, .image__link, .series-text__toggle):focus-visible{
+  outline: 3px solid rgba(197, 35, 74, .34);
+  outline-offset: 3px;
+}
+
+.sailcare-page .home-slider__arrow{
+  width: 46px;
+  height: 46px;
+  padding: 12px;
+  border: 1px solid rgba(32, 46, 82, .12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 10px 28px rgba(13, 31, 59, .14);
+}
+
+/* Breadcrumb and page navigation */
+.sailcare-page .nav-section{
+  position: sticky;
+  top: var(--nav-h, 86px);
+  z-index: 30;
+  display: block;
+  padding: .65rem clamp(1rem, 4vw, 3rem) .8rem;
+  border-bottom: 1px solid var(--sc-line);
+  background: rgba(247, 249, 252, .94);
+  box-shadow: 0 10px 28px rgba(32, 46, 82, .06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.sailcare-page .nav-breadcrumbs,
+.sailcare-page .sailcare-jump-nav{
+  width: min(100%, 74rem);
+  margin-inline: auto;
+}
+
+.sailcare-page .nav-breadcrumbs__item{
+  margin: 0;
+  font-size: .82rem;
+}
+
+.sailcare-page .nav-breadcrumbs__link,
+.sailcare-page .nav-breadcrumbs__current{
+  padding: .28rem .55rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sailcare-jump-nav{
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-top: .45rem;
+}
+
+.sailcare-jump-nav__label{
+  flex: 0 0 auto;
+  color: var(--sc-navy);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sailcare-jump-nav__scroller{
+  display: flex;
+  min-width: 0;
+  gap: .4rem;
+  overflow-x: auto;
+  padding: .2rem .1rem .35rem;
+  scrollbar-width: thin;
+}
+
+.sailcare-jump-nav__link{
+  flex: 0 0 auto;
+  padding: .58rem .85rem;
+  border: 1px solid var(--sc-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--sc-navy);
+  font-size: .84rem;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.sailcare-jump-nav__link:hover,
+.sailcare-jump-nav__link.is-active{
+  border-color: var(--sc-blue);
+  background: var(--sc-blue);
+  color: #fff;
+}
+
+.sailcare-jump-nav__link:focus-visible{
+  outline: 3px solid rgba(0, 85, 152, .28);
+  outline-offset: 2px;
+}
+
+/* Best practices */
+.sailcare-page .sailcare{
+  padding: clamp(3.5rem, 7vw, 6.5rem) 1rem;
+  background: transparent;
+}
+
+.sailcare-page .sailcare__inner{
+  width: min(74rem, 100%);
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  border: 1px solid var(--sc-line);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: var(--sc-shadow);
+}
+
+.sailcare-page .sailcare__row{
+  gap: clamp(1.6rem, 4vw, 4rem);
+  align-items: center;
+}
+
+.sailcare-page .sailcare__row--top{
+  margin-bottom: 0;
+}
+
+.sailcare-page .sailcare__row--bottom{
+  margin-top: clamp(1.4rem, 3vw, 2.2rem);
+  padding-top: clamp(1.4rem, 3vw, 2.2rem);
+  border-top: 1px solid var(--sc-line);
+}
+
+.sailcare-page .sailcare__media{
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--sc-soft);
+}
+
+.sailcare-page .sailcare__media img{
+  border-radius: 0;
+  transition: transform .5s ease;
+}
+
+.sailcare-page .sailcare__media:hover img{
+  transform: scale(1.025);
+}
+
+.sailcare-page .sailcare__kicker,
+.sailcare-page .sci__kicker,
+.sailcare-page .tips__kicker,
+.sailcare-page .faq__kicker,
+.sailcare-page .image__kicker{
+  margin: 0 0 .65rem;
+  color: var(--sc-red);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.sailcare-page .sailcare__title{
+  max-width: 18ch;
+  margin-bottom: 1rem;
+  color: var(--sc-navy);
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+}
+
+.sailcare-page .sailcare__p{
+  color: var(--sc-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.sailcare__essentials{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .65rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sailcare__essentials li{
+  min-width: 0;
+  padding: .9rem;
+  border: 1px solid var(--sc-line);
+  border-radius: 14px;
+  background: var(--sc-soft);
+}
+
+.sailcare__essentials strong,
+.sailcare__essentials span{
+  display: block;
+}
+
+.sailcare__essentials strong{
+  margin-bottom: .25rem;
+  color: var(--sc-blue);
+  font-size: .95rem;
+}
+
+.sailcare__essentials span{
+  color: var(--sc-muted);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+.sailcare-page .sailcare__contact{
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  margin-top: .6rem;
+  padding: .75rem 1.15rem;
+}
+
+/* Guide finder */
+.sailcare-page .sci{
+  padding: clamp(3.5rem, 7vw, 6.5rem) 1rem;
+  background: linear-gradient(180deg, #eef4f9, #f7f9fc);
+}
+
+.sailcare-page .sci__inner{
+  width: min(74rem, 100%);
+}
+
+.sailcare-page .sci__header{
+  max-width: 48rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.sailcare-page .sci__kicker{
+  text-align: center;
+}
+
+.sailcare-page .sci__pageTitle{
+  width: auto;
+  margin: 0;
+  color: var(--sc-navy);
+  font-size: clamp(2.25rem, 5vw, 4.3rem);
+  letter-spacing: -.04em;
+}
+
+.sailcare-page .sci__pageTitle em{
+  color: var(--sc-blue);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.sailcare-page .sci__lead{
+  max-width: 58ch;
+  margin: 1rem auto 0;
+  color: var(--sc-muted);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.sailcare-page .sci__grid{
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+}
+
+.sailcare-page .sci-card,
+.sailcare-page .sci__media{
+  border: 1px solid var(--sc-line);
+  border-radius: var(--sc-radius);
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(32, 46, 82, .08);
+}
+
+.sailcare-page .sci-card{
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.sailcare-page .sci-card__title{
+  color: var(--sc-navy);
+  font-size: clamp(1.55rem, 2.5vw, 2.2rem);
+}
+
+.sailcare-page .sci-card__title em{
+  color: var(--sc-blue);
+  font-style: normal;
+  font-weight: 650;
+}
+
+.sailcare-page .sci-link{
+  min-height: 54px;
+  padding: .85rem 1rem;
+  color: var(--sc-navy);
+  font-size: .82rem;
+}
+
+.sailcare-page .sci-link:hover{
+  background: rgba(0, 85, 152, .07);
+  transform: none;
+}
+
+.sailcare-page .sci .sr-item{
+  background-color: transparent;
+}
+
+/* Covers callout */
+.sailcare-page .image{
+  width: auto;
+  height: clamp(24rem, 46vw, 34rem);
+  margin: 0;
+  padding: clamp(1rem, 5vw, 4rem);
+  justify-content: flex-start;
+  background-attachment: scroll;
+  background-color: #dce6ef;
+}
+
+.image__card{
+  width: min(31rem, 100%);
+  padding: clamp(1.4rem, 4vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .93);
+  box-shadow: 0 24px 65px rgba(15, 33, 64, .18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.image__title{
+  max-width: 14ch;
+  margin: 0 0 .85rem;
+  color: var(--sc-navy);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -.04em;
+}
+
+.image__copy{
+  max-width: 48ch;
+  color: var(--sc-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.sailcare-page .image__link{
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  margin-top: .4rem;
+  padding: .75rem 1.15rem;
+}
+
+/* Detailed material and boat guides */
+.sailcare-page .series-list{
+  display: grid;
+  gap: clamp(1.2rem, 3vw, 2rem);
+  padding: clamp(3rem, 6vw, 6rem) 1rem;
+  background: #f7f9fc;
+}
+
+.sailcare-page .series-list + .tips,
+.sailcare-page .tips + .series-list{
+  margin-top: 0;
+}
+
+.sailcare-page .series-section{
+  left: auto;
+  width: min(74rem, 100%);
+  margin: 0 auto;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  transform: none;
+  border: 1px solid var(--sc-line);
+  border-radius: 26px;
+  background: #fff;
+  box-shadow: 0 16px 45px rgba(32, 46, 82, .07);
+}
+
+.sailcare-page .series-header{
+  margin-bottom: clamp(1.4rem, 3vw, 2.25rem);
+  background: transparent;
+}
+
+.sailcare-page .series-title{
+  width: auto;
+  margin: 0;
+  color: var(--sc-navy);
+  font-size: clamp(2.15rem, 4vw, 3.6rem);
+  letter-spacing: -.04em;
+  text-align: left;
+}
+
+.sailcare-page .series-subtitle{
+  width: auto;
+  margin: 0 0 .55rem;
+  color: var(--sc-red);
+  text-align: left;
+}
+
+.sailcare-page .series-container{
+  width: 100%;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.sailcare-page .series-image{
+  position: sticky;
+  top: calc(var(--nav-h, 86px) + 7.5rem);
+  align-self: start;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--sc-soft);
+}
+
+.sailcare-page .series-image img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  border-radius: 18px;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.sailcare-page .series-text{
+  max-width: none;
+  padding: 0;
+}
+
+.sailcare-page .series-text br{
+  display: none;
+}
+
+.sailcare-page .series-text h3{
+  margin: 0 0 .85rem;
+  color: var(--sc-navy) !important;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+.sailcare-page .series-text h4{
+  margin: 0 0 1.15rem;
+  color: var(--sc-muted) !important;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.sailcare-page .series-text p{
+  position: relative;
+  max-width: none;
+  margin: 0 0 .72rem;
+  padding: .72rem .85rem .72rem 2.35rem;
+  border: 1px solid rgba(32, 46, 82, .08);
+  border-radius: 12px;
+  background: var(--sc-soft);
+  color: var(--sc-muted);
+  font-size: .96rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.sailcare-page .series-text p::before{
+  content: "✓";
+  position: absolute;
+  top: .72rem;
+  left: .85rem;
+  color: var(--sc-blue);
+  font-weight: 800;
+}
+
+.series-text__content{
+  position: relative;
+}
+
+.series-text.is-collapsed .series-text__content{
+  max-height: 29rem;
+  overflow: hidden;
+}
+
+.series-text.is-collapsed .series-text__content::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 7rem;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0), #fff 90%);
+}
+
+.sailcare-page .series-text__toggle{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: .8rem;
+  padding: .7rem 1.1rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .9rem;
+}
+
+/* Tips and FAQ */
+.sailcare-page .tips,
+.sailcare-page .faq{
+  padding: clamp(3.5rem, 7vw, 6.5rem) 1rem;
+  color: var(--sc-ink);
+}
+
+.sailcare-page .tips{
+  background: #eef4f9;
+}
+
+.sailcare-page .faq{
+  background: #fff;
+}
+
+.sailcare-page .tips__shell,
+.sailcare-page .faq__shell{
+  width: min(74rem, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  gap: clamp(1.8rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.sailcare-page .tips__intro,
+.sailcare-page .faq__intro{
+  position: sticky;
+  top: calc(var(--nav-h, 86px) + 7.5rem);
+  padding: 0;
+  background: transparent;
+}
+
+.sailcare-page .tips__title,
+.sailcare-page .faq__title{
+  width: auto;
+  margin: 0 0 1rem;
+  color: var(--sc-navy);
+  font-size: clamp(2.15rem, 4.5vw, 3.75rem);
+  line-height: 1.06;
+  letter-spacing: -.04em;
+  text-align: left;
+}
+
+.sailcare-page .tips__lead,
+.sailcare-page .faq__lead{
+  max-width: 56ch;
+  color: var(--sc-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.sailcare-page .tips__panel,
+.sailcare-page .faq__panel{
+  overflow: hidden;
+  border: 1px solid var(--sc-line);
+  border-radius: var(--sc-radius);
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 16px 45px rgba(32, 46, 82, .08);
+}
+
+.sailcare-page .acc__btn{
+  min-height: 74px;
+  padding: 1rem 1.15rem;
+  background: transparent;
+  color: var(--sc-navy);
+  font-family: inherit;
+}
+
+.sailcare-page .acc__btn:hover{
+  background: rgba(0, 85, 152, .055);
+  color: var(--sc-blue);
+}
+
+.sailcare-page .acc__label{
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.4;
+}
+
+.sailcare-page .acc__icon{
+  width: 34px;
+  height: 34px;
+  border-color: var(--sc-line);
+  box-shadow: none;
+}
+
+.sailcare-page .acc__inner{
+  padding: 0 1.15rem 1.25rem;
+  color: var(--sc-muted);
+  font-size: .98rem;
+  line-height: 1.7;
+}
+
+/* Floating repair action */
+.sailcare-page .container_bottom{
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 38;
+}
+
+.sailcare-page .button_quote{
+  min-height: 52px;
+  max-height: none;
+  padding: .8rem 1.15rem;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: var(--sc-navy);
+  box-shadow: 0 14px 36px rgba(15, 33, 64, .22);
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+.sailcare-page .button_quote:focus-visible{
+  outline: 3px solid rgba(197, 35, 74, .38);
+  outline-offset: 3px;
+}
+
+@media (max-width: 980px){
+  .sailcare-page .sci__grid,
+  .sailcare-page .tips__shell,
+  .sailcare-page .faq__shell{
+    grid-template-columns: 1fr;
+  }
+
+  .sailcare-page .sci__aside{
+    order: 0;
+  }
+
+  .sailcare-page .sci__media img{
+    aspect-ratio: 16 / 8;
+  }
+
+  .sailcare-page .tips__intro,
+  .sailcare-page .faq__intro{
+    position: static;
+  }
+}
+
+@media (max-width: 800px){
+  .sailcare-page .home-slider{
+    height: 36rem;
+    min-height: 36rem;
+  }
+
+  .sailcare-page .home-slider__caption,
+  .sailcare-page .home-slider__slide.is-caption-right .home-slider__caption{
+    right: 3.5rem;
+    left: 3.5rem;
+    width: auto;
+  }
+
+  .sailcare-page .nav-breadcrumbs{
+    display: none;
+  }
+
+  .sailcare-page .sailcare-jump-nav{
+    margin-top: 0;
+  }
+
+  .sailcare-page .sailcare__row,
+  .sailcare-page .series-container{
+    grid-template-columns: 1fr;
+  }
+
+  .sailcare-page .series-image{
+    position: static;
+  }
+
+  .sailcare-page .series-section.is-reversed .series-image,
+  .sailcare-page .series-section.is-reversed .series-text{
+    grid-column: auto;
+  }
+
+  .sailcare-page .series-section.is-reversed .series-image{
+    order: -1;
+  }
+
+  .sailcare-page .sailcare__essentials{
+    grid-template-columns: 1fr;
+  }
+
+  .sailcare-page .sailcare__row--bottom .sailcare__media{
+    order: -1;
+  }
+
+  .sailcare-page .button_quote{
+    width: auto;
+    min-height: 48px;
+    padding: .7rem .95rem;
+    overflow: visible;
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 560px){
+  .sailcare-page .home-slider__caption,
+  .sailcare-page .home-slider__slide.is-caption-right .home-slider__caption{
+    right: 1rem;
+    left: 1rem;
+    border-radius: 19px;
+  }
+
+  .sailcare-page .home-slider__title{
+    font-size: clamp(2.65rem, 13vw, 4rem);
+  }
+
+  .sailcare-page .home-slider__arrow{
+    top: auto;
+    bottom: 1rem;
+    transform: none;
+  }
+
+  .sailcare-page .nav-section{
+    padding-inline: .75rem;
+  }
+
+  .sailcare-jump-nav__label{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .sailcare-page .sailcare__inner,
+  .sailcare-page .series-section{
+    border-radius: 20px;
+  }
+
+  .sailcare-page .image{
+    align-items: flex-end;
+    padding: 1rem;
+    background-position: 58% center;
+  }
+
+  .image__card{
+    border-radius: 19px;
+  }
+
+  .sailcare-page .button_quote::before{
+    width: 20px;
+    height: 20px;
+    flex-basis: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{
+    scroll-behavior: auto;
+  }
+
+  .sailcare-page *,
+  .sailcare-page *::before,
+  .sailcare-page *::after{
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

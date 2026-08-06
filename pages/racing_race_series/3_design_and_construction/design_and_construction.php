@@ -14,20 +14,20 @@ SVG;
 
 $dac_items = [
   [
-    'title' => 'Wide trim range',
-    'text'  => 'Easy to depower or press on as conditions shift, fast.',
+    'title' => 'Custom design',
+    'text'  => 'Shape and dimensions are matched to the boat and programme.',
   ],
   [
-    'title' => 'Balanced loads',
-    'text'  => 'Load-aware design keeps shapes reliable through turns.',
+    'title' => 'Race Dacron',
+    'text'  => 'Woven polyester is available in cross-cut or radial layouts.',
   ],
   [
-    'title' => 'Proven build',
-    'text'  => ' Racing Dacron or laminates matched to programme-tuned.',
+    'title' => 'Race laminate',
+    'text'  => 'Laminate and fibre choices are selected for load and use.',
   ],
   [
-    'title' => 'Longer race life',
-    'text'  => 'Finishing details that keep sails fast for longer too.',
+    'title' => 'Sail-specific finish',
+    'text'  => 'Hardware, reinforcement and trim aids follow the final quote.',
   ],
 ];
 
@@ -55,7 +55,10 @@ $dacJsV  = is_file($dacJsFs)  ? filemtime($dacJsFs)  : time();
       <h2 id="dac-title" class="dac-title sr-item">Reliable by Design</h2>
 
       <p class="dac-subtitle sr-item">
-        Race Series is built for club and class racing, combining efficient shapes with proven construction options. Custom design targets a wide trim range, balanced loads, and durable performance, so your sails stay fast and raceable longer. Using SMAR Azure® 3D.
+        Race Series combines a custom sail shape with woven Race Dacron or race-laminate
+        construction. Ullman’s public material describes 3D design, computer analysis and
+        on-water testing. Race results and service life also depend on boat setup, crew,
+        conditions, use and care.
       </p>
     </header>
 

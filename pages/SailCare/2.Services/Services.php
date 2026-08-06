@@ -24,14 +24,18 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
       </figure>
 
       <div class="sailcare__copy">
-        <p class="sailcare__kicker"> SAIL CARE</p>
-        <h1 id="sailcare-title" class="sailcare__title">Best Practices</h1>
+        <p class="sailcare__kicker">SAIL CARE</p>
+        <h2 id="sailcare-title" class="sailcare__title">Best practices for longer-lasting sails</h2>
 
         <p class="sailcare__p">
           Proper sail care protects your sails from harsh elements like sun, salt water, and high humidity. Although regular use exposes sails to these conditions, adopting good practices can significantly minimize damage and extend the lifespan of your sails. Essential practices include avoiding luffing, flapping, flogging, leech flutter, and crushing sails into bags, which can shorten their lifespan.
         </p>
 
-
+        <ul class="sailcare__essentials" aria-label="Essential sail care habits">
+          <li><strong>Protect</strong><span>Limit unnecessary UV exposure.</span></li>
+          <li><strong>Rinse</strong><span>Remove salt with fresh water.</span></li>
+          <li><strong>Dry</strong><span>Never store sails while damp.</span></li>
+        </ul>
       </div>
     </div>
 
@@ -44,6 +48,9 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
         <p class="sailcare__p">
           For help with service monitoring and scheduling, contact your nearest Ullman Sails loft.
         </p>
+        <a class="sailcare__contact" href="<?php echo esc_url(ullman_page_url('ContactUs')); ?>">
+          Contact your local loft <span aria-hidden="true">→</span>
+        </a>
       </div>
 
       <figure class="sailcare__media">

@@ -14,24 +14,24 @@ SVG;
 
 $sid_items = [
   [
-    'title' => 'Race fabrics ',
-    'text'  => 'Red Line racing fabrics are engineered for shape retention, low stretch and fast recovery, helping the sail bounce back after hard gusts and keep power steady.',
+    'title' => 'Application-specific cloth',
+    'text'  => 'Code laminates and lightweight spinnaker fabrics behave differently. Cloth and weight are selected for the sail model, boat and expected conditions.',
   ],
   [
-    'title' => 'Active or cabled luffs',
-    'text'  => 'Active Luff System or torsional cabled luffs stabilise the luff for direct furling improving depth control and reducing rig loads when rolling at speed afloat.',
+    'title' => 'Luff and furling specification',
+    'text'  => 'Where a Code sail is furled, the luff structure, cable and furler must be specified as a compatible system. Classic spinnakers use different handling arrangements.',
   ],
   [
-    'title' => 'Premium laminate Code cloth',
-    'text'  => 'Premium laminate cloths in Axia Codes minimise stretch and hold draft stable through load cycles, giving reliable furling and trim in shifting breeze offshore.',
+    'title' => 'Code sail geometry',
+    'text'  => 'Mid-girth, clew height and sheeting position distinguish JT, Code 50, Code 60 and Code 75 applications.',
   ],
   [
-    'title' => ' Coated spinnaker cloth',
-    'text'  => 'Coated racing nylons and polyesters resist distortion and help the kite rotate smoothly holding a clean flying shape in pressure and during fast drops on deck.',
+    'title' => 'Spinnaker geometry',
+    'text'  => 'Symmetrical sails require a spinnaker-pole arrangement; asymmetrical sails are offered across a broad mid-girth range for reaching to running.',
   ],
   [
-    'title' => 'Protection upgrades',
-    'text'  => 'Take-down patches torsional luff cables and clew tabs protect high-wear areas, reduce twist and make furling more steady at speed in tough conditions offshore.',
+    'title' => 'Care and operating limits',
+    'text'  => 'Light downwind cloth is vulnerable to overload, chafe and handling damage. Follow the sailmaker’s wind limits and arrange inspection after damage or heavy use.',
   ],
 ];
 
@@ -57,7 +57,9 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
       <p class="sid-tagline sr-item">The Axia&nbsp;Series&nbsp;- Red Line</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Handling</h2>
       <p class="sid-intro sr-item">
-        Axia Series – Red Line: downwind Codes and spinnakers built from premium laminates and coated racing nylons/polyesters with Active or cabled luffs for furling control and durability offshore.
+        Red Line construction is not one universal membrane or luff system. Materials,
+        reinforcement and handling equipment vary between Code sails and classic
+        spinnakers and must be recorded in the final specification.
       </p>
     </header>
 

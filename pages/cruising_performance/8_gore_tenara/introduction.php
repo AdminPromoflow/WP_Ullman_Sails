@@ -16,25 +16,25 @@ $introJsVersion  = is_file($introJsFs)  ? filemtime($introJsFs)  : time();
 
 <section
   class="sailing-types-introduction"
-  id="sailing-types-introduction"
+  id="performance-tenara"
   data-sr-reveal
-  aria-labelledby="navigator-title"
+  aria-labelledby="performance-tenara-title"
 >
   <div class="sailing-content">
 
     <!-- Reveal order (decidido): h1 -> p1 -> p2 -> p3 -->
-    <h1 class="au-title sr-item" id="navigator-title">Gore® Tenara® thread</h1>
+    <h2 class="au-title sr-item" id="performance-tenara-title">GORE® TENARA® Sewing Thread</h2>
 
     <p class="sr-item">
-      Performance Series finishing can include Gore® Tenara® thread to boost longevity. It resists UV degradation and helps seams stay dependable through long passages and harsh sun.
+      GORE® TENARA® is an ePTFE sewing thread for outdoor and marine applications. Gore states that it resists UV sunlight, saltwater, extreme weather, acid rain and many chemicals.
     </p>
 
     <p class="sr-item">
-      Tenara on seams &amp; UV covers: Gore® Tenara® thread is specified on all seams and UV covers, reinforcing the areas most exposed to sunlight, chafe and repeated handling over time.
+      It does not absorb water and is designed for extended seam life. These material properties make it relevant to demanding cruising projects where seam longevity is a priority.
     </p>
 
     <p class="sr-item">
-      100% Tenara thread: Built with 100% Gore® Tenara® thread for maximum durability, maintaining seam integrity and consistent finish quality when sailing in high-UV, high-mileage conditions.
+      Its use is not assumed to be standard on every Performance sail. The thread type and the seams on which it is used must be confirmed in the individual project specification.
     </p>
 
   </div>

@@ -12,10 +12,11 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   <div class="sci__inner">
 
     <header class="sci__header sr-item">
-      <p class="sci__kicker"> SAIL CARE</p>
-      <h1 class="sci__pageTitle" id="sci-title">
+      <p class="sci__kicker">SAIL CARE</p>
+      <h2 class="sci__pageTitle" id="sci-title">
         Sail Care by <em>Material</em> &amp; <em>Boat Type</em>
-      </h1>
+      </h2>
+      <p class="sci__lead">Choose the guide that matches your sail construction or the way you use your boat.</p>
     </header>
 
     <div class="sci__grid">
@@ -37,12 +38,7 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
             </a>
 
             <a class="sci-link" href="#Laminate">
-              <span class="sci-link__text">Laminate</span>
-              <span class="sci-link__chev" aria-hidden="true"></span>
-            </a>
-
-            <a class="sci-link" href="#Laminate">
-              <span class="sci-link__text">FiberPath</span>
+              <span class="sci-link__text">Laminate and FiberPath</span>
               <span class="sci-link__chev" aria-hidden="true"></span>
             </a>
 

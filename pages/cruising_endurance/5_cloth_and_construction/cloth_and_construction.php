@@ -76,41 +76,41 @@ $sail3V  = is_file($sail3Fs) ? filemtime($sail3Fs) : time();
           <div class="nav-specsheet__group sr-item" data-sr-delay="210">
             <div class="nav-specsheet__groupTitle">ENDURO LAMINATE</div>
             <div class="nav-specsheet__groupItems">
-              <div class="nav-specsheet__item">RADIAL TAFFETA</div>
+              <div class="nav-specsheet__item">TAFFETA-COATED CRUISING LAMINATE</div>
             </div>
           </div>
 
-          <h3 class="nav-specsheet__subtitle sr-item" data-sr-delay="280">Standard Components</h3>
+          <h3 class="nav-specsheet__subtitle sr-item" data-sr-delay="280">Verified Series Profile</h3>
 
           <div class="nav-specsheet__list">
             <div class="nav-specsheet__row sr-item" data-sr-delay="350">
-              <div class="nav-specsheet__key">STITCHING</div>
-              <div class="nav-specsheet__val">MULTIPLE TRIPLE-STEP</div>
+              <div class="nav-specsheet__key">APPLICATION</div>
+              <div class="nav-specsheet__val">OFFSHORE &amp; PASSAGE-MAKING</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="420">
-              <div class="nav-specsheet__key">RINGS</div>
-              <div class="nav-specsheet__val">STAINLESS STEEL &​amp; WEBBING LOAD STRAPS</div>
+              <div class="nav-specsheet__key">SEAMS</div>
+              <div class="nav-specsheet__val">MULTIPLE ROWS OF TRIPLE-STEP STITCHING</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="490">
-              <div class="nav-specsheet__key">THREAD</div>
-              <div class="nav-specsheet__val">HIGH PERFORMANCE DURABLE THREAD</div>
+              <div class="nav-specsheet__key">MAINSAILS</div>
+              <div class="nav-specsheet__val">REINFORCED HIGH-LOAD REEF AREAS</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="560">
-              <div class="nav-specsheet__key">SLIDES</div>
-              <div class="nav-specsheet__val">HEAVIER, STRONGER, REINFORCED</div>
+              <div class="nav-specsheet__key">GENOAS</div>
+              <div class="nav-specsheet__val">HEAD &amp; TACK REINFORCEMENT FOR ROLLER REEFING</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="630">
-              <div class="nav-specsheet__key">BATTEN POCKETS</div>
-              <div class="nav-specsheet__val">REINFORCED POCKETS &​amp; BATTENS</div>
+              <div class="nav-specsheet__key">DESIGN</div>
+              <div class="nav-specsheet__val">CUSTOM TO THE YACHT</div>
             </div>
 
             <div class="nav-specsheet__row sr-item" data-sr-delay="700">
-              <div class="nav-specsheet__key">PATCHES</div>
-              <div class="nav-specsheet__val">RADIAL PATCHES</div>
+              <div class="nav-specsheet__key">FINAL SPECIFICATION</div>
+              <div class="nav-specsheet__val">CONFIRMED WITH THE LOCAL LOFT</div>
             </div>
           </div>
 

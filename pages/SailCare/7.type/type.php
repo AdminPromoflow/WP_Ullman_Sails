@@ -8,28 +8,28 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
 <link rel="stylesheet" href="../SailCare/7.type/type.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
 
-<div class="series-list">
+<div class="series-list" id="sailcare-boat-guides">
 
   <!-- Keelboat and Multihull -->
-  <section class="series-section" data-sr-reveal aria-labelledby="series-title-navigator" id="Keelboat_Multihull">
+  <section class="series-section" data-sr-reveal aria-labelledby="boat-cruising-title" id="Keelboat_Multihull">
     <header class="series-header">
       <p class="series-subtitle">SAIL CARE</p>
-      <h2 id="series-title-navigator" class="series-title">Sail Care for Boat Type</h2>
+      <h2 id="sailcare-boat-guides-title" class="series-title">Sail Care by Boat Type</h2>
     </header>
 
     <div class="series-container" >
       <figure class="series-image">
         <img
           src="../SailCare/7.type/img/phoenixinterior1.jpg"
-          alt="Navigator Series cruising sails"
+          alt="Cruising sailboat under sail"
           loading="lazy"
           decoding="async"
         />
       </figure>
 
       <div class="series-text" >
-        <h3 class="series-code">Keelboat and Multihull Cruising Sails</h3> <br>
-        <h4 class="class="series-cloth"">Caring for keelboat and multihull sails is straightforward but essential. Protect the sails from UV exposure, avoid flapping, and ensure proper tensioning. Regularly check and adjust sail settings to minimize wear and tear</h4><br>
+        <h3 class="series-code" id="boat-cruising-title">Keelboat and Multihull Cruising Sails</h3> <br>
+        <h4 class="series-cloth">Caring for keelboat and multihull sails is straightforward but essential. Protect the sails from UV exposure, avoid flapping, and ensure proper tensioning. Regularly check and adjust sail settings to minimize wear and tear.</h4><br>
         <p>On windy days, hoist sails gradually to avoid exposing them to full wind strength.</p>
         <p>When storing on the boom, use a quality cover to protect the mainsail from UV damage.</p>
         <p>Avoid motor-sailing with a flapping mainsail; keep it trimmed and tack with the wind to prevent unnecessary wear.</p>
@@ -45,12 +45,12 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   </section>
 
   <!-- Dinghy and One Design Keelboat Sails -->
-  <section class="series-section is-reversed" data-sr-reveal aria-labelledby="series-title-endurance" id="Dinghy_Sails">
+  <section class="series-section is-reversed" data-sr-reveal aria-labelledby="boat-dinghy-title" id="Dinghy_Sails">
 
     <div class="series-container">
 
       <div class="series-text">
-        <h3 class="series-code">Dinghy and One Design Keelboat Sails</h3> <br>
+        <h3 class="series-code" id="boat-dinghy-title">Dinghy and One Design Keelboat Sails</h3> <br>
         <h4 class="series-cloth">Store sails dry and rolled to prevent UV damage. Rinse with fresh water occasionally and avoid using harsh chemicals or chlorine for cleaning.</h4><br>
         <p>Mainsails and jibs should be stored dry, rolled in a sausage or tube bag, and out of direct UV exposure.</p>
         <p>Store spinnakers dry, loosely packed in their bag, and shielded from UV light.</p>
@@ -68,7 +68,7 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
       <figure class="series-image">
         <img
           src="../SailCare/7.type/img/type2.jpg"
-          alt="Endurance Series cruising sails"
+          alt="Dinghy sailboat under sail"
           loading="lazy"
           decoding="async"
         />
@@ -78,19 +78,19 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   </section>
 
   <!-- Keelboat and Multihull Racing Sails -->
-  <section class="series-section" data-sr-reveal aria-labelledby="series-title-voyager" id="Keelboat_Sails">
+  <section class="series-section" data-sr-reveal aria-labelledby="boat-racing-title" id="Keelboat_Sails">
     <div class="series-container">
       <figure class="series-image">
         <img
           src="../SailCare/7.type/img/type3.jpg"
-          alt="Voyager Series cruising sails"
+          alt="Keelboat racing sails in use"
           loading="lazy"
           decoding="async"
         />
       </figure>
 
       <div class="series-text">
-        <h3 class="series-code">Keelboat and Multihull Racing Sails</h3><br>
+        <h3 class="series-code" id="boat-racing-title">Keelboat and Multihull Racing Sails</h3><br>
         <h4 class="series-tagline">Caring for these sail types requires more attention. Protect them from UV exposure, avoid repeated folding in the same areas, and store properly to prevent damage. Regular maintenance is essential for maintaining optimal performance.</h4> <br>
         <p>Flake mainsails neatly onto the boom for storage.</p>
         <p>When stored on the boom, a quality cover will protect the mainsail from UV exposure, ensuring the entire sail, including the clew and luff, is covered.</p>

@@ -62,13 +62,13 @@ $slides = [
     'bg'          => 'bg-racing-1',
     'captionLeft' => true,
     'title'       => 'Performance Series',
-    'subtitle'    => 'Advanced cruising sails engineered for extreme environments.',
+    'subtitle'    => 'Built for offshore, high-latitude and superyacht cruising.',
   ],
   [
     'bg'          => 'bg-services',
     'captionLeft' => false,
     'title'       => 'Performance Series',
-    'subtitle'    => 'Proven offshore for high loads, harsh weather and long miles.',
+    'subtitle'    => 'UltraLam and Performance FiberPath material options.',
   ],
 ];
 

@@ -31,8 +31,8 @@ $introJsVersion  = is_file($introJsFile)  ? filemtime($introJsFile)  : null;
 
     <!-- Keep the intro copy as a single paragraph for clean semantics -->
     <p class="sr-item" data-sr-delay="140">
-      Durable, custom-designed sails ideal for coastal cruising and day sailing. Each sail is tailored to your boat’s
-      specifications and your preferred sailing style, ensuring confidence and reliability on the water.
+      Affordable, durable sails for day sailing and coastal cruising. Every Navigator sail is custom-designed for the
+      boat and sailing style, using premium, tightly woven Dacron in a cross-cut layout.
     </p>
   </div>
 </section>

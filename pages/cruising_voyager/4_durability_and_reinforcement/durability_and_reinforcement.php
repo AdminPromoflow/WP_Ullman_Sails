@@ -14,20 +14,20 @@ SVG;
 
 $sid_items = [
   [
-    'title' => 'Seams & UV',
-    'text'  => 'Tenara thread and multi-pass stitching support long seam life, and UV covers are specified to withstand relentless sun, salt and repeated load cycling over years.',
+    'title' => 'Voyager Dacron',
+    'text'  => 'The cross-cut Dacron option prioritizes durability, reinforced construction and straightforward handling for offshore cruising and extended voyages.',
   ],
   [
-    'title' => 'High-load zones',
-    'text'  => 'Extra reinforcement at reefs and high-stress panels limits distortion and damage when sailing reefed, and when furling or reefing for long periods offshore.',
+    'title' => 'UltraCruise',
+    'text'  => 'This woven Ultra-PE and polyester option is selected for low stretch and high tear resistance in demanding cruising applications.',
   ],
   [
-    'title' => 'Hardware & patches',
-    'text'  => 'Reinforced attachment points, stainless rings and Dyneema/Spectra back-up webbing strengthen load transfers and cut wear at hanks, slides and corners in service.',
+    'title' => 'Voyager FiberPath',
+    'text'  => 'A custom fiber layout aligns reinforcement with the sail’s expected loads; protective taffeta may be included for cruising durability.',
   ],
   [
-    'title' => 'Durable build',
-    'text'  => 'Radial layouts and protective layers (films plus taffeta) combine low stretch with abrasion and UV resistance, improving longevity without sacrificing shape.',
+    'title' => 'Project-specific Finishing',
+    'text'  => 'Reinforcement, thread, hardware and UV protection are selected for the individual sail and must be confirmed in the loft quotation.',
   ],
 ];
 
@@ -54,7 +54,7 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
       <p class="sid-tagline sr-item">Voyager Series</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Reinforcement</h2>
       <p class="sid-intro sr-item">
-        Voyager sails are built for long offshore use, resisting UV, reefing and furling wear, with targeted reinforcements that protect load points, extend seam life and keep the sail’s shape reliable over time.
+        Voyager durability comes from selecting the appropriate high-end material and construction for the yacht. Exact reinforcement and finishing vary by project.
       </p>
     </header>
 

@@ -28,10 +28,10 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
   <div class="au-wrap">
 
     <header class="au-header">
-      <p class="au-tagline sr-item">Downwind Series</p>
+      <p class="au-tagline sr-item">Axia Blue Line</p>
       <h2 id="au-title" class="ss-title sr-item">Available Options and Upgrades</h2>
       <p class="au-subtitle sr-item">
-        Enhance performance, durability, and ease of use with tailored options for your sail and sailing style.
+        Configuration depends on the selected Axia model, yacht, crew and handling preference.
       </p>
     </header>
 
@@ -39,12 +39,20 @@ $jsVersion  = is_file($jsFile)  ? filemtime($jsFile)  : null;
       <?php
       $upgrades = [
         [
-          'title' => 'Custom graphics',
-          'text'  => 'Personalise Blue Line or Axia Blue Line with your artwork for a distinctive, easy-to-spot sail.',
+          'title' => 'Handling system',
+          'text'  => 'Select a compatible furling solution or spinnaker sock with the loft according to the sail model and crew.',
         ],
         [
-          'title' => 'Retriever patch (DOWNWIND)',
-          'text'  => 'Add a Blue Line retriever patch to gather the sail quickly on the drop, making recoveries safer and easier.',
+          'title' => 'Luff construction',
+          'text'  => 'The appropriate Active Luff™ or cable-based solution is selected for the chosen Code sail and its target use.',
+        ],
+        [
+          'title' => 'Cloth and sail size',
+          'text'  => 'Cloth type, weight, dimensions and wind limits are specified for the yacht and intended apparent-wind range.',
+        ],
+        [
+          'title' => 'Custom graphics',
+          'text'  => 'Graphics and identification details may be added where compatible with the material and construction.',
         ],
       ];
 

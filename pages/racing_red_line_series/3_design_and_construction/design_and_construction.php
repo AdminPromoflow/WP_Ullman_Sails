@@ -14,20 +14,20 @@ SVG;
 
 $dac_items = [
   [
-    'title' => 'Structured luff',
-    'text'  => 'Active/corded luffs for direct, reliable furling-fast.',
+    'title' => 'Code sail range',
+    'text'  => 'JT, Code 50, Code 60 and Code 75 cover distinct applications.',
   ],
   [
-    'title' => 'Fast rotation',
-    'text'  => ' Quick fill and smooth gybes with cleaner airflow, too.',
+    'title' => 'Classic spinnakers',
+    'text'  => 'Symmetrical and asymmetrical designs are custom-sized.',
   ],
   [
-    'title' => 'Stable shapes',
-    'text'  => ' Stable flying profile in pressure and waves loaded up.',
+    'title' => 'Girth and rating',
+    'text'  => 'Mid-girth and geometry affect use and rating classification.',
   ],
   [
-    'title' => 'Race materials',
-    'text'  => ' Low-stretch laminates, nylons: crisp instant response.',
+    'title' => 'Specified materials',
+    'text'  => 'Code laminate or spinnaker cloth is selected by application.',
   ],
 ];
 
@@ -54,7 +54,10 @@ $dacJsV  = is_file($dacJsFs)  ? filemtime($dacJsFs)  : time();
       <h2 id="dac-title" class="dac-title sr-item">Reliable by Design</h2>
 
       <p class="dac-subtitle sr-item">
-        High-octane downwind sails for race boats: Axia Red Line blends structured luffs with low-stretch laminates to deliver quicker rotation, stable flying shapes and confident furling, so you sail deeper, faster and with control. Built for modern rigs offshore.
+        Axia Red Line covers Code sails, symmetrical spinnakers and asymmetrical
+        spinnakers. The correct sail is selected by mid-girth, apparent-wind application,
+        rig and rating requirements. A luff cable or furling arrangement is not universal
+        across the range and must be confirmed for the individual build.
       </p>
     </header>
 

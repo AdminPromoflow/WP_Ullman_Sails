@@ -9,16 +9,16 @@ $jsVer  = is_file($jsFile)  ? filemtime($jsFile)  : null;
 
 <link rel="stylesheet" href="../SailCare/6.tips/tips.css<?= $cssVer ? '?v='.$cssVer : '' ?>">
 
-<section class="tips" aria-labelledby="tips-title">
+<section class="tips" id="sailcare-tips" aria-labelledby="tips-title">
   <div class="tips__shell">
 
     <!-- Left / Intro -->
     <header class="tips__intro">
-      <p class="tips__kicker">TIPS</p> <br>
+      <p class="tips__kicker">PRACTICAL TIPS</p>
 
-      <h1 id="tips-title" class="tips__title">
-        Extend Sail Life: Tips to Guard Against UV Damage and Mildew <br><br>
-      </h1>
+      <h2 id="tips-title" class="tips__title">
+        Guard against UV damage and mildew
+      </h2>
 
       <p class="tips__lead">
         As a sailor, you understand the importance of keeping your sails in top condition. A key aspect of sail maintenance

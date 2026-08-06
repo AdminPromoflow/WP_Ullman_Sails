@@ -14,24 +14,24 @@ SVG;
 
 $sid_items = [
   [
-    'title' => 'Triple-step stitching',
-    'text'  => 'Triple-step stitching on every seam boosts strength against flogging and load cycles, helping the sail keep shape and last longer at sea.',
+    'title' => 'Material matched to use',
+    'text'  => 'Race Dacron and laminate constructions offer different weight, stretch, handling and durability characteristics.',
   ],
   [
-    'title' => 'Rings + webbing',
-    'text'  => 'Stainless rings with Spectra/Dyneema webbing reinforcement spread corner loads lowering tear risk and keeping attachments secure in heavy air.',
+    'title' => 'Load-point reinforcement',
+    'text'  => 'Corner patches, webbing, rings and other reinforcement are sized for the individual sail and its calculated loads.',
   ],
   [
-    'title' => 'Radial patche',
-    'text'  => 'Radial patches distribute corner loads; construction adhesive and UltraBond HOJOs lock reinforcements onto laminate, aramid and PEN sails well.',
+    'title' => 'Panel layout',
+    'text'  => 'Cross-cut or radial layouts are selected according to the material, sail geometry, load orientation and budget.',
   ],
   [
-    'title' => 'Slide entry reinforcements',
-    'text'  => 'Added reinforcement at slide entry points reduces chafe and point-loading when hoisting, dropping and re-hoisting in races all-day.',
+    'title' => 'Rig-specific hardware',
+    'text'  => 'Slides, bolt ropes, battens, reef points and attachments are specified for the rig and the way the sail will be handled.',
   ],
   [
-    'title' => 'Lite Skin finishing',
-    'text'  => 'Optional Lite Skin finishing adds a protective outer layer for better abrasion resistance and longer life while keeping a crisp race feel.',
+    'title' => 'Care and inspection',
+    'text'  => 'Correct handling, UV protection, dry storage and timely inspection remain necessary for both woven and laminate race sails.',
   ],
 ];
 
@@ -57,7 +57,9 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
       <p class="sid-tagline sr-item">The Race&nbsp;Series</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Handling</h2>
       <p class="sid-intro sr-item">
-        The Race Series — Radial-built sails with triple-step seams, stainless rings with Spectra/Dyneema webbing plus radial patches and slide reinforcements for hard racing, with a wide trim range.
+        Construction and reinforcement vary with sail type, material, boat and racing
+        rules. Items shown elsewhere on this page are specification categories, not a
+        promise that every Race Series sail includes the same components.
       </p>
     </header>
 

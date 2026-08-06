@@ -19,7 +19,7 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
     <!-- 1) Logo -->
     <div class="img-title-sailing-content sr-item">
       <img
-        src="../cruising_navigator/1_introduction/img/ullman_sails.png"
+        src="1_introduction/img/ullman_sails.png"
         alt="Ullman Sails"
         decoding="async"
         width="240"
@@ -32,7 +32,10 @@ $introJsVersion  = filemtime(__DIR__ . '/introduction.js');
 
     <!-- 3) Texto -->
     <p class="sr-item">
-      Reliable strength for coastal and bluewater cruising: FiberPath builds sails with engineered load paths for dependable shape under sustained loads. Reinforcement is focused in high-load zones, supporting durability and consistent performance over long miles.
+      FiberPath is Ullman Sails’ custom string-laminate racing range. Fibre paths are
+      placed to follow the expected loads of the individual sail, while fibre blends and
+      external skins are selected for the boat, racing programme and required balance of
+      weight, stretch resistance, handling and abrasion protection.
     </p>
   </div>
 </section>

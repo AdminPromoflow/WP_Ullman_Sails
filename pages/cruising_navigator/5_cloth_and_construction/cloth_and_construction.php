@@ -71,37 +71,37 @@ $sail3V  = is_file($sail3Fs) ? filemtime($sail3Fs) : time();
             <div class="nav-specsheet__metaSub">CROSSCUT WOVEN POLYESTER</div>
           </div>
 
-          <h3 class="nav-specsheet__subtitle sr-item">Standard Components</h3>
+          <h3 class="nav-specsheet__subtitle sr-item">Verified Series Profile</h3>
 
           <div class="nav-specsheet__list">
             <div class="nav-specsheet__row sr-item">
-              <div class="nav-specsheet__key">STITCHING</div>
-              <div class="nav-specsheet__val">TRIPLE-STEP</div>
+              <div class="nav-specsheet__key">APPLICATION</div>
+              <div class="nav-specsheet__val">DAY SAILING &amp; COASTAL CRUISING</div>
             </div>
 
             <div class="nav-specsheet__row sr-item">
-              <div class="nav-specsheet__key">RINGS</div>
-              <div class="nav-specsheet__val">STAINLESS STEEL</div>
+              <div class="nav-specsheet__key">MATERIAL</div>
+              <div class="nav-specsheet__val">PREMIUM WOVEN DACRON</div>
             </div>
 
             <div class="nav-specsheet__row sr-item">
-              <div class="nav-specsheet__key">THREAD</div>
-              <div class="nav-specsheet__val">HIGH PERFORMANCE DURABLE THREAD</div>
+              <div class="nav-specsheet__key">PANEL LAYOUT</div>
+              <div class="nav-specsheet__val">CROSS-CUT</div>
             </div>
 
             <div class="nav-specsheet__row sr-item">
-              <div class="nav-specsheet__key">SLIDES</div>
-              <div class="nav-specsheet__val">HANKS OR SLIDES</div>
+              <div class="nav-specsheet__key">DESIGN</div>
+              <div class="nav-specsheet__val">CUSTOM TO THE BOAT</div>
             </div>
 
             <div class="nav-specsheet__row sr-item">
-              <div class="nav-specsheet__key">BATTEN POCKETS</div>
-              <div class="nav-specsheet__val">REINFORCED POCKETS &amp; BATTENS</div>
+              <div class="nav-specsheet__key">PRIORITIES</div>
+              <div class="nav-specsheet__val">DURABILITY &amp; EASY HANDLING</div>
             </div>
 
             <div class="nav-specsheet__row sr-item">
-              <div class="nav-specsheet__key">PATCHES</div>
-              <div class="nav-specsheet__val">BLOCK PATCHES</div>
+              <div class="nav-specsheet__key">FINAL SPECIFICATION</div>
+              <div class="nav-specsheet__val">CONFIRMED WITH THE LOCAL LOFT</div>
             </div>
           </div>
         </div>

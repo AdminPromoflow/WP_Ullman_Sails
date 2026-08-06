@@ -15,19 +15,19 @@ SVG;
 $sid_items = [
   [
     'title' => 'Load Reinforcement',
-    'text'  => 'Extra patching and structure in high-load zones, especially around reefs, so the mainsail can stay reefed for long periods without fatigue or distortion.',
+    'text'  => 'Extra reinforcement is added in high-load mainsail reefing areas for the sustained loads associated with extended reefing.',
   ],
   [
     'title' => 'Furling Durability',
-    'text'  => 'Headsails are reinforced at head and tack for roller furling, reducing shape distortion when partly furled and extending service life on long passages.',
+    'text'  => 'Roller-reefing genoas receive added reinforcement at the head and tack to help limit distortion and improve longevity.',
   ],
   [
-    'title' => 'Reinforced Finish',
-    'text'  => 'Upgraded finishing package: multiple triple-step seams, double leech tapes, stronger slides and rings with webbing straps—built to spread loads and resist wear.',
+    'title' => 'Multiple Triple-Step Stitching',
+    'text'  => 'The official Endurance brochure specifies multiple rows of triple-step stitching on each seam as part of its durability-led construction.',
   ],
   [
-    'title' => 'Tenara Upgrade',
-    'text'  => 'Optional Gore Tenara thread for all stitching, selected for UV and marine resilience; it helps minimise seam breakdown from sun, salt and heat over long seasons.',
+    'title' => 'Project-specific Protection',
+    'text'  => 'UV protection, thread, hardware and handling details are selected for the boat and sailing area. GORE® TENARA® may be discussed where extended seam life is a priority.',
   ],
 ];
 
@@ -53,7 +53,7 @@ $sidJsV  = is_file($sidJsFs)  ? filemtime($sidJsFs)  : time();
       <p class="sid-tagline sr-item">Endurance Series</p>
       <h2 id="sid-title" class="sid-title sr-item">Durability and Reinforcement</h2>
       <p class="sid-intro sr-item">
-        Endurance sails are built for offshore miles, with durability-led reinforcement to handle sustained loads, frequent reefing and long UV exposure—keeping shape and reliability at sea.
+        Endurance sails are reinforced for offshore and passage-making use, with particular attention to reefing loads, roller-reefing headsails and seam construction.
       </p>
     </header>
 
