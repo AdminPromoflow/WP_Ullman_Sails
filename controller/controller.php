@@ -79,6 +79,7 @@ class ApiHandlerSendForms {
     }
 
     private function handleContactUs() {
+      echo json_encode("buenas");exit;
         $contactName = isset($this->requestData['contactName']) ? $this->requestData['contactName'] : null;
         $contactNumber = isset($this->requestData['contactNumber']) ? $this->requestData['contactNumber'] : null;
         $contactLocation = isset($this->requestData['contactLocation']) ? $this->requestData['contactLocation'] : null;
@@ -100,6 +101,7 @@ class ApiHandlerSendForms {
         $emailSender = new EmailSender();
 
         $emailSent = $emailSender->sendEmailContactUs($data);
+
         echo json_encode($emailSent);
     }
 
