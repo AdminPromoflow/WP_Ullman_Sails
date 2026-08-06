@@ -3,8 +3,9 @@
 $homeCss = __DIR__ . '/style.css';
 $homeJs  = __DIR__ . '/app.js';
 
-$homeCssTime = ullman_file_version($homeCss);
-$homeJsTime  = ullman_file_version($homeJs);
+$homeRequestVersion = ullman_home_request_version();
+$homeCssTime = $homeRequestVersion;
+$homeJsTime  = $homeRequestVersion;
 $homeUrl = get_template_directory_uri() . '/pages/Home';
 
 ?>
@@ -32,3 +33,10 @@ include __DIR__ . '/../general/footer/Footer.php';
 ?>
 
 <script src="<?php echo esc_url($homeUrl . '/app.js?v=' . $homeJsTime); ?>" defer></script>
+<script>
+(() => {
+  const url = new URL(window.location.href);
+  url.searchParams.set('v', <?php echo wp_json_encode($homeRequestVersion); ?>);
+  window.history.replaceState(window.history.state, '', url.toString());
+})();
+</script>

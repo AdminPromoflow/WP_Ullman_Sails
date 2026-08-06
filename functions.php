@@ -184,6 +184,34 @@ function ullman_page_version(string $template): string {
     );
 }
 
+/**
+ * Generates one cache-busting token for the current Home request.
+ *
+ * The token stays consistent while a response is being assembled, but a new
+ * request receives a different value even when no source file has changed.
+ */
+function ullman_home_request_version(): string {
+    static $version = null;
+
+    if ($version !== null) {
+        return $version;
+    }
+
+    try {
+        $entropy = bin2hex(random_bytes(16));
+    } catch (Throwable $exception) {
+        $entropy = uniqid('', true);
+    }
+
+    $version = substr(
+        hash('sha256', microtime(true) . '|' . $entropy),
+        0,
+        16
+    );
+
+    return $version;
+}
+
 function ullman_page_url(string $key): string {
     $normalizedKey = sanitize_title($key);
     $routes = ullman_page_routes();
@@ -217,8 +245,7 @@ function ullman_page_url(string $key): string {
     }
 
     if ($normalizedKey === 'home' || !isset($routes[$normalizedKey])) {
-        $homeTemplate = get_template_directory() . '/pages/Home/index.php';
-        $homeVersion = ullman_page_version($homeTemplate);
+        $homeVersion = ullman_home_request_version();
 
         return add_query_arg('v', $homeVersion, home_url('/'));
     }
@@ -268,6 +295,18 @@ function ullman_redirect_to_versioned_page(): void {
     parse_str($versionedQuery, $versionedArgs);
     $expectedVersion = isset($versionedArgs['v']) ? (string) $versionedArgs['v'] : '';
     $currentVersion = isset($_GET['v']) ? (string) wp_unslash($_GET['v']) : '';
+
+    /*
+     * Home replaces its URL and asset versions on every successful response.
+     * Accept a previously issued token so refreshing the page does not create
+     * a redirect loop before the next unique version is rendered.
+     */
+    if (
+        $normalizedKey === 'home'
+        && preg_match('/^[a-f0-9]{16}$/', $currentVersion) === 1
+    ) {
+        return;
+    }
 
     if ($expectedVersion === '' || !hash_equals($expectedVersion, $currentVersion)) {
         $redirectArgs = wp_unslash($_GET);
@@ -438,6 +477,11 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
     $pagesUrl = rtrim(get_template_directory_uri(), '/') . '/pages/';
     $routes = ullman_page_routes();
     $pageKey = get_query_var('ullman_page');
+
+    if ((!is_string($pageKey) || $pageKey === '') && (is_front_page() || is_home())) {
+        $pageKey = 'home';
+    }
+
     $pageDirectory = is_string($pageKey) && isset($routes[$pageKey])
         ? trim(str_replace('\\', '/', dirname($routes[$pageKey]['template'])), '/')
         : '';
@@ -538,14 +582,49 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
     );
 
     /*
+     * Home is intentionally fresh on every load. Replace the version on every
+     * local asset referenced by its HTML, including shared menu/footer assets.
+     */
+    if ($pageKey === 'home') {
+        $homeVersion = ullman_home_request_version();
+
+        $html = (string) preg_replace_callback(
+            '/\\b(href|src|poster)=([\"\'])('
+                . preg_quote($pagesUrl, '/')
+                . '[^\"\']+)\\2/i',
+            static function (array $match) use ($homeVersion): string {
+                $assetUrl = html_entity_decode($match[3], ENT_QUOTES, 'UTF-8');
+                $assetPath = (string) wp_parse_url($assetUrl, PHP_URL_PATH);
+
+                if (
+                    preg_match(
+                        '/\\.(?:css|js|png|jpe?g|gif|webp|svg|avif|ico|mp4|webm)$/i',
+                        $assetPath
+                    ) !== 1
+                ) {
+                    return $match[0];
+                }
+
+                return $match[1] . '=' . $match[2]
+                    . esc_url(add_query_arg('v', $homeVersion, $assetUrl))
+                    . $match[2];
+            },
+            $html
+        );
+    }
+
+    /*
      * Load the shared design system after legacy section styles. This lets one
      * accessible, responsive typographic system govern every public template
      * while the individual page markup is progressively modernised.
      */
     $foundationsFs = get_template_directory() . '/pages/general/design-system/foundations.css';
     $foundationsUrl = $pagesUrl . 'general/design-system/foundations.css';
+    $foundationsVersion = $pageKey === 'home'
+        ? ullman_home_request_version()
+        : ullman_file_version($foundationsFs);
     $foundationsTag = '<link rel="stylesheet" href="'
-        . esc_url($foundationsUrl . '?v=' . ullman_file_version($foundationsFs))
+        . esc_url($foundationsUrl . '?v=' . $foundationsVersion)
         . '">';
     $lastBodyClose = strripos($html, '</body>');
 
