@@ -77,13 +77,13 @@ class ContactUs {
     formData.append("nonce", window.ullmanAjax.nonce);
 
 
-    const response = await fetch("https://promoflow.net/controller/controller.php", {
+    const response = await fetch("controller/controller.php", {
       method: "POST",
       body: formData
     });
     const data = await response.json();
 
-
+    alert(stringify(data));
     if (!data.success) {
       throw new Error(data.message || 'Unable to send your message.');
     }

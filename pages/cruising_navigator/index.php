@@ -17,7 +17,8 @@
       font-family: 'Poppins', sans-serif;
       background-color: #F8F8FA;
       font-size: 15px;
-      width: 100vw;
+      width: 100%;
+      max-width: none;
       overflow-x: hidden;
     }
     h1{
@@ -43,7 +44,7 @@
     body p:not(.sailing-types-introduction p):not(.ph-tagline):not(.dac-tagline):not(.sid-tagline):not(.au-tagline) { text-align: justify; }
     </style>
   </head>
-  <body>
+  <body class="sail-series-page">
     <?php include __DIR__ . "/../general/menu/menu.php";?>
 
     <?php include __DIR__ . "/../general/charging/charging.php"; ?>

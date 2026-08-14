@@ -24,6 +24,8 @@ $baseDir = __DIR__;
       font-family: 'Poppins', sans-serif;
       background-color: #F8F8FA;
       font-size: 15px;
+      width: 100%;
+      max-width: none;
       overflow-x: hidden;
     }
 
@@ -44,7 +46,7 @@ $baseDir = __DIR__;
     body .available_upgrades .ss-title::before { display: none; content: none; }
   </style>
 </head>
-<body>
+<body class="sail-series-page">
   <?php include $baseDir . "/../general/menu/menu.php"; ?>
   <?php include $baseDir . "/../general/charging/charging.php"; ?>
   <?php include $baseDir . "/../racing_race_series/new_sail_quote/new_sail_quote.php"; ?>

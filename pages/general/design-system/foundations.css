@@ -60,6 +60,27 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/*
+ * Sail-series templates must stay tied to the browser viewport. Some hosts and
+ * legacy page shells add a centred max-width to the document body; the fixed
+ * header then escapes that shell while the hero remains trapped inside it.
+ * The page marker keeps this defensive full-bleed reset scoped to the Racing
+ * and Cruising product families.
+ */
+body.sail-series-page {
+  inline-size: 100% !important;
+  max-inline-size: none !important;
+  margin-inline: 0 !important;
+  padding: 0 !important;
+  overflow-x: clip !important;
+}
+
+body.sail-series-page .home-slider {
+  inline-size: 100vw !important;
+  max-inline-size: none !important;
+  margin-inline: calc(50% - 50vw) !important;
+}
+
 /* Legacy sections carry local font stacks; the brand stack wins everywhere. */
 body * {
   font-family: var(--font-brand) !important;

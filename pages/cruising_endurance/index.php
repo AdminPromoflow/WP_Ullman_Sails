@@ -17,7 +17,8 @@
       font-family: 'Poppins', sans-serif;
       background-color: #F8F8FA;
       font-size: 15px;
-      width: 100vw;
+      width: 100%;
+      max-width: none;
       overflow-x: hidden;
     }
     h1{
@@ -43,8 +44,8 @@
     body p:not(.sailing-types-introduction p):not(.ph-tagline):not(.dac-tagline):not(.sid-tagline):not(.au-tagline) { text-align: justify; }
     </style>
   </head>
-  <body>
-    <?php include __DIR__ . "/../general/menu/menu.php"?>
+  <body class="sail-series-page">
+    <?php include __DIR__ . "/../general/menu/menu.php"; ?>
 
     <?php include __DIR__ . "/../general/charging/charging.php"; ?>
     <?php include __DIR__ . "/../cruising_endurance/new_sail_quote/new_sail_quote.php"; ?>
@@ -54,10 +55,10 @@
 
 
 
-    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php" ?>
+    <?php include __DIR__ . "/../general/arrows_up_down/arrows_up_down.php"; ?>
 
-    <?php include __DIR__ . "/../cruising_endurance/0_slider/slider.php";?>
-    <?php include __DIR__ . "/navigation/navigation.php"?>
+    <?php include __DIR__ . "/../cruising_endurance/0_slider/slider.php"; ?>
+    <?php include __DIR__ . "/navigation/navigation.php"; ?>
 
     <?php include __DIR__ . "/1_introduction/introduction.php";?>
     <?php include __DIR__ . "/2_handling_and_performance/handling_and_performance.php";?>
@@ -68,14 +69,6 @@
     <?php include __DIR__ . "/6_available_upgrades/available_upgrades.php";?>
     <?php include __DIR__ . "/8_gore_tenara/introduction.php";?>
 
-    <?php// include __DIR__ . "/5_cloth_selection/cloth_selection.php";?>
-    <?php// include __DIR__ . "/sail_handling_and_sail_accessories/sail_handling_and_sail_accessories.php";?>
-    <?php // include __DIR__ . "/gore_tenara_thread/gore_tenara_thread.php";?>
-    <?php // include __DIR__ . "/engineering_for_extreme_environments/engineering_for_extreme_environments.php";?>
-    <?php // include __DIR__ . "/sub_ranges_models/sub_ranges_models.php";?>
-
-
-
-    <?php include __DIR__ . "/../general/footer/Footer.php"?>
+    <?php include __DIR__ . "/../general/footer/Footer.php"; ?>
   </body>
 </html>

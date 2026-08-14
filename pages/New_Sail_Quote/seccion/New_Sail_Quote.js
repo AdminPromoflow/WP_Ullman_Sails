@@ -89,12 +89,14 @@ class NewSailQuote {
     formData.set("action", "ullman_send_forms");
     formData.append("nonce", window.ullmanAjax.nonce);
 
-    fetch("https://promoflow.net/controller/controller.php", {
+    fetch("controller/controller.php", {
       method: "POST",
       body: formData
     })
       .then((response) => response.json())
       .then((data) => {
+        alert(stringify(data));
+
         //alert((data));
         if (data.success) {
           alert(data.message);
