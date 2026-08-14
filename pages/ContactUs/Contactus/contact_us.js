@@ -72,12 +72,7 @@ class ContactUs {
       formData.append('file', file);
     }
 
-    formData.set("form_action", formData.get("action"));
-    formData.set("action", "ullman_send_forms");
-    formData.append("nonce", window.ullmanAjax.nonce);
-
-
-    const response = await fetch("controller/controller.php", {
+    const response = await fetch(window.ullmanAjax.controllerUrl, {
       method: "POST",
       body: formData
     });

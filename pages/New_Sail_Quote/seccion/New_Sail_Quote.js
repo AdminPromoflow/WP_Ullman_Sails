@@ -85,11 +85,7 @@ class NewSailQuote {
     formData.append("additional_info", this.additionalInfo.value);
     formData.append("newsletter", this.newsletter.checked ? "1" : "0");
 
-    formData.set("form_action", formData.get("action"));
-    formData.set("action", "ullman_send_forms");
-    formData.append("nonce", window.ullmanAjax.nonce);
-
-    fetch("controller/controller.php", {
+    fetch(window.ullmanAjax.controllerUrl, {
       method: "POST",
       body: formData
     })

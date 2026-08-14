@@ -406,12 +406,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const pdfBase64 = pdf.output("datauristring");
 
-        const url = window.ullmanAjax.url;
+        const url = window.ullmanAjax.controllerUrl;
 
         const data = {
-          action: "ullman_send_forms",
-          form_action: "submit_customize_form",
-          nonce: window.ullmanAjax.nonce,
+          action: "submit_customize_form",
           name: customerName.value,
           email: customerEmail.value,
           salesperson_email: salespersonEmail.value,

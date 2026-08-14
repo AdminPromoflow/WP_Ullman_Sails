@@ -652,6 +652,7 @@ function ullman_ajax_config(): void {
         '<script>window.ullmanAjax=%s;</script>',
         wp_json_encode([
             'url' => admin_url('admin-ajax.php'),
+            'controllerUrl' => get_template_directory_uri() . '/controller/controller.php',
             'nonce' => wp_create_nonce('ullman_forms'),
         ])
     );
