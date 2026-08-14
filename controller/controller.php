@@ -5,11 +5,12 @@ class ApiHandlerSendForms {
     private $requestData = array();
 
     public function handleRequest() {
+        header('Content-Type: application/json');
+
       echo json_encode(array(
           "success" => true,
           "message" => "Vamos mejorando"
       ));exit;
-        header('Content-Type: application/json');
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

@@ -91,9 +91,6 @@ class NewSailQuote {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(stringify(data));
-
-        //alert((data));
         if (data.success) {
           alert(data.message);
           chargingClass.hideShowcharging(false);

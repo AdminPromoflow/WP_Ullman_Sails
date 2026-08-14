@@ -78,7 +78,6 @@ class ContactUs {
     });
     const data = await response.json();
 
-    alert(stringify(data));
     if (!data.success) {
       throw new Error(data.message || 'Unable to send your message.');
     }

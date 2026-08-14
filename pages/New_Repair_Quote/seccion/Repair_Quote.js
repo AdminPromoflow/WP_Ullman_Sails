@@ -98,8 +98,6 @@ class NewRepairQuote {
     })
       .then((response) => response.json())
       .then((data) => {
-        alert(stringify(data));
-
         if (data.success) {
 
           alert(data.message);
