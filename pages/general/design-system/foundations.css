@@ -395,6 +395,19 @@ body li.cruising-icon > a.cruising-link {
   transform: translateY(0);
 }
 
+/* Content-form actions remain centred after the shared inline-flex reset. */
+body :is(main, section, article) form :is(.submit, .customize-submit) {
+  margin-inline: auto;
+}
+
+body :is(main, section, article) form input.submit {
+  display: block;
+}
+
+body :is(main, section, article) form button.customize-submit {
+  display: flex;
+}
+
 /* Colour modifiers: pair one with .ullman-button on each action. */
 .ullman-button--red {
   --ullman-button-bg: var(--ullman-red);

@@ -159,7 +159,7 @@ $js_time  = is_file($js_file) ? filemtime($js_file) : time();
       emails at any time by clicking the unsubscribe link in the email.
     </p>
 
-    <div class="form_input">
+    <div class="form_input form_submit">
       <input id="btnRepairQuote" class="submit" type="submit" value="Send Quote">
     </div>
   </form>
