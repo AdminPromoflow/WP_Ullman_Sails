@@ -167,7 +167,7 @@ legend {
 .submit {
   width: min(50%, 280px);
   margin: 2rem auto;
-  color: #fff;
+  color: #fff !important;
   background-color: #005598;
   border: 1px solid #005598;
   border-left: 1px solid #005598;

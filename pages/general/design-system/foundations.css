@@ -148,8 +148,28 @@ body :is(main, section, article) :is(p, li, dd, dt, td, figcaption, small, label
   color: var(--ullman-copy) !important;
 }
 
-body :is(main, section, article) :is(input, textarea, select) {
+/*
+ * Text-entry controls use the brand blue. Button-like inputs are deliberately
+ * excluded: otherwise this !important rule also paints submit labels blue and
+ * makes them disappear against the blue backgrounds used by quote forms.
+ */
+body :is(main, section, article) :is(
+  input:not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="image"]),
+  textarea,
+  select
+) {
   color: var(--ullman-heading) !important;
+}
+
+/* Form actions always keep accessible contrast on blue/navy button states. */
+body :is(main, section, article) :is(
+  button[type="submit"],
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"]
+) {
+  color: var(--ullman-white) !important;
+  -webkit-text-fill-color: var(--ullman-white) !important;
 }
 
 body :is(main, section, article) :is(input, textarea)::placeholder {
