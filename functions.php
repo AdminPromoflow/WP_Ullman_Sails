@@ -1,28 +1,4 @@
 <?php
-
-/* Temporary, keyed production diagnostic. Remove immediately after use. */
-if (
-    isset($_GET['ullman_diag'])
-    && is_string($_GET['ullman_diag'])
-    && hash_equals('c84f19d2660e4b319036a13e3de758cb', $_GET['ullman_diag'])
-) {
-    register_shutdown_function(static function (): void {
-        $error = error_get_last();
-
-        while (ob_get_level() > 0) {
-            ob_end_clean();
-        }
-
-        http_response_code(200);
-        header('Content-Type: application/json; charset=UTF-8');
-        header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
-        echo json_encode([
-            'error' => $error,
-            'php' => PHP_VERSION,
-        ], JSON_UNESCAPED_SLASHES);
-    });
-}
-
 /**
  * Discovers every public page template stored in /pages. Home is the canonical
  * front page; every other directory becomes its lowercase, hyphenated slug.
