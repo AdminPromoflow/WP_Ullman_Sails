@@ -65,123 +65,39 @@ function ullman_file_version(string $file): string {
         : (string) filemtime($file);
 }
 
-/**
- * Changes whenever PHP, CSS or JavaScript inside a page directory changes.
- */
-function ullman_directory_version(string $directory): string {
+function ullman_page_version(string $template): string {
     static $versions = [];
 
-    if (isset($versions[$directory])) {
-        return $versions[$directory];
+    if (isset($versions[$template])) {
+        return $versions[$template];
     }
 
-    if (!is_dir($directory)) {
-        return $versions[$directory] = (string) time();
-    }
-
-    $files = [];
-    $iterator = new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator($directory, FilesystemIterator::SKIP_DOTS)
-    );
-
-    foreach ($iterator as $file) {
-        if (!$file->isFile()) {
-            continue;
-        }
-
-        $extension = strtolower($file->getExtension());
-
-        if (in_array($extension, ['php', 'css', 'js'], true)) {
-            $files[] = $file->getPathname();
-        }
-    }
-
-    sort($files, SORT_STRING);
-    $context = hash_init('sha256');
-
-    foreach ($files as $file) {
-        hash_update($context, $file . ':' . ullman_file_version($file) . ';');
-    }
-
-    return $versions[$directory] = substr(hash_final($context), 0, 12);
-}
-
-/**
- * A lightweight signature of every public page resource.
- *
- * This is intentionally based on path, modification time, and size instead of
- * hashing media files: the pages directory contains large images, and reading
- * all of them on every request would slow down the site. Any normal deployment
- * or edit changes at least one of those values, so the public page version is
- * refreshed before WordPress renders the page.
- */
-function ullman_site_version(): string {
-    static $version = null;
-
-    if ($version !== null) {
-        return $version;
-    }
-
+    /*
+     * Page URLs are generated many times while building the shared menu and
+     * footer. Recursively scanning and hashing every page directory for each
+     * request is prohibitively expensive on shared hosting and can terminate
+     * PHP before the template is rendered. A small signature of the route
+     * template and theme entry files is sufficient because public HTML is
+     * already sent with no-cache headers and individual assets have versions.
+     */
     $themeDirectory = get_template_directory();
     $files = [
+        $template,
         $themeDirectory . '/functions.php',
         $themeDirectory . '/index.php',
         $themeDirectory . '/style.css',
     ];
-    $pagesDirectory = $themeDirectory . '/pages';
-
-    if (is_dir($pagesDirectory)) {
-        $iterator = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($pagesDirectory, FilesystemIterator::SKIP_DOTS)
-        );
-
-        foreach ($iterator as $file) {
-            if ($file->isFile()) {
-                $files[] = $file->getPathname();
-            }
-        }
-    }
-
-    sort($files, SORT_STRING);
-    $context = hash_init('sha256');
+    $signature = [];
 
     foreach ($files as $file) {
         $mtime = @filemtime($file);
         $size = @filesize($file);
-
-        hash_update(
-            $context,
-            $file . ':' . ($mtime === false ? '0' : (string) $mtime)
-            . ':' . ($size === false ? '0' : (string) $size) . ';'
-        );
+        $signature[] = $file
+            . ':' . ($mtime === false ? '0' : (string) $mtime)
+            . ':' . ($size === false ? '0' : (string) $size);
     }
 
-    return $version = substr(hash_final($context), 0, 12);
-}
-
-/**
- * Every public resource affects every page version. This keeps links generated
- * from any menu, footer, or cached browser tab aligned with the current site.
- */
-function ullman_shared_version(): string {
-    static $version = null;
-
-    if ($version !== null) {
-        return $version;
-    }
-
-    return $version = ullman_site_version();
-}
-
-function ullman_page_version(string $template): string {
-    return substr(
-        hash(
-            'sha256',
-            ullman_directory_version(dirname($template)) . '|' . ullman_shared_version()
-        ),
-        0,
-        12
-    );
+    return $versions[$template] = substr(hash('sha256', implode('|', $signature)), 0, 12);
 }
 
 /**
@@ -377,7 +293,7 @@ function ullman_load_page_template(string $template): string {
         return $template;
     }
 
-    ob_start('ullman_rewrite_legacy_asset_urls');
+    ob_start('ullman_safe_rewrite_legacy_asset_urls');
 
     return $pageTemplate;
 }
@@ -635,6 +551,20 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
     return substr($html, 0, $lastBodyClose)
         . $foundationsTag
         . substr($html, $lastBodyClose);
+}
+
+/**
+ * Never let optional legacy URL rewriting turn an otherwise valid page into a
+ * blank HTTP 500 response.
+ */
+function ullman_safe_rewrite_legacy_asset_urls(string $html): string {
+    try {
+        return ullman_rewrite_legacy_asset_urls($html);
+    } catch (Throwable $exception) {
+        error_log('Ullman asset rewrite failed: ' . $exception->getMessage());
+
+        return $html;
+    }
 }
 
 /**
