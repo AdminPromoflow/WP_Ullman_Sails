@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Loader test</title>
+  <link rel="stylesheet" href="pages/general/charging/charging.css">
+</head>
+<body>
+  <main>
+    <h1>Page ready</h1>
+    <button type="button" onclick="window.chargingClass.hideShowcharging(true)">Show loader</button>
+    <button type="button" onclick="window.chargingClass.hideShowcharging(false)">Hide loader</button>
+  </main>
+  <div class="charging_background" id="charging_background" role="status" aria-live="polite" aria-hidden="true">
+    <p>Please wait, we are loading the data.</p>
+  </div>
+  <script src="pages/general/charging/charging.js"></script>
+</body>
+</html>
