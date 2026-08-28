@@ -138,7 +138,7 @@ $newsArticles = [
         <a class="dashboard-nav__item is-active" href="#news-editor" aria-current="page">
           <span class="dashboard-nav__number" aria-hidden="true">01</span>
           <span>News</span>
-          <span class="dashboard-nav__count">10</span>
+          <span class="dashboard-nav__count" id="navigation-news-count">10</span>
         </a>
       </nav>
 
@@ -173,25 +173,28 @@ $newsArticles = [
             <h1 id="dashboard-title">News</h1>
             <p>Review and update the stories displayed across the Ullman Sails website.</p>
           </div>
-          <a class="dashboard-preview-link" href="<?php echo esc_url(ullman_page_url('news')); ?>" target="_blank" rel="noopener noreferrer">
-            Preview public page <span aria-hidden="true">&#8599;</span>
-          </a>
+          <div class="dashboard-heading__actions">
+            <a class="dashboard-preview-link" href="<?php echo esc_url(ullman_page_url('news')); ?>" target="_blank" rel="noopener noreferrer">
+              Preview public page <span aria-hidden="true">&#8599;</span>
+            </a>
+            <button class="dashboard-create-button" id="create-story" type="button"><span aria-hidden="true">+</span> New story</button>
+          </div>
         </section>
 
         <section class="dashboard-stats" aria-label="News overview">
           <article>
             <p>Published stories</p>
-            <strong>9</strong>
+            <strong id="published-count">9</strong>
             <span>Visible on the website</span>
           </article>
           <article>
             <p>Drafts</p>
-            <strong>1</strong>
+            <strong id="draft-count">1</strong>
             <span>Waiting for review</span>
           </article>
           <article>
             <p>Active categories</p>
-            <strong>10</strong>
+            <strong id="category-count">10</strong>
             <span>Across all stories</span>
           </article>
         </section>
@@ -203,7 +206,7 @@ $newsArticles = [
                 <p class="dashboard-kicker">All stories</p>
                 <h2 id="news-library-title">News library</h2>
               </div>
-              <span class="news-library__total">10 items</span>
+              <span class="news-library__total" id="news-library-total">10 items</span>
             </header>
 
             <label class="news-search" for="news-search-input">
@@ -224,7 +227,7 @@ $newsArticles = [
           <section class="news-editor" aria-labelledby="news-editor-title">
             <header class="news-editor__header">
               <div>
-                <p class="dashboard-kicker">Selected story</p>
+                <p class="dashboard-kicker" id="editor-mode-label">Selected story</p>
                 <h2 id="news-editor-title">Edit news information</h2>
               </div>
               <span class="news-editor__state" id="editor-state">No unsaved changes</span>
@@ -313,7 +316,9 @@ $newsArticles = [
               <footer class="news-editor__actions">
                 <p><span aria-hidden="true">&#9432;</span> Interface only — changes are not stored yet.</p>
                 <div>
+                  <button class="dashboard-button dashboard-button--ghost" id="read-story" type="button">Read preview</button>
                   <button class="dashboard-button dashboard-button--secondary" id="discard-changes" type="button">Discard changes</button>
+                  <button class="dashboard-button dashboard-button--danger" id="delete-story" type="button">Delete</button>
                   <button class="dashboard-button dashboard-button--primary" type="submit">Save changes</button>
                 </div>
               </footer>
@@ -324,9 +329,59 @@ $newsArticles = [
     </main>
   </div>
 
+  <dialog class="dashboard-dialog dashboard-dialog--reader" id="read-story-dialog" aria-labelledby="reader-title">
+    <div class="dashboard-dialog__surface">
+      <header class="dashboard-dialog__header">
+        <div>
+          <p class="dashboard-kicker">Read story</p>
+          <h2 id="reader-title">News preview</h2>
+        </div>
+        <button class="dashboard-dialog__close" type="button" data-close-dialog="read-story-dialog" aria-label="Close story preview">&#10005;</button>
+      </header>
+      <article class="news-reader">
+        <img id="reader-image" src="" alt="Selected news story">
+        <div class="news-reader__body">
+          <div class="news-reader__meta">
+            <span id="reader-category">Category</span>
+            <span aria-hidden="true">&bull;</span>
+            <time id="reader-date"></time>
+            <span aria-hidden="true">&bull;</span>
+            <span id="reader-status">Status</span>
+          </div>
+          <h2 id="reader-story-title">Story title</h2>
+          <p class="news-reader__summary" id="reader-summary"></p>
+          <p class="news-reader__content" id="reader-content"></p>
+        </div>
+      </article>
+      <footer class="dashboard-dialog__footer">
+        <button class="dashboard-button dashboard-button--secondary" type="button" data-close-dialog="read-story-dialog">Close preview</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog class="dashboard-dialog dashboard-dialog--confirm" id="delete-story-dialog" aria-labelledby="delete-dialog-title">
+    <div class="dashboard-dialog__surface">
+      <header class="dashboard-dialog__header">
+        <div>
+          <p class="dashboard-kicker">Delete news</p>
+          <h2 id="delete-dialog-title">Delete this story?</h2>
+        </div>
+        <button class="dashboard-dialog__close" type="button" data-close-dialog="delete-story-dialog" aria-label="Close delete confirmation">&#10005;</button>
+      </header>
+      <div class="dashboard-confirmation">
+        <span aria-hidden="true">!</span>
+        <p>The story <strong id="delete-story-name"></strong> will be removed from this interface. This demonstration does not change the public website.</p>
+      </div>
+      <footer class="dashboard-dialog__footer">
+        <button class="dashboard-button dashboard-button--secondary" type="button" data-close-dialog="delete-story-dialog">Cancel</button>
+        <button class="dashboard-button dashboard-button--danger" id="confirm-delete-story" type="button">Delete story</button>
+      </footer>
+    </div>
+  </dialog>
+
   <div class="dashboard-toast" id="dashboard-toast" role="status" aria-live="polite">
     <span aria-hidden="true">&#10003;</span>
-    <div><strong>Interface updated</strong><small>Backend connection is still pending.</small></div>
+    <div><strong id="dashboard-toast-title">Interface updated</strong><small id="dashboard-toast-message">Backend connection is still pending.</small></div>
   </div>
 
   <script>

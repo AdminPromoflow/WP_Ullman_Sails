@@ -2,8 +2,8 @@
   const sourceArticles = Array.isArray(window.ullmanDashboardNews)
     ? window.ullmanDashboardNews
     : [];
-  const articles = sourceArticles.map((article) => ({ ...article }));
-  const originals = sourceArticles.map((article) => ({ ...article }));
+  const articles = sourceArticles.map((article) => ({ ...article, isNew: false }));
+  const originals = sourceArticles.map((article) => ({ ...article, isNew: false }));
 
   const list = document.querySelector('#news-list');
   const searchInput = document.querySelector('#news-search-input');
@@ -22,8 +22,30 @@
   const previewSummary = document.querySelector('#preview-summary');
   const summaryCount = document.querySelector('#summary-count');
   const editorState = document.querySelector('#editor-state');
+  const editorModeLabel = document.querySelector('#editor-mode-label');
   const discardButton = document.querySelector('#discard-changes');
+  const createButton = document.querySelector('#create-story');
+  const readButton = document.querySelector('#read-story');
+  const deleteButton = document.querySelector('#delete-story');
+  const confirmDeleteButton = document.querySelector('#confirm-delete-story');
+  const readDialog = document.querySelector('#read-story-dialog');
+  const deleteDialog = document.querySelector('#delete-story-dialog');
+  const deleteStoryName = document.querySelector('#delete-story-name');
+  const readerImage = document.querySelector('#reader-image');
+  const readerCategory = document.querySelector('#reader-category');
+  const readerDate = document.querySelector('#reader-date');
+  const readerStatus = document.querySelector('#reader-status');
+  const readerTitle = document.querySelector('#reader-story-title');
+  const readerSummary = document.querySelector('#reader-summary');
+  const readerContent = document.querySelector('#reader-content');
+  const publishedCount = document.querySelector('#published-count');
+  const draftCount = document.querySelector('#draft-count');
+  const categoryCount = document.querySelector('#category-count');
+  const libraryTotal = document.querySelector('#news-library-total');
+  const navigationCount = document.querySelector('#navigation-news-count');
   const toast = document.querySelector('#dashboard-toast');
+  const toastTitle = document.querySelector('#dashboard-toast-title');
+  const toastMessage = document.querySelector('#dashboard-toast-message');
   const menuToggle = document.querySelector('.dashboard-menu-toggle');
   const overlay = document.querySelector('.dashboard-overlay');
 
@@ -39,6 +61,26 @@
 
   function getOriginalArticle() {
     return originals.find((article) => article.id === activeId);
+  }
+
+  function setActiveFilter(filter) {
+    activeFilter = filter;
+    filterButtons.forEach((button) => {
+      button.classList.toggle('is-active', button.dataset.filter === filter);
+    });
+  }
+
+  function updateCounts() {
+    const published = articles.filter((article) => article.status === 'Published').length;
+    const drafts = articles.filter((article) => article.status === 'Draft').length;
+    const categories = new Set(articles.map((article) => article.category).filter(Boolean)).size;
+    const itemLabel = `${articles.length} ${articles.length === 1 ? 'item' : 'items'}`;
+
+    if (publishedCount) publishedCount.textContent = String(published);
+    if (draftCount) draftCount.textContent = String(drafts);
+    if (categoryCount) categoryCount.textContent = String(categories);
+    if (libraryTotal) libraryTotal.textContent = itemLabel;
+    if (navigationCount) navigationCount.textContent = String(articles.length);
   }
 
   function renderList() {
@@ -58,8 +100,11 @@
     if (visibleArticles.length === 0) {
       const empty = document.createElement('p');
       empty.className = 'news-list__empty';
-      empty.textContent = 'No stories match this view.';
+      empty.textContent = articles.length === 0
+        ? 'No stories yet. Create your first story.'
+        : 'No stories match this view.';
       list.append(empty);
+      updateCounts();
       return;
     }
 
@@ -79,7 +124,7 @@
       image.src = article.image;
       image.alt = '';
       body.className = 'news-list-item__body';
-      title.textContent = article.title;
+      title.textContent = article.title || 'Untitled story';
       meta.className = 'news-list-item__meta';
       category.textContent = article.category;
       status.className = `news-status${article.status === 'Draft' ? ' is-draft' : ''}`;
@@ -90,11 +135,19 @@
       button.addEventListener('click', () => selectArticle(article.id));
       list.append(button);
     });
+
+    updateCounts();
   }
 
   function renderPreview() {
     const article = getActiveArticle();
-    if (!article) return;
+    if (!article) {
+      if (previewCategory) previewCategory.textContent = 'No story';
+      if (previewTitle) previewTitle.textContent = 'Create a story to begin';
+      if (previewSummary) previewSummary.textContent = 'Your news card preview will appear here.';
+      if (summaryCount) summaryCount.textContent = '0 / 180';
+      return;
+    }
 
     if (previewImage instanceof HTMLImageElement) previewImage.src = article.image;
     if (previewCategory) previewCategory.textContent = article.category;
@@ -103,17 +156,36 @@
     if (summaryCount) summaryCount.textContent = `${article.summary.length} / 180`;
   }
 
+  function setFormDisabled(disabled) {
+    form?.querySelectorAll('input, select, textarea, button').forEach((control) => {
+      control.disabled = disabled;
+    });
+  }
+
   function populateForm() {
     const article = getActiveArticle();
-    if (!article) return;
 
+    if (!article) {
+      fields.forEach((field) => {
+        if (field) field.value = '';
+      });
+      setFormDisabled(true);
+      if (editorState) editorState.textContent = 'No story selected';
+      if (editorModeLabel) editorModeLabel.textContent = 'News workspace';
+      renderPreview();
+      return;
+    }
+
+    setFormDisabled(false);
     if (titleInput instanceof HTMLInputElement) titleInput.value = article.title;
     if (categoryInput instanceof HTMLSelectElement) categoryInput.value = article.category;
     if (statusInput instanceof HTMLSelectElement) statusInput.value = article.status;
     if (dateInput instanceof HTMLInputElement) dateInput.value = article.date;
     if (summaryInput instanceof HTMLTextAreaElement) summaryInput.value = article.summary;
     if (contentInput instanceof HTMLTextAreaElement) contentInput.value = article.content;
-    setDirty(false);
+    if (imageInput instanceof HTMLInputElement) imageInput.value = '';
+    if (editorModeLabel) editorModeLabel.textContent = article.isNew ? 'New story' : 'Selected story';
+    setDirty(article.isNew);
     renderPreview();
   }
 
@@ -144,22 +216,108 @@
     renderList();
   }
 
-  function showToast() {
+  function showToast(title, message) {
     if (!toast) return;
     window.clearTimeout(toastTimer);
+    if (toastTitle) toastTitle.textContent = title;
+    if (toastMessage) toastMessage.textContent = message;
     toast.classList.add('is-visible');
     toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 3200);
   }
 
+  function createStory() {
+    const id = `news-new-${Date.now()}`;
+    const today = new Date();
+    const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+      .toISOString()
+      .slice(0, 10);
+    const article = {
+      id,
+      title: 'Untitled story',
+      category: 'Events',
+      status: 'Draft',
+      date: localDate,
+      summary: '',
+      content: '',
+      image: sourceArticles[0]?.image || '',
+      isNew: true,
+    };
+
+    articles.unshift(article);
+    originals.unshift({ ...article });
+    activeId = id;
+    setActiveFilter('All');
+    if (searchInput instanceof HTMLInputElement) searchInput.value = '';
+    populateForm();
+    renderList();
+    titleInput?.focus();
+    showToast('New draft created', 'Add the story information, then choose Save changes.');
+  }
+
+  function formatDate(value) {
+    if (!value) return 'No date';
+    const date = new Date(`${value}T12:00:00`);
+    return new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(date);
+  }
+
+  function openDialog(dialog) {
+    if (!(dialog instanceof HTMLDialogElement)) return;
+    if (typeof dialog.showModal === 'function') dialog.showModal();
+    else dialog.setAttribute('open', '');
+  }
+
+  function closeDialog(dialog) {
+    if (!(dialog instanceof HTMLDialogElement)) return;
+    if (typeof dialog.close === 'function') dialog.close();
+    else dialog.removeAttribute('open');
+  }
+
+  function readStory() {
+    const article = getActiveArticle();
+    if (!article) return;
+
+    if (readerImage instanceof HTMLImageElement) readerImage.src = article.image;
+    if (readerCategory) readerCategory.textContent = article.category;
+    if (readerDate) readerDate.textContent = formatDate(article.date);
+    if (readerStatus) readerStatus.textContent = article.status;
+    if (readerTitle) readerTitle.textContent = article.title || 'Untitled story';
+    if (readerSummary) readerSummary.textContent = article.summary || 'No summary has been added.';
+    if (readerContent) readerContent.textContent = article.content || 'No story content has been added.';
+    openDialog(readDialog);
+  }
+
+  function requestDelete() {
+    const article = getActiveArticle();
+    if (!article) return;
+    if (deleteStoryName) deleteStoryName.textContent = article.title || 'Untitled story';
+    openDialog(deleteDialog);
+  }
+
+  function deleteStory() {
+    const articleIndex = articles.findIndex((article) => article.id === activeId);
+    if (articleIndex < 0) return;
+
+    const [deletedArticle] = articles.splice(articleIndex, 1);
+    const originalIndex = originals.findIndex((article) => article.id === activeId);
+    if (originalIndex >= 0) originals.splice(originalIndex, 1);
+    activeId = articles[Math.min(articleIndex, articles.length - 1)]?.id || '';
+    closeDialog(deleteDialog);
+    populateForm();
+    renderList();
+    showToast('Story deleted', `${deletedArticle.title || 'Untitled story'} was removed from this interface.`);
+  }
+
   fields.forEach((field) => field?.addEventListener('input', syncFromForm));
   fields.forEach((field) => field?.addEventListener('change', syncFromForm));
-
   searchInput?.addEventListener('input', renderList);
 
   filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      activeFilter = button.dataset.filter || 'All';
-      filterButtons.forEach((candidate) => candidate.classList.toggle('is-active', candidate === button));
+      setActiveFilter(button.dataset.filter || 'All');
       renderList();
     });
   });
@@ -181,12 +339,38 @@
     Object.assign(article, original);
     populateForm();
     renderList();
+    showToast('Changes discarded', 'The story has returned to its last saved state.');
   });
+
+  createButton?.addEventListener('click', createStory);
+  readButton?.addEventListener('click', readStory);
+  deleteButton?.addEventListener('click', requestDelete);
+  confirmDeleteButton?.addEventListener('click', deleteStory);
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
+    const article = getActiveArticle();
+    const original = getOriginalArticle();
+    if (!article || !original) return;
+    const wasNew = article.isNew;
+    article.isNew = false;
+    Object.assign(original, article);
+    if (editorModeLabel) editorModeLabel.textContent = 'Selected story';
     setDirty(false);
-    showToast();
+    renderList();
+    showToast(wasNew ? 'Story created' : 'Story updated', 'Saved in this interface. Backend connection is still pending.');
+  });
+
+  document.querySelectorAll('[data-close-dialog]').forEach((button) => {
+    button.addEventListener('click', () => {
+      closeDialog(document.querySelector(`#${button.dataset.closeDialog}`));
+    });
+  });
+
+  [readDialog, deleteDialog].forEach((dialog) => {
+    dialog?.addEventListener('click', (event) => {
+      if (event.target === dialog) closeDialog(dialog);
+    });
   });
 
   function setNavigation(open) {
