@@ -22,17 +22,17 @@
       .news{
         position: relative;
         display: grid;
-        grid-template-columns: clamp(17rem, 21vw, 20rem) minmax(0, 1fr) clamp(18rem, 23vw, 22rem);
+        grid-template-columns: clamp(14.5rem, 17vw, 16.5rem) minmax(0, 1fr) clamp(16rem, 19vw, 18rem);
         align-items: start;
         width: 100%;
         min-height: 100vh;
-        background: #f4f7fb;
+        background: #f4f6f9;
       }
 
       .content {
         min-width: 0;
         min-height: 100vh;
-        background: #f4f7fb;
+        background: #f4f6f9;
       }
 
       .leftPanel{
@@ -64,15 +64,15 @@
         gap: .65rem;
         left: 1rem;
         top: 5.5rem;
-        min-height: 2.85rem;
-        padding: .7rem 1rem;
-        border: 0;
-        border-radius: 999px;
+        min-height: 2.55rem;
+        padding: .55rem .8rem;
+        border: 1px solid rgba(255,255,255,.2);
+        border-radius: 2px;
         color: #ffffff;
         background: #202e52;
         box-shadow: 0 12px 30px rgba(17,28,66,.24);
         font: inherit;
-        font-size: .78rem;
+        font-size: .68rem;
         font-weight: 700;
         letter-spacing: .06em;
         text-transform: uppercase;
@@ -129,7 +129,7 @@
 
       @media screen and (max-width: 1180px) {
         .news{
-          grid-template-columns: clamp(17rem, 25vw, 20rem) minmax(0, 1fr);
+          grid-template-columns: clamp(14.5rem, 22vw, 16.5rem) minmax(0, 1fr);
         }
 
         .rightPanel{
