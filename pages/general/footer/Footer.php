@@ -211,15 +211,30 @@
   }
 
   .footer__bottom p,
-  #footer_container .footer__terms {
+  #footer_container .footer__terms,
+  #footer_container .footer__admin-login {
     margin: 0;
     color: rgba(255, 255, 255, .58) !important;
     font-size: .72rem;
     letter-spacing: .04em;
   }
 
+  .footer__legal-links {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #footer_container .footer__admin-login {
+    color: rgba(255, 255, 255, .38) !important;
+    font-size: .64rem;
+    text-transform: uppercase;
+  }
+
   #footer_container .footer__terms:hover,
-  #footer_container .footer__terms:focus-visible {
+  #footer_container .footer__terms:focus-visible,
+  #footer_container .footer__admin-login:hover,
+  #footer_container .footer__admin-login:focus-visible {
     padding-left: 0;
     color: #ffffff !important;
   }
@@ -247,6 +262,7 @@
     .footer__contact-section,
     .footer__social-section { padding-top: 1.75rem; }
     .footer__bottom { align-items: flex-start; flex-direction: column; }
+    .footer__legal-links { flex-wrap: wrap; }
   }
 </style>
 
@@ -303,6 +319,9 @@
 
   <div class="footer__bottom">
     <p>© <?php echo esc_html(wp_date('Y')); ?> Ullman Sails United Kingdom</p>
-    <a class="footer__terms" href="<?php echo esc_url(ullman_page_url('terms_and_conditions')); ?>">Terms &amp; Conditions</a>
+    <div class="footer__legal-links">
+      <a class="footer__terms" href="<?php echo esc_url(ullman_page_url('terms_and_conditions')); ?>">Terms &amp; Conditions</a>
+      <a class="footer__admin-login" href="<?php echo esc_url(ullman_page_url('login-admin')); ?>">Admin login</a>
+    </div>
   </div>
 </footer>
