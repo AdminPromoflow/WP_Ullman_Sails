@@ -393,6 +393,7 @@ add_filter('template_include', 'ullman_load_page_template');
 function ullman_contextual_back_navigation(string $html, string $pageKey): string {
     if (
         $pageKey === 'home'
+        || $pageKey === 'dashboard-login-admin'
         || str_contains($html, 'ullman-context-back')
         || str_contains($html, 'covers-back-button')
     ) {

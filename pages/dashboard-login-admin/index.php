@@ -47,7 +47,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 }
 
 $pageDirectory = __DIR__;
-$pageUrl = get_template_directory_uri() . '/pages/login-admin';
+$pageUrl = get_template_directory_uri() . '/pages/dashboard-login-admin';
 $loginCssVersion = ullman_file_version($pageDirectory . '/login-admin.css');
 $loginJsVersion = ullman_file_version($pageDirectory . '/login-admin.js');
 $photoUrl = get_template_directory_uri() . '/pages/Home/1_slider/img/cruising_sails_voyager.jpg';
@@ -101,7 +101,7 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
           </div>
         <?php endif; ?>
 
-        <form class="login-admin__form" method="post" action="<?php echo esc_url(ullman_page_url('login-admin')); ?>">
+        <form class="login-admin__form" method="post" action="<?php echo esc_url(ullman_page_url('dashboard-login-admin')); ?>">
           <?php wp_nonce_field('ullman_admin_login', 'ullman_login_nonce'); ?>
           <input type="hidden" name="redirect_to" value="<?php echo esc_attr($requestedRedirect); ?>">
 

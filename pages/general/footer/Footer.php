@@ -321,7 +321,7 @@
     <p>© <?php echo esc_html(wp_date('Y')); ?> Ullman Sails United Kingdom</p>
     <div class="footer__legal-links">
       <a class="footer__terms" href="<?php echo esc_url(ullman_page_url('terms_and_conditions')); ?>">Terms &amp; Conditions</a>
-      <a class="footer__admin-login" href="<?php echo esc_url(ullman_page_url('login-admin')); ?>">Admin login</a>
+      <a class="footer__admin-login" href="<?php echo esc_url(ullman_page_url('dashboard-login-admin')); ?>">Admin login</a>
     </div>
   </div>
 </footer>
