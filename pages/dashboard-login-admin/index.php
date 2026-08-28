@@ -4,13 +4,10 @@ declare(strict_types=1);
 $loginError = '';
 $loginName = '';
 $rememberLogin = false;
-$adminUrl = admin_url();
-$requestedRedirect = isset($_REQUEST['redirect_to'])
-    ? wp_validate_redirect((string) wp_unslash($_REQUEST['redirect_to']), $adminUrl)
-    : $adminUrl;
+$dashboardUrl = home_url('/dashboard-admin/');
 
 if (is_user_logged_in()) {
-    wp_safe_redirect($requestedRedirect);
+    wp_safe_redirect($dashboardUrl);
     exit;
 }
 
@@ -40,7 +37,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
         if (is_wp_error($user)) {
             $loginError = 'We could not sign you in. Check your details and try again.';
         } else {
-            wp_safe_redirect($requestedRedirect);
+            wp_safe_redirect($dashboardUrl);
             exit;
         }
     }
@@ -103,7 +100,6 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
 
         <form class="login-admin__form" method="post" action="<?php echo esc_url(ullman_page_url('dashboard-login-admin')); ?>">
           <?php wp_nonce_field('ullman_admin_login', 'ullman_login_nonce'); ?>
-          <input type="hidden" name="redirect_to" value="<?php echo esc_attr($requestedRedirect); ?>">
 
           <div class="login-admin__field">
             <label for="admin-login-name">Email or username</label>
