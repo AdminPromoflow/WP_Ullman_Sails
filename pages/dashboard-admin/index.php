@@ -1,0 +1,337 @@
+<?php
+declare(strict_types=1);
+
+$dashboardDirectory = __DIR__;
+$dashboardUrl = get_template_directory_uri() . '/pages/dashboard-admin';
+$dashboardCssVersion = ullman_file_version($dashboardDirectory . '/dashboard-admin.css');
+$dashboardJsVersion = ullman_file_version($dashboardDirectory . '/dashboard-admin.js');
+$newsImageUrl = get_template_directory_uri() . '/pages/Home/4.News/Images';
+$logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
+
+$newsArticles = [
+    [
+        'id' => 'news-rc1000',
+        'title' => 'Ullman Sails support RC1000',
+        'category' => 'Race Series',
+        'status' => 'Published',
+        'date' => '2020-02-28',
+        'summary' => 'RC1000 is a new racing class based in Plymouth and the South West, created to deliver close performance across the whole fleet.',
+        'content' => 'The organisers are bringing together close racing, training, technical support and a strong social scene. Ullman Sails is proud to support the series and the sailors taking part.',
+        'image' => $newsImageUrl . '/1.jpg',
+    ],
+    [
+        'id' => 'news-inshore-offshore',
+        'title' => 'Ullman Sails Inshore & Offshore Race Series',
+        'category' => 'Events',
+        'status' => 'Published',
+        'date' => '2020-02-14',
+        'summary' => 'Dates for the Ullman Sails inshore and offshore points race series, with events planned across the sailing season.',
+        'content' => 'The Ullman race series welcomes racers, cruisers and everyone in between. Events are supported by clubs across the region and combine competitive sailing with an active social programme.',
+        'image' => $newsImageUrl . '/2.jpg',
+    ],
+    [
+        'id' => 'news-quarter-ton-cup',
+        'title' => 'Victory in the Quarter Ton Cup',
+        'category' => 'Race Result',
+        'status' => 'Published',
+        'date' => '2019-07-18',
+        'summary' => 'Ullman Sails customer John Santy cruised to victory at the Quarter Ton Cup after a memorable and hard-fought campaign.',
+        'content' => 'A long winter programme, detailed preparation and a new sail wardrobe came together on the water. The team turned years of determination into a standout Quarter Ton Cup result.',
+        'image' => $newsImageUrl . '/3.jpg',
+    ],
+    [
+        'id' => 'news-loft-updates',
+        'title' => 'Loft Updates',
+        'category' => 'Loft',
+        'status' => 'Draft',
+        'date' => '2020-01-24',
+        'summary' => 'The Plymouth loft continues to grow with additional floor space and improved equipment for sail building, service and repairs.',
+        'content' => 'The updated workspace gives our sailmakers more room for detailed production and servicing work while supporting a faster, more consistent customer experience.',
+        'image' => $newsImageUrl . '/4.jpg',
+    ],
+    [
+        'id' => 'news-customer-updates',
+        'title' => 'Customer Updates',
+        'category' => 'Customers',
+        'status' => 'Published',
+        'date' => '2019-12-12',
+        'summary' => 'Great results from Ullman Sails customers across different events, classes and locations with new race and cruising sail inventories.',
+        'content' => 'Our customers have been putting their sail inventories to work across a broad range of fleets. These results reflect careful preparation, close collaboration and committed sailing teams.',
+        'image' => $newsImageUrl . '/5.jpg',
+    ],
+    [
+        'id' => 'news-quarter-tonner-developments',
+        'title' => 'Quarter Tonner Developments',
+        'category' => 'Development',
+        'status' => 'Published',
+        'date' => '2019-11-22',
+        'summary' => 'We have been working hard in the competitive Quarter Tonner fleet, refining sails and helping customers achieve strong results.',
+        'content' => 'Ongoing development in the Quarter Tonner fleet gives our designers valuable performance data. Each project helps refine shape, balance and handling for the next campaign.',
+        'image' => $newsImageUrl . '/6.jpg',
+    ],
+    [
+        'id' => 'news-london-boat-show',
+        'title' => 'London Boat Show',
+        'category' => 'Boat Show',
+        'status' => 'Published',
+        'date' => '2019-10-04',
+        'summary' => 'A look back at the London Boat Show and the opportunity it offered to reconnect with customers and prepare for the season ahead.',
+        'content' => 'The show brought together sailors, marine businesses and familiar faces from across the industry. It was a welcome opportunity to discuss new projects and the coming season.',
+        'image' => $newsImageUrl . '/7.jpg',
+    ],
+    [
+        'id' => 'news-newest-team-member',
+        'title' => 'Welcome The Newest Member Of Our Team',
+        'category' => 'Team',
+        'status' => 'Published',
+        'date' => '2019-08-30',
+        'summary' => 'Meet the newest team member and learn more about the sailing experience and repair work now happening within the loft team.',
+        'content' => 'Our newest team member brings practical sailing knowledge and valuable loft experience. That perspective strengthens the service and repair support available to every customer.',
+        'image' => $newsImageUrl . '/8.jpg',
+    ],
+    [
+        'id' => 'news-penarth-code-zero',
+        'title' => 'Penarth – Cruising Code Zero',
+        'category' => 'Cruising',
+        'status' => 'Published',
+        'date' => '2019-08-09',
+        'summary' => 'South Wales dealers delivered a new cruising Code Zero, helping owners enjoy lighter airs and spend more time sailing.',
+        'content' => 'The new cruising Code Zero expands the useful wind range and gives the owners a simple, rewarding option for lighter conditions and relaxed miles on the water.',
+        'image' => $newsImageUrl . '/9.jpg',
+    ],
+    [
+        'id' => 'news-once-in-a-lifetime-storm',
+        'title' => 'Hit By a Once in a Life Time Storm',
+        'category' => 'Endurance',
+        'status' => 'Published',
+        'date' => '2019-06-21',
+        'summary' => 'A dramatic offshore story that led to a new yacht, new sails and a focus on strength, finishing details and durability.',
+        'content' => 'After an extraordinary offshore experience, the project centred on dependable materials, careful finishing and a sail inventory designed to inspire confidence in demanding conditions.',
+        'image' => $newsImageUrl . '/10.jpg',
+    ],
+];
+?>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>News Dashboard | Ullman Sails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo esc_url($dashboardUrl . '/dashboard-admin.css?v=' . $dashboardCssVersion); ?>">
+</head>
+<body class="dashboard-admin-page">
+  <div class="dashboard-admin">
+    <aside class="dashboard-sidebar" id="dashboard-sidebar" aria-label="Dashboard navigation">
+      <div class="dashboard-sidebar__top">
+        <a class="dashboard-sidebar__brand" href="<?php echo esc_url(ullman_page_url('home')); ?>" aria-label="Ullman Sails home">
+          <img src="<?php echo esc_url($logoUrl); ?>" alt="Ullman Sails">
+        </a>
+        <p class="dashboard-sidebar__caption">Content manager</p>
+      </div>
+
+      <nav class="dashboard-nav" aria-label="Admin sections">
+        <p class="dashboard-nav__label">Workspace</p>
+        <a class="dashboard-nav__item is-active" href="#news-editor" aria-current="page">
+          <span class="dashboard-nav__number" aria-hidden="true">01</span>
+          <span>News</span>
+          <span class="dashboard-nav__count">10</span>
+        </a>
+      </nav>
+
+      <div class="dashboard-sidebar__footer">
+        <a href="<?php echo esc_url(ullman_page_url('news')); ?>" target="_blank" rel="noopener noreferrer">View News page <span aria-hidden="true">&#8599;</span></a>
+        <a href="<?php echo esc_url(ullman_page_url('dashboard-login-admin')); ?>">Return to login</a>
+      </div>
+    </aside>
+
+    <button class="dashboard-overlay" type="button" aria-label="Close navigation" tabindex="-1"></button>
+
+    <main class="dashboard-main" id="news-editor">
+      <header class="dashboard-topbar">
+        <div class="dashboard-topbar__left">
+          <button class="dashboard-menu-toggle" type="button" aria-controls="dashboard-sidebar" aria-expanded="false">
+            <span></span><span></span><span></span>
+            <span class="dashboard-sr-only">Open navigation</span>
+          </button>
+          <p><span>Dashboard</span><span aria-hidden="true">/</span><strong>News</strong></p>
+        </div>
+        <div class="dashboard-profile" aria-label="Current administrator">
+          <span class="dashboard-profile__status" aria-hidden="true"></span>
+          <span class="dashboard-profile__name">Administrator</span>
+          <span class="dashboard-profile__avatar" aria-hidden="true">AD</span>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <section class="dashboard-heading" aria-labelledby="dashboard-title">
+          <div>
+            <p class="dashboard-heading__eyebrow">Content management</p>
+            <h1 id="dashboard-title">News</h1>
+            <p>Review and update the stories displayed across the Ullman Sails website.</p>
+          </div>
+          <a class="dashboard-preview-link" href="<?php echo esc_url(ullman_page_url('news')); ?>" target="_blank" rel="noopener noreferrer">
+            Preview public page <span aria-hidden="true">&#8599;</span>
+          </a>
+        </section>
+
+        <section class="dashboard-stats" aria-label="News overview">
+          <article>
+            <p>Published stories</p>
+            <strong>9</strong>
+            <span>Visible on the website</span>
+          </article>
+          <article>
+            <p>Drafts</p>
+            <strong>1</strong>
+            <span>Waiting for review</span>
+          </article>
+          <article>
+            <p>Active categories</p>
+            <strong>10</strong>
+            <span>Across all stories</span>
+          </article>
+        </section>
+
+        <section class="news-workspace" aria-label="News editor">
+          <aside class="news-library" aria-labelledby="news-library-title">
+            <header class="news-library__header">
+              <div>
+                <p class="dashboard-kicker">All stories</p>
+                <h2 id="news-library-title">News library</h2>
+              </div>
+              <span class="news-library__total">10 items</span>
+            </header>
+
+            <label class="news-search" for="news-search-input">
+              <span class="dashboard-sr-only">Search news</span>
+              <input id="news-search-input" type="search" placeholder="Search stories..." autocomplete="off">
+              <span aria-hidden="true">&#8981;</span>
+            </label>
+
+            <div class="news-filters" role="group" aria-label="Filter stories">
+              <button class="is-active" type="button" data-filter="All">All</button>
+              <button type="button" data-filter="Published">Published</button>
+              <button type="button" data-filter="Draft">Drafts</button>
+            </div>
+
+            <div class="news-list" id="news-list" aria-live="polite"></div>
+          </aside>
+
+          <section class="news-editor" aria-labelledby="news-editor-title">
+            <header class="news-editor__header">
+              <div>
+                <p class="dashboard-kicker">Selected story</p>
+                <h2 id="news-editor-title">Edit news information</h2>
+              </div>
+              <span class="news-editor__state" id="editor-state">No unsaved changes</span>
+            </header>
+
+            <form class="news-editor__form" id="news-editor-form" action="" method="post" data-interface-only>
+              <div class="news-editor__columns">
+                <div class="news-fields">
+                  <div class="news-field">
+                    <label for="news-title">Story title</label>
+                    <input id="news-title" name="title" type="text" required>
+                  </div>
+
+                  <div class="news-fields__row">
+                    <div class="news-field">
+                      <label for="news-category">Category</label>
+                      <select id="news-category" name="category">
+                        <option>Race Series</option>
+                        <option>Events</option>
+                        <option>Race Result</option>
+                        <option>Loft</option>
+                        <option>Customers</option>
+                        <option>Development</option>
+                        <option>Boat Show</option>
+                        <option>Team</option>
+                        <option>Cruising</option>
+                        <option>Endurance</option>
+                      </select>
+                    </div>
+                    <div class="news-field">
+                      <label for="news-status">Status</label>
+                      <select id="news-status" name="status">
+                        <option>Published</option>
+                        <option>Draft</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="news-field">
+                    <label for="news-date">Publish date</label>
+                    <input id="news-date" name="date" type="date">
+                  </div>
+
+                  <div class="news-field">
+                    <div class="news-field__label-row">
+                      <label for="news-summary">Summary</label>
+                      <span id="summary-count">0 / 180</span>
+                    </div>
+                    <textarea id="news-summary" name="summary" rows="4" maxlength="180"></textarea>
+                    <small>Used on News cards and previews.</small>
+                  </div>
+
+                  <div class="news-field">
+                    <label for="news-content">Story content</label>
+                    <textarea id="news-content" name="content" rows="8"></textarea>
+                  </div>
+                </div>
+
+                <aside class="news-live-preview" aria-labelledby="preview-title">
+                  <div class="news-live-preview__heading">
+                    <div>
+                      <p class="dashboard-kicker">Live preview</p>
+                      <h3 id="preview-title">News card</h3>
+                    </div>
+                    <span>Desktop</span>
+                  </div>
+
+                  <article class="news-preview-card">
+                    <div class="news-preview-card__media">
+                      <img id="preview-image" src="" alt="Selected news preview">
+                      <label class="news-image-change" for="news-image-input">Change image</label>
+                      <input id="news-image-input" type="file" accept="image/png,image/jpeg,image/webp">
+                    </div>
+                    <div class="news-preview-card__body">
+                      <span id="preview-category">Category</span>
+                      <h3 id="preview-card-title">Story title</h3>
+                      <p id="preview-summary">Story summary</p>
+                      <span class="news-preview-card__link">Read story <span aria-hidden="true">&#8594;</span></span>
+                    </div>
+                  </article>
+
+                  <p class="news-live-preview__note">Image changes and text edits remain in this interface until the dashboard is connected.</p>
+                </aside>
+              </div>
+
+              <footer class="news-editor__actions">
+                <p><span aria-hidden="true">&#9432;</span> Interface only — changes are not stored yet.</p>
+                <div>
+                  <button class="dashboard-button dashboard-button--secondary" id="discard-changes" type="button">Discard changes</button>
+                  <button class="dashboard-button dashboard-button--primary" type="submit">Save changes</button>
+                </div>
+              </footer>
+            </form>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="dashboard-toast" id="dashboard-toast" role="status" aria-live="polite">
+    <span aria-hidden="true">&#10003;</span>
+    <div><strong>Interface updated</strong><small>Backend connection is still pending.</small></div>
+  </div>
+
+  <script>
+    window.ullmanDashboardNews = <?php echo wp_json_encode($newsArticles); ?>;
+  </script>
+  <script src="<?php echo esc_url($dashboardUrl . '/dashboard-admin.js?v=' . $dashboardJsVersion); ?>" defer></script>
+</body>
+</html>

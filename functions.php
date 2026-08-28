@@ -394,6 +394,7 @@ function ullman_contextual_back_navigation(string $html, string $pageKey): strin
     if (
         $pageKey === 'home'
         || $pageKey === 'dashboard-login-admin'
+        || $pageKey === 'dashboard-admin'
         || str_contains($html, 'ullman-context-back')
         || str_contains($html, 'covers-back-button')
     ) {
@@ -612,6 +613,11 @@ function ullman_rewrite_legacy_asset_urls(string $html): string {
             },
             $html
         );
+    }
+
+    /* Admin surfaces provide their own isolated visual foundations. */
+    if (in_array($pageKey, ['dashboard-login-admin', 'dashboard-admin'], true)) {
+        return $html;
     }
 
     /*
