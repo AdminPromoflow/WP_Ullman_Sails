@@ -2,7 +2,6 @@
   const passwordInput = document.querySelector('#admin-login-password');
   const passwordToggle = document.querySelector('.login-admin__password-toggle');
   const form = document.querySelector('.login-admin__form');
-  const submitButton = document.querySelector('.login-admin__submit');
 
   if (passwordInput instanceof HTMLInputElement && passwordToggle instanceof HTMLButtonElement) {
     passwordToggle.addEventListener('click', () => {
@@ -15,15 +14,9 @@
     });
   }
 
-  if (form instanceof HTMLFormElement && submitButton instanceof HTMLButtonElement) {
-    form.addEventListener('submit', () => {
-      const label = submitButton.querySelector('span');
-
-      submitButton.disabled = true;
-
-      if (label) {
-        label.textContent = 'Signing in\u2026';
-      }
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
     });
   }
 })();
