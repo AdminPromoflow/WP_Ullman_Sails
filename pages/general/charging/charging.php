@@ -12,7 +12,7 @@ $sectionUrl = get_template_directory_uri() . '/pages/general/charging';
 <!-- CSS -->
 <link rel="stylesheet" href="<?php echo esc_url($sectionUrl . '/charging.css?v=' . $cssVersion); ?>">
 
-<div class="charging_background" id="charging_background" role="status" aria-live="polite" aria-hidden="true">
+<div class="charging_background" id="charging_background">
   <img src="<?php echo esc_url($sectionUrl . '/Img/charge.gif?v=' . $chargingGifVersion); ?>" alt="Loading...">
   <p>Please wait, we are loading the data.</p>
 </div>

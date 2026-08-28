@@ -1,16 +1,18 @@
 class Charging {
   constructor() {
-    this.element = document.querySelector('.charging_background');
-    this.hideShowcharging(false);
+    this.hideShowcharging(true);
+    // Ocultar después de 3 segundos
+    setTimeout(() => {
+      this.hideShowcharging(false);
+    }, 1500);
   }
 
   hideShowcharging(action) {
-    if (this.element) {
-      this.element.style.display = action ? "flex" : "none";
-      this.element.setAttribute('aria-hidden', action ? 'false' : 'true');
+    const charging_background = document.querySelector('.charging_background');
+    if (charging_background) {
+      charging_background.style.display = action ? "flex" : "none";
     }
   }
 }
 
 const chargingClass = new Charging();
-window.chargingClass = chargingClass;
