@@ -83,7 +83,7 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
     </section>
 
     <section class="login-admin__panel" aria-labelledby="login-title">
-      <a class="login-admin__back ullman-context-back" href="<?php echo esc_url(ullman_page_url('home')); ?>">
+      <a class="login-admin__back" href="<?php echo esc_url(ullman_page_url('home')); ?>">
         <span aria-hidden="true">&#8592;</span>
         Back to website
       </a>
