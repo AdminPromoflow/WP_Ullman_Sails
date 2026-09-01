@@ -1,6 +1,6 @@
-const loginEmail = document.querySelector('#login-email');
-const loginPassword = document.querySelector('#login-password');
-const submitLogin = document.querySelector('#submit-login');
+const loginEmail = document.getElementById('login-email');
+const loginPassword = document.getElementById('login-password');
+const submitLogin = document.getElementById('submit-login');
 const passwordToggle = document.querySelector('.login-admin__password-toggle');
 
 class LoginDashboard {
@@ -13,8 +13,44 @@ class LoginDashboard {
     }
   }
 
-  loginDashboard() {
-    alert('Login dashboard test');
+  async loginDashboard() {
+    const email = loginEmail.value;
+    const password = loginPassword.value;
+
+    const url = "../../controller/controller.php";
+
+    const data = {
+      action: "login",
+      email: email,
+      password: password
+    };
+
+    const response = await this.makeAjaxRequest(url, data);
+
+    if (!response) return;
+
+    console.log(response);
+  }
+
+  async makeAjaxRequest(url, data) {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        throw new Error("Network error.");
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("Error:", error);
+      return null;
+    }
   }
 }
 
