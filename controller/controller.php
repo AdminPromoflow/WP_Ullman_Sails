@@ -88,7 +88,7 @@ class ApiHandlerSendForms
 
     private function login($data)
     {
-        $this->sendJson(array(
+        echo json_encode(array(
             'success' => true,
             'message' => 'success'
         ), 200);
