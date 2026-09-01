@@ -16,7 +16,6 @@ class ApiHandlerSendForms
     private $promoflowWebhookUrl = 'https://www.promoflow.net/controller/controller.php';
     private $maxAttachmentBytes = 10485760; // 10 MB before base64 encoding.
     private $requestData = array();
-    private $promoflowResponseStatusCode = 200;
 
     public function handleRequest()
     {
@@ -47,121 +46,22 @@ class ApiHandlerSendForms
             $action = (string) $this->requestData['form_action'];
         }
 
-        $this->debugBreakpoint('ullman_received', array(
-            'action' => $action,
-            'email' => isset($this->requestData['email'])
-                ? (string) $this->requestData['email']
-                : '',
-            'password_present' => !empty($this->requestData['password'])
-        ));
-
-        switch ($action) {
-            case 'login':
-            echo json_encode("buenas");exit;
-                $this->debugBreakpoint('ullman_before_login', array(
-                    'action' => $action,
-                    'login_function' => 'login'
-                ));
-                $response = $this->login();
-                $this->sendJson($response, $this->promoflowResponseStatusCode);
-                break;
-
-            case 'send_emal_contact_us':
-            case 'send_new_sail_quote':
-            case 'send_new_cover_quote':
-            case 'send_new_repair_quote':
-            case 'submit_customize_form':
-                $this->forwardFormRequest($action);
-                break;
-
-            default:
-                $this->sendJson(array(
-                    'success' => false,
-                    'message' => $action === '' ? 'Missing action.' : 'Unknown action.'
-                ), 400);
-                break;
-        }
-    }
-
-    private function login()
-    {
-        $email = isset($this->requestData['email'])
-            ? trim((string) $this->requestData['email'])
-            : '';
-        $password = isset($this->requestData['password'])
-            ? (string) $this->requestData['password']
-            : '';
-
-        if ($email === '' || $password === '') {
-            $this->promoflowResponseStatusCode = 400;
-
-            return array(
-                'success' => false,
-                'message' => 'Invalid credentials'
-            );
-        }
-
-        $payload = array(
-            'action' => 'login',
-            'email' => $email,
-            'password' => $password,
-            'source' => 'ullman_sails'
+        $allowedActions = array(
+            'send_emal_contact_us',
+            'send_new_sail_quote',
+            'send_new_cover_quote',
+            'send_new_repair_quote',
+            'submit_customize_form'
         );
 
-        $debugStep = isset($this->requestData['debug_step'])
-            ? (string) $this->requestData['debug_step']
-            : '';
-
-        if ($debugStep !== '') {
-            $payload['debug_step'] = $debugStep;
-        }
-
-        $this->debugBreakpoint('ullman_before_webhook', array(
-            'action' => $payload['action'],
-            'email' => $payload['email'],
-            'password_present' => $payload['password'] !== '',
-            'source' => $payload['source']
-        ));
-
-        $response = $this->makePromoflowRequest($payload);
-
-        $this->debugBreakpoint('ullman_after_webhook', array(
-            'http_status' => $this->promoflowResponseStatusCode,
-            'response' => $response
-        ));
-
-        return $response;
-    }
-
-    private function debugBreakpoint($stage, $data)
-    {
-        if (
-            !defined('ULLMAN_LOGIN_DEBUG')
-            || constant('ULLMAN_LOGIN_DEBUG') !== true
-        ) {
+        if (!in_array($action, $allowedActions, true)) {
+            $this->sendJson(array(
+                'success' => false,
+                'message' => $action === '' ? 'Missing action.' : 'Unknown action.'
+            ), 400);
             return;
         }
 
-        $requestedStage = isset($this->requestData['debug_step'])
-            ? (string) $this->requestData['debug_step']
-            : '';
-
-        if ($requestedStage !== $stage) {
-            return;
-        }
-
-        $this->sendJson(array(
-            'success' => false,
-            'debug' => true,
-            'stage' => $stage,
-            'message' => 'Login breakpoint reached.',
-            'data' => $data
-        ), 200);
-        exit;
-    }
-
-    private function forwardFormRequest($action)
-    {
         $payload = $this->requestData;
         $payload['action'] = $action;
         $payload['source'] = 'ullman_sails';
@@ -272,31 +172,23 @@ class ApiHandlerSendForms
 
     private function sendToPromoflow($payload)
     {
-        $response = $this->makePromoflowRequest($payload);
-        $this->sendJson($response, $this->promoflowResponseStatusCode);
-    }
-
-    private function makePromoflowRequest($payload)
-    {
         if (!function_exists('curl_init')) {
-            $this->promoflowResponseStatusCode = 500;
-
-            return array(
+            $this->sendJson(array(
                 'success' => false,
                 'message' => 'The server cannot forward the form request.'
-            );
+            ), 500);
+            return;
         }
 
         $webhookToken = $this->getWebhookToken();
 
         if (strlen($webhookToken) < 32) {
             error_log('ULLMAN_PROMOFLOW_WEBHOOK_TOKEN is missing or too short.');
-            $this->promoflowResponseStatusCode = 500;
-
-            return array(
+            $this->sendJson(array(
                 'success' => false,
                 'message' => 'The form service is not configured.'
-            );
+            ), 500);
+            return;
         }
 
         $jsonPayload = json_encode(
@@ -305,12 +197,11 @@ class ApiHandlerSendForms
         );
 
         if ($jsonPayload === false) {
-            $this->promoflowResponseStatusCode = 500;
-
-            return array(
+            $this->sendJson(array(
                 'success' => false,
                 'message' => 'The form request could not be prepared.'
-            );
+            ), 500);
+            return;
         }
 
         $curl = curl_init($this->promoflowWebhookUrl);
@@ -336,31 +227,26 @@ class ApiHandlerSendForms
 
         if ($response === false || $curlError !== '') {
             error_log('Promoflow webhook connection error: ' . $curlError);
-            $this->promoflowResponseStatusCode = 502;
-
-            return array(
+            $this->sendJson(array(
                 'success' => false,
                 'message' => 'Could not connect to the form service.'
-            );
+            ), 502);
+            return;
         }
 
         $decodedResponse = json_decode($response, true);
 
         if (!is_array($decodedResponse)) {
             error_log('Promoflow webhook returned a non-JSON response.');
-            $this->promoflowResponseStatusCode = 502;
-
-            return array(
+            $this->sendJson(array(
                 'success' => false,
                 'message' => 'The form service returned an invalid response.'
-            );
+            ), 502);
+            return;
         }
 
-        $this->promoflowResponseStatusCode = $httpCode >= 200 && $httpCode < 600
-            ? $httpCode
-            : 502;
-
-        return $decodedResponse;
+        $statusCode = $httpCode >= 200 && $httpCode < 600 ? $httpCode : 502;
+        $this->sendJson($decodedResponse, $statusCode);
     }
 
     private function sendJson($payload, $statusCode)

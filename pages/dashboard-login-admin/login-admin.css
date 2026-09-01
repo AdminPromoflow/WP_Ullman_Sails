@@ -295,12 +295,6 @@ body .login-admin__notice {
   text-transform: uppercase;
 }
 
-body .login-admin__notice.is-error {
-  color: var(--login-red) !important;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 @media (max-width: 960px) {
   .login-admin {
     grid-template-columns: minmax(20rem, .8fr) minmax(27rem, 1.2fr);

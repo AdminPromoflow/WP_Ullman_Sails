@@ -50,22 +50,17 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
           <p>Sign in to manage the Ullman Sails website.</p>
         </div>
 
-        <form
-          class="login-admin__form"
-          method="post"
-          action=""
-          data-success-url="<?php echo esc_url(ullman_page_url('dashboard-admin')); ?>"
-        >
+        <form class="login-admin__form" method="post" action="" data-interface-only>
           <div class="login-admin__field">
-            <label for="admin-login-email">Email</label>
+            <label for="admin-login-name">Email or username</label>
             <input
-              id="admin-login-email"
-              name="email"
-              type="email"
-              autocomplete="email"
+              id="admin-login-name"
+              name="log"
+              type="text"
+              autocomplete="username"
               autocapitalize="none"
               spellcheck="false"
-              placeholder="Enter your email"
+              placeholder="Enter your email or username"
               required
               autofocus
             >
@@ -99,12 +94,11 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
           </button>
         </form>
 
-        <p class="login-admin__notice" role="status" aria-live="polite">Authorized personnel only.</p>
+        <p class="login-admin__notice">Authorized personnel only.</p>
       </div>
     </section>
   </main>
 
-  <?php ullman_ajax_config(); ?>
   <script src="<?php echo esc_url($pageUrl . '/login-admin.js?v=' . $loginJsVersion); ?>" defer></script>
 </body>
 </html>
