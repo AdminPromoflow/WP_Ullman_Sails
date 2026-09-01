@@ -686,7 +686,7 @@ function ullman_handle_forms_ajax(): void {
     require_once get_template_directory() . '/controller/controller.php';
 
     ob_start();
-    $handler = new ApiHandlerSendForms();
+    $handler = new ApiController();
     $handler->handleRequest();
     $response = ob_get_clean();
 

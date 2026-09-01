@@ -14,9 +14,9 @@ if (is_file(__DIR__ . '/includes/token.php')) {
     require_once __DIR__ . '/includes/token.php';
 }
 
-class ApiHandlerSendForms
+class ApiController
 {
-    private $promoflowWebhookUrl = 'https://www.promoflow.net/controller/controller.php';
+    private $promoflowWebhookUrl = 'https://www.promoflow.net/controller/ullman_sails/controller.php';
     private $maxAttachmentBytes = 10485760; // 10 MB before base64 encoding.
 
     public function handleRequest()
@@ -88,10 +88,8 @@ class ApiHandlerSendForms
 
     private function login($data)
     {
-        echo json_encode(array(
-            'success' => true,
-            'message' => 'success'
-        ));
+        $payload = $this->preparePromoflowPayload($data, 'login');
+        $this->sendToPromoflow($payload);
     }
 
     private function sendEmailContactUs($data)
@@ -336,8 +334,8 @@ if (!defined('ABSPATH')) {
     error_reporting(E_ALL);
 
     try {
-        $apiHandlerSendForms = new ApiHandlerSendForms();
-        $apiHandlerSendForms->handleRequest();
+        $apiController = new ApiController();
+        $apiController->handleRequest();
     } catch (Throwable $error) {
         error_log('Ullman form proxy error: ' . $error->getMessage());
         http_response_code(500);
