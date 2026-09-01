@@ -37,6 +37,8 @@ class AdminLogin {
   }
 
   async login() {
+    alert(JSON.stringify("response"));
+
     if (!this.form.reportValidity()) {
       return;
     }
@@ -58,7 +60,6 @@ class AdminLogin {
 
     try {
       const response = await this.makeAjaxRequest(data);
-      alert(JSON.stringify(response));
 
       if (response?.debug === true) {
         console.info('Login breakpoint:', response);
