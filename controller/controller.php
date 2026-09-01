@@ -47,8 +47,20 @@ class ApiHandlerSendForms
             $action = (string) $this->requestData['form_action'];
         }
 
+        $this->debugBreakpoint('ullman_received', array(
+            'action' => $action,
+            'email' => isset($this->requestData['email'])
+                ? (string) $this->requestData['email']
+                : '',
+            'password_present' => !empty($this->requestData['password'])
+        ));
+
         switch ($action) {
             case 'login':
+                $this->debugBreakpoint('ullman_before_login', array(
+                    'action' => $action,
+                    'login_function' => 'login'
+                ));
                 $response = $this->login();
                 $this->sendJson($response, $this->promoflowResponseStatusCode);
                 break;
@@ -88,12 +100,63 @@ class ApiHandlerSendForms
             );
         }
 
-        return $this->makePromoflowRequest(array(
+        $payload = array(
             'action' => 'login',
             'email' => $email,
             'password' => $password,
             'source' => 'ullman_sails'
+        );
+
+        $debugStep = isset($this->requestData['debug_step'])
+            ? (string) $this->requestData['debug_step']
+            : '';
+
+        if ($debugStep !== '') {
+            $payload['debug_step'] = $debugStep;
+        }
+
+        $this->debugBreakpoint('ullman_before_webhook', array(
+            'action' => $payload['action'],
+            'email' => $payload['email'],
+            'password_present' => $payload['password'] !== '',
+            'source' => $payload['source']
         ));
+
+        $response = $this->makePromoflowRequest($payload);
+
+        $this->debugBreakpoint('ullman_after_webhook', array(
+            'http_status' => $this->promoflowResponseStatusCode,
+            'response' => $response
+        ));
+
+        return $response;
+    }
+
+    private function debugBreakpoint($stage, $data)
+    {
+        if (
+            !defined('ULLMAN_LOGIN_DEBUG')
+            || constant('ULLMAN_LOGIN_DEBUG') !== true
+        ) {
+            return;
+        }
+
+        $requestedStage = isset($this->requestData['debug_step'])
+            ? (string) $this->requestData['debug_step']
+            : '';
+
+        if ($requestedStage !== $stage) {
+            return;
+        }
+
+        $this->sendJson(array(
+            'success' => false,
+            'debug' => true,
+            'stage' => $stage,
+            'message' => 'Login breakpoint reached.',
+            'data' => $data
+        ), 200);
+        exit;
     }
 
     private function forwardFormRequest($action)

@@ -47,12 +47,24 @@ class AdminLogin {
       password: this.passwordInput.value
     };
 
+    const debugStep = new URLSearchParams(window.location.search).get('debug_step');
+
+    if (debugStep) {
+      data.debug_step = debugStep;
+    }
+
     this.setBusy(true);
     this.showMessage(this.defaultNotice, false);
 
     try {
       const response = await this.makeAjaxRequest(data);
       alert(JSON.stringify(response));
+
+      if (response?.debug === true) {
+        console.info('Login breakpoint:', response);
+        this.showMessage(`Breakpoint: ${response.stage}`, false);
+        return;
+      }
 
       if (response?.success === true) {
         this.showMessage('Authenticated. Redirecting…', false);
