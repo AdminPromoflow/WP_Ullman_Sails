@@ -57,6 +57,7 @@ class ApiHandlerSendForms
 
         switch ($action) {
             case 'login':
+            echo json_encode("buenas");exit;
                 $this->debugBreakpoint('ullman_before_login', array(
                     'action' => $action,
                     'login_function' => 'login'
