@@ -99,6 +99,7 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
     </section>
   </main>
 
+  <?php ullman_ajax_config(); ?>
   <script src="<?php echo esc_url($pageUrl . '/login-admin.js?v=' . $loginJsVersion); ?>" defer></script>
 </body>
 </html>
