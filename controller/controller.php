@@ -18,6 +18,11 @@ class ApiHandlerSendForms
 
     public function handleRequest()
     {
+
+      echo json_encode(array(
+          'success' => true,
+          'message' => 'success'
+      ));exit;
         header('Content-Type: application/json; charset=UTF-8');
 
         $requestMethod = isset($_SERVER['REQUEST_METHOD'])
@@ -34,7 +39,7 @@ class ApiHandlerSendForms
 
         $data = $this->getRequestData();
 
-        
+
 
         $action = (string) $data['action'];
 
