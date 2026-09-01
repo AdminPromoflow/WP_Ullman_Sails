@@ -17,7 +17,7 @@ class LoginDashboard {
     const email = loginEmail.value;
     const password = loginPassword.value;
 
-    const url = "../../controller/controller.php";
+    const url = "../controller/controller.php";
 
     const data = {
       action: "login",
