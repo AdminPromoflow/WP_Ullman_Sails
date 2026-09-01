@@ -34,23 +34,11 @@ class ApiHandlerSendForms
 
         $data = $this->getRequestData();
 
-        if (!is_array($data) || !isset($data['action']) || (string) $data['action'] === '') {
-            $this->sendJson(array(
-                'success' => false,
-                'message' => 'Missing action.'
-            ), 400);
-            return;
-        }
+        
 
         $action = (string) $data['action'];
 
-        // Keep compatibility with submissions previously prepared for WP AJAX.
-        if (
-            $action === 'ullman_send_forms'
-            && !empty($data['form_action'])
-        ) {
-            $action = (string) $data['form_action'];
-        }
+
 
         switch ($action) {
             case 'login':
