@@ -10,7 +10,10 @@
  * Define ULLMAN_PROMOFLOW_WEBHOOK_TOKEN in wp-config.php (minimum 32 random
  * characters) and use the identical value on the Promoflow webhook.
  */
- require_once __DIR__ . '/includes/token.php';
+if (is_file(__DIR__ . '/includes/token.php')) {
+    require_once __DIR__ . '/includes/token.php';
+}
+
 class ApiHandlerSendForms
 {
     private $promoflowWebhookUrl = 'https://www.promoflow.net/controller/controller.php';
@@ -18,8 +21,6 @@ class ApiHandlerSendForms
 
     public function handleRequest()
     {
-
-
         header('Content-Type: application/json; charset=UTF-8');
 
         $requestMethod = isset($_SERVER['REQUEST_METHOD'])
@@ -36,11 +37,20 @@ class ApiHandlerSendForms
 
         $data = $this->getRequestData();
 
-
+        if (!is_array($data) || !isset($data['action']) || (string) $data['action'] === '') {
+            $this->sendJson(array(
+                'success' => false,
+                'message' => 'Missing action.'
+            ), 400);
+            return;
+        }
 
         $action = (string) $data['action'];
 
-
+        // Keep compatibility with submissions previously prepared for WP AJAX.
+        if ($action === 'ullman_send_forms' && !empty($data['form_action'])) {
+            $action = (string) $data['form_action'];
+        }
 
         switch ($action) {
             case 'login':
@@ -80,7 +90,7 @@ class ApiHandlerSendForms
     {
         echo json_encode(array(
             'success' => true,
-            'message' => 'success2'
+            'message' => 'success'
         ));
     }
 
