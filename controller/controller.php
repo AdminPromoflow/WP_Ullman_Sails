@@ -78,10 +78,9 @@ class ApiController
                 break;
 
             default:
-                $this->sendJson(array(
-                    'success' => false,
-                    'message' => 'Unknown action.'
-                ), 400);
+                echo json_encode(array(
+                    'success' => false
+                ));
                 break;
         }
     }
