@@ -52,6 +52,7 @@ class AdminLogin {
 
     try {
       const response = await this.makeAjaxRequest(data);
+      alert(JSON.stringify(response));
 
       if (response?.success === true) {
         this.showMessage('Authenticated. Redirecting…', false);
