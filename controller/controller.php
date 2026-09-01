@@ -91,7 +91,7 @@ class ApiHandlerSendForms
         echo json_encode(array(
             'success' => true,
             'message' => 'success'
-        ), 200);
+        ));
     }
 
     private function sendEmailContactUs($data)
