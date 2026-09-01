@@ -15,7 +15,6 @@ class ApiHandlerSendForms
 {
     private $promoflowWebhookUrl = 'https://www.promoflow.net/controller/controller.php';
     private $maxAttachmentBytes = 10485760; // 10 MB before base64 encoding.
-    private $requestData = array();
 
     public function handleRequest()
     {
@@ -33,42 +32,73 @@ class ApiHandlerSendForms
             return;
         }
 
-        $this->requestData = $this->getRequestData();
-        $action = isset($this->requestData['action'])
-            ? (string) $this->requestData['action']
-            : '';
+        $data = $this->getRequestData();
 
-        // Keep compatibility with submissions previously prepared for WP AJAX.
-        if (
-            $action === 'ullman_send_forms'
-            && !empty($this->requestData['form_action'])
-        ) {
-            $action = (string) $this->requestData['form_action'];
-        }
-
-        $allowedActions = array(
-            'send_emal_contact_us',
-            'send_new_sail_quote',
-            'send_new_cover_quote',
-            'send_new_repair_quote',
-            'submit_customize_form'
-        );
-
-        if (!in_array($action, $allowedActions, true)) {
+        if (!is_array($data) || !isset($data['action']) || (string) $data['action'] === '') {
             $this->sendJson(array(
                 'success' => false,
-                'message' => $action === '' ? 'Missing action.' : 'Unknown action.'
+                'message' => 'Missing action.'
             ), 400);
             return;
         }
 
-        $payload = $this->requestData;
-        $payload['action'] = $action;
-        $payload['source'] = 'ullman_sails';
+        $action = (string) $data['action'];
 
-        unset($payload['form_action'], $payload['nonce']);
+        // Keep compatibility with submissions previously prepared for WP AJAX.
+        if (
+            $action === 'ullman_send_forms'
+            && !empty($data['form_action'])
+        ) {
+            $action = (string) $data['form_action'];
+        }
 
-        if ($action === 'send_emal_contact_us' && isset($_FILES['file'])) {
+        switch ($action) {
+            case 'login':
+                $this->login($data);
+                break;
+
+            case 'send_emal_contact_us':
+                $this->sendEmailContactUs($data);
+                break;
+
+            case 'send_new_sail_quote':
+                $this->sendNewSailQuote($data);
+                break;
+
+            case 'send_new_cover_quote':
+                $this->sendNewCoverQuote($data);
+                break;
+
+            case 'send_new_repair_quote':
+                $this->sendNewRepairQuote($data);
+                break;
+
+            case 'submit_customize_form':
+                $this->submitCustomizeForm($data);
+                break;
+
+            default:
+                $this->sendJson(array(
+                    'success' => false,
+                    'message' => 'Unknown action.'
+                ), 400);
+                break;
+        }
+    }
+
+    private function login($data)
+    {
+        $this->sendJson(array(
+            'success' => true,
+            'message' => 'success'
+        ), 200);
+    }
+
+    private function sendEmailContactUs($data)
+    {
+        $payload = $this->preparePromoflowPayload($data, 'send_emal_contact_us');
+
+        if (isset($_FILES['file'])) {
             $attachment = $this->encodeUploadedFile($_FILES['file']);
 
             if (isset($attachment['error'])) {
@@ -85,6 +115,41 @@ class ApiHandlerSendForms
         }
 
         $this->sendToPromoflow($payload);
+    }
+
+    private function sendNewSailQuote($data)
+    {
+        $payload = $this->preparePromoflowPayload($data, 'send_new_sail_quote');
+        $this->sendToPromoflow($payload);
+    }
+
+    private function sendNewCoverQuote($data)
+    {
+        $payload = $this->preparePromoflowPayload($data, 'send_new_cover_quote');
+        $this->sendToPromoflow($payload);
+    }
+
+    private function sendNewRepairQuote($data)
+    {
+        $payload = $this->preparePromoflowPayload($data, 'send_new_repair_quote');
+        $this->sendToPromoflow($payload);
+    }
+
+    private function submitCustomizeForm($data)
+    {
+        $payload = $this->preparePromoflowPayload($data, 'submit_customize_form');
+        $this->sendToPromoflow($payload);
+    }
+
+    private function preparePromoflowPayload($data, $action)
+    {
+        $payload = $data;
+        $payload['action'] = $action;
+        $payload['source'] = 'ullman_sails';
+
+        unset($payload['form_action'], $payload['nonce']);
+
+        return $payload;
     }
 
     private function getRequestData()
