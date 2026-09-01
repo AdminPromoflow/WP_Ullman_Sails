@@ -56,10 +56,10 @@ class AdminLogin {
 
     this.setBusy(true);
     this.showMessage(this.defaultNotice, false);
+    alert(JSON.stringify(response));
 
     try {
       const response = await this.makeAjaxRequest(data);
-      alert(JSON.stringify(response));
 
 
       if (response?.debug === true) {
