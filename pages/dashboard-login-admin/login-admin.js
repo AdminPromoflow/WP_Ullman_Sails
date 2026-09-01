@@ -1,22 +1,32 @@
-(() => {
-  const passwordInput = document.querySelector('#admin-login-password');
-  const passwordToggle = document.querySelector('.login-admin__password-toggle');
-  const form = document.querySelector('.login-admin__form');
+const loginEmail = document.querySelector('#login-email');
+const loginPassword = document.querySelector('#login-password');
+const submitLogin = document.querySelector('#submit-login');
+const passwordToggle = document.querySelector('.login-admin__password-toggle');
 
-  if (passwordInput instanceof HTMLInputElement && passwordToggle instanceof HTMLButtonElement) {
-    passwordToggle.addEventListener('click', () => {
-      const willShowPassword = passwordInput.type === 'password';
-
-      passwordInput.type = willShowPassword ? 'text' : 'password';
-      passwordToggle.textContent = willShowPassword ? 'Hide' : 'Show';
-      passwordToggle.setAttribute('aria-pressed', String(willShowPassword));
-      passwordInput.focus({ preventScroll: true });
-    });
+class LoginDashboard {
+  constructor() {
+    if (submitLogin instanceof HTMLButtonElement) {
+      submitLogin.addEventListener('click', (event) => {
+        event.preventDefault();
+        this.loginDashboard();
+      });
+    }
   }
 
-  if (form instanceof HTMLFormElement) {
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-    });
+  loginDashboard() {
+    alert('Login dashboard test');
   }
-})();
+}
+
+if (loginPassword instanceof HTMLInputElement && passwordToggle instanceof HTMLButtonElement) {
+  passwordToggle.addEventListener('click', () => {
+    const willShowPassword = loginPassword.type === 'password';
+
+    loginPassword.type = willShowPassword ? 'text' : 'password';
+    passwordToggle.textContent = willShowPassword ? 'Hide' : 'Show';
+    passwordToggle.setAttribute('aria-pressed', String(willShowPassword));
+    loginPassword.focus({ preventScroll: true });
+  });
+}
+
+new LoginDashboard();

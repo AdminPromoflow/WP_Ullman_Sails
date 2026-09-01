@@ -10,7 +10,7 @@
  * Define ULLMAN_PROMOFLOW_WEBHOOK_TOKEN in wp-config.php (minimum 32 random
  * characters) and use the identical value on the Promoflow webhook.
  */
- require_once __DIR__ . '/includes/emails-config.php';
+ require_once __DIR__ . '/includes/token.php';
 class ApiHandlerSendForms
 {
     private $promoflowWebhookUrl = 'https://www.promoflow.net/controller/controller.php';
