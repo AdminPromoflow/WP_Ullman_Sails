@@ -171,10 +171,13 @@ $newsArticles = [
           </button>
           <p><span>Dashboard</span><span aria-hidden="true">/</span><strong>News</strong></p>
         </div>
-        <div class="dashboard-profile" aria-label="Current administrator">
-          <span class="dashboard-profile__status" aria-hidden="true"></span>
-          <span class="dashboard-profile__name"><?php echo esc_html($adminEmail); ?></span>
-          <span class="dashboard-profile__avatar" aria-hidden="true">AD</span>
+        <div class="dashboard-topbar__right">
+          <div class="dashboard-profile" aria-label="Current administrator">
+            <span class="dashboard-profile__status" aria-hidden="true"></span>
+            <span class="dashboard-profile__name"><?php echo esc_html($adminEmail); ?></span>
+            <span class="dashboard-profile__avatar" aria-hidden="true">AD</span>
+          </div>
+          <button id="logout-dashboard" class="dashboard-logout" type="button">Logout</button>
         </div>
       </header>
 
@@ -399,6 +402,7 @@ $newsArticles = [
   <script>
     window.ullmanDashboardNews = <?php echo wp_json_encode($newsArticles); ?>;
   </script>
+  <?php ullman_ajax_config(); ?>
   <script src="<?php echo esc_url($dashboardUrl . '/dashboard-admin.js?v=' . $dashboardJsVersion); ?>" defer></script>
 </body>
 </html>

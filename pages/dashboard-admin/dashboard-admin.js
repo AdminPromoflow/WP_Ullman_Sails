@@ -48,6 +48,7 @@
   const toastMessage = document.querySelector('#dashboard-toast-message');
   const menuToggle = document.querySelector('.dashboard-menu-toggle');
   const overlay = document.querySelector('.dashboard-overlay');
+  const logoutDashboard = document.getElementById('logout-dashboard');
 
   let activeId = articles[0]?.id || '';
   let activeFilter = 'All';
@@ -346,6 +347,34 @@
   readButton?.addEventListener('click', readStory);
   deleteButton?.addEventListener('click', requestDelete);
   confirmDeleteButton?.addEventListener('click', deleteStory);
+
+  if (logoutDashboard instanceof HTMLButtonElement) {
+    logoutDashboard.addEventListener('click', async () => {
+      logoutDashboard.disabled = true;
+
+      try {
+        const response = await fetch(window.ullmanAjax.controllerUrl, {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ action: 'logout' })
+        });
+        const data = await response.json();
+
+        if (!response.ok || data.success !== true) {
+          throw new Error(data.message || 'Unable to log out.');
+        }
+
+        window.location.replace(window.ullmanAjax.loginUrl);
+      } catch (error) {
+        console.error('Logout error:', error);
+        alert(error.message || 'Unable to log out.');
+        logoutDashboard.disabled = false;
+      }
+    });
+  }
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();

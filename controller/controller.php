@@ -57,6 +57,10 @@ class ApiController
                 $this->login($data);
                 break;
 
+            case 'logout':
+                $this->logout();
+                break;
+
             case 'send_emal_contact_us':
                 $this->sendEmailContactUs($data);
                 break;
@@ -89,6 +93,34 @@ class ApiController
     {
         $payload = $this->preparePromoflowPayload($data, 'login');
         $this->sendToPromoflow($payload, true);
+    }
+
+    private function logout()
+    {
+        $this->startAdminSession();
+
+        $_SESSION = array();
+
+        if (ini_get('session.use_cookies')) {
+            $cookieParameters = session_get_cookie_params();
+
+            setcookie(session_name(), '', array(
+                'expires' => time() - 42000,
+                'path' => $cookieParameters['path'],
+                'domain' => $cookieParameters['domain'],
+                'secure' => $cookieParameters['secure'],
+                'httponly' => $cookieParameters['httponly'],
+                'samesite' => isset($cookieParameters['samesite'])
+                    ? $cookieParameters['samesite']
+                    : 'Lax'
+            ));
+        }
+
+        session_destroy();
+
+        $this->sendJson(array(
+            'success' => true
+        ), 200);
     }
 
     private function sendEmailContactUs($data)
@@ -325,6 +357,14 @@ class ApiController
             throw new RuntimeException('The authenticated email is unavailable.');
         }
 
+        $this->startAdminSession();
+        session_regenerate_id(true);
+        $_SESSION['ullman_admin_email'] = $email;
+        $_SESSION['ullman_admin_authenticated'] = true;
+    }
+
+    private function startAdminSession()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_name('ULLMAN_ADMIN_SESSION');
             session_set_cookie_params(array(
@@ -339,10 +379,6 @@ class ApiController
                 throw new RuntimeException('The admin session could not be started.');
             }
         }
-
-        session_regenerate_id(true);
-        $_SESSION['ullman_admin_email'] = $email;
-        $_SESSION['ullman_admin_authenticated'] = true;
     }
 
     private function sendJson($payload, $statusCode)

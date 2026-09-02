@@ -661,6 +661,7 @@ function ullman_ajax_config(): void {
             'url' => admin_url('admin-ajax.php'),
             'controllerUrl' => get_template_directory_uri() . '/controller/controller.php',
             'dashboardUrl' => ullman_page_url('dashboard-admin'),
+            'loginUrl' => ullman_page_url('dashboard-login-admin'),
             'nonce' => wp_create_nonce('ullman_forms'),
         ])
     );
