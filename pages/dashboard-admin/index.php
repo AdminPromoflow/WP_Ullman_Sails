@@ -186,7 +186,7 @@ $newsArticles = [
           <div>
             <p class="dashboard-heading__eyebrow">Content management</p>
             <h1 id="dashboard-title">News</h1>
-            <p>Review and update the stories displayed across the Ullman Sails website.</p>
+            <p>Manage every News page and organise its content into reusable sections and blocks.</p>
           </div>
           <div class="dashboard-heading__actions">
             <a class="dashboard-preview-link" href="<?php echo esc_url(ullman_page_url('news')); ?>" target="_blank" rel="noopener noreferrer">
@@ -248,7 +248,7 @@ $newsArticles = [
               <span class="news-editor__state" id="editor-state">No unsaved changes</span>
             </header>
 
-            <form class="news-editor__form" id="news-editor-form" action="" method="post" data-interface-only>
+            <form class="news-editor__form" id="news-editor-form" action="" method="post">
               <div class="news-editor__columns">
                 <div class="news-fields">
                   <div class="news-field">
@@ -259,18 +259,19 @@ $newsArticles = [
                   <div class="news-fields__row">
                     <div class="news-field">
                       <label for="news-category">Category</label>
-                      <select id="news-category" name="category">
-                        <option>Race Series</option>
-                        <option>Events</option>
-                        <option>Race Result</option>
-                        <option>Loft</option>
-                        <option>Customers</option>
-                        <option>Development</option>
-                        <option>Boat Show</option>
-                        <option>Team</option>
-                        <option>Cruising</option>
-                        <option>Endurance</option>
-                      </select>
+                      <input id="news-category" name="category" type="text" list="news-categories" required>
+                      <datalist id="news-categories">
+                        <option value="Race Series">
+                        <option value="Events">
+                        <option value="Race Result">
+                        <option value="Loft">
+                        <option value="Customers">
+                        <option value="Development">
+                        <option value="Boat Show">
+                        <option value="Team">
+                        <option value="Cruising">
+                        <option value="Endurance">
+                      </datalist>
                     </div>
                     <div class="news-field">
                       <label for="news-status">Status</label>
@@ -286,19 +287,17 @@ $newsArticles = [
                     <input id="news-date" name="date" type="date">
                   </div>
 
-                  <div class="news-field">
-                    <div class="news-field__label-row">
-                      <label for="news-summary">Summary</label>
-                      <span id="summary-count">0 / 180</span>
-                    </div>
-                    <textarea id="news-summary" name="summary" rows="4" maxlength="180"></textarea>
-                    <small>Used on News cards and previews.</small>
-                  </div>
-
-                  <div class="news-field">
-                    <label for="news-content">Story content</label>
-                    <textarea id="news-content" name="content" rows="8"></textarea>
-                  </div>
+                  <section class="news-sections-editor" aria-labelledby="news-sections-title">
+                    <header class="news-sections-editor__header">
+                      <div>
+                        <p class="dashboard-kicker">Page structure</p>
+                        <h3 id="news-sections-title">Content sections</h3>
+                      </div>
+                      <button class="dashboard-button dashboard-button--ghost" id="add-section" type="button">+ Add section</button>
+                    </header>
+                    <p class="news-sections-editor__help">Build the story with headings, paragraphs, images, quotes or lists. Use the tag <code>summary</code> on one paragraph to use it on News cards.</p>
+                    <div class="news-sections" id="news-sections" aria-live="polite"></div>
+                  </section>
                 </div>
 
                 <aside class="news-live-preview" aria-labelledby="preview-title">
@@ -313,8 +312,6 @@ $newsArticles = [
                   <article class="news-preview-card">
                     <div class="news-preview-card__media">
                       <img id="preview-image" src="" alt="Selected news preview">
-                      <label class="news-image-change" for="news-image-input">Change image</label>
-                      <input id="news-image-input" type="file" accept="image/png,image/jpeg,image/webp">
                     </div>
                     <div class="news-preview-card__body">
                       <span id="preview-category">Category</span>
@@ -324,12 +321,12 @@ $newsArticles = [
                     </div>
                   </article>
 
-                  <p class="news-live-preview__note">Image changes and text edits remain in this interface until the dashboard is connected.</p>
+                  <p class="news-live-preview__note">The card uses the first image block and the paragraph tagged as <code>summary</code>.</p>
                 </aside>
               </div>
 
               <footer class="news-editor__actions">
-                <p><span aria-hidden="true">&#9432;</span> Interface only — changes are not stored yet.</p>
+                <p><span aria-hidden="true">&#9432;</span> Saved changes persist in this dashboard browser.</p>
                 <div>
                   <button class="dashboard-button dashboard-button--ghost" id="read-story" type="button">Read preview</button>
                   <button class="dashboard-button dashboard-button--secondary" id="discard-changes" type="button">Discard changes</button>
@@ -365,7 +362,7 @@ $newsArticles = [
           </div>
           <h2 id="reader-story-title">Story title</h2>
           <p class="news-reader__summary" id="reader-summary"></p>
-          <p class="news-reader__content" id="reader-content"></p>
+          <div class="news-reader__content" id="reader-content"></div>
         </div>
       </article>
       <footer class="dashboard-dialog__footer">
@@ -385,7 +382,7 @@ $newsArticles = [
       </header>
       <div class="dashboard-confirmation">
         <span aria-hidden="true">!</span>
-        <p>The story <strong id="delete-story-name"></strong> will be removed from this interface. This demonstration does not change the public website.</p>
+        <p>The story <strong id="delete-story-name"></strong> and all its sections will be removed from this dashboard.</p>
       </div>
       <footer class="dashboard-dialog__footer">
         <button class="dashboard-button dashboard-button--secondary" type="button" data-close-dialog="delete-story-dialog">Cancel</button>
@@ -396,7 +393,7 @@ $newsArticles = [
 
   <div class="dashboard-toast" id="dashboard-toast" role="status" aria-live="polite">
     <span aria-hidden="true">&#10003;</span>
-    <div><strong id="dashboard-toast-title">Interface updated</strong><small id="dashboard-toast-message">Backend connection is still pending.</small></div>
+    <div><strong id="dashboard-toast-title">Dashboard updated</strong><small id="dashboard-toast-message">Your changes were saved.</small></div>
   </div>
 
   <script>
