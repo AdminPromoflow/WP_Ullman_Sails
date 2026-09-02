@@ -29,7 +29,12 @@ class LoginDashboard {
 
     if (!response) return;
 
-    console.log(response);
+    if (response.success === true) {
+      window.location.assign(window.ullmanAjax.dashboardUrl);
+      return;
+    }
+
+    alert(response.message || 'Invalid credentials.');
   }
 
   async makeAjaxRequest(url, data) {
@@ -42,11 +47,13 @@ class LoginDashboard {
         body: JSON.stringify(data)
       });
 
-      if (!response.ok) {
+      const responseData = await response.json();
+
+      if (!response.ok && !responseData) {
         throw new Error("Network error.");
       }
 
-      return await response.json();
+      return responseData;
     } catch (error) {
       console.error("Error:", error);
       return null;

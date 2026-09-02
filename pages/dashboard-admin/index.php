@@ -1,6 +1,18 @@
 <?php
 declare(strict_types=1);
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_name('ULLMAN_ADMIN_SESSION');
+    session_start();
+}
+
+if (empty($_SESSION['ullman_admin_authenticated']) || empty($_SESSION['ullman_admin_email'])) {
+    wp_safe_redirect(ullman_page_url('dashboard-login-admin'));
+    exit;
+}
+
+$adminEmail = (string) $_SESSION['ullman_admin_email'];
+
 $dashboardDirectory = __DIR__;
 $dashboardUrl = get_template_directory_uri() . '/pages/dashboard-admin';
 $dashboardCssVersion = ullman_file_version($dashboardDirectory . '/dashboard-admin.css');
@@ -161,7 +173,7 @@ $newsArticles = [
         </div>
         <div class="dashboard-profile" aria-label="Current administrator">
           <span class="dashboard-profile__status" aria-hidden="true"></span>
-          <span class="dashboard-profile__name">Administrator</span>
+          <span class="dashboard-profile__name"><?php echo esc_html($adminEmail); ?></span>
           <span class="dashboard-profile__avatar" aria-hidden="true">AD</span>
         </div>
       </header>

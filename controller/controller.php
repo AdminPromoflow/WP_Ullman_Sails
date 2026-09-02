@@ -88,7 +88,7 @@ class ApiController
     private function login($data)
     {
         $payload = $this->preparePromoflowPayload($data, 'login');
-        $this->sendToPromoflow($payload);
+        $this->sendToPromoflow($payload, true);
     }
 
     private function sendEmailContactUs($data)
@@ -232,7 +232,7 @@ class ApiController
         return is_string($environmentToken) ? $environmentToken : '';
     }
 
-    private function sendToPromoflow($payload)
+    private function sendToPromoflow($payload, $createAdminSession = false)
     {
         if (!function_exists('curl_init')) {
             $this->sendJson(array(
@@ -307,8 +307,42 @@ class ApiController
             return;
         }
 
+        if ($createAdminSession && !empty($decodedResponse['success'])) {
+            $email = isset($decodedResponse['user']['email'])
+                ? (string) $decodedResponse['user']['email']
+                : (isset($payload['email']) ? (string) $payload['email'] : '');
+
+            $this->createAdminSession($email);
+        }
+
         $statusCode = $httpCode >= 200 && $httpCode < 600 ? $httpCode : 502;
         $this->sendJson($decodedResponse, $statusCode);
+    }
+
+    private function createAdminSession($email)
+    {
+        if ($email === '') {
+            throw new RuntimeException('The authenticated email is unavailable.');
+        }
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_name('ULLMAN_ADMIN_SESSION');
+            session_set_cookie_params(array(
+                'lifetime' => 0,
+                'path' => '/',
+                'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+                'httponly' => true,
+                'samesite' => 'Lax'
+            ));
+
+            if (!session_start()) {
+                throw new RuntimeException('The admin session could not be started.');
+            }
+        }
+
+        session_regenerate_id(true);
+        $_SESSION['ullman_admin_email'] = $email;
+        $_SESSION['ullman_admin_authenticated'] = true;
     }
 
     private function sendJson($payload, $statusCode)
