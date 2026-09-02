@@ -106,10 +106,16 @@
   const dateInput = document.querySelector('#news-date');
   const sectionsContainer = document.querySelector('#news-sections');
   const addSectionButton = document.querySelector('#add-section');
-  const previewImage = document.querySelector('#preview-image');
+  const previewStorySelect = document.querySelector('#preview-story-select');
+  const previewPrevious = document.querySelector('#preview-previous');
+  const previewNext = document.querySelector('#preview-next');
+  const previewStoryStatus = document.querySelector('#preview-story-status');
   const previewCategory = document.querySelector('#preview-category');
   const previewTitle = document.querySelector('#preview-card-title');
+  const previewDate = document.querySelector('#preview-date');
+  const previewStatus = document.querySelector('#preview-status');
   const previewSummary = document.querySelector('#preview-summary');
+  const previewPageContent = document.querySelector('#preview-page-content');
   const editorState = document.querySelector('#editor-state');
   const editorModeLabel = document.querySelector('#editor-mode-label');
   const discardButton = document.querySelector('#discard-changes');
@@ -260,19 +266,52 @@
 
   function renderPreview() {
     const article = getActiveArticle();
+    const activeIndex = articles.findIndex((item) => item.id === activeId);
+
+    if (previewStorySelect instanceof HTMLSelectElement) {
+      previewStorySelect.replaceChildren();
+      articles.forEach((item) => {
+        const option = document.createElement('option');
+        option.value = item.id;
+        option.textContent = item.title || 'Untitled story';
+        option.selected = item.id === activeId;
+        previewStorySelect.append(option);
+      });
+    }
+
+    if (previewPrevious instanceof HTMLButtonElement) previewPrevious.disabled = activeIndex <= 0;
+    if (previewNext instanceof HTMLButtonElement) previewNext.disabled = activeIndex < 0 || activeIndex >= articles.length - 1;
+    if (previewStoryStatus) {
+      previewStoryStatus.textContent = activeIndex >= 0
+        ? `Story ${activeIndex + 1} of ${articles.length}`
+        : 'No stories';
+    }
 
     if (!article) {
       if (previewCategory) previewCategory.textContent = 'No story';
       if (previewTitle) previewTitle.textContent = 'Create a story to begin';
-      if (previewSummary) previewSummary.textContent = 'Your News card preview will appear here.';
-      if (previewImage instanceof HTMLImageElement) previewImage.removeAttribute('src');
+      if (previewDate) previewDate.textContent = '';
+      if (previewStatus) previewStatus.textContent = '';
+      if (previewSummary) previewSummary.textContent = 'Your News page preview will appear here.';
+      if (previewPageContent instanceof HTMLElement) previewPageContent.replaceChildren();
       return;
     }
 
-    if (previewImage instanceof HTMLImageElement) previewImage.src = getArticleImage(article);
     if (previewCategory) previewCategory.textContent = article.category || 'Uncategorised';
     if (previewTitle) previewTitle.textContent = article.title || 'Untitled story';
+    if (previewDate) previewDate.textContent = formatDate(article.date);
+    if (previewStatus) previewStatus.textContent = article.status;
     if (previewSummary) previewSummary.textContent = getArticleSummary(article) || 'Add a paragraph and tag it as summary.';
+
+    if (previewPageContent instanceof HTMLElement) {
+      previewPageContent.replaceChildren();
+      article.sections.forEach((section, sectionIndex) => {
+        const sectionElement = document.createElement('section');
+        sectionElement.setAttribute('aria-label', `Preview section ${sectionIndex + 1}`);
+        section.blocks.forEach((block) => appendReaderBlock(sectionElement, block));
+        if (sectionElement.childElementCount > 0) previewPageContent.append(sectionElement);
+      });
+    }
   }
 
   function setFormDisabled(disabled) {
@@ -740,6 +779,17 @@
 
   createButton?.addEventListener('click', createStory);
   addSectionButton?.addEventListener('click', addSection);
+  previewStorySelect?.addEventListener('change', () => {
+    if (previewStorySelect instanceof HTMLSelectElement) selectArticle(previewStorySelect.value);
+  });
+  previewPrevious?.addEventListener('click', () => {
+    const activeIndex = articles.findIndex((article) => article.id === activeId);
+    if (activeIndex > 0) selectArticle(articles[activeIndex - 1].id);
+  });
+  previewNext?.addEventListener('click', () => {
+    const activeIndex = articles.findIndex((article) => article.id === activeId);
+    if (activeIndex >= 0 && activeIndex < articles.length - 1) selectArticle(articles[activeIndex + 1].id);
+  });
   readButton?.addEventListener('click', readStory);
   deleteButton?.addEventListener('click', requestDelete);
   confirmDeleteButton?.addEventListener('click', deleteStory);

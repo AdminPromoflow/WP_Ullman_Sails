@@ -304,24 +304,42 @@ $newsArticles = [
                   <div class="news-live-preview__heading">
                     <div>
                       <p class="dashboard-kicker">Live preview</p>
-                      <h3 id="preview-title">News card</h3>
+                      <h3 id="preview-title">News page</h3>
                     </div>
                     <span>Desktop</span>
                   </div>
 
-                  <article class="news-preview-card">
-                    <div class="news-preview-card__media">
-                      <img id="preview-image" src="" alt="Selected news preview">
-                    </div>
-                    <div class="news-preview-card__body">
-                      <span id="preview-category">Category</span>
-                      <h3 id="preview-card-title">Story title</h3>
-                      <p id="preview-summary">Story summary</p>
-                      <span class="news-preview-card__link">Read story <span aria-hidden="true">&#8594;</span></span>
-                    </div>
-                  </article>
+                  <div class="news-page-preview">
+                    <header class="news-page-preview__masthead">
+                      <p>Ullman Sails GBR</p>
+                      <h3>News &amp; Updates</h3>
+                      <span>Race results, loft developments, customer stories and life on the water.</span>
+                    </header>
 
-                  <p class="news-live-preview__note">The card uses the first image block and the paragraph tagged as <code>summary</code>.</p>
+                    <div class="news-page-preview__controls">
+                      <label for="preview-story-select">
+                        <span>Choose a story</span>
+                        <select id="preview-story-select" aria-label="Choose a story in the live preview"></select>
+                      </label>
+                      <nav aria-label="Preview story navigation">
+                        <button id="preview-previous" type="button" aria-label="Previous story">&#8592;</button>
+                        <span id="preview-story-status">Story 1 of 10</span>
+                        <button id="preview-next" type="button" aria-label="Next story">&#8594;</button>
+                      </nav>
+                    </div>
+
+                    <article class="news-page-preview__story">
+                      <header>
+                        <span id="preview-category">Category</span>
+                        <h3 id="preview-card-title">Story title</h3>
+                        <div><time id="preview-date"></time><span id="preview-status"></span></div>
+                      </header>
+                      <p class="news-page-preview__summary" id="preview-summary">Story summary</p>
+                      <div class="news-page-preview__content" id="preview-page-content"></div>
+                    </article>
+                  </div>
+
+                  <p class="news-live-preview__note">This reproduces the selected story inside the public News page layout and updates from the section blocks.</p>
                 </aside>
               </div>
 
