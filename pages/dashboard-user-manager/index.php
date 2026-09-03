@@ -127,7 +127,10 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
                 <p class="dashboard-kicker">Directory</p>
                 <h2 id="user-directory-title">Dashboard users</h2>
               </div>
-              <button class="user-refresh" id="refresh-users" type="button" aria-label="Refresh users">Refresh</button>
+              <div class="user-panel-header__tools">
+                <span class="user-directory__count" id="user-directory-count">0 users</span>
+                <button class="user-refresh" id="refresh-users" type="button" aria-label="Refresh users">Refresh</button>
+              </div>
             </header>
 
             <div class="user-directory__tools">
@@ -181,7 +184,10 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
 
               <label class="user-field" for="user-password">
                 <span>Password</span>
-                <input id="user-password" name="password" type="password" minlength="8" maxlength="72" autocomplete="new-password">
+                <div class="user-password-control">
+                  <input id="user-password" name="password" type="password" minlength="8" maxlength="72" autocomplete="new-password">
+                  <button id="toggle-user-password" type="button" aria-controls="user-password" aria-pressed="false">Show</button>
+                </div>
                 <small id="password-help">Required for new users. Use at least 8 characters.</small>
               </label>
 
@@ -200,6 +206,21 @@ $logoUrl = get_template_directory_uri() . '/pages/general/menu/img/logo.png';
                 </select>
                 <small id="status-help">Inactive accounts cannot sign in.</small>
               </label>
+
+              <dl class="user-record-meta" id="user-record-meta" hidden>
+                <div>
+                  <dt>User ID</dt>
+                  <dd id="user-record-id">—</dd>
+                </div>
+                <div>
+                  <dt>Created</dt>
+                  <dd id="user-record-created">—</dd>
+                </div>
+                <div>
+                  <dt>Last updated</dt>
+                  <dd id="user-record-updated">—</dd>
+                </div>
+              </dl>
 
               <div class="user-editor__actions">
                 <button class="dashboard-button dashboard-button--secondary" id="cancel-user-edit" type="button">Clear</button>

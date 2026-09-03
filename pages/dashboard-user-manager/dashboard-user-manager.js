@@ -4,16 +4,22 @@
   const searchInput = document.getElementById('user-search-input');
   const filterButtons = [...document.querySelectorAll('[data-user-filter]')];
   const refreshButton = document.getElementById('refresh-users');
+  const directoryCount = document.getElementById('user-directory-count');
   const createButton = document.getElementById('create-user');
   const form = document.getElementById('user-editor-form');
   const idInput = document.getElementById('user-id');
   const nameInput = document.getElementById('user-name');
   const emailInput = document.getElementById('user-email');
   const passwordInput = document.getElementById('user-password');
+  const passwordToggle = document.getElementById('toggle-user-password');
   const roleInput = document.getElementById('user-role');
   const statusInput = document.getElementById('user-status');
   const passwordHelp = document.getElementById('password-help');
   const statusHelp = document.getElementById('status-help');
+  const recordMeta = document.getElementById('user-record-meta');
+  const recordId = document.getElementById('user-record-id');
+  const recordCreated = document.getElementById('user-record-created');
+  const recordUpdated = document.getElementById('user-record-updated');
   const editorMode = document.getElementById('user-editor-mode');
   const editorTitle = document.getElementById('user-editor-title');
   const editorState = document.getElementById('user-editor-state');
@@ -167,6 +173,9 @@
   function renderUsers() {
     const visible = visibleUsers();
     usersList.replaceChildren();
+    directoryCount.textContent = visible.length === users.length
+      ? `${users.length} ${users.length === 1 ? 'user' : 'users'}`
+      : `${visible.length} of ${users.length}`;
 
     if (visible.length === 0) {
       const empty = document.createElement('p');
@@ -217,7 +226,8 @@
       actions.setAttribute('role', 'cell');
       actions.append(
         makeActionButton('Edit', `Edit ${user.name}`, 'user-action-edit', () => startEdit(user.id)),
-        makeActionButton('Del', current ? 'You cannot delete your own account' : `Delete ${user.name}`, 'user-action-delete', () => requestDelete(user.id), current),
+        makeActionButton(user.status === 'active' ? 'Disable' : 'Enable', current ? 'Your current account must remain active' : `${user.status === 'active' ? 'Disable' : 'Enable'} ${user.name}`, 'user-action-status', () => toggleUserStatus(user.id), current),
+        makeActionButton('Delete', current ? 'You cannot delete your own account' : `Delete ${user.name}`, 'user-action-delete', () => requestDelete(user.id), current),
       );
       row.append(identity, role, status, updated, actions);
       row.addEventListener('click', () => startEdit(user.id));
@@ -236,11 +246,15 @@
     emailInput.disabled = false;
     statusInput.disabled = false;
     passwordInput.required = true;
+    passwordInput.type = 'password';
+    passwordToggle.textContent = 'Show';
+    passwordToggle.setAttribute('aria-pressed', 'false');
     passwordHelp.textContent = 'Required for new users. Use at least 8 characters.';
     statusHelp.textContent = 'Inactive accounts cannot sign in.';
     editorMode.textContent = 'New account';
     editorTitle.textContent = 'Add user';
     saveButton.textContent = 'Create user';
+    recordMeta.hidden = true;
     renderUsers();
     if (focus) nameInput.focus({ preventScroll: false });
   }
@@ -256,7 +270,10 @@
     emailInput.value = user.email;
     emailInput.disabled = current;
     passwordInput.value = '';
+    passwordInput.type = 'password';
     passwordInput.required = false;
+    passwordToggle.textContent = 'Show';
+    passwordToggle.setAttribute('aria-pressed', 'false');
     roleInput.value = 'admin';
     statusInput.value = user.status === 'active' ? 'active' : 'inactive';
     statusInput.disabled = current;
@@ -267,6 +284,10 @@
     editorMode.textContent = current ? 'Current account' : 'Selected account';
     editorTitle.textContent = 'Edit user';
     saveButton.textContent = 'Save changes';
+    recordId.textContent = String(user.id);
+    recordCreated.textContent = formatDate(user.createdAt);
+    recordUpdated.textContent = formatDate(user.updatedAt);
+    recordMeta.hidden = false;
     renderUsers();
     nameInput.focus({ preventScroll: false });
   }
@@ -349,6 +370,36 @@
     }
   }
 
+  async function toggleUserStatus(id) {
+    if (busy) return;
+    const user = users.find((item) => item.id === Number(id));
+    if (!user || isCurrentUser(user)) return;
+    const nextStatus = user.status === 'active' ? 'inactive' : 'active';
+
+    setBusy(true, nextStatus === 'active' ? 'Activating...' : 'Disabling...');
+
+    try {
+      const result = await request('update_user', {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        password: '',
+        role: 'admin',
+        status: nextStatus,
+      });
+      selectedUserId = user.id;
+      await loadUsers({ preserveSelection: true });
+      showToast(
+        nextStatus === 'active' ? 'User activated' : 'User disabled',
+        result.message || 'The account status was updated.',
+      );
+    } catch (error) {
+      showToast('Unable to update status', error.message, 'error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (busy) return;
@@ -390,6 +441,13 @@
   refreshButton.addEventListener('click', () => loadUsers({ announce: true }));
   createButton.addEventListener('click', () => resetEditor({ focus: true }));
   cancelEditButton.addEventListener('click', () => resetEditor({ focus: true }));
+  passwordToggle.addEventListener('click', () => {
+    const willShow = passwordInput.type === 'password';
+    passwordInput.type = willShow ? 'text' : 'password';
+    passwordToggle.textContent = willShow ? 'Hide' : 'Show';
+    passwordToggle.setAttribute('aria-pressed', String(willShow));
+    passwordInput.focus({ preventScroll: true });
+  });
   closeDeleteButton.addEventListener('click', closeDeleteDialog);
   cancelDeleteButton.addEventListener('click', closeDeleteDialog);
   confirmDeleteButton.addEventListener('click', deleteUser);
