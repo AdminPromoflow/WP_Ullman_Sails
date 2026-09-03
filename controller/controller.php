@@ -53,6 +53,10 @@ class ApiController
         }
 
         switch ($action) {
+            case 'read_news':
+                $this->readNews($data);
+                break;
+
             case 'login':
                 $this->login($data);
                 break;
@@ -100,6 +104,12 @@ class ApiController
     {
         $payload = $this->preparePromoflowPayload($data, 'login');
         $this->sendToPromoflow($payload, true);
+    }
+
+    private function readNews($data)
+    {
+        $payload = $this->preparePromoflowPayload($data, 'read_news');
+        $this->sendToPromoflow($payload);
     }
 
     private function logout()

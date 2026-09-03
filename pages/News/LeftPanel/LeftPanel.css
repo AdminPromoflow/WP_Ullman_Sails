@@ -132,6 +132,15 @@
   padding: .7rem clamp(1rem, 2vw, 1.35rem) .45rem;
 }
 
+.left-panel__loading{
+  margin: 0;
+  padding: .7rem clamp(1rem, 2vw, 1.35rem);
+  border-top: 1px solid rgba(255,255,255,.1);
+  color: rgba(255,255,255,.66) !important;
+  font-size: .68rem;
+  line-height: 1.5;
+}
+
 .item-left-panel{
   display: grid;
   grid-template-columns: 1.5rem minmax(0, 1fr);

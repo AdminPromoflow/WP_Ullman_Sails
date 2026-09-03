@@ -234,8 +234,8 @@ document.addEventListener("DOMContentLoaded", () => {
   closeButton?.addEventListener("click", () => closeMenu({ returnFocus: true }));
   backdrop?.addEventListener("click", () => closeMenu({ returnFocus: true }));
 
-  panel?.querySelectorAll(".item-left-panel").forEach((link) => {
-    link.addEventListener("click", () => closeMenu());
+  panel?.addEventListener("click", (event) => {
+    if (event.target.closest(".item-left-panel")) closeMenu();
   });
 
   document.addEventListener("keydown", (event) => {
