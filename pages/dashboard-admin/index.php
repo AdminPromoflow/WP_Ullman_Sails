@@ -152,6 +152,10 @@ $newsArticles = [
           <span>News</span>
           <span class="dashboard-nav__count" id="navigation-news-count">10</span>
         </a>
+        <a class="dashboard-nav__item" href="<?php echo esc_url(ullman_page_url('dashboard-user-manager')); ?>">
+          <span class="dashboard-nav__number" aria-hidden="true">02</span>
+          <span>Users</span>
+        </a>
       </nav>
 
       <div class="dashboard-sidebar__footer">

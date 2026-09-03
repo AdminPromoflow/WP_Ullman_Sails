@@ -61,6 +61,13 @@ class ApiController
                 $this->logout();
                 break;
 
+            case 'read_users':
+            case 'create_user':
+            case 'update_user':
+            case 'delete_user':
+                $this->handleUserManagerRequest($data, $action);
+                break;
+
             case 'send_emal_contact_us':
                 $this->sendEmailContactUs($data);
                 break;
@@ -121,6 +128,53 @@ class ApiController
         $this->sendJson(array(
             'success' => true
         ), 200);
+    }
+
+    private function handleUserManagerRequest($data, $action)
+    {
+        $contentType = isset($_SERVER['CONTENT_TYPE'])
+            ? (string) $_SERVER['CONTENT_TYPE']
+            : '';
+
+        if (stripos($contentType, 'application/json') === false) {
+            $this->sendJson(array(
+                'success' => false,
+                'message' => 'Content-Type must be application/json.'
+            ), 415);
+            return;
+        }
+
+        $this->startAdminSession();
+
+        $isAuthenticated = !empty($_SESSION['ullman_admin_authenticated']);
+        $adminEmail = isset($_SESSION['ullman_admin_email'])
+            ? trim((string) $_SESSION['ullman_admin_email'])
+            : '';
+        $adminRole = isset($_SESSION['ullman_admin_role'])
+            ? strtolower(trim((string) $_SESSION['ullman_admin_role']))
+            : '';
+
+        if (!$isAuthenticated || $adminEmail === '') {
+            $this->sendJson(array(
+                'success' => false,
+                'message' => 'Your administrator session has expired.',
+                'requires_login' => true
+            ), 401);
+            return;
+        }
+
+        if ($adminRole !== 'admin') {
+            $this->sendJson(array(
+                'success' => false,
+                'message' => 'Administrator access is required.'
+            ), 403);
+            return;
+        }
+
+        $payload = $this->preparePromoflowPayload($data, $action);
+        $payload['requester_email'] = $adminEmail;
+
+        $this->sendToPromoflow($payload);
     }
 
     private function sendEmailContactUs($data)
@@ -340,26 +394,38 @@ class ApiController
         }
 
         if ($createAdminSession && !empty($decodedResponse['success'])) {
-            $email = isset($decodedResponse['user']['email'])
-                ? (string) $decodedResponse['user']['email']
-                : (isset($payload['email']) ? (string) $payload['email'] : '');
+            if (!isset($decodedResponse['user']) || !is_array($decodedResponse['user'])) {
+                $this->sendJson(array(
+                    'success' => false,
+                    'message' => 'The authentication service returned an invalid user.'
+                ), 502);
+                return;
+            }
 
-            $this->createAdminSession($email);
+            $this->createAdminSession($decodedResponse['user']);
         }
 
         $statusCode = $httpCode >= 200 && $httpCode < 600 ? $httpCode : 502;
         $this->sendJson($decodedResponse, $statusCode);
     }
 
-    private function createAdminSession($email)
+    private function createAdminSession($user)
     {
+        $email = isset($user['email']) ? trim((string) $user['email']) : '';
+        $role = isset($user['role']) ? strtolower(trim((string) $user['role'])) : '';
+
         if ($email === '') {
             throw new RuntimeException('The authenticated email is unavailable.');
+        }
+
+        if ($role !== 'admin') {
+            throw new RuntimeException('The authenticated account is not an administrator.');
         }
 
         $this->startAdminSession();
         session_regenerate_id(true);
         $_SESSION['ullman_admin_email'] = $email;
+        $_SESSION['ullman_admin_role'] = $role;
         $_SESSION['ullman_admin_authenticated'] = true;
     }
 
