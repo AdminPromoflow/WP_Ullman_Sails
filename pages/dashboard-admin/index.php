@@ -190,7 +190,7 @@ $newsArticles = [
           <div>
             <p class="dashboard-heading__eyebrow">Content management</p>
             <h1 id="dashboard-title">News</h1>
-            <p>Manage every News page and organise its content into reusable sections and blocks.</p>
+            <p>Select a story and edit it directly in the live News page below.</p>
           </div>
           <div class="dashboard-heading__actions">
             <a class="dashboard-preview-link" href="<?php echo esc_url(ullman_page_url('news')); ?>" target="_blank" rel="noopener noreferrer">
@@ -253,14 +253,17 @@ $newsArticles = [
             </header>
 
             <form class="news-editor__form" id="news-editor-form" action="" method="post">
-              <div class="news-editor__columns">
-                <div class="news-fields">
-                  <div class="news-field">
-                    <label for="news-title">Story title</label>
-                    <input id="news-title" name="title" type="text" required>
-                  </div>
+              <div class="news-editor__body">
+                <section class="news-details" aria-labelledby="news-details-title">
+                  <header class="news-details__header">
+                    <div>
+                      <p class="dashboard-kicker">Publishing details</p>
+                      <h3 id="news-details-title">Story settings</h3>
+                    </div>
+                    <p>The title and story copy are edited directly in the preview.</p>
+                  </header>
 
-                  <div class="news-fields__row">
+                  <div class="news-details__grid">
                     <div class="news-field">
                       <label for="news-category">Category</label>
                       <input id="news-category" name="category" type="text" list="news-categories" required>
@@ -284,73 +287,115 @@ $newsArticles = [
                         <option>Draft</option>
                       </select>
                     </div>
+                    <div class="news-field">
+                      <label for="news-date">Publish date</label>
+                      <input id="news-date" name="date" type="date">
+                    </div>
                   </div>
+                </section>
 
-                  <div class="news-field">
-                    <label for="news-date">Publish date</label>
-                    <input id="news-date" name="date" type="date">
-                  </div>
-
-                  <section class="news-sections-editor" aria-labelledby="news-sections-title">
-                    <header class="news-sections-editor__header">
-                      <div>
-                        <p class="dashboard-kicker">Page structure</p>
-                        <h3 id="news-sections-title">Content sections</h3>
-                      </div>
-                      <button class="dashboard-button dashboard-button--ghost" id="add-section" type="button">+ Add section</button>
-                    </header>
-                    <p class="news-sections-editor__help">Build the story with headings, paragraphs, images, quotes or lists. Use the tag <code>summary</code> on one paragraph to use it on News cards.</p>
-                    <div class="news-sections" id="news-sections" aria-live="polite"></div>
-                  </section>
-                </div>
-
-                <aside class="news-live-preview" aria-labelledby="preview-title">
-                  <div class="news-live-preview__heading">
+                <section class="news-live-editor" aria-labelledby="preview-title">
+                  <header class="news-live-editor__header">
                     <div>
-                      <p class="dashboard-kicker">Live preview</p>
+                      <p class="dashboard-kicker">Live editing</p>
                       <h3 id="preview-title">News page</h3>
+                      <p>Click highlighted text or an image to edit it in place.</p>
                     </div>
-                    <span>Desktop</span>
-                  </div>
+                    <span class="news-live-editor__status"><i aria-hidden="true"></i> Live</span>
+                  </header>
 
-                  <div class="news-page-preview">
-                    <header class="news-page-preview__masthead">
-                      <p>Ullman Sails GBR</p>
-                      <h3>News &amp; Updates</h3>
-                      <span>Race results, loft developments, customer stories and life on the water.</span>
-                    </header>
+                  <div class="news-live-editor__browser">
+                    <div class="news-live-editor__browserbar">
+                      <div class="news-live-editor__browser-state">
+                        <span aria-hidden="true"></span>
+                        <span>Changes appear instantly</span>
+                      </div>
 
-                    <div class="news-page-preview__controls">
-                      <label for="preview-story-select">
-                        <span>Choose a story</span>
-                        <select id="preview-story-select" aria-label="Choose a story in the live preview"></select>
-                      </label>
-                      <nav aria-label="Preview story navigation">
-                        <button id="preview-previous" type="button" aria-label="Previous story">&#8592;</button>
-                        <span id="preview-story-status">Story 1 of 10</span>
-                        <button id="preview-next" type="button" aria-label="Next story">&#8594;</button>
-                      </nav>
+                      <div class="news-live-editor__story-switcher">
+                        <label for="preview-story-select">Story</label>
+                        <select id="preview-story-select" aria-label="Choose a story in the live editor"></select>
+                        <nav aria-label="Live editor story navigation">
+                          <button id="preview-previous" type="button" aria-label="Previous story">&#8592;</button>
+                          <span id="preview-story-status">Story 1 of 10</span>
+                          <button id="preview-next" type="button" aria-label="Next story">&#8594;</button>
+                        </nav>
+                      </div>
                     </div>
 
-                    <article class="news-page-preview__story">
-                      <header>
-                        <span id="preview-category">Category</span>
-                        <h3 id="preview-card-title">Story title</h3>
-                        <div><time id="preview-date"></time><span id="preview-status"></span></div>
+                    <div class="news-live-editor__canvas">
+                      <header class="news-preview-hero">
+                        <p>Ullman Sails GBR</p>
+                        <h2>News &amp; Updates</h2>
+                        <span>Race results, loft developments, customer stories and life on the water.</span>
                       </header>
-                      <p class="news-page-preview__summary" id="preview-summary">Story summary</p>
-                      <div class="news-page-preview__content" id="preview-page-content"></div>
-                    </article>
-                  </div>
 
-                  <p class="news-live-preview__note">This reproduces the selected story inside the public News page layout and updates from the section blocks.</p>
-                </aside>
+                      <article class="news-preview-story" id="news-preview-story">
+                        <header class="news-preview-story__header">
+                          <span id="preview-category">Category</span>
+                          <h2 id="preview-card-title" class="news-live-editable" contenteditable="true" role="textbox" aria-label="Story title" aria-multiline="false" data-live-field="title" data-placeholder="Write a story title"></h2>
+                          <div><time id="preview-date"></time><span id="preview-status"></span></div>
+                        </header>
+
+                        <figure class="news-preview-cover" id="preview-cover">
+                          <img id="preview-cover-image" src="" alt="">
+                          <button id="edit-cover-image" type="button"><span aria-hidden="true">&#9998;</span> Change cover image</button>
+                          <div class="news-preview-cover__editor" id="cover-image-editor" hidden>
+                            <label for="news-cover-url">Image URL</label>
+                            <input id="news-cover-url" type="text" inputmode="url" placeholder="https://example.com/image.jpg">
+                            <button id="close-cover-editor" type="button" aria-label="Close image editor">&#10005;</button>
+                          </div>
+                        </figure>
+
+                        <div class="news-preview-summary">
+                          <span>Card summary</span>
+                          <p id="preview-summary" class="news-live-editable" contenteditable="true" role="textbox" aria-label="Story summary" data-live-field="summary" data-placeholder="Write the short summary shown on News cards"></p>
+                        </div>
+
+                        <section class="news-preview-content" aria-labelledby="story-content-title">
+                          <header class="news-preview-content__header">
+                            <div>
+                              <p class="dashboard-kicker">Story content</p>
+                              <h3 id="story-content-title">Edit the full story</h3>
+                            </div>
+                            <div class="news-live-add" aria-label="Add story content">
+                              <button type="button" data-add-live-content="paragraph">+ Text</button>
+                              <button type="button" data-add-live-content="heading">+ Heading</button>
+                              <button type="button" data-add-live-content="image">+ Image</button>
+                              <button type="button" data-add-live-content="quote">+ Quote</button>
+                              <button type="button" data-add-live-content="list">+ List</button>
+                            </div>
+                          </header>
+
+                          <div class="news-live-selection" id="live-selection-toolbar" hidden>
+                            <span>Selected content</span>
+                            <label for="live-content-type">Style</label>
+                            <select id="live-content-type">
+                              <option value="paragraph">Text</option>
+                              <option value="heading">Heading</option>
+                              <option value="quote">Quote</option>
+                              <option value="list">List</option>
+                              <option value="image">Image</option>
+                            </select>
+                            <label class="news-live-selection__url" id="live-content-url-label" for="live-content-url" hidden>Image URL</label>
+                            <input class="news-live-selection__url" id="live-content-url" type="text" inputmode="url" placeholder="https://example.com/image.jpg" hidden>
+                            <div>
+                              <button id="move-live-content-up" type="button" aria-label="Move selected content up">&#8593;</button>
+                              <button id="move-live-content-down" type="button" aria-label="Move selected content down">&#8595;</button>
+                              <button id="delete-live-content" type="button" aria-label="Delete selected content">Delete</button>
+                            </div>
+                          </div>
+
+                          <div class="news-live-content" id="preview-page-content" aria-live="polite"></div>
+                        </section>
+                      </article>
+                    </div>
+                  </div>
+                </section>
               </div>
 
               <footer class="news-editor__actions">
                 <p><span aria-hidden="true">&#9432;</span> Saved changes persist in this dashboard browser.</p>
                 <div>
-                  <button class="dashboard-button dashboard-button--ghost" id="read-story" type="button">Read preview</button>
                   <button class="dashboard-button dashboard-button--secondary" id="discard-changes" type="button">Discard changes</button>
                   <button class="dashboard-button dashboard-button--danger" id="delete-story" type="button">Delete</button>
                   <button class="dashboard-button dashboard-button--primary" type="submit">Save changes</button>
@@ -363,36 +408,6 @@ $newsArticles = [
     </main>
   </div>
 
-  <dialog class="dashboard-dialog dashboard-dialog--reader" id="read-story-dialog" aria-labelledby="reader-title">
-    <div class="dashboard-dialog__surface">
-      <header class="dashboard-dialog__header">
-        <div>
-          <p class="dashboard-kicker">Read story</p>
-          <h2 id="reader-title">News preview</h2>
-        </div>
-        <button class="dashboard-dialog__close" type="button" data-close-dialog="read-story-dialog" aria-label="Close story preview">&#10005;</button>
-      </header>
-      <article class="news-reader">
-        <img id="reader-image" src="" alt="Selected news story">
-        <div class="news-reader__body">
-          <div class="news-reader__meta">
-            <span id="reader-category">Category</span>
-            <span aria-hidden="true">&bull;</span>
-            <time id="reader-date"></time>
-            <span aria-hidden="true">&bull;</span>
-            <span id="reader-status">Status</span>
-          </div>
-          <h2 id="reader-story-title">Story title</h2>
-          <p class="news-reader__summary" id="reader-summary"></p>
-          <div class="news-reader__content" id="reader-content"></div>
-        </div>
-      </article>
-      <footer class="dashboard-dialog__footer">
-        <button class="dashboard-button dashboard-button--secondary" type="button" data-close-dialog="read-story-dialog">Close preview</button>
-      </footer>
-    </div>
-  </dialog>
-
   <dialog class="dashboard-dialog dashboard-dialog--confirm" id="delete-story-dialog" aria-labelledby="delete-dialog-title">
     <div class="dashboard-dialog__surface">
       <header class="dashboard-dialog__header">
@@ -404,7 +419,7 @@ $newsArticles = [
       </header>
       <div class="dashboard-confirmation">
         <span aria-hidden="true">!</span>
-        <p>The story <strong id="delete-story-name"></strong> and all its sections will be removed from this dashboard.</p>
+        <p>The story <strong id="delete-story-name"></strong> and all its content will be removed from this dashboard.</p>
       </div>
       <footer class="dashboard-dialog__footer">
         <button class="dashboard-button dashboard-button--secondary" type="button" data-close-dialog="delete-story-dialog">Cancel</button>

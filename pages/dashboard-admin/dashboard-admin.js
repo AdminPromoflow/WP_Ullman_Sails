@@ -9,7 +9,7 @@
 
   function normalizeBlock(block = {}) {
     return {
-      id: String(block.id || makeId('block')),
+      id: String(block.id || makeId('content')),
       block_type: ['heading', 'paragraph', 'image', 'quote', 'list'].includes(block.block_type)
         ? block.block_type
         : 'paragraph',
@@ -19,10 +19,9 @@
   }
 
   function normalizeSection(section = {}) {
-    const blocks = Array.isArray(section.blocks) ? section.blocks.map(normalizeBlock) : [];
     return {
       id: String(section.id || makeId('section')),
-      blocks,
+      blocks: Array.isArray(section.blocks) ? section.blocks.map(normalizeBlock) : [],
     };
   }
 
@@ -32,10 +31,10 @@
       : [];
 
     if (sections.length === 0) {
-      const legacyBlocks = [];
+      const legacyContent = [];
 
       if (article.image) {
-        legacyBlocks.push(normalizeBlock({
+        legacyContent.push(normalizeBlock({
           id: `${article.id || index}-image`,
           block_type: 'image',
           tag: 'hero',
@@ -44,7 +43,7 @@
       }
 
       if (article.summary) {
-        legacyBlocks.push(normalizeBlock({
+        legacyContent.push(normalizeBlock({
           id: `${article.id || index}-summary`,
           block_type: 'paragraph',
           tag: 'summary',
@@ -53,7 +52,7 @@
       }
 
       if (article.content) {
-        legacyBlocks.push(normalizeBlock({
+        legacyContent.push(normalizeBlock({
           id: `${article.id || index}-body`,
           block_type: 'paragraph',
           tag: 'body',
@@ -63,7 +62,7 @@
 
       sections = [normalizeSection({
         id: `${article.id || index}-section-1`,
-        blocks: legacyBlocks,
+        blocks: legacyContent,
       })];
     }
 
@@ -83,9 +82,7 @@
       const stored = window.localStorage.getItem(STORAGE_KEY);
       const parsed = stored ? JSON.parse(stored) : null;
 
-      if (Array.isArray(parsed)) {
-        return parsed.map(normalizeArticle);
-      }
+      if (Array.isArray(parsed)) return parsed.map(normalizeArticle);
     } catch (error) {
       console.warn('Unable to read saved News dashboard data.', error);
     }
@@ -100,12 +97,9 @@
   const searchInput = document.querySelector('#news-search-input');
   const filterButtons = [...document.querySelectorAll('[data-filter]')];
   const form = document.querySelector('#news-editor-form');
-  const titleInput = document.querySelector('#news-title');
   const categoryInput = document.querySelector('#news-category');
   const statusInput = document.querySelector('#news-status');
   const dateInput = document.querySelector('#news-date');
-  const sectionsContainer = document.querySelector('#news-sections');
-  const addSectionButton = document.querySelector('#add-section');
   const previewStorySelect = document.querySelector('#preview-story-select');
   const previewPrevious = document.querySelector('#preview-previous');
   const previewNext = document.querySelector('#preview-next');
@@ -115,24 +109,28 @@
   const previewDate = document.querySelector('#preview-date');
   const previewStatus = document.querySelector('#preview-status');
   const previewSummary = document.querySelector('#preview-summary');
+  const previewCover = document.querySelector('#preview-cover');
+  const previewCoverImage = document.querySelector('#preview-cover-image');
+  const editCoverButton = document.querySelector('#edit-cover-image');
+  const coverEditor = document.querySelector('#cover-image-editor');
+  const coverUrlInput = document.querySelector('#news-cover-url');
+  const closeCoverEditor = document.querySelector('#close-cover-editor');
   const previewPageContent = document.querySelector('#preview-page-content');
+  const selectionToolbar = document.querySelector('#live-selection-toolbar');
+  const contentTypeSelect = document.querySelector('#live-content-type');
+  const contentUrlLabel = document.querySelector('#live-content-url-label');
+  const contentUrlInput = document.querySelector('#live-content-url');
+  const moveContentUp = document.querySelector('#move-live-content-up');
+  const moveContentDown = document.querySelector('#move-live-content-down');
+  const deleteContentButton = document.querySelector('#delete-live-content');
   const editorState = document.querySelector('#editor-state');
   const editorModeLabel = document.querySelector('#editor-mode-label');
   const discardButton = document.querySelector('#discard-changes');
   const createButton = document.querySelector('#create-story');
-  const readButton = document.querySelector('#read-story');
   const deleteButton = document.querySelector('#delete-story');
   const confirmDeleteButton = document.querySelector('#confirm-delete-story');
-  const readDialog = document.querySelector('#read-story-dialog');
   const deleteDialog = document.querySelector('#delete-story-dialog');
   const deleteStoryName = document.querySelector('#delete-story-name');
-  const readerImage = document.querySelector('#reader-image');
-  const readerCategory = document.querySelector('#reader-category');
-  const readerDate = document.querySelector('#reader-date');
-  const readerStatus = document.querySelector('#reader-status');
-  const readerTitle = document.querySelector('#reader-story-title');
-  const readerSummary = document.querySelector('#reader-summary');
-  const readerContent = document.querySelector('#reader-content');
   const publishedCount = document.querySelector('#published-count');
   const draftCount = document.querySelector('#draft-count');
   const categoryCount = document.querySelector('#category-count');
@@ -145,11 +143,12 @@
   const overlay = document.querySelector('.dashboard-overlay');
   const logoutDashboard = document.getElementById('logout-dashboard');
 
+  const metadataFields = [categoryInput, statusInput, dateInput];
   let activeId = articles[0]?.id || '';
   let activeFilter = 'All';
+  let selectedContentId = '';
+  let selectedSectionId = '';
   let toastTimer;
-
-  const metadataFields = [titleInput, categoryInput, statusInput, dateInput];
 
   function getActiveArticle() {
     return articles.find((article) => article.id === activeId);
@@ -159,21 +158,77 @@
     return originals.find((article) => article.id === activeId);
   }
 
-  function getAllBlocks(article) {
-    return article?.sections.flatMap((section) => section.blocks) || [];
+  function getAllBlockRefs(article) {
+    if (!article) return [];
+    return article.sections.flatMap((section) => section.blocks.map((block, index) => ({
+      section,
+      block,
+      index,
+    })));
+  }
+
+  function getHeroRef(article) {
+    const refs = getAllBlockRefs(article);
+    return refs.find(({ block }) => block.block_type === 'image' && block.tag.trim().toLowerCase() === 'hero')
+      || refs.find(({ block }) => block.block_type === 'image')
+      || null;
+  }
+
+  function getSummaryRef(article) {
+    const refs = getAllBlockRefs(article);
+    return refs.find(({ block }) => block.tag.trim().toLowerCase() === 'summary') || null;
+  }
+
+  function ensurePrimarySection(article) {
+    if (article.sections.length === 0) article.sections.push(normalizeSection());
+    return article.sections[0];
+  }
+
+  function ensureHeroRef(article) {
+    const existing = getHeroRef(article);
+    if (existing) return existing;
+    const section = ensurePrimarySection(article);
+    const block = normalizeBlock({ block_type: 'image', tag: 'hero', content: '' });
+    section.blocks.unshift(block);
+    return { section, block, index: 0 };
+  }
+
+  function ensureSummaryRef(article) {
+    const existing = getSummaryRef(article);
+    if (existing) return existing;
+    const section = ensurePrimarySection(article);
+    const block = normalizeBlock({ block_type: 'paragraph', tag: 'summary', content: '' });
+    const heroRef = getHeroRef(article);
+    const insertAt = heroRef?.section.id === section.id ? heroRef.index + 1 : 0;
+    section.blocks.splice(insertAt, 0, block);
+    return { section, block, index: insertAt };
+  }
+
+  function getEditableContentRefs(article) {
+    const heroId = getHeroRef(article)?.block.id;
+    const summaryId = getSummaryRef(article)?.block.id;
+    return getAllBlockRefs(article).filter(({ block }) => block.id !== heroId && block.id !== summaryId);
+  }
+
+  function getSelectedContentRef() {
+    const article = getActiveArticle();
+    return getAllBlockRefs(article).find(({ section, block }) => (
+      section.id === selectedSectionId && block.id === selectedContentId
+    )) || null;
   }
 
   function getArticleImage(article) {
-    return getAllBlocks(article).find((block) => block.block_type === 'image' && block.content.trim())?.content.trim()
+    return getHeroRef(article)?.block.content.trim()
       || sourceArticles[0]?.image
       || '';
   }
 
   function getArticleSummary(article) {
-    const blocks = getAllBlocks(article);
-    const summary = blocks.find((block) => block.tag.trim().toLowerCase() === 'summary' && block.content.trim())
-      || blocks.find((block) => block.block_type === 'paragraph' && block.content.trim());
-    return summary?.content.trim().slice(0, 180) || '';
+    const summaryRef = getSummaryRef(article);
+    if (summaryRef?.block.content.trim()) return summaryRef.block.content.trim().slice(0, 180);
+    const paragraph = getEditableContentRefs(article)
+      .find(({ block }) => block.block_type === 'paragraph' && block.content.trim());
+    return paragraph?.block.content.trim().slice(0, 180) || '';
   }
 
   function setActiveFilter(filter) {
@@ -210,7 +265,6 @@
 
   function renderList() {
     if (!(list instanceof HTMLElement)) return;
-
     const query = searchInput instanceof HTMLInputElement
       ? searchInput.value.trim().toLowerCase()
       : '';
@@ -248,6 +302,7 @@
       button.setAttribute('aria-pressed', String(article.id === activeId));
       image.src = getArticleImage(article);
       image.alt = '';
+      image.addEventListener('error', () => image.classList.add('is-missing'));
       body.className = 'news-list-item__body';
       title.textContent = article.title || 'Untitled story';
       meta.className = 'news-list-item__meta';
@@ -264,59 +319,163 @@
     updateCounts();
   }
 
-  function renderPreview() {
-    const article = getActiveArticle();
-    const activeIndex = articles.findIndex((item) => item.id === activeId);
+  function renderStoryControls() {
+    const activeIndex = articles.findIndex((article) => article.id === activeId);
 
     if (previewStorySelect instanceof HTMLSelectElement) {
       previewStorySelect.replaceChildren();
-      articles.forEach((item) => {
+      articles.forEach((article) => {
         const option = document.createElement('option');
-        option.value = item.id;
-        option.textContent = item.title || 'Untitled story';
-        option.selected = item.id === activeId;
+        option.value = article.id;
+        option.textContent = article.title || 'Untitled story';
+        option.selected = article.id === activeId;
         previewStorySelect.append(option);
       });
     }
 
     if (previewPrevious instanceof HTMLButtonElement) previewPrevious.disabled = activeIndex <= 0;
-    if (previewNext instanceof HTMLButtonElement) previewNext.disabled = activeIndex < 0 || activeIndex >= articles.length - 1;
+    if (previewNext instanceof HTMLButtonElement) {
+      previewNext.disabled = activeIndex < 0 || activeIndex >= articles.length - 1;
+    }
     if (previewStoryStatus) {
       previewStoryStatus.textContent = activeIndex >= 0
         ? `Story ${activeIndex + 1} of ${articles.length}`
         : 'No stories';
     }
+  }
+
+  function formatDate(value) {
+    if (!value) return 'No date';
+    const date = new Date(`${value}T12:00:00`);
+    return new Intl.DateTimeFormat('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    }).format(date);
+  }
+
+  function createLiveTextElement(ref) {
+    const { section, block } = ref;
+    let element;
+
+    if (block.block_type === 'list') {
+      element = document.createElement('ul');
+      const items = block.content.split(/\r?\n/).map((item) => item.trim()).filter(Boolean);
+      (items.length ? items : ['']).forEach((item) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        element.append(listItem);
+      });
+    } else {
+      element = document.createElement(
+        block.block_type === 'heading' ? 'h3' : block.block_type === 'quote' ? 'blockquote' : 'p'
+      );
+      element.textContent = block.content;
+    }
+
+    element.className = 'news-live-content__item';
+    element.dataset.sectionId = section.id;
+    element.dataset.blockId = block.id;
+    element.dataset.liveContentEditable = '';
+    element.dataset.placeholder = block.block_type === 'heading'
+      ? 'Write a heading'
+      : block.block_type === 'quote'
+        ? 'Write a quote'
+        : block.block_type === 'list'
+          ? 'Write one item per line'
+          : 'Start writing your story';
+    element.contentEditable = 'true';
+    element.spellcheck = true;
+    element.setAttribute('role', 'textbox');
+    element.setAttribute('aria-multiline', 'true');
+    return element;
+  }
+
+  function createLiveImageElement(ref) {
+    const { section, block } = ref;
+    const figure = document.createElement('figure');
+    const image = document.createElement('img');
+    const button = document.createElement('button');
+
+    figure.className = 'news-live-content__image';
+    figure.dataset.sectionId = section.id;
+    figure.dataset.blockId = block.id;
+    image.src = block.content;
+    image.alt = block.tag && block.tag !== 'image' ? block.tag : '';
+    button.type = 'button';
+    button.dataset.selectLiveContent = '';
+    button.textContent = 'Edit image';
+    figure.append(image, button);
+    return figure;
+  }
+
+  function renderLiveContent() {
+    if (!(previewPageContent instanceof HTMLElement)) return;
+    const article = getActiveArticle();
+    previewPageContent.replaceChildren();
+
+    if (!article) return;
+    const refs = getEditableContentRefs(article);
+
+    if (refs.length === 0) {
+      const empty = document.createElement('p');
+      empty.className = 'news-live-content__empty';
+      empty.textContent = 'This story is empty. Add text, a heading, an image, a quote or a list above.';
+      previewPageContent.append(empty);
+      updateSelectionToolbar();
+      return;
+    }
+
+    refs.forEach((ref) => {
+      previewPageContent.append(
+        ref.block.block_type === 'image'
+          ? createLiveImageElement(ref)
+          : createLiveTextElement(ref)
+      );
+    });
+    updateSelectionToolbar();
+  }
+
+  function renderLiveEditor() {
+    const article = getActiveArticle();
+    renderStoryControls();
 
     if (!article) {
       if (previewCategory) previewCategory.textContent = 'No story';
       if (previewTitle) previewTitle.textContent = 'Create a story to begin';
       if (previewDate) previewDate.textContent = '';
       if (previewStatus) previewStatus.textContent = '';
-      if (previewSummary) previewSummary.textContent = 'Your News page preview will appear here.';
-      if (previewPageContent instanceof HTMLElement) previewPageContent.replaceChildren();
+      if (previewSummary) previewSummary.textContent = '';
+      if (previewCoverImage instanceof HTMLImageElement) previewCoverImage.removeAttribute('src');
+      if (previewCover) previewCover.hidden = true;
+      if (selectionToolbar) selectionToolbar.hidden = true;
+      renderLiveContent();
       return;
     }
 
     if (previewCategory) previewCategory.textContent = article.category || 'Uncategorised';
-    if (previewTitle) previewTitle.textContent = article.title || 'Untitled story';
+    if (previewTitle) previewTitle.textContent = article.title;
     if (previewDate) previewDate.textContent = formatDate(article.date);
     if (previewStatus) previewStatus.textContent = article.status;
-    if (previewSummary) previewSummary.textContent = getArticleSummary(article) || 'Add a paragraph and tag it as summary.';
+    if (previewSummary) previewSummary.textContent = getSummaryRef(article)?.block.content || '';
 
-    if (previewPageContent instanceof HTMLElement) {
-      previewPageContent.replaceChildren();
-      article.sections.forEach((section, sectionIndex) => {
-        const sectionElement = document.createElement('section');
-        sectionElement.setAttribute('aria-label', `Preview section ${sectionIndex + 1}`);
-        section.blocks.forEach((block) => appendReaderBlock(sectionElement, block));
-        if (sectionElement.childElementCount > 0) previewPageContent.append(sectionElement);
-      });
+    const imageUrl = getArticleImage(article);
+    if (previewCover) previewCover.hidden = false;
+    if (previewCoverImage instanceof HTMLImageElement) {
+      previewCoverImage.src = imageUrl;
+      previewCoverImage.alt = article.title ? `${article.title} cover` : 'News story cover';
     }
+    if (coverUrlInput instanceof HTMLInputElement) coverUrlInput.value = getHeroRef(article)?.block.content || '';
+    if (coverEditor) coverEditor.hidden = true;
+    renderLiveContent();
   }
 
   function setFormDisabled(disabled) {
     form?.querySelectorAll('input, select, textarea, button').forEach((control) => {
       control.disabled = disabled;
+    });
+    form?.querySelectorAll('[contenteditable]').forEach((editable) => {
+      editable.contentEditable = disabled ? 'false' : 'true';
     });
   }
 
@@ -324,165 +483,6 @@
     if (!editorState) return;
     editorState.textContent = isDirty ? 'Unsaved changes' : 'No unsaved changes';
     editorState.classList.toggle('is-dirty', isDirty);
-  }
-
-  function blockTypeLabel(type) {
-    return {
-      heading: 'Heading',
-      paragraph: 'Paragraph',
-      image: 'Image URL',
-      quote: 'Quote',
-      list: 'List',
-    }[type] || 'Paragraph';
-  }
-
-  function renderBlockEditor(section, block, blockIndex) {
-    const editor = document.createElement('article');
-    const header = document.createElement('header');
-    const title = document.createElement('strong');
-    const actions = document.createElement('div');
-    const fields = document.createElement('div');
-    const typeField = document.createElement('label');
-    const typeLabel = document.createElement('span');
-    const typeSelect = document.createElement('select');
-    const tagField = document.createElement('label');
-    const tagLabel = document.createElement('span');
-    const tagInput = document.createElement('input');
-    const contentField = document.createElement('label');
-    const contentLabel = document.createElement('span');
-    const contentInput = document.createElement('textarea');
-
-    editor.className = 'news-block-editor';
-    editor.dataset.sectionId = section.id;
-    editor.dataset.blockId = block.id;
-    header.className = 'news-block-editor__header';
-    title.textContent = `Block ${blockIndex + 1} · ${blockTypeLabel(block.block_type)}`;
-    actions.className = 'news-structure-actions';
-
-    [
-      ['move-block-up', '↑', 'Move block up', blockIndex === 0],
-      ['move-block-down', '↓', 'Move block down', blockIndex === section.blocks.length - 1],
-      ['remove-block', '×', 'Delete block', false],
-    ].forEach(([action, text, label, disabled]) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.dataset.sectionAction = action;
-      button.textContent = text;
-      button.setAttribute('aria-label', label);
-      button.disabled = disabled;
-      actions.append(button);
-    });
-
-    fields.className = 'news-block-editor__fields';
-    typeField.className = 'news-compact-field';
-    typeLabel.textContent = 'Type';
-    typeSelect.dataset.blockField = 'block_type';
-    ['heading', 'paragraph', 'image', 'quote', 'list'].forEach((type) => {
-      const option = document.createElement('option');
-      option.value = type;
-      option.textContent = blockTypeLabel(type);
-      option.selected = block.block_type === type;
-      typeSelect.append(option);
-    });
-    typeField.append(typeLabel, typeSelect);
-
-    tagField.className = 'news-compact-field';
-    tagLabel.textContent = 'Tag';
-    tagInput.type = 'text';
-    tagInput.maxLength = 50;
-    tagInput.placeholder = 'summary, hero, body…';
-    tagInput.value = block.tag;
-    tagInput.dataset.blockField = 'tag';
-    tagField.append(tagLabel, tagInput);
-
-    contentField.className = 'news-compact-field news-compact-field--content';
-    contentLabel.textContent = block.block_type === 'image' ? 'Image URL' : 'Content';
-    contentInput.rows = block.block_type === 'paragraph' ? 5 : 3;
-    contentInput.placeholder = block.block_type === 'list'
-      ? 'One item per line'
-      : block.block_type === 'image'
-        ? 'https://… or a site-relative image path'
-        : 'Write this content block…';
-    contentInput.value = block.content;
-    contentInput.dataset.blockField = 'content';
-    contentField.append(contentLabel, contentInput);
-
-    fields.append(typeField, tagField, contentField);
-    header.append(title, actions);
-    editor.append(header, fields);
-    return editor;
-  }
-
-  function renderSections() {
-    if (!(sectionsContainer instanceof HTMLElement)) return;
-    const article = getActiveArticle();
-    sectionsContainer.replaceChildren();
-
-    if (!article) return;
-
-    if (article.sections.length === 0) {
-      const empty = document.createElement('p');
-      empty.className = 'news-sections__empty';
-      empty.textContent = 'This story has no sections. Add one to start building its content.';
-      sectionsContainer.append(empty);
-      return;
-    }
-
-    article.sections.forEach((section, sectionIndex) => {
-      const card = document.createElement('section');
-      const header = document.createElement('header');
-      const headingWrap = document.createElement('div');
-      const eyebrow = document.createElement('span');
-      const heading = document.createElement('h4');
-      const actions = document.createElement('div');
-      const blocks = document.createElement('div');
-      const footer = document.createElement('footer');
-      const addBlock = document.createElement('button');
-
-      card.className = 'news-section-card';
-      card.dataset.sectionId = section.id;
-      header.className = 'news-section-card__header';
-      eyebrow.textContent = `Section ${sectionIndex + 1}`;
-      heading.textContent = `${section.blocks.length} ${section.blocks.length === 1 ? 'block' : 'blocks'}`;
-      headingWrap.append(eyebrow, heading);
-      actions.className = 'news-structure-actions';
-
-      [
-        ['move-section-up', '↑', 'Move section up', sectionIndex === 0],
-        ['move-section-down', '↓', 'Move section down', sectionIndex === article.sections.length - 1],
-        ['remove-section', '×', 'Delete section', false],
-      ].forEach(([action, text, label, disabled]) => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.dataset.sectionAction = action;
-        button.textContent = text;
-        button.setAttribute('aria-label', label);
-        button.disabled = disabled;
-        actions.append(button);
-      });
-
-      blocks.className = 'news-blocks';
-      section.blocks.forEach((block, blockIndex) => {
-        blocks.append(renderBlockEditor(section, block, blockIndex));
-      });
-
-      if (section.blocks.length === 0) {
-        const empty = document.createElement('p');
-        empty.className = 'news-blocks__empty';
-        empty.textContent = 'No blocks in this section.';
-        blocks.append(empty);
-      }
-
-      footer.className = 'news-section-card__footer';
-      addBlock.type = 'button';
-      addBlock.className = 'dashboard-button dashboard-button--secondary';
-      addBlock.dataset.sectionAction = 'add-block';
-      addBlock.textContent = '+ Add content block';
-      footer.append(addBlock);
-      header.append(headingWrap, actions);
-      card.append(header, blocks, footer);
-      sectionsContainer.append(card);
-    });
   }
 
   function populateForm() {
@@ -495,24 +495,23 @@
       setFormDisabled(true);
       if (editorState) editorState.textContent = 'No story selected';
       if (editorModeLabel) editorModeLabel.textContent = 'News workspace';
-      renderSections();
-      renderPreview();
+      renderLiveEditor();
       return;
     }
 
     setFormDisabled(false);
-    if (titleInput instanceof HTMLInputElement) titleInput.value = article.title;
     if (categoryInput instanceof HTMLInputElement) categoryInput.value = article.category;
     if (statusInput instanceof HTMLSelectElement) statusInput.value = article.status;
     if (dateInput instanceof HTMLInputElement) dateInput.value = article.date;
     if (editorModeLabel) editorModeLabel.textContent = article.isNew ? 'New story' : 'Selected story';
     setDirty(article.isNew);
-    renderSections();
-    renderPreview();
+    renderLiveEditor();
   }
 
   function selectArticle(id) {
     activeId = id;
+    selectedContentId = '';
+    selectedSectionId = '';
     populateForm();
     renderList();
   }
@@ -521,12 +520,13 @@
     const article = getActiveArticle();
     if (!article) return;
 
-    if (titleInput instanceof HTMLInputElement) article.title = titleInput.value;
     if (categoryInput instanceof HTMLInputElement) article.category = categoryInput.value;
     if (statusInput instanceof HTMLSelectElement) article.status = statusInput.value;
     if (dateInput instanceof HTMLInputElement) article.date = dateInput.value;
+    if (previewCategory) previewCategory.textContent = article.category || 'Uncategorised';
+    if (previewDate) previewDate.textContent = formatDate(article.date);
+    if (previewStatus) previewStatus.textContent = article.status;
     setDirty(true);
-    renderPreview();
     renderList();
   }
 
@@ -563,100 +563,203 @@
     articles.unshift(article);
     originals.unshift(clone(article));
     activeId = article.id;
+    selectedContentId = '';
+    selectedSectionId = '';
     setActiveFilter('All');
     if (searchInput instanceof HTMLInputElement) searchInput.value = '';
     populateForm();
     renderList();
-    titleInput?.focus();
-    showToast('New draft created', 'Add sections and content blocks, then save the story.');
+    previewTitle?.focus();
+    selectAllEditableText(previewTitle);
+    showToast('New draft created', 'Edit the title and content directly in the live page.');
   }
 
-  function addSection() {
+  function editableText(element) {
+    if (!(element instanceof HTMLElement)) return '';
+    return element.innerText.replace(/\u00a0/g, ' ').replace(/\r/g, '');
+  }
+
+  function handleLiveFieldInput(event) {
+    const target = event.target.closest('[data-live-field]');
     const article = getActiveArticle();
-    if (!article) return;
-    article.sections.push(normalizeSection({
-      blocks: [
-        { block_type: 'heading', tag: 'heading', content: 'Section heading' },
-        { block_type: 'paragraph', tag: 'body', content: '' },
-      ],
-    }));
+    if (!(target instanceof HTMLElement) || !article) return;
+
+    const value = editableText(target);
+    if (target.dataset.liveField === 'title') {
+      article.title = value.replace(/\n+/g, ' ');
+      renderStoryControls();
+      renderList();
+    } else if (target.dataset.liveField === 'summary') {
+      ensureSummaryRef(article).block.content = value;
+    }
     setDirty(true);
-    renderSections();
-    renderPreview();
   }
 
-  function moveItem(items, fromIndex, direction) {
-    const toIndex = fromIndex + direction;
-    if (fromIndex < 0 || toIndex < 0 || toIndex >= items.length) return false;
-    [items[fromIndex], items[toIndex]] = [items[toIndex], items[fromIndex]];
-    return true;
+  function blockTextFromElement(element, blockType) {
+    if (blockType !== 'list') return editableText(element);
+    return [...element.querySelectorAll('li')]
+      .map((item) => editableText(item).trim())
+      .filter(Boolean)
+      .join('\n');
   }
 
-  function handleStructureAction(button) {
-    const article = getActiveArticle();
-    const sectionCard = button.closest('[data-section-id]');
-    const sectionId = sectionCard?.dataset.sectionId || '';
-    const sectionIndex = article?.sections.findIndex((section) => section.id === sectionId) ?? -1;
-    const section = sectionIndex >= 0 ? article.sections[sectionIndex] : null;
-    const action = button.dataset.sectionAction;
-    if (!article || !section || !action) return;
+  function handleLiveContentInput(event) {
+    const editable = event.target.closest('[data-live-content-editable]');
+    if (!(editable instanceof HTMLElement)) return;
+    const ref = getAllBlockRefs(getActiveArticle()).find(({ section, block }) => (
+      section.id === editable.dataset.sectionId && block.id === editable.dataset.blockId
+    ));
+    if (!ref) return;
+    ref.block.content = blockTextFromElement(editable, ref.block.block_type);
+    setDirty(true);
+  }
 
-    const blockEditor = button.closest('[data-block-id]');
-    const blockId = blockEditor?.dataset.blockId || '';
-    const blockIndex = section.blocks.findIndex((block) => block.id === blockId);
+  function selectLiveContent(sectionId, blockId, { focus = false } = {}) {
+    selectedSectionId = sectionId || '';
+    selectedContentId = blockId || '';
+    updateSelectionToolbar();
 
-    if (action === 'add-block') {
-      section.blocks.push(normalizeBlock());
-    } else if (action === 'remove-section') {
-      article.sections.splice(sectionIndex, 1);
-    } else if (action === 'move-section-up') {
-      moveItem(article.sections, sectionIndex, -1);
-    } else if (action === 'move-section-down') {
-      moveItem(article.sections, sectionIndex, 1);
-    } else if (action === 'remove-block' && blockIndex >= 0) {
-      section.blocks.splice(blockIndex, 1);
-    } else if (action === 'move-block-up' && blockIndex >= 0) {
-      moveItem(section.blocks, blockIndex, -1);
-    } else if (action === 'move-block-down' && blockIndex >= 0) {
-      moveItem(section.blocks, blockIndex, 1);
-    } else {
+    if (focus) {
+      const selected = previewPageContent?.querySelector(
+        `[data-section-id="${CSS.escape(selectedSectionId)}"][data-block-id="${CSS.escape(selectedContentId)}"]`
+      );
+      if (selected instanceof HTMLElement && selected.matches('[contenteditable]')) selected.focus();
+    }
+  }
+
+  function updateSelectionToolbar() {
+    if (!selectionToolbar) return;
+    const ref = getSelectedContentRef();
+    const editableRefs = getEditableContentRefs(getActiveArticle());
+
+    previewPageContent?.querySelectorAll('[data-block-id]').forEach((element) => {
+      element.classList.toggle(
+        'is-selected',
+        element.dataset.blockId === selectedContentId && element.dataset.sectionId === selectedSectionId
+      );
+    });
+
+    if (!ref || !editableRefs.some(({ block }) => block.id === ref.block.id)) {
+      selectionToolbar.hidden = true;
       return;
     }
 
-    setDirty(true);
-    renderSections();
-    renderPreview();
-    renderList();
-  }
+    selectionToolbar.hidden = false;
+    if (contentTypeSelect instanceof HTMLSelectElement) contentTypeSelect.value = ref.block.block_type;
+    const isImage = ref.block.block_type === 'image';
+    if (contentUrlLabel) contentUrlLabel.hidden = !isImage;
+    if (contentUrlInput instanceof HTMLInputElement) {
+      contentUrlInput.hidden = !isImage;
+      contentUrlInput.value = isImage ? ref.block.content : '';
+    }
 
-  function handleBlockField(event) {
-    const input = event.target.closest('[data-block-field]');
-    const editor = input?.closest('[data-block-id]');
-    const sectionCard = input?.closest('[data-section-id]');
-    const article = getActiveArticle();
-    const section = article?.sections.find((item) => item.id === sectionCard?.dataset.sectionId);
-    const block = section?.blocks.find((item) => item.id === editor?.dataset.blockId);
-    const field = input?.dataset.blockField;
-    if (!block || !field || !['block_type', 'tag', 'content'].includes(field)) return;
-
-    block[field] = input.value;
-    setDirty(true);
-    renderPreview();
-    renderList();
-
-    if (field === 'block_type' && event.type === 'change') {
-      renderSections();
+    const selectedIndex = editableRefs.findIndex(({ block }) => block.id === ref.block.id);
+    if (moveContentUp instanceof HTMLButtonElement) moveContentUp.disabled = selectedIndex <= 0;
+    if (moveContentDown instanceof HTMLButtonElement) {
+      moveContentDown.disabled = selectedIndex < 0 || selectedIndex >= editableRefs.length - 1;
     }
   }
 
-  function formatDate(value) {
-    if (!value) return 'No date';
-    const date = new Date(`${value}T12:00:00`);
-    return new Intl.DateTimeFormat('en-GB', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    }).format(date);
+  function addLiveContent(type) {
+    const article = getActiveArticle();
+    if (!article || !['heading', 'paragraph', 'image', 'quote', 'list'].includes(type)) return;
+    const section = article.sections.at(-1) || ensurePrimarySection(article);
+    const defaults = {
+      heading: 'New section heading',
+      paragraph: 'Start writing here…',
+      image: '',
+      quote: 'Add a memorable quote…',
+      list: 'First item\nSecond item',
+    };
+    const tags = {
+      heading: 'heading',
+      paragraph: 'body',
+      image: 'image',
+      quote: 'quote',
+      list: 'list',
+    };
+    const block = normalizeBlock({ block_type: type, tag: tags[type], content: defaults[type] });
+    section.blocks.push(block);
+    selectedSectionId = section.id;
+    selectedContentId = block.id;
+    setDirty(true);
+    renderLiveContent();
+
+    if (type === 'image') {
+      contentUrlInput?.focus();
+    } else {
+      selectLiveContent(section.id, block.id, { focus: true });
+      const selected = previewPageContent?.querySelector(`[data-block-id="${CSS.escape(block.id)}"]`);
+      selectAllEditableText(selected);
+    }
+  }
+
+  function moveSelectedContent(direction) {
+    const article = getActiveArticle();
+    const refs = getEditableContentRefs(article);
+    const selectedIndex = refs.findIndex(({ section, block }) => (
+      section.id === selectedSectionId && block.id === selectedContentId
+    ));
+    const targetIndex = selectedIndex + direction;
+    if (selectedIndex < 0 || targetIndex < 0 || targetIndex >= refs.length) return;
+
+    const current = refs[selectedIndex];
+    const target = refs[targetIndex];
+    current.section.blocks[current.index] = target.block;
+    target.section.blocks[target.index] = current.block;
+    setDirty(true);
+    renderLiveContent();
+  }
+
+  function deleteSelectedContent() {
+    const ref = getSelectedContentRef();
+    if (!ref) return;
+    ref.section.blocks.splice(ref.index, 1);
+    selectedSectionId = '';
+    selectedContentId = '';
+    setDirty(true);
+    renderLiveContent();
+    renderList();
+  }
+
+  function changeSelectedContentType() {
+    const ref = getSelectedContentRef();
+    if (!ref || !(contentTypeSelect instanceof HTMLSelectElement)) return;
+    ref.block.block_type = contentTypeSelect.value;
+    if (ref.block.block_type === 'image' && !/^https?:|^\//.test(ref.block.content.trim())) {
+      ref.block.content = '';
+    }
+    setDirty(true);
+    renderLiveContent();
+  }
+
+  function changeSelectedImageUrl() {
+    const ref = getSelectedContentRef();
+    if (!ref || ref.block.block_type !== 'image' || !(contentUrlInput instanceof HTMLInputElement)) return;
+    ref.block.content = contentUrlInput.value;
+    const image = previewPageContent?.querySelector(
+      `[data-block-id="${CSS.escape(ref.block.id)}"] img`
+    );
+    if (image instanceof HTMLImageElement) image.src = ref.block.content;
+    setDirty(true);
+  }
+
+  function changeCoverImage() {
+    const article = getActiveArticle();
+    if (!article || !(coverUrlInput instanceof HTMLInputElement)) return;
+    ensureHeroRef(article).block.content = coverUrlInput.value;
+    if (previewCoverImage instanceof HTMLImageElement) previewCoverImage.src = coverUrlInput.value;
+    setDirty(true);
+    renderList();
+  }
+
+  function selectAllEditableText(element) {
+    if (!(element instanceof HTMLElement)) return;
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(element);
+    selection?.removeAllRanges();
+    selection?.addRange(range);
   }
 
   function openDialog(dialog) {
@@ -669,62 +772,6 @@
     if (!(dialog instanceof HTMLDialogElement)) return;
     if (typeof dialog.close === 'function') dialog.close();
     else dialog.removeAttribute('open');
-  }
-
-  function appendReaderBlock(container, block) {
-    const content = block.content.trim();
-    if (!content || block.tag.trim().toLowerCase() === 'summary') return;
-
-    if (block.block_type === 'image') {
-      const figure = document.createElement('figure');
-      const image = document.createElement('img');
-      image.src = content;
-      image.alt = block.tag && block.tag !== 'hero' ? block.tag : '';
-      figure.append(image);
-      container.append(figure);
-      return;
-    }
-
-    if (block.block_type === 'list') {
-      const listElement = document.createElement('ul');
-      content.split(/\r?\n/).map((item) => item.trim()).filter(Boolean).forEach((item) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = item;
-        listElement.append(listItem);
-      });
-      container.append(listElement);
-      return;
-    }
-
-    const element = document.createElement(
-      block.block_type === 'heading' ? 'h3' : block.block_type === 'quote' ? 'blockquote' : 'p'
-    );
-    element.textContent = content;
-    container.append(element);
-  }
-
-  function readStory() {
-    const article = getActiveArticle();
-    if (!article) return;
-
-    if (readerImage instanceof HTMLImageElement) readerImage.src = getArticleImage(article);
-    if (readerCategory) readerCategory.textContent = article.category;
-    if (readerDate) readerDate.textContent = formatDate(article.date);
-    if (readerStatus) readerStatus.textContent = article.status;
-    if (readerTitle) readerTitle.textContent = article.title || 'Untitled story';
-    if (readerSummary) readerSummary.textContent = getArticleSummary(article) || 'No summary has been added.';
-
-    if (readerContent instanceof HTMLElement) {
-      readerContent.replaceChildren();
-      article.sections.forEach((section, sectionIndex) => {
-        const sectionElement = document.createElement('section');
-        sectionElement.setAttribute('aria-label', `Section ${sectionIndex + 1}`);
-        section.blocks.forEach((block) => appendReaderBlock(sectionElement, block));
-        if (sectionElement.childElementCount > 0) readerContent.append(sectionElement);
-      });
-    }
-
-    openDialog(readDialog);
   }
 
   function requestDelete() {
@@ -742,15 +789,16 @@
     const originalIndex = originals.findIndex((article) => article.id === activeId);
     if (originalIndex >= 0) originals.splice(originalIndex, 1);
     activeId = articles[Math.min(articleIndex, articles.length - 1)]?.id || '';
+    selectedSectionId = '';
+    selectedContentId = '';
     persistArticles();
     closeDialog(deleteDialog);
     populateForm();
     renderList();
-    showToast('Story deleted', `${deletedArticle.title || 'Untitled story'} and its sections were removed.`);
+    showToast('Story deleted', `${deletedArticle.title || 'Untitled story'} was removed.`);
   }
 
   metadataFields.forEach((field) => field?.addEventListener('input', syncMetadataFromForm));
-  metadataFields.forEach((field) => field?.addEventListener('change', syncMetadataFromForm));
   searchInput?.addEventListener('input', renderList);
 
   filterButtons.forEach((button) => {
@@ -760,25 +808,61 @@
     });
   });
 
-  sectionsContainer?.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-section-action]');
-    if (button instanceof HTMLButtonElement) handleStructureAction(button);
+  form?.addEventListener('input', (event) => {
+    handleLiveFieldInput(event);
+    handleLiveContentInput(event);
   });
-  sectionsContainer?.addEventListener('input', handleBlockField);
-  sectionsContainer?.addEventListener('change', handleBlockField);
+
+  form?.addEventListener('keydown', (event) => {
+    const editableTitle = event.target.closest('[data-live-field="title"]');
+    if (editableTitle && event.key === 'Enter') event.preventDefault();
+  });
+
+  previewPageContent?.addEventListener('focusin', (event) => {
+    const item = event.target.closest('[data-block-id]');
+    if (item instanceof HTMLElement) selectLiveContent(item.dataset.sectionId, item.dataset.blockId);
+  });
+
+  previewPageContent?.addEventListener('click', (event) => {
+    const item = event.target.closest('[data-block-id]');
+    if (item instanceof HTMLElement) selectLiveContent(item.dataset.sectionId, item.dataset.blockId);
+  });
+
+  document.querySelectorAll('[data-add-live-content]').forEach((button) => {
+    button.addEventListener('click', () => addLiveContent(button.dataset.addLiveContent));
+  });
+
+  contentTypeSelect?.addEventListener('change', changeSelectedContentType);
+  contentUrlInput?.addEventListener('input', changeSelectedImageUrl);
+  moveContentUp?.addEventListener('click', () => moveSelectedContent(-1));
+  moveContentDown?.addEventListener('click', () => moveSelectedContent(1));
+  deleteContentButton?.addEventListener('click', deleteSelectedContent);
+
+  editCoverButton?.addEventListener('click', () => {
+    if (!coverEditor) return;
+    coverEditor.hidden = false;
+    coverUrlInput?.focus();
+    coverUrlInput?.select();
+  });
+  closeCoverEditor?.addEventListener('click', () => {
+    if (coverEditor) coverEditor.hidden = true;
+    editCoverButton?.focus();
+  });
+  coverUrlInput?.addEventListener('input', changeCoverImage);
 
   discardButton?.addEventListener('click', () => {
     const article = getActiveArticle();
     const original = getOriginalArticle();
     if (!article || !original) return;
     Object.assign(article, clone(original));
+    selectedContentId = '';
+    selectedSectionId = '';
     populateForm();
     renderList();
     showToast('Changes discarded', 'The story returned to its last saved state.');
   });
 
   createButton?.addEventListener('click', createStory);
-  addSectionButton?.addEventListener('click', addSection);
   previewStorySelect?.addEventListener('change', () => {
     if (previewStorySelect instanceof HTMLSelectElement) selectArticle(previewStorySelect.value);
   });
@@ -790,7 +874,6 @@
     const activeIndex = articles.findIndex((article) => article.id === activeId);
     if (activeIndex >= 0 && activeIndex < articles.length - 1) selectArticle(articles[activeIndex + 1].id);
   });
-  readButton?.addEventListener('click', readStory);
   deleteButton?.addEventListener('click', requestDelete);
   confirmDeleteButton?.addEventListener('click', deleteStory);
 
@@ -822,17 +905,23 @@
 
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
+    const article = getActiveArticle();
+    if (!article) return;
+
+    if (!article.title.trim()) {
+      showToast('Title required', 'Add a story title in the live editor before saving.');
+      previewTitle?.focus();
+      return;
+    }
+
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    const article = getActiveArticle();
-    if (!article) return;
     syncMetadataFromForm();
     const wasNew = article.isNew;
     article.isNew = false;
-
     const originalIndex = originals.findIndex((item) => item.id === article.id);
     if (originalIndex >= 0) originals[originalIndex] = clone(article);
     else originals.unshift(clone(article));
@@ -841,7 +930,7 @@
     if (editorModeLabel) editorModeLabel.textContent = 'Selected story';
     setDirty(false);
     renderList();
-    showToast(wasNew ? 'Story created' : 'Story updated', 'The News page and all its sections were saved.');
+    showToast(wasNew ? 'Story created' : 'Story updated', 'The live News page changes were saved.');
   });
 
   document.querySelectorAll('[data-close-dialog]').forEach((button) => {
@@ -850,10 +939,8 @@
     });
   });
 
-  [readDialog, deleteDialog].forEach((dialog) => {
-    dialog?.addEventListener('click', (event) => {
-      if (event.target === dialog) closeDialog(dialog);
-    });
+  deleteDialog?.addEventListener('click', (event) => {
+    if (event.target === deleteDialog) closeDialog(deleteDialog);
   });
 
   function setNavigation(open) {
@@ -866,7 +953,10 @@
   });
   overlay?.addEventListener('click', () => setNavigation(false));
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') setNavigation(false);
+    if (event.key === 'Escape') {
+      setNavigation(false);
+      if (coverEditor) coverEditor.hidden = true;
+    }
   });
 
   renderList();
